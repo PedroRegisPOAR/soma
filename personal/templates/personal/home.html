@@ -1,0 +1,30 @@
+{% extends "personal/header.html" %}
+
+{% block content %}
+	<p> Texto </p>
+	{% include "personal/includes/htmlsnippet.html" %}	
+
+
+<form action="/contas/" method="post">{% csrf_token %}
+    <div>
+        <label for="a">a:</label>
+        <input type="number" step=0.01 id="a" name="a"/>
+    </div>
+
+    <div>
+        <label for="b">b:</label>
+        <input type="number" step=0.01 id="b" name="b"/>
+    </div>
+
+    <div>
+        <label for="c">c:</label>
+        <input type="number" step=0.01 id="c" name="c"/>
+    </div>
+
+    <div class="button">
+        <button type="submit">Calcular raizes</button>
+    </div>
+</form>
+
+
+{% endblock %}

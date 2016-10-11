@@ -1,0 +1,28 @@
+{% extends "personal/header.html" %}
+
+
+{% block content %}
+	<p> Para resolver a equao: $ax^{2} + bx + c=0$, usa-se a fromula de Baskara: $x=\dfrac{-b \pm \sqrt{b^2 - 4ac \ }}{2a} $ </p>
+
+	
+	<p> A sua equao de entrada foi: ${{a}}x^{2} + {{b}}x + {{c}}=0$ </p>
+
+
+A soluo $r_{1}$ : 
+
+$r_{1}=\dfrac{-b + \sqrt{b^{2} - 4ac \ }}{2a}
+\implies 
+r_{1}=\dfrac{-{{b}} + \sqrt{ {{b}}^{2} - 4\cdot{{a}}\cdot{{c}} \ }}{2\cdot{{a}} } \implies r_{1}= {{r1}} $ <br /><br />
+
+
+A soluo $r_{2}$ : 
+
+$r_{2}=\dfrac{-b + \sqrt{b^{2} - 4ac \ }}{2a}
+\implies 
+r_{2}=\dfrac{-{{b}} + \sqrt{ {{b}}^{2} - 4\cdot{{a}}\cdot{{c}} \ }}{2\cdot{{a}} } \implies r_{2}= {{r2}} $
+
+
+{% include "personal/includes/htmlsnippet.html" %}
+
+
+{% endblock %}
