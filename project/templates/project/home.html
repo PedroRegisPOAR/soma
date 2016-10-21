@@ -1,0 +1,22 @@
+{% extends "project/header.html" %}
+
+{% block content %}
+	<p> Texto </p>
+
+	{% include "project/includes/htmlsnippet.html" %}	
+
+
+<form action="/inputs_bhaskara/" method="post">{% csrf_token %}
+    <div class="button">
+        <button type="submit">Calcular raizes</button>
+    </div>
+</form>
+<br />
+
+<form action="/inputs_calha_parshall/" method="post">{% csrf_token %}
+    <div class="button">
+        <button type="submit">Calha Parshall</button>
+    </div>
+</form>
+
+{% endblock %}

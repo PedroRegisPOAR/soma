@@ -1,11 +1,9 @@
-{% extends "personal/header.html" %}
+{% extends "project/header.html" %}
 
 {% block content %}
-	<p> Texto sldkjfhkjhs </p>
-	{% include "personal/includes/htmlsnippet.html" %}	
 
 
-<form action="/contas/" method="post">{% csrf_token %}
+<form action="/results_bhaskara/" method="post">{% csrf_token %}
     <div>
         <label for="a">a:</label>
         <input type="number" step=0.01 id="a" name="a"/>
