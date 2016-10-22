@@ -2,7 +2,7 @@
 
 class CalhaParshall():
     
-    def __init__(self, W, Q, g, rho, mu):
+    def __init__(self, Q, g, T, GmMín, GmMáx, FMín):
         self.DimençõesPadronizadas=[
             [ 229, 880, 864, 380, 575, 763, 305, 457, 76, 114],
             [ 305, 1372, 1344, 610, 845, 915, 610, 915, 76, 229],
@@ -27,12 +27,20 @@ class CalhaParshall():
                         [2135, 0.355, 0.625],
                         [2440, 0.324, 0.623]]
 
-        self.W=W
+        
+
+
         self.Q=Q
         self.g=g
-        self.rho=rho
-        self.mu=mu
+        self.T=T
+        
+        self.GmMáx=GmMáx
+        self.GmMín=GmMín
+        self.FMín=FMín
 
+        self.W=None
+        self.mu=None
+        self.rho=None
         self.C=None
         self.D=None
         self.K=None
@@ -84,7 +92,27 @@ class CalhaParshall():
         else:
             self.k=self.Valoreskn[indice][1]
             self.n=self.Valoreskn[indice][2]
+    
+    def frho(self, T):
+        t0=3.9818
+        A=7.0134*10**(-8)
+        B=7.926504*10**(-6)
+        C=-7.575677*10**(-8)
+        D=7.314894*10**(-10)
+        E=-3.596458*10**(-12)
+        rho=999.97358
+        L=[A, B, C, D, E]
+        soma=0
+        for i in range(len(L)):
+            soma+=L[i]*(T-t0)**(i+1)
 
+        return rho*(1-soma)
+
+    def fmu(self, T):
+        a=2.414*10**(-5)
+        b=247.8
+        c=140 - 273.15 # Conversão para graus Celsius
+        return a*10**(b/(T - c))        
 
     def fH0(self, k, Q, n):
         return k*Q**(n)
@@ -127,16 +155,18 @@ class CalhaParshall():
     def fh(self, h1, h2):
         return ((h2 - h1)**3)/(4*h1*h2)
 
-    def fTm(self, L, U1, U2):
-        return (2*L)/(U1 + U2)
+    def fTm(self, L, U1, U3):
+        return (2*L)/(U1 + U3)
 
-    def fGm(self, h, g, rho, mu, T):
-        return ((g*rho*h)/(mu*T))**(1/2)
+    def fGm(self, h, g, rho, mu, Tm):
+        return ((g*rho*h)/(mu*Tm))**(1/2)
 
     def dimensiona(self):
-#        self.setCDKN(self.W*1000)
-#        self.setkn(self.W*1000)
+#        self.setCDKN(self.W)
+#        self.setkn(self.W)
         
+        self.rho=self.frho(self.T)
+        self.mu=self.fmu(self.T)
         self.H0=self.fH0(self.k, self.Q, self.n)
         self.D0=self.fD0(self.D, self.W)
         self.U0=self.fU0(self.Q, self.D0, self.H0)
@@ -153,29 +183,34 @@ class CalhaParshall():
         self.Tm=self.fTm(self.L, self.U1, self.U3)
         self.Gm=self.fGm(self.h, self.g, self.rho, self.mu, self.Tm)
 
-        self.H0=round(self.H0,3)
-        self.D0=round(self.D0,3)
-        self.U0=round(self.U0,3)
-        self.q =round(self.q ,3)
-        self.E0=round(self.E0,3)
-        self.U1=round(self.U1,3)
-        self.h1=round(self.h1,3)
-        self.F1=round(self.F1,3)
-        self.h2=round(self.h2,3)
-        self.h3=round(self.h3,3)
-        self.U3=round(self.U3,3)
-        self.L =round(self.L ,3)
-        self.h =round(self.h ,3)
-        self.Tm=round(self.Tm,3)
-        self.Gm=round(self.Gm,3)
-        #self.Gm="{0:.3f}".format(self.Gm)
+#        self.H0=round(self.H0,3)
+#        self.D0=round(self.D0,3)
+#        self.U0=round(self.U0,3)
+#        self.q =round(self.q ,3)
+#        self.E0=round(self.E0,3)
+#        self.U1=round(self.U1,3)
+#        self.h1=round(self.h1,3)
+#        self.F1=round(self.F1,3)
+#        self.h2=round(self.h2,3)
+#        self.h3=round(self.h3,3)
+#        self.U3=round(self.U3,3)
+#        self.L =round(self.L ,3)
+#        self.h =round(self.h ,3)
+#        self.Tm=round(self.Tm,3)
+#        self.Gm=round(self.Gm,3)
+
         
-    def inteligente(self):
+    def dimensiona_inteligente(self):
         for i in range(len(self.DimençõesPadronizadas)):
 #            print(self.DimençõesPadronizadas[i][0])
-            W=self.DimençõesPadronizadas[i][0]
-            self.setCDKN(W)
-            self.setkn(W)
+            
+            self.W=self.DimençõesPadronizadas[i][0]
+            
+            self.setCDKN(self.W)
+            self.setkn(self.W)
+            
+            self.W=self.DimençõesPadronizadas[i][0]/1000
+
             self.dimensiona()
 
 #            if self.Gm>1000:
@@ -187,45 +222,31 @@ class CalhaParshall():
 #            if self.Tm*self.Gm>300 and self.Tm*self.Gm<1600:
 #                print("i= ",i ,"self.F1 = ", self.F1)
 #                print("i= ",i ,"self.Gm = ", self.Gm)
+            
+#            if type(self.Gm) != complex:
+#                print("i = ", i, "Tm= ", self.Gm)
 
-            if self.F1 > 5:
-                print("ok")
-            if self.Tm*self.Gm>300 and self.Tm*self.Gm<1600 and self.Gm>1000 and self.F1>2:
+#            if self.F1 > 5:
+#                print(i, " ok")        
+            if type(self.Gm) != complex and self.Gm>=self.GmMín and self.Gm<=self.GmMáx and self.F1>self.FMín:
                 print("i= ",i)
+                print(self.Gm)
 
-
-def frho(T):
-    t0=3.9818
-    A=7.0134*10**(-8)
-    B=7.926504*10**(-6)
-    C=-7.575677*10**(-8)
-    D=7.314894*10**(-10)
-    E=-3.596458*10**(-12)
-    rho=999.97358
-    L=[A, B, C, D, E]
-    soma=0
-    for i in range(len(L)):
-        soma+=L[i]*(T-t0)**(i+1)
-        print(i+1)
-        
-    return rho*(1-soma)
-
-print(frho(0))                
-#######
-
+"""
 W=2440/1000
 Q=1200/1000
 g=9.807
 rho=998.68
 mu=0.001071
-                  
+"""                  
 #######
 
                   
-cp=CalhaParshall(W,Q,g,rho,mu)
+#cp=CalhaParshall(W,Q,g,rho,mu)
 #cp.dimensiona()
-cp.inteligente()
+#cp.inteligente()
 
+"""
 print("W = ", cp.W)
 print("C = ", cp.C)
 print("D = ", cp.D)
@@ -255,65 +276,4 @@ print("h= ", cp.h)
 
 print("T= ", cp.Tm)
 print("G= ", cp.Gm)
-
-
-"""        
-#######
-
-W=2440
-Q=1200
-g=9.807
-rho=998.68
-mu=0.001071
-                  
-#######
-
-                  
-cp=CalhaParshall(W,Q,g,rho,mu)
-
-
-
-print(cp.DimençõesPadronizadas)
-print("###")
-print(cp.Valoreskn)
-
-cp.dimensiona()
-print("W = ", cp.W)
-print("C = ", cp.C)
-print("D = ", cp.D)
-print("K = ", cp.K)
-print("N = ", cp.N)
-
-print("k = ", cp.k)
-print("n = ", cp.n)
-
-print("H0= ", cp.H0)
-print("D0= ", cp.D0)
-print("U0= ", cp.U0)
-
-print("q= ", cp.q)
-print("E0= ", cp.E0)
-print("U1= ", cp.U1)
-print("h1= ", cp.h1)
-
-print("F1= ", cp.F1)
-
-print("h2= ", cp.h2)
-print("h3= ", cp.h3)
-print("U3= ", cp.U3)
-
-print("L= ", cp.L)
-print("h= ", cp.h)
-
-print("T= ", cp.T)
-print("G= ", cp.G)
-
 """
-
-
-"""
-
-\cos \left ( \theta \right ) =x \Rightarrow  \theta=\arccos\left ( x \right ) \Rightarrow \frac{\theta}{3}=\ \frac{arccos\left ( x \right )}{3} \Rightarrow \cos \left ( \frac{\theta}{3} \right ) = \cos \left ( \frac{arccos \left( x \right )}{3} \right)
-"""
-
-
