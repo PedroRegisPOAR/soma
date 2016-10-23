@@ -1,9 +1,24 @@
 ﻿import math
 
 class CalhaParshall():
-    
-    def __init__(self, Q, g, T, GmMín, GmMáx, FMín):
-        self.DimençõesPadronizadas=[
+    __slots__ = ("DimencoesPadronizadas", "Valoreskn", "W", "mu", "rho", 
+        "C", "D", "K", "N", "k", "n", "H0", "D0", "U0", "q", "E0", "U1",
+        "h1", "F1", "h2","h3", "U3", "L", "h", "Tm", "Gm", 
+        "d", "Q", "g", "T", "GmMin", "GmMax", "FMin")
+
+
+    def __init__(self, Q, g, T, GmMin, GmMax, FMin):
+           
+        self.Q=Q
+        self.g=g
+        self.T=T
+        
+        self.GmMax=GmMax
+        self.GmMin=GmMin
+        self.FMin=FMin 
+
+
+        self.DimencoesPadronizadas=[
             [ 229, 880, 864, 380, 575, 763, 305, 457, 76, 114],
             [ 305, 1372, 1344, 610, 845, 915, 610, 915, 76, 229],
             [ 457, 1449, 1420, 762, 1026, 915, 610, 915, 76, 229],
@@ -14,7 +29,7 @@ class CalhaParshall():
             [ 1830, 2135, 2090, 2135, 2667, 915, 610, 915, 76, 229],
             [ 2135, 2288, 2240, 2440, 3030, 915, 610, 915, 76, 229],
             [ 2440, 2440, 2392, 2745, 3400, 915, 610, 915, 76, 229]]
-
+ 
         # Valores modificados.
         self.Valoreskn=[[229, 1486, 0.633],
                         [305, 1276, 0.657],
@@ -25,18 +40,7 @@ class CalhaParshall():
                         [1525, 0.436, 0.63],
                         [1830, 0.389, 0.627],
                         [2135, 0.355, 0.625],
-                        [2440, 0.324, 0.623]]
-
-        
-
-
-        self.Q=Q
-        self.g=g
-        self.T=T
-        
-        self.GmMáx=GmMáx
-        self.GmMín=GmMín
-        self.FMín=FMín
+                        [2440, 0.324, 0.623]]    
 
         self.W=None
         self.mu=None
@@ -45,42 +49,37 @@ class CalhaParshall():
         self.D=None
         self.K=None
         self.N=None
-
         self.k=None
         self.n=None
-
         self.H0=None
         self.D0=None
         self.U0=None
         self.q=None
         self.E0=None
-
         self.U1=None
         self.h1=None
-
         self.F1=None
         self.h2=None
         self.h3=None
         self.U3=None
-
         self.L=None
         self.h=None
-
         self.Tm=None
         self.Gm=None
-        
+        self.d=None
+
     def setCDKN(self, W):
         indice=-1
-        for i in range(len(self.DimençõesPadronizadas)):
-            if self.DimençõesPadronizadas[i][0]==W:
+        for i in range(len(self.DimencoesPadronizadas)):
+            if self.DimencoesPadronizadas[i][0]==W:
                 indice=i
         if indice==-1:
             print("Erro no método setCDKN. Provavelmente o W={} da calha parshall não existe na tabela.".format(W))
         else:
-            self.C=self.DimençõesPadronizadas[indice][3]/1000
-            self.D=self.DimençõesPadronizadas[indice][4]/1000
-            self.K=self.DimençõesPadronizadas[indice][8]/1000
-            self.N=self.DimençõesPadronizadas[indice][9]/1000
+            self.C=self.DimencoesPadronizadas[indice][3]/1000
+            self.D=self.DimencoesPadronizadas[indice][4]/1000
+            self.K=self.DimencoesPadronizadas[indice][8]/1000
+            self.N=self.DimencoesPadronizadas[indice][9]/1000
 
     def setkn(self, W):
         indice=-1
@@ -161,6 +160,15 @@ class CalhaParshall():
     def fGm(self, h, g, rho, mu, Tm):
         return ((g*rho*h)/(mu*Tm))**(1/2)
 
+    def make_dict(self):
+        d=dict((name, getattr(self, name)) for name in dir(self) if not name.startswith('__') and not callable(getattr(self,name))) 
+        self.d=d
+
+    def arredondamento(self):
+        for key in self.d:
+            if type(self.d[key]) == float:
+                self.d[key]=round(self.d[key],4)
+
     def dimensiona(self):
 #        self.setCDKN(self.W)
 #        self.setkn(self.W)
@@ -201,15 +209,15 @@ class CalhaParshall():
 
         
     def dimensiona_inteligente(self):
-        for i in range(len(self.DimençõesPadronizadas)):
+        for i in range(len(self.DimencoesPadronizadas)):
 #            print(self.DimençõesPadronizadas[i][0])
             
-            self.W=self.DimençõesPadronizadas[i][0]
+            self.W=self.DimencoesPadronizadas[i][0]
             
             self.setCDKN(self.W)
             self.setkn(self.W)
             
-            self.W=self.DimençõesPadronizadas[i][0]/1000
+            self.W=self.DimencoesPadronizadas[i][0]/1000
 
             self.dimensiona()
 
@@ -228,9 +236,17 @@ class CalhaParshall():
 
 #            if self.F1 > 5:
 #                print(i, " ok")        
-            if type(self.Gm) != complex and self.Gm>=self.GmMín and self.Gm<=self.GmMáx and self.F1>self.FMín:
-                print("i= ",i)
-                print(self.Gm)
+            if type(self.Gm) != complex and self.Gm>=self.GmMin and self.Gm<=self.GmMax and self.F1>self.FMin:
+                self.make_dict()
+                self.arredondamento()
+#                print("i= ",i)
+#                print(self.Gm)
+                
+#                print(self.d)
+                break
+
+
+
 
 """
 W=2440/1000
@@ -277,3 +293,4 @@ print("h= ", cp.h)
 print("T= ", cp.Tm)
 print("G= ", cp.Gm)
 """
+

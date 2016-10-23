@@ -5,7 +5,7 @@ import calha_parshall
 #######
 #######
 #W=2440/1000
-Q=90/1000
+Q=50/1000
 g=9.807
 T=17.5
 GmMáx=2000
@@ -17,6 +17,7 @@ FMín=5
        
 cp=calha_parshall.CalhaParshall(Q, g, T, GmMín, GmMáx, FMín)
 cp.dimensiona_inteligente()
+print(cp.d)
 
 #######
 # Esses valores que são usados nos testes são baseados no exemplo do livro

@@ -2,56 +2,56 @@
 
 {% block content %}
 
-</div>
-    <div align="left">
-    <form action="/results_calha_parshall/" method="post">{%csrf_token %}     
-        <div>
-            <label for="Q">Q:</label>
-            <input type="number" step=0.01 min="0" max="50" id="Q" name="Q" value="1.200" />
-        </div>
-        Vazão que passsará pela Calha Parshall em $\mathrm{m^{3}/s}$.
-        <br /><br />
 
-        <div>
-            <label for="g"> g:</label>
-            <input type="number" step=0.001 min="1" max="11" id="g" name="g" value="9.8" />
-        </div>
-        Aceleração da gravidade em $\mathrm{m/s}^{2}$.
-        <br /><br />
+    
+<form action="/results_calha_parshall/" method="post">{%csrf_token %}     
+    <div>
+        <label for="Q">Q:</label>
+        <input type="number" step=0.01 min="0" max="50" id="Q" name="Q" value="1.200" />
+    </div>
+    Vazão que passsará pela Calha Parshall em $\mathrm{m^{3}/s}$.
+    <br /><br />
 
-        <div>
-            <label for="T"> T:</label>
-            <input type="number" step=0.001 min="0" max="1000" id="T" name="T" value="17.5" />
-        </div>
-        Temperatura em $^{\circ}\mathrm{C}$.
-        <br /><br />
+    <div>
+        <label for="g"> g:</label>
+        <input type="number" step=0.001 min="1" max="11" id="g" name="g" value="9.8" />
+    </div>
+    Aceleração da gravidade em $\mathrm{m/s}^{2}$.
+    <br /><br />
 
-        <div>
-            <label for="GmMin"> $\mathrm{Gm_{Mín}}$:</label>
-            <input type="number" step=0.1 min="500" max="3000" id="GmMin" name="GmMin" value="1050" />
-        </div>
-        Gradiente de mistura mínimo aceitavél em $\mathrm{s^{-1} }$.
-        <br /><br />
+    <div>
+        <label for="T"> T:</label>
+        <input type="number" step=0.001 min="0" max="1000" id="T" name="T" value="17.5" />
+    </div>
+    Temperatura em $^{\circ}\mathrm{C}$.
+    <br /><br />
 
-        <div>
-            <label for="GmMax"> $\mathrm{Gm_{Máx}}$:</label>
-            <input type="number" step=0.1 min="500" max="3000" id="GmMin" name="GmMin" value="2000" />
-        </div>
-        Gradiente de mistura máximo aceitavél em $\mathrm{s^{-1} }$.
-        <br /><br />
-        
-        <div>
-            <label for="FMin"> $\mathrm{F_{Mín}}$:</label>
-            <input type="number" step=0.01 min="1" max="20" id="FMin" name="FMin" value="4.5" />
-        </div>
-        Numero de Froud mínimo aceitavél.
-        <br /><br />
+    <div>
+        <label for="GmMin"> $\mathrm{Gm_{Mín}}$:</label>
+        <input type="number" step=0.1 min="500" max="3000" id="GmMin" name="GmMin" value="1050" />
+    </div>
+    Gradiente de mistura mínimo aceitavél em $\mathrm{s^{-1} }$.
+    <br /><br />
 
-        <div class="button">
-            <button type="submit">Dimensionar Calha Parshall</button>
-        </div>
-    </form>
-<div>
+    <div>
+        <label for="GmMax"> $\mathrm{Gm_{Máx}}$:</label>
+        <input type="number" step=0.1 min="500" max="3000" id="GmMin" name="GmMin" value="2000" />
+    </div>
+    Gradiente de mistura máximo aceitavél em $\mathrm{s^{-1} }$.
+    <br /><br />
+    
+    <div>
+        <label for="FMin"> $\mathrm{F_{Mín}}$:</label>
+        <input type="number" step=0.01 min="1" max="20" id="FMin" name="FMin" value="4.5" />
+    </div>
+    Numero de Froud mínimo aceitavél.
+    <br /><br />
+
+    <div class="button">
+        <button type="submit">Dimensionar Calha Parshall</button>
+    </div>
+</form>
+
 
 
 {% endblock %}
