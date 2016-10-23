@@ -7,7 +7,7 @@
 <form action="/results_calha_parshall/" method="post">{%csrf_token %}     
     <div>
         <label for="Q">Q:</label>
-        <input type="number" step=0.01 min="0" max="50" id="Q" name="Q" value="1.200" />
+        <input type="number" step=0.0001 min="0" max="5" id="Q" name="Q" value="0.120" />
     </div>
     Vazão que passsará pela Calha Parshall em $\mathrm{m^{3}/s}$.
     <br /><br />
@@ -28,14 +28,14 @@
 
     <div>
         <label for="GmMin"> $\mathrm{Gm_{Mín}}$:</label>
-        <input type="number" step=0.1 min="500" max="3000" id="GmMin" name="GmMin" value="1050" />
+        <input type="number" step=0.1 min="50" max="5000" id="GmMin" name="GmMin" value="1050" />
     </div>
     Gradiente de mistura mínimo aceitavél em $\mathrm{s^{-1} }$.
     <br /><br />
 
     <div>
         <label for="GmMax"> $\mathrm{Gm_{Máx}}$:</label>
-        <input type="number" step=0.1 min="500" max="3000" id="GmMin" name="GmMin" value="2000" />
+        <input type="number" step=0.1 min="500" max="5000" id="GmMax" name="GmMax" value="2000" />
     </div>
     Gradiente de mistura máximo aceitavél em $\mathrm{s^{-1} }$.
     <br /><br />

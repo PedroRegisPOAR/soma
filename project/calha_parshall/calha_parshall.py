@@ -4,7 +4,7 @@ class CalhaParshall():
     __slots__ = ("DimencoesPadronizadas", "Valoreskn", "W", "mu", "rho", 
         "C", "D", "K", "N", "k", "n", "H0", "D0", "U0", "q", "E0", "U1",
         "h1", "F1", "h2","h3", "U3", "L", "h", "Tm", "Gm", 
-        "d", "Q", "g", "T", "GmMin", "GmMax", "FMin")
+        "d", "Q", "g", "T", "GmMin", "GmMax", "FMin", "dimensionado_ok")
 
 
     def __init__(self, Q, g, T, GmMin, GmMax, FMin):
@@ -67,6 +67,8 @@ class CalhaParshall():
         self.Tm=None
         self.Gm=None
         self.d=None
+
+        self.dimensionado_ok=False
 
     def setCDKN(self, W):
         indice=-1
@@ -161,7 +163,10 @@ class CalhaParshall():
         return ((g*rho*h)/(mu*Tm))**(1/2)
 
     def make_dict(self):
-        d=dict((name, getattr(self, name)) for name in dir(self) if not name.startswith('__') and not callable(getattr(self,name))) 
+        d=dict((name, getattr(self, name)) for name in dir(self) 
+            if not name.startswith('__') and 
+            not callable(getattr(self,name)) and 
+            type(getattr(self,name))==float ) 
         self.d=d
 
     def arredondamento(self):
@@ -236,9 +241,14 @@ class CalhaParshall():
 
 #            if self.F1 > 5:
 #                print(i, " ok")        
-            if type(self.Gm) != complex and self.Gm>=self.GmMin and self.Gm<=self.GmMax and self.F1>self.FMin:
+            if (type(self.Gm) != complex and
+             self.Gm>=self.GmMin and 
+             self.Gm<=self.GmMax and 
+             self.F1>self.FMin and 
+             self.h3>0):
                 self.make_dict()
                 self.arredondamento()
+                self.dimensionado_ok=True
 #                print("i= ",i)
 #                print(self.Gm)
                 
