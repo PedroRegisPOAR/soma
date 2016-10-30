@@ -24,15 +24,9 @@ def results_bhaskara(request):
 
         eq_bhaskara=Bhaskara(a,b,c)
         eq_bhaskara.calculate_roots()
-#        eq_bhaskara.roots()
-#        r1=eq_bhaskara.r1
-#        r2=eq_bhaskara.r2
-
-#        dic={"a":a, "b":b, "c":c, "r1":r1, "r2":r2}
         dic=eq_bhaskara.out
     else:
         inputs_bhaskara(request)        
-#    return render(request,'personal/resultado.html', dic)
     return render(request,'project/bhaskara/results_bhaskara.html', dic)
 
 
