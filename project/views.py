@@ -3,9 +3,10 @@ from django.shortcuts import render
 
 from project.bhaskara.bhaskara import Bhaskara
 from project.calha_parshall.calha_parshall import CalhaParshall
+from project.decantador_laminar.decantador_laminar import DecantadorLaminar
+
 
 # Create your views here.
-
 
 
 def index(request):
@@ -22,12 +23,13 @@ def results_bhaskara(request):
         c=int(request.POST["c"])
 
         eq_bhaskara=Bhaskara(a,b,c)
-        eq_bhaskara.roots()
-        r1=eq_bhaskara.r1
-        r2=eq_bhaskara.r2
+        eq_bhaskara.calculate_roots()
+#        eq_bhaskara.roots()
+#        r1=eq_bhaskara.r1
+#        r2=eq_bhaskara.r2
 
-        dic={"a":a, "b":b, "c":c, "r1":r1, "r2":r2}
-        
+#        dic={"a":a, "b":b, "c":c, "r1":r1, "r2":r2}
+        dic=eq_bhaskara.out
     else:
         inputs_bhaskara(request)        
 #    return render(request,'personal/resultado.html', dic)
@@ -35,8 +37,6 @@ def results_bhaskara(request):
 
 
 #   Coisas da Calha Parshall
-
-
 def inputs_calha_parshall(request):     
     return render(request,'project/calha_parshall/inputs_calha_parshall.html')
 
@@ -95,3 +95,33 @@ def results_calha_parshall(request):
         inputs_calha_parshall(request)
     return render(request,'project/calha_parshall/results_calha_parshall.html', d)    
 
+def inputs_decantador_laminar(request):     
+    return render(request,'project/decantador_laminar/inputs_decantador_laminar.html')
+
+def results_decantador_laminar(request):
+    if request.method == "POST":
+
+        Q       =float(request.POST["Q"])
+        theta   =float(request.POST["theta"]) 
+        Vs      =float(request.POST["Vs"])
+        l       =float(request.POST["l"])
+        w       =float(request.POST["w"])
+        APoço   =float(request.POST["APoço"])
+        NUnid   =float(request.POST["NUnid"])
+        Sc      =float(request.POST["Sc"])
+
+        nu          =None
+        ql          =None
+        Esp         =None
+        NPoçosAdot  =None
+        LDec        =None
+        BDec        =None
+        arred       =None
+
+        dl=DecantadorLaminar(Q, Vs, l, w, theta, NUnid, Sc, nu, ql,
+        Esp, APoço, NPoçosAdot, LDec, BDec, arred)
+        dl.pré_dimensionar()
+        d=dl.out
+    else:
+        inputs_decantador_laminar(request)
+    return render(request,'project/decantador_laminar/results_decantador_laminar.html', d)    
