@@ -218,7 +218,9 @@ class DecantadorLaminar():
 		self.LvProjeto=self.fLvProjeto(self.NCalhaAdot, self.LDec)				
 		self.qlProjeto=self.fqlProjeto(self.QUnid, self.LvProjeto)
 		self.EspCalhas=self.fEspCalhas(self.BDec, self.NCalhaAdot)
-
+		
+		self.make_out()
+		self.arredondamento()
 
 """
 

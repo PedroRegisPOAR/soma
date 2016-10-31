@@ -119,3 +119,32 @@ def results_decantador_laminar(request):
     else:
         inputs_decantador_laminar(request)
     return render(request,'project/decantador_laminar/results_decantador_laminar.html', d)    
+
+
+def results_decantador_laminar_complete(request):
+    if request.method == "POST":
+        Q           =float(request.POST["Q"])
+        theta       =float(request.POST["theta"]) 
+        Vs          =float(request.POST["Vs"])
+        l           =float(request.POST["l"])
+        w           =float(request.POST["w"])
+        APoço       =float(request.POST["APoço"])
+        NUnid       =float(request.POST["NUnid"])
+        Sc          =float(request.POST["Sc"])
+
+        nu          =float(request.POST["nu"])
+        ql          =float(request.POST["ql"])
+        Esp         =float(request.POST["Esp"])
+        NPoçosAdot  =float(request.POST["NPoçosAdot"])
+        LDec        =float(request.POST["LDec"])
+        BDec        =float(request.POST["BDec"])
+        arred       =float(request.POST["arred"])
+
+        dl=DecantadorLaminar(Q, Vs, l, w, theta, NUnid, Sc, nu, ql,
+        Esp, APoço, NPoçosAdot, LDec, BDec, arred)
+        dl.dimensionar()
+        d=dl.out
+    else:
+        inputs_decantador_laminar(request)
+    return render(request,'project/decantador_laminar/results_decantador_laminar_complete.html', d)    
+

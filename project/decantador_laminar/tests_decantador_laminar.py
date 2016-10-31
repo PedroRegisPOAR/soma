@@ -449,4 +449,9 @@ arred=0.5
 dl=DecantadorLaminar(Q, Vs, l, w, theta, NUnidSed, Sc, nu, ql, Esp,
 APoço, NPoçosAdot, LDec, BDec, arred)
 
-dl.pré_dimensionar()
+#dl.pré_dimensionar()
+
+dl.dimensionar()
+print("ced", dl.out)
+
+print("cedfdczvsdz")

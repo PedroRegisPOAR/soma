@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^results_calha_parshall/', views.results_calha_parshall, name='results_calha_parshall'),
     url(r'^inputs_decantador_laminar', views.inputs_decantador_laminar, name="inputs_decantador_laminar"),
     url(r'^results_decantador_laminar/', views.results_decantador_laminar, name="results_decantador_laminar"),
+	url(r'^results_decantador_laminar_complete/', views.results_decantador_laminar_complete, name="results_decantador_laminar_complete"),
 ]
