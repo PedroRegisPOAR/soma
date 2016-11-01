@@ -27,6 +27,6 @@ def result_colebrook_white(epsilon, Re, D):
 	args=[epsilon, Re, D]
 	f0=0.3164*Re**(-0.25)	
 	#res = minimize(f, f0, args, method='nelder-mead', options={'xtol': 10**(-6), 'disp': True})
-	return None {'epsilon': epsilon, 'Re':Re, 'D':D, 'f':res.x[0]}
+	return None #{'epsilon': epsilon, 'Re':Re, 'D':D, 'f':res.x[0]}
 
 
