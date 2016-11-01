@@ -5,6 +5,7 @@ from project.bhaskara.bhaskara import Bhaskara
 from project.calha_parshall.calha_parshall import CalhaParshall
 from project.decantador_laminar.decantador_laminar import DecantadorLaminar
 
+from project.fator_de_atrito.fator_atrito_colebrock import result_colebrook_white
 
 # Create your views here.
 
@@ -147,4 +148,22 @@ def results_decantador_laminar_complete(request):
     else:
         inputs_decantador_laminar(request)
     return render(request,'project/decantador_laminar/results_decantador_laminar_complete.html', d)    
+
+
+
+def inputs_fator_de_atrito(request):     
+    return render(request,'project/fator_de_atrito/inputs_fator_de_atrito.html')
+
+
+def results_fator_de_atrito(request):
+    if request.method == "POST":
+        epsilon=float(request.POST["epsilon"])
+        Re=float(request.POST["Re"])
+        D=float(request.POST["D"])
+
+        d=result_colebrook_white(epsilon, Re, D)
+    else:
+        inputs_fator_de_atrito(request)
+    return render(request,'project/fator_de_atrito/results_fator_de_atrito.html', d)    
+
 

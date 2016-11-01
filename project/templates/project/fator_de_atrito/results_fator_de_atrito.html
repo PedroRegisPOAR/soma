@@ -1,0 +1,34 @@
+{% extends "project/header.html" %}
+
+{% block content %}
+
+<form action="/results_fator_de_atrito/" method="post">{%csrf_token %}     
+    <div>
+        <label for="epsilon"> $\epsilon$ :</label>
+        <input type="number" step=0.0001 min="0" max="1" id="epsilon" name="epsilon" value="0.0035" />
+    </div>
+    Rugosidade equivalente da parede do tubo (m).
+    <br /><br />
+
+    <div>
+        <label for="Re"> $\mathrm{ R_{e} }$:</label>
+        <input type="number" step=0.1 min="20" max="100000" id="Re" name="Re" value="13400" />
+    </div>
+    Número de Reynolds (adimensional)
+    <br /><br />
+
+    <div>
+        <label for="D"> $\mathrm{D}$: </label>
+        <input type="number" step=0.001 min="0" max="2" id="D" name="D" value="0.15" />
+    </div>
+    Diâmetro interno do tubo $\mathrm{m}$.
+    <br /><br />
+
+    <div class="button">
+        <button type="submit"> Calcular fator de atrito. </button>
+    </div>
+</form>
+<br /><br />
+Resposta: $\mathrm{f}$ = {{f}}
+
+{% endblock %}
