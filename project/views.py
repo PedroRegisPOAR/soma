@@ -5,7 +5,7 @@ from project.bhaskara.bhaskara import Bhaskara
 from project.calha_parshall.calha_parshall import CalhaParshall
 from project.decantador_laminar.decantador_laminar import DecantadorLaminar
 
-from project.fator_de_atrito.fator_atrito_colebrock import result_colebrook_white
+from project.fator_de_atrito.fator_atrito_colebrock import solução_Colebrook_White
 
 # Create your views here.
 
@@ -161,7 +161,7 @@ def results_fator_de_atrito(request):
         Re=float(request.POST["Re"])
         D=float(request.POST["D"])
 
-        d=result_colebrook_white(epsilon, Re, D)
+        d=solução_Colebrook_White(epsilon, Re, D)
     else:
         inputs_fator_de_atrito(request)
     return render(request,'project/fator_de_atrito/results_fator_de_atrito.html', d)    
