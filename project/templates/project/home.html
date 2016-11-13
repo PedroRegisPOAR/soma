@@ -2,6 +2,7 @@
 
 {% block content %}
 	<p> Cálculos disponíveis: </p>
+    <br />
 
 	<!--{% include "project/includes/htmlsnippet.html" %} -->	
 
@@ -18,7 +19,11 @@
         <button type="submit"> Fator atrito de Darcy-Weisbach </button>
     </div>
 </form>
-<br />
+<br /><br />    
+<br /><br />    
+
+TRATAMENTO DE ÁGUA PARA ABASTECIMENTO
+<br /><br />    
 
 <form action="/inputs_calha_parshall/" method="post">{% csrf_token %}
     <div class="button">
@@ -32,7 +37,11 @@
         <button type="submit">Decantador Laminar</button>
     </div>
 </form>
-<br />
+<br /><br />    
+<br /><br />    
+
+TRATAMENTO DE ÁGUAS RESIDUÁRIAS
+<br /><br />
 
 <form action="/inputs_uasb/" method="post">{% csrf_token %}
     <div class="button">
