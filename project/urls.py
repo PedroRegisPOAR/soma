@@ -13,4 +13,6 @@ urlpatterns = [
 	url(r'^results_decantador_laminar_complete/', views.results_decantador_laminar_complete, name="results_decantador_laminar_complete"),
 	url(r'^inputs_fator_de_atrito/', views.inputs_fator_de_atrito, name="inputs_fator_de_atrito"),
 	url(r'^results_fator_de_atrito/', views.results_fator_de_atrito, name='results_fator_de_atrito'),
+	url(r'^inputs_uasb', views.inputs_uasb, name="inputs_uasb"),
+	url(r'^results_uasb', views.results_uasb, name="results_uasb"),
 ]

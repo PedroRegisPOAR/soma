@@ -1,0 +1,497 @@
+{% extends "project/header.html" %}
+
+{% block content %}
+
+<form action="/results_uasb/" method="post">{%csrf_token %}   
+
+    <div>
+        <label for="B"> $\mathrm{ B }$ :</label>
+        <input type="number" step=0.01 min="1" max="5000" id="B" name="B" value="12.2" />
+    </div>
+    Comprimento do UASB em $\mathrm{ m }$.
+    <br /><br />
+
+    <div>
+        <label for="L"> $\mathrm{ L }$ :</label>
+        <input type="number" step=0.01 min="1" max="5000" id="L" name="L" value="15" />
+    </div>
+    Comprimento do UASB em $\mathrm{ m }$.
+    <br /><br />
+
+    <div>
+        <label for="LCol"> $\mathrm{ L_{Col} }$ :</label>
+        <input type="number" step=0.01 min="0.01" max="2" id="LCol" name="LCol" value="0.25" />
+    </div>
+    Largura de cada coletor de gás em $\mathrm{ m }$.
+    <br /><br />
+
+    <div>
+        <label for="T"> $\mathrm{ T }$ :</label>
+        <input type="number" step=0.01 min="0.01" max="50" id="T" name="T" value="18" />
+    </div>
+    Temperatura média do esgoto no mês mais frio em $^{\circ}\mathrm{C}$.
+    <br /><br />
+
+    <div>
+        <label for="TDH"> $\mathrm{ TDH }$ :</label>
+        <input type="number" step=0.01 min="8" max="12" id="TDH" name="TDH" value="10" />
+    </div>
+    Tempo de detenção hidráulica em $\mathrm{ h }$.
+    <br /><br />
+
+    <div>
+        <label for="Qméd"> $\mathrm{ Q_{méd} }$ :</label>
+        <input type="number" step=0.01 min="1" max="100000" id="Qméd" name="Qméd" value="4400" />
+    </div>
+    Vazão média esgoto em $\mathrm{ m^{3}/dia }$.
+    <br /><br />
+
+    <div>
+        <label for="Qmáx"> $\mathrm{ Q_{máx} }$ :</label>
+        <input type="number" step=0.01 min="1" max="100000" id="Qmáx" name="Qmáx" value="7920" />
+    </div>
+    Vazão máxima esgoto em $\mathrm{ m^{3}/dia }$.
+    <br /><br />
+
+    <div>
+        <label for="c"> $\mathrm{ c }$ :</label>
+        <input type="number" step=0.0001 min="0.001" max="1" id="c" name="c" value="0.004" />
+    </div>
+    Teor de sólidos esperado no lodo de descarte.
+    <br /><br />
+
+    <div>
+        <label for="gamma"> $\mathrm{ \gamma }$ :</label>
+        <input type="number" step=0.1 min="900" max="1200" id="gamma" name="gamma" value="1020" />
+    </div>
+    Densidade do lodo em $\mathrm{ Kg/m^{3} }$.
+    <br /><br />
+
+    <div>
+        <label for="DQOaf"> $\mathrm{ DQO_{af} }$ :</label>
+        <input type="number" step=0.01 min="0.01" max="20" id="DQOaf" name="DQOaf" value="0.6" />
+    </div>
+    Demanda quimica de oxigênio afluente em $\mathrm{ g/L }$.
+    <br /><br />
+
+    <div>
+        <label for="DBOaf"> $\mathrm{ DBO_{af} }$ :</label>
+        <input type="number" step=0.01 min="0.01" max="20" id="DBOaf" name="DBOaf" value="0.35" />
+    </div>
+    Demanda bioquimica de oxigênio afluente em $\mathrm{ g/L }$.
+    <br /><br />
+
+    <div>
+        <label for="NMód"> $\mathrm{ N_{mód} }$ :</label>
+        <input type="number" step=0.01 min="1" max="50" id="NMód" name="NMód" value="2" />
+    </div>
+    Numero de módulos.
+    <br /><br />
+
+    <div>
+        <label for="H"> $\mathrm{ H }$ :</label>
+        <input type="number" step=0.01 min="0.01" max="10" id="H" name="H" value="5" />
+    </div>
+    Altura do UASB em $\mathrm{ m }$.
+    <br /><br />
+
+    <div>
+        <label for="COVMáx"> $\mathrm{ COV_{Máx} }$ :</label>
+        <input type="number" step=0.1 min="15" max="15" id="COVMáx" name="COVMáx" value="15" />
+    </div>
+    Carga orgânica volumétrica máxima em $\mathrm{ KgDQO/m^{3}/dia }$.
+    <br /><br />
+
+    <div>
+        <label for="CHVMáx"> $\mathrm{ CHV_{Máx} }$ :</label>
+        <input type="number" step=0.1 min="5" max="5" id="CHVMáx" name="CHVMáx" value="5" />
+    </div>
+    Carga hidraulica volumétrica máxima em $\mathrm{ m^{3}/m^{3}/dia }$.
+    <br /><br />
+
+    <div>
+        <label for="AInfTub"> $\mathrm{ A_{InfTub} }$ :</label>
+        <input type="number" step=0.01 min="2" max="3" id="AInfTub" name="AInfTub" value="3" />
+    </div>
+    Área de influencia de cada tubo em $\mathrm{ m^{2} }$.
+    <br /><br />
+
+    <div>
+        <label for="NTubAdot"> $\mathrm{ N_{TubAdot} }$ :</label>
+        <input type="number" step=1 min="1" max="200" id="NTubAdot" name="NTubAdot" value="70" />
+    </div>
+    Numero de tubos adotados.
+    <br /><br />    
+
+    <div>
+        <label for="YObs"> $\mathrm{ Y_{Obs} }$ :</label>
+        <input type="number" step=0.01 min="0.01" max="1" id="YObs" name="YObs" value="0.21" />
+    </div>
+    Coeficiente produção de sólidos, em termos de DQO em $\mathrm{ \dfrac{KgSST}{KgDBO_{aplicada}} }$.
+    <br /><br />
+
+    <div>
+        <label for="Y"> $\mathrm{ Y }$ :</label>
+        <input type="number" step=0.01 min="0.01" max="1" id="Y" name="Y" value="0.18" />
+    </div>
+    Coeficiente de produção de sólidos em $\mathrm{ \dfrac{KgSST}{KgDBO_{aplicada}} }$.
+    <br /><br />    
+
+    <div>
+        <label for="P"> $\mathrm{ P }$ :</label>
+        <input type="number" step=0.01 min="0.5" max="3" id="P" name="P" value="1" />
+    </div>
+    Pressão atmosférica local em $\mathrm{ atm }$.
+    <br /><br />    
+
+    <div>
+        <label for="R"> $\mathrm{ R }$ :</label>
+        <input type="number" step=0.01 min="0.08206" max="0.08206" id="P" name="R" value="0.08206" />
+    </div>
+    Constante universal dos gases perfeitos em $\mathrm{ \dfrac{atm\;L}{mol\;K} }$.
+    <br /><br /> 
+
+    <div>
+        <label for="PCH4"> $\mathrm{ P_{CH4} }$ :</label>
+        <input type="number" step=0.01 min="0.01" max="100" id="PCH4" name="PCH4" value="75" />
+    </div>
+    Porcentagem de metano no biogás em $\mathrm{ \% }$.
+    <br /><br /> 
+
+    <div>
+        <label for="Vg"> $\mathrm{ V_{g} }$ :</label>
+        <input type="number" step=0.01 min="1" max="5" id="Vg" name="Vg" value="1" />
+    </div>
+    Taxa de liberação do biogás no coletor em $\mathrm{ m^{3}/m^{2}/h }$.
+    <br /><br /> 
+
+    <div>
+        <label for="NCol"> $\mathrm{ N_{Col} }$ :</label>
+        <input type="number" step=1 min="1" max="50" id="NCol" name="NCol" value="5" />
+    </div>
+    Numero de coletores.
+    <br /><br /> 
+
+    <div>
+        <label for="LAS"> $\mathrm{ L_{AS} }$ :</label>
+        <input type="number" step=0.01 min="0.01" max="1" id="LAS" name="LAS" value="0.40" />
+    </div>
+    Largura de abertura dos coletores simples em $\mathrm{ m }$.
+    <br /><br /> 
+
+
+    <div>
+        <label for="e"> $\mathrm{ e }$ :</label>
+        <input type="number" step=0.001 min="0.001" max="0.1" id="e" name="e" value="0.04" />
+    </div>
+    Espessura da aprede do coletor em $\mathrm{ m }$.
+    <br /><br /> 
+
+    <div>
+        <label for="gamma"> $\mathrm{ \gamma }$ :</label>
+        <input type="number" step=0.1 min="1" max="1100" id="gamma" name="gamma" value="1020" />
+    </div>
+     $\mathrm{ Kg }$.
+    <br /><br /> 
+
+    <div>
+        <label for="c"> $\mathrm{ c }$ :</label>
+        <input type="number" step=0.001 min="0.001" max="1" id="c" name="c" value="0.04" />
+    </div>
+    ...
+    <br /><br /> 
+
+
+
+<!--
+
+"Q"=None
+"q"=None
+"Ldec"=None
+"NDec"=None
+"Mareia"=Mareia
+"Mantracito"=Mantracito
+
+"Ga"=None
+"SV"=None
+"DeltaHL"=None
+"h0"=None
+"Remf"=None
+"NCorr"=None
+"AF"=None
+"ATF"=None
+-->
+
+    <center>
+        $
+            \mathrm
+            {
+                A_{TF} = \dfrac{Q}{q}
+            } 
+            \implies
+            \mathrm
+            {
+                A_{TF} = \dfrac{ {{Q}} \, m^{3}/dia }{ {{q}} \, m^{3}/m^{2}/dia}
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    A_{TF} = {{ATF}} \, m^{2}
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+
+    <center>
+        $
+            \mathrm
+            {
+                A_{F} = \dfrac{A_{TF}}{N}
+            } 
+            \implies
+            \mathrm
+            {
+                A_{F} = \dfrac{ {{ATF}} \, m^{2} }{ {{N}} }
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    AF= {{AF}} \, m^{2}
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+    <center>
+        $
+            \mathrm
+            {
+                N=1.2Q^{1/2}
+            } 
+            \implies
+            \mathrm
+            {
+                N=1.2 \cdot {{Q}} ^{1/2}
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    N = {{N}}
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+
+    <center>
+        $
+            \mathrm
+            {
+                d_{90} = d_{10} 10^{1.67\log(CU)}
+            } 
+            \implies
+            \mathrm
+            {
+                d_{90} = {{d10}} 10^{1.67\log( {{CU}} }
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    d_{90} = {{d90}} \ mm
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+    <center>
+        $
+            \mathrm
+            {
+                Ga = \dfrac{d_{90}^{3} \rho \left( \rho_{p} - \rho\right)g}{ \mu^{2}}
+            } 
+            \implies
+            \mathrm
+            {
+                Ga = \dfrac{ {{d90}}^{3} \cdot {{rho}} \left( {{rhop}} - {{rho}} \right) {{g}} }{ {{mu}}^{2}}
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    Ga = {{Ga}}
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+    <center>
+        $
+            \mathrm
+            {
+                R_{emf}=\sqrt{33.7^{2} + 0.0408Ga \ } - 33.7
+            } 
+            \implies
+            \mathrm
+            {
+                R_{emf}=\sqrt{33.7^{2} + 0.0408 \cdot{{Ga}} \ } - 33.7
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    R_{emf} = {{Remf}} \ m^{-1}
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+
+    <center>
+        $
+            \mathrm
+            {
+                V_{mf}=\dfrac{ R_{emf}\nu }{d_{90}}
+            } 
+            \implies
+            \mathrm
+            {
+                V_{mf}=\dfrac{ {{Remf}} \cdot {{nu}} }{ {{d90}} }
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    V_{mf} = {{Vmf}} \ m
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+
+    <center>
+        $
+            \mathrm
+            {
+                S_{V}=\dfrac{6}{\Psi d_{eq}}
+            } 
+            \implies
+            \mathrm
+            {
+                S_{V}=\dfrac{6}{\Psi d_{eq}}
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    S_{V}= {{SV}} \ m^{-1}
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+    
+    <center>
+        $
+            \mathrm
+            {
+                \dfrac{\Delta H}{L}=\dfrac{4.17\mu \left(1 - \epsilon_{0} \right)^{2} S_{V}}{\rho g \epsilon_{0}^{3}} + \dfrac{0.48\mu \left(1 - \epsilon_{0} \right) S_{V} V^{2}}{g \epsilon_{0}^{3}}
+            } 
+            \implies
+            \mathrm
+            {
+                \dfrac{\Delta H}{L}=\dfrac{4.17 \cdot {{mu}} \left(1 - {{epsilon0}} \right)}{ {{rho}} \cdot {{g}} \cdot {{epsilon0}}    ^{3}} + \dfrac{0.48 \cdot {{mu}} \left(1 - {{epsilon0}} \right) {{SV}} \cdot {{V}}^{2}}{ {{g}} \cdot {{epsilon0}}^{3}}
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    \dfrac{\Delta H}{L}  = {{DeltaHL}} \ m/m
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+
+    <center>
+        $
+            \mathrm
+            {
+                Q_{F} = \dfrac{Q}{N_{F}}
+            } 
+            \implies
+            \mathrm
+            {
+
+                Q_{F} = \dfrac{ {{Q}} }{ {{NF}} }
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    Q_{F} = {{QF}} \ m^{3}/s
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+
+
+    <center>
+        $
+            \mathrm
+            {
+                h_{0} = \left( \dfrac{ Q_{F} }{1.84B} \right)^{2/3}
+            } 
+            \implies
+            \mathrm
+            {
+                h_{0} = \left( \dfrac{ {{QF}} \, m^{3}/s }{1.84 \cdot {{B}} \, m} \right)^{2/3}
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    h_{0}={{h0}} \ m
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+
+
+
+
+
+    <div class="button">
+        <button type="submit"> Dimensionar UASB. </button>
+    </div>
+</form>
+
+{% endblock %}

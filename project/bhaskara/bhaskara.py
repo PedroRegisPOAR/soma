@@ -6,7 +6,7 @@ class Bhaskara():
         self.a=a
         self.b=b
         self.c=c
-
+        
         self.delta=None
         self.sqrt_delta=None
         self.r1=None

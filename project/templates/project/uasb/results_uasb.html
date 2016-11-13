@@ -1,0 +1,2496 @@
+{% extends "project/header.html" %}
+
+
+
+{% block content %}
+
+        <p class="serif" align="justify" >
+        <div align="left">
+        </p>
+
+
+        2) Tempo detenção hidráulica no reator: 8 a 12h
+        <br /><br />
+        <center>                
+            TDH = 10 h (adotado)
+        </center>
+        <br /><br />
+
+        3) Volume do reator:
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    V=Q_{Méd}TDH
+                } 
+                \implies
+                \mathrm
+                {
+                    V={{Qméd}} \dfrac{m^{3}}{dia} {{TDH}} \, h \, \dfrac{1dia}{24h} 
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V= {{V}} \ m^{3}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        4) Número módulos: 
+        <br /><br />
+
+        <center>            
+            $\mathrm
+            { 
+                    N_{Mód}={{NMód}} 
+            }
+            $ 
+            (adotado)
+        </center>
+        <br /><br />
+
+        5) Volume de cada módulo:
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    V_{Mód}=\dfrac{V}{N_{Mód}}
+                } 
+                \implies
+                \mathrm
+                {
+                    V_{Mód}=\dfrac{ {{V}} \; m^{3} }{ {{NMód}} }
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V_{Mód}= {{VMód}} \ m^{3}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        6) Altura do reator (4 a 6 m)
+        <br /><br />
+
+        <center>            
+            $\mathrm
+            { 
+                    H={{H}} \ m
+            }
+            $ 
+            (adotado)
+        </center>
+        <br /><br />
+
+        7) Área de cada módulo:
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    A_{Mód}=\dfrac{V_{Mód}}{H}
+                } 
+                \implies
+                \mathrm
+                {
+                    A_{Mód}=\dfrac{ {{VMód}} \ m^{3} }{ {{H}} \ m}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        A_{Mód}= {{AMód}} \ m^{2}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />    
+
+        Dimensões de cada módulo:
+        <br /><br />
+        
+        <center>            
+            $\mathrm{ B = {{B}} \ m }$  e  $\mathrm{ L = {{L}} \ m }$ adotados
+        </center>
+        <br /><br />
+
+        8) Área, volume e TDH corrigidos:        
+        <br /><br />
+        Área:
+        <br /><br /> 
+       
+        $\mathrm{ A_{MódCorr} }$: 
+
+        <center>
+            $
+                \mathrm
+                {
+                    A_{MódCorr}=LB
+                } 
+                \implies
+                \mathrm
+                {
+                    A_{MódCorr}={{L}} \, m \  {{B}} m
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        A_{MódCorr}={{AMódCorr}} \ m^{2}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        $\mathrm{ A_{TotCorr} }$: 
+
+        <center>
+            $
+                \mathrm
+                {
+                    A_{TotCorr}=N_{Mód} A_{MódCorr}
+                } 
+                \implies
+                \mathrm
+                {
+                    A_{TotCorr}= {{NMód}} \cdot {{AMódCorr}} \, m^{2}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        A_{TotCorr}={{ATotCorr}} \ m^{2}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        $\mathrm{ V_{MódCorr} }$: 
+
+        <center>
+            $
+                \mathrm
+                {
+                    V_{MódCorr}=A_{TotCorr}H
+                } 
+                \implies
+                \mathrm
+                {
+                    V_{MódCorr}= {{ATotCorr}} m^{2} \, {{H}} \, m
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V_{MódCorr} = {{VMódCorr}} \ m^{3}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+$\mathrm{ V_{TotCorr} }$: 
+
+        <center>
+            $
+                \mathrm
+                {
+                    V_{TotCorr}=N_{Mód} V_{MódCorr}
+                } 
+                \implies
+                \mathrm
+                {
+                    V_{TotCorr} = {{NMód}} \cdot {{VMódCorr}} \, m^{3}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V_{TotCorr} = {{VTotCorr}} \ m^{3}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+$\mathrm{ TDH_{Corr} }$: 
+
+        <center>
+            $
+                \mathrm
+                {
+                    TDH_{Corr} = \dfrac{V_{MódCorr}}{Q_{Méd}}
+                } 
+                \implies
+                \mathrm
+                {
+                    TDH_{Corr} = \dfrac{ {{VMódCorr}} \, m^{3} }{ {{Qméd}} \, m^{3}/dia}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        TDH_{Corr} = {{TDHCorr}} \ h
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        9) Verificação das cargas aplicadas.
+        <br /><br />
+
+        Carga orgânica volumétrica:
+        <br /><br />
+
+        A formula geral para a carga orgânica volumétrica é: $\mathrm{ COV= \dfrac{S_{0}Q}{V} }$, e para o UASB é usada como:    
+        $\mathrm{ COV= \dfrac{ DQO_{af} Q_{Méd} }{ V_{TotCorr}} }$
+        <br /><br />
+
+
+        <center>
+            $
+                \mathrm
+                {
+                    COV= \dfrac{ DQO_{af} Q_{Méd} }{ V_{TotCorr}}
+                } 
+                \implies
+                \mathrm
+                {
+                    COV= \dfrac{ {{DQOaf}} \frac{g}{L} \, \frac{1Kg}{1000g} \, \frac{1000L}{1m^{3}}\ {{Qméd}} \frac{m^{3}}{dia} }{ {{VTotCorr}} \, m^{3} }
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        COV = {{COV}} \ \dfrac{KgDQO}{m^{3} dia}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        O valor do COV é menor do que o $\mathrm{ COV_{Máx} }$ que é {{COVMáx}} $\mathrm{ \frac{KgDQO}{m^{3}dia} }$.
+        <br /><br />
+
+        Carga hidráulica volumétrica:
+        <br /><br />
+
+        A formula geral para a carga hidraulica volumétrica é: $\mathrm{ CHV= \dfrac{Q}{V} }$, e para o UASB é usada como: $\mathrm{ COV= \dfrac{ Q_{Méd} }{ V_{TotCorr}} }$
+        <br /><br />
+
+
+        <center>
+            $
+                \mathrm
+                {
+                    CHV= \dfrac{ Q_{Méd} }{ V_{TotCorr}}
+                } 
+                \implies
+                \mathrm
+                {
+                    CHV= \dfrac{ {{Qméd}} m^{3}/dia }{ {{VTotCorr}} m^{3}}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        CHV = {{CHV}} \ \dfrac{m^{3}}{m^{3} dia}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        O valor da CHV é menor do que o $\mathrm{ CHV_{Máx} }$ que é {{CHVMáx}} $\mathrm{ \frac{m^{3}}{m^{3}dia} }$.
+        <br /><br />
+
+10) Verificação velocidades ascensionais (ou superficiais):
+
+        <center>
+            $
+                \mathrm
+                {
+                    V_{AscMéd} = \dfrac{ Q_{Méd} }{ A_{TotCorr} }
+                } 
+                \implies
+                \mathrm
+                {
+                    V_{AscMéd} = \dfrac{ {{Qméd}} \, \frac{m^{3}}{dia} \frac{1dia}{24h}  }{ {{ATotCorr}} \, m^{2}}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V_{AscMéd} = {{VAscMéd}} \ m/h
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    V_{AscMáx} = \dfrac{ Q_{Máx} }{ A_{TotCorr} }
+                } 
+                \implies
+                \mathrm
+                {
+                    V_{AscMáx} = \dfrac{ {{Qmáx}}  \, \frac{m^{3}}{dia} \frac{1dia}{24h} }{ {{ATotCorr}} \, m^{2}}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V_{AscMáx} = {{VAscMáx}} \ m/h
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        11) Sistema de distribuição do esgoto:
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    N_{Tub}=\dfrac{A_{MódCorr}}{A_{InfTub}}
+                } 
+                \implies
+                \mathrm
+                {
+                    N_{Tub}=\dfrac{ {{AMódCorr}} \, m^{2} }{ {{AInfTub}} \, m^{2} }
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        N_{Tub} = {{NTub}} 
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        Serão adotados {{NTubAdot}} tubos.
+        <br /><br />
+
+        12) Estimativa da eficiência de remoção de DQO:
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    E_{DQO}=100 \left( 1 - 0.68 TDH_{Corr}^{-0.35} \right)
+                } 
+                \implies
+                \mathrm
+                {
+                    E_{DQO}=100 \left( 1 - 0.68 \cdot {{TDH}}^{-0.35} \right)
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm    
+                    {
+                        E_{DQO} = {{EDQO}} \ \%
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        13) Estimativa da eficiência de remoção de DBO:
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    E_{DBO}=100 \left( 1 - 0.70 TDH_{Corr}^{-0.50} \right)
+                } 
+                \implies
+                \mathrm
+                {
+                    E_{DBO}=100 \left( 1 - 0.70 \cdot {{TDHCorr}}^{-0.50} \right)
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        E_{DBO} = {{EDBO}} \ \%
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        14) DQO e DBO no efluente:
+        <br /><br />
+
+        $ \mathrm{ E = \dfrac{ \left( S_{0} - S \right) }{ S_{0}} 100 \implies S = S_{0} \left( 1 - \dfrac{E}{100} \right) \implies DQO_{ef} = DQO_{af}\left( 1 - \dfrac{ E_{DQO} }{100} \right) \ e \implies DBO_{ef} = DBO_{af}\left( 1 - \dfrac{ E_{DBO} }{100} \right)}$
+        <br /><br />
+
+
+        <center>
+            $
+                \mathrm
+                {
+                    DQO_{ef} = DQO_{af}\left( 1 - \dfrac{E_{DQO}}{100} \right)   
+                } 
+                \implies
+                \mathrm
+                {
+                    DQO_{ef} = {{DQOaf}}\dfrac{Kg}{m^{3}}\left( 1 - \dfrac{ {{EDQO}} \, \%}{100} \right)
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        DQO_{ef}  = {{SDQO}} \ g/L
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        <center>
+            $
+                \mathrm
+                {
+                    DBO_{ef} = DBO_{af}\left( 1 - \dfrac{E_{DBO}}{100} \right)   
+                } 
+                \implies
+                \mathrm
+                {
+                    DBO_{ef} = {{DBOaf}} \dfrac{Kg}{m^{3}}\left( 1 - \dfrac{ {{EDBO}} \, \%}{100} \right)
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        DBO_{ef}  = {{SDBO}} \ g/L
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        15) Produção de metano:
+        <br /><br />
+
+        $\mathrm{ DQO_{ CH{4} }=Q_{Méd}\left( S_{0} - S + Y_{Obs}S_{0} \right)  \implies DQO_{CH{4}}=Q_{Méd}\left( DQO_{af} - DQO_{ef} + Y_{Obs}DQO_{af} \right) }$
+        <br /><br />
+        
+        <center>
+            $
+                \mathrm
+                {
+                    DQO_{CH{4}}=Q_{Méd}\left( DQO_{af} - DQO_{ef} + Y_{Obs}DQO_{af} \right)                 
+                } \\
+                \implies
+                \mathrm
+                {
+                    DQO_{CH{4}} ={{Qméd}} \dfrac{m^{3} }{dia} \left( {{DQOaf}} \dfrac{Kg}{m^{3}} - {{SDQO}} \dfrac{Kg}{m^{3}}  + {{YObs}} \dfrac{Kg}{Kg} \cdot {{DQOaf}} \dfrac{ Kg }{m^{3}} \right) 
+                } \\ 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        DQO_{CH_{4}}= {{DQOCH4}} \ Kg/dia
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        <center>
+            $
+                \mathrm
+                {
+                    K = \dfrac{ M_{CH_{4}} P }{ R \left( 273 +  T \right)}
+                } 
+                \implies
+                \mathrm
+                {
+                    K = \dfrac{ 64 \frac{g}{mol} \, {{P}}  atm}{ {{R}} \frac{atm \, L }{mol \, K} \left( 273 +  {{T}}  \right) K}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        K= {{K}} \ Kg/m^{3}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    Q_{CH_{4}}=\dfrac{DQO_{CH_{4}}}{K}
+                } 
+                \implies
+                \mathrm
+                {
+                    Q_{CH_{4}}=\dfrac{ {{DQOCH4}} \, Kg/dia}{ {{K}} \, Kg/m^{3}}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        Q_{CH_{4}} = {{QCH4}} \ m^{3}/dia
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        16) Produção de biogás. Adotando-se {{PCH4}} % de metano no biogás:
+        <br /><br />        
+
+        <center>
+            $
+                \mathrm
+                {
+                    Q_{BioGás}=\dfrac{ Q_{CH_{4}} }{ P_{CH{4}} }
+                } 
+                \implies
+                \mathrm
+                {
+                    Q_{BioGás}=\dfrac{ {{QCH4}} \, m^{3}/dia}{ {{PCH4}} }
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        Q_{BioGás} = {{QBio}} \ m^{3}/dia
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        17) Coletores de gases.
+        <br /><br />
+
+        Número de coletores: $\mathrm{ N_{Col}={{NCol}} }$
+        <br /><br />        
+
+        Número total de coletores: $\mathrm{ N_{TotCol}=N_{Col}N_{Mód} }$
+        <br /><br />        
+
+        <center>
+            $
+                \mathrm
+                {
+                    N_{TotCol}=N_{Col}N_{Mód}
+                } 
+                \implies
+                \mathrm
+                {
+                    N_{TotCol} = {{NCol}} \cdot {{NMód}}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        N_{TotCol} = {{NTotCol}} 
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        Comprimento de cada coletor: $\mathrm{ B={{B}} \ m}$
+        <br /><br />                
+
+
+        Largura de cada coletor: $\mathrm{ L_{Col}={{LCol}} \ m}$
+        <br /><br />                
+
+        Comprimento total de coletores: $\mathrm{ C_{TotCol}=N_{TotCol}B }$
+        <br /><br />                
+
+        <center>
+            $
+                \mathrm
+                {
+                    C_{TotCol} = N_{TotCol}B
+                } 
+                \implies
+                \mathrm
+                {
+                    C_{TotCol} = {{NTotCol}} \cdot {{B}} \, m
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        C_{TotCol} = {{CTotCol}} \ m
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+        
+        Taxa de liberação do biogás no coletor:
+        <br /><br />             
+        $\mathrm{ V_{g} = \dfrac{Q_{BioGás}}{A_{Col}} \implies         
+        A_{Col} = \dfrac{Q_{BioGás}}{V_{g}} }$. Usando que $\mathrm{  A_{Col}=C_{TotCol} L_{Col} }$, tem-se:
+        $\mathrm{          
+        L_{Col} = \dfrac{Q_{BioGás}}{V_{g} C_{TotCol}}
+        }$
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    L_{Col} = \dfrac{Q_{BioGás}}{V_{g} C_{TotCol}}
+                } 
+                \implies
+                \mathrm
+                {
+                    L_{Col} = \dfrac{ {{QBio}} \, \frac{m^{3}}{dia} \, \frac{1 \, dia}{24 \,h}}{ {{Vg}}\, \frac{m}{h} \ {{CTotCol}} \, m }
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        L_{Col} = {{LCol}} \ m
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        Área coletores: $\mathrm{ A_{Col}=C_{TotCol} L_{Col} }$
+        <br /><br />    
+
+        <center>
+            $
+                \mathrm
+                {
+                    A_{Col}=C_{TotCol} L_{Col}
+                } 
+                \implies
+                \mathrm
+                {
+                    A_{Col}={{CTotCol}} \, m \ {{LCol}} \, m
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        A_{Col} = {{ACol}} \ m^{2}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />                    
+
+
+        18) Aberturas (passagens) para zona de decantação.
+        <br /><br />        
+        
+        Numero de coletores por reator:
+        $
+            \fbox
+            {
+                $\mathrm
+                {
+                    N_{Col}={{NCol}}
+                }$
+            }
+        $
+        <br /><br />        
+
+        Numero de aberturas simples:   $ \mathrm{ N_{AS} = 2 N_{Mód} }$     
+
+        <center>
+            $
+                \mathrm
+                {
+                    N_{AS} = 2 N_{Mód}
+                } 
+                \implies
+                \mathrm
+                {
+                    N_{AS} = 2 \cdot{{NMód}}
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        N_{AS}  = {{NAS}} 
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        Numero de aberturas duplas:     
+        $ \mathrm{ N_{AD} = \left( N_{Col} - 1 \right)N_{Mód} }$
+        <br /><br />        
+
+        <center>
+            $
+                \mathrm
+                {
+                    N_{AD} = \left( N_{Col} - 1 \right)N_{Mód}
+                } 
+                \implies
+                \mathrm
+                {
+                    N_{AD} = \left( {{NCol}} - 1 \right) {{NMód}}
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        N_{AD}  = {{NAD}} 
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        Numero equivalente de aberturas simples:        
+        $ \mathrm{ N_{EqAS} = N_{AS} + 2N_{AD} }$
+        <br /><br />   
+
+        <center>
+            $
+                \mathrm
+                {
+                    N_{EqAS} = N_{AS} + 2N_{AD}
+                } 
+                \implies
+                \mathrm
+                {
+                    N_{EqAS} = {{NAS}} + 2 \cdot {{NAD}}
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        N_{EqAS} = {{NEqAS}} 
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        Comprimento de cada abertura: $ \mathrm{ B= {{B}} \ m }$
+        <br /><br />          
+
+        Comprimento equivalente de aberturas simples:
+        $ \mathrm{ C_{EqAS} = N_{EqAS} B }$
+        <br /><br /> 
+
+        <center>
+            $
+                \mathrm
+                {
+                    C_{EqAS} = N_{EqAS} B
+                } 
+                \implies
+                \mathrm
+                {
+                    C_{EqAS} = {{NEqAS}} \cdot {{B}} \, m
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        C_{EqAS} = {{CEqAS}} \ m
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        Largura de cada abertura simples: $\mathrm{ L_{AS} = {{LAS}} \ m} $
+        <br /><br />        
+
+        Área total aberturas: $\mathrm{ A_{TotAb} = C_{EqAS} L_{AS} }$
+        <br /><br />        
+
+        <center>
+            $
+                \mathrm
+                {
+                    A_{TotAb} = C_{EqAS} L_{AS}
+                } 
+                \implies
+                \mathrm
+                {
+                    A_{TotAb} = {{CEqAS}}\, m \ {{LAS}} \, m
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        A_{TotAb} = {{ATotAb}} \ m^{2}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        Verificação das velocidades nas aberturas: 
+        <br /><br />
+
+        Para a vazão média:
+        <br /><br />       
+
+        <center>
+            $
+                \mathrm
+                {
+                    V_{AscMédAbert}=\dfrac{Q_{Méd}}{ A_{TotAb} }
+                } 
+                \implies
+                \mathrm
+                {
+                    V_{AscMédAbert}=\dfrac{ {{Qméd}} \, \frac{m^{3}}{dia} \frac{1dia}{24h} }{ {{ATotAb}} \, m^{2} }
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V_{AscMédAbert} = {{VAscMédAbert}} \ m/h
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        Para a vazão máxima:
+        <br /><br />  
+
+        <center>
+            $
+                \mathrm
+                {
+                    V_{AscMáxAbert}=\dfrac{Q_{Máx}}{A_{TotAb}}
+                } 
+                \implies
+                \mathrm
+                {
+                    V_{AscMáxAbert}=\dfrac{ {{Qmáx}} \, \frac{m^{3}}{dia} \frac{1dia}{24h} }{ {{ATotAb}} \, m^{2}}
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V_{AscMáxAbert} = {{VAscMáxAbert}} \ m/h
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        19) Compartimento de decantação.
+        <br /><br />
+        
+        No de compartimentos de decantação: $\mathrm{ N_{CD} = N_{Col}N_{Mód} }$
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    N_{CD} = N_{Col}N_{Mód}
+                } 
+                \implies
+                \mathrm
+                {
+                    N_{CD} = {{NCol}} \cdot {{NMód}}
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        N_{CD} = {{NCD}}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        Comprimento de cada compartimento de decantação: $\mathrm{ B = {{B}} \ m }$
+        <br /><br />
+
+        Comprimento total dos decantadores: $\mathrm{ C_{TD} = N_{CD}B }$
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    C_{TD} = N_{CD}B
+                } 
+                \implies
+                \mathrm
+                {
+                    C_{TD} = {{NCD}} \cdot {{B}} \, m
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        C_{TD} = {{CTD}} \ m
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        Largura de cada coletor de gás (supor paredes do coletor com {{e}}m): $\mathrm{ L_{g} = L_{Col} + 2e}$
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    L_{g} = L_{Col} + 2e
+                } 
+                \implies
+                \mathrm
+                {
+                    L_{g} = {{LCol}} \ m + 2 \cdot {{e}} \ m
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        L_{g} = {{Lg}} \ m
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />  
+
+        Largura de cada compartimento de decantação: $\mathrm{ L_{CompDec} = \dfrac{L}{N_{Mód}} }$
+        <br /><br />      
+
+        <center>
+            $
+                \mathrm
+                {
+                    L_{CompDec} = \dfrac{L}{N_{Mód} }
+                } 
+                \implies
+                \mathrm
+                {
+                    L_{CompDec} = \dfrac{ {{L}} \, m}{ {{NMód}} }
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        L_{CompDec} = {{LCompDec}} \ m
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />  
+
+        Largura útil de cada decantador: $\mathrm{ L_{Ú} = L_{CompDec} - L_{g} }$
+        <br /><br /> 
+
+        <center>
+            $
+                \mathrm
+                {
+                    L_{Ú} = L_{CompDec} - L_{g}
+                } 
+                \implies
+                \mathrm
+                {
+                    L_{Ú} = {{LCompDec}} \, m \ - {{Lg}} \, m
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        L_{Ú} = {{LÚ}} \ m
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />  
+
+        Área total de decantadores: $\mathrm{ A_{TotDec} = C_{TD} L_{Ú} }$
+        <br /><br /> 
+
+        <center>
+            $
+                \mathrm
+                {
+                    A_{TotDec} = C_{TD} L_{Ú}
+                } 
+                \implies
+                \mathrm
+                {
+                    A_{TotDec} = {{CTD}} \, m \ {{LÚ}} \,  m
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        A_{TotDec} = {{ATotDec}} \ m^{2}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br /> 
+
+        Verificação das TAS nos decantadores:
+        <br /><br /> 
+
+        <center>
+            $
+                \mathrm
+                {
+                    V_{DMéd} = \dfrac{Q_{Méd}}{A_{TotDec}}
+                } 
+                \implies
+                \mathrm
+                {
+                    V_{DMéd} = \dfrac{ {{Qméd}} \, \frac{m^{3}}{dia} \frac{1dia}{24h} }{ {{ATotDec}} m^{2}}
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V_{DMéd} = {{VDMéd}} \ m/h
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        <center>
+            $
+                \mathrm
+                {
+                    V_{DMáx} = \dfrac{Q_{Máx}}{A_{TotDec}}
+                } 
+                \implies
+                \mathrm
+                {
+                    V_{DMáx} = \dfrac{ {{Qmáx}} \, \frac{m^{3}}{dia} \frac{1dia}{24h} }{ {{ATotDec}} \, m^{2} }
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V_{DMáx} = {{VDMáx}} \ m/h
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        X) Carga afluente média de DQO:
+        <br /><br />
+        Usando $\mathrm{ L_{0}=S_{0}Q }$, onde $\mathrm{ S_{0}=DQO_{af} }$ e $\mathrm{ Q=Q_{Méd} }$, tem-se: 
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    L_{0}=DQO_{af}Q_{Méd}
+                } 
+                \implies
+                \mathrm
+                {
+                    L_{0}={{DQOaf}} \; \dfrac{g}{L} \, \dfrac{1Kg}{1000g} {{Qméd}} \; \dfrac{m^{3}}{dia} \,\dfrac{1000L}{m^{3}}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        L_{0}= {{L0}} \ Kg/dia
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+
+        20) Avaliação da produção de lodo:
+        <br /><br />
+        
+        <center>
+            $
+                \mathrm
+                {
+                    P_{Lodo} = YL_{0}
+                } 
+                \implies
+                \mathrm
+                {
+                    P_{Lodo} = {{Y}} \, \dfrac{KgSST}{KgDQO_{Apl}} {{L0}} \, \dfrac{Kg}{dia}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        P_{Lodo} = {{PLodo}} \ KgSST/dia
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        <center>
+            $
+                \mathrm
+                {
+                    V_{Lodo}=\dfrac{P_{Lodo}}{\gamma c}
+                } 
+                \implies
+                \mathrm
+                {
+                    V_{Lodo}=\dfrac{ {{PLodo}} \frac{kgSST}{dia} }{ {{gamma}} \frac{Kg}{m^{3}} \cdot {{c}} }
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V_{Lodo} = {{VLodo}} \ m^{3}/dia
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+<!--
+        <p class="serif" align="justify" >
+        <div align="left">
+        1. Carga afluente média de DQO:
+        </p>
+        <br /><br />
+
+        Usando $\mathrm{ L_{0}=S_{0}Q }$, onde $\mathrm{ S_{0}=DQO_{af} }$ e $\mathrm{ Q=Q_{Méd} }$, tem-se: 
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    L_{0}=DQO_{af}Q_{Méd}
+                } 
+                \implies
+                \mathrm
+                {
+                    L_{0}={{DQOaf}} \; \dfrac{g}{L} \, \dfrac{1Kg}{1000g} {{Qméd}} \; \dfrac{m^{3}}{dia} \,\dfrac{1000L}{m^{3}}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        L_{0}= {{L0}} \ Kg/dia
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        2) Tempo detenção hidráulica no reator: 8 a 12h
+        <br /><br />
+        <center>                
+            TDH = 10 h (adotado)
+        </center>
+        <br /><br />
+
+        3) Volume do reator:
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    V=Q_{Méd}TDH
+                } 
+                \implies
+                \mathrm
+                {
+                    V={{Qméd}} \dfrac{m^{3}}{dia} {{TDH}} \, h \, \dfrac{1dia}{24h} 
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V= {{V}} \ m^{3}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        4) Número módulos: 
+        <br /><br />
+
+        <center>            
+            $\mathrm
+            { 
+                    N_{Mód}={{NMód}} 
+            }
+            $ 
+            (adotado)
+        </center>
+        <br /><br />
+
+        5) Volume de cada módulo:
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    V_{Mód}=\dfrac{V}{N_{Mód}}
+                } 
+                \implies
+                \mathrm
+                {
+                    V_{Mód}=\dfrac{ {{V}} \; m^{3} }{ {{NMód}} }
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V_{Mód}= {{VMód}} \ m^{3}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        6) Altura do reator (4 a 6 m)
+        <br /><br />
+
+        <center>            
+            $\mathrm
+            { 
+                    H={{H}} \ m
+            }
+            $ 
+            (adotado)
+        </center>
+        <br /><br />
+
+        7) Área de cada módulo:
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    A_{Mód}=\dfrac{V_{Mód}}{H}
+                } 
+                \implies
+                \mathrm
+                {
+                    A_{Mód}=\dfrac{ {{VMód}} \ m^{3} }{ {{H}} \ m}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        A_{Mód}= {{AMód}} \ m^{2}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />    
+
+        Dimensões de cada módulo:
+        <br /><br />
+        
+        <center>            
+            $\mathrm{ B = {{B}} \ m }$  e  $\mathrm{ L = {{L}} \ m }$ adotados
+        </center>
+        <br /><br />
+
+        8) Área, volume e TDH corrigidos:        
+        <br /><br />
+        Área:
+        <br /><br /> 
+       
+        $\mathrm{ A_{MódCorr} }$: 
+
+        <center>
+            $
+                \mathrm
+                {
+                    A_{MódCorr}=LB
+                } 
+                \implies
+                \mathrm
+                {
+                    A_{MódCorr}={{L}} \, m \  {{B}} m
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        A_{MódCorr}={{AMódCorr}} \ m^{2}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        $\mathrm{ A_{TotCorr} }$: 
+
+        <center>
+            $
+                \mathrm
+                {
+                    A_{TotCorr}=N_{Mód} A_{MódCorr}
+                } 
+                \implies
+                \mathrm
+                {
+                    A_{TotCorr}= {{NMód}} \cdot {{AMódCorr}} \, m^{2}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        A_{TotCorr}={{ATotCorr}} \ m^{2}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        $\mathrm{ V_{MódCorr} }$: 
+
+        <center>
+            $
+                \mathrm
+                {
+                    V_{MódCorr}=A_{TotCorr}H
+                } 
+                \implies
+                \mathrm
+                {
+                    V_{MódCorr}= {{ATotCorr}} m^{2} \, {{H}} \, m
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V_{MódCorr} = {{VMódCorr}} \ m^{3}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+$\mathrm{ V_{TotCorr} }$: 
+
+        <center>
+            $
+                \mathrm
+                {
+                    V_{TotCorr}=N_{Mód} V_{MódCorr}
+                } 
+                \implies
+                \mathrm
+                {
+                    V_{TotCorr} = {{NMód}} \cdot {{VMódCorr}} \, m^{3}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V_{TotCorr} = {{VTotCorr}} \ m^{3}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+$\mathrm{ TDH_{Corr} }$: 
+
+        <center>
+            $
+                \mathrm
+                {
+                    TDH_{Corr} = \dfrac{V_{MódCorr}}{Q_{Méd}}
+                } 
+                \implies
+                \mathrm
+                {
+                    TDH_{Corr} = \dfrac{ {{VMódCorr}} \, m^{3} }{ {{Qméd}} \, m^{3}/dia}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        TDH_{Corr} = {{TDHCorr}} \ h
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        9) Verificação das cargas aplicadas.
+        <br /><br />
+
+        Carga orgânica volumétrica:
+        <br /><br />
+
+        A formula geral para a carga orgânica volumétrica é: $\mathrm{ COV= \dfrac{S_{0}Q}{V} }$, e para o UASB é usada como:    
+        $\mathrm{ COV= \dfrac{ DQO_{af} Q_{Méd} }{ V_{TotCorr}} }$
+        <br /><br />
+
+
+        <center>
+            $
+                \mathrm
+                {
+                    COV= \dfrac{ DQO_{af} Q_{Méd} }{ V_{TotCorr}}
+                } 
+                \implies
+                \mathrm
+                {
+                    COV= \dfrac{ {{DQOaf}} \frac{g}{L} \, \frac{1Kg}{1000g} \, \frac{1000L}{1m^{3}}\ {{Qméd}} \frac{m^{3}}{dia} }{ {{VTotCorr}} \, m^{3} }
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        COV = {{COV}} \ \dfrac{KgDQO}{m^{3} dia}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        O valor do COV é menor do que o $\mathrm{ COV_{Máx} }$ que é {{COVMáx}} $\mathrm{ \frac{KgDQO}{m^{3}dia} }$.
+        <br /><br />
+
+        Carga hidráulica volumétrica:
+        <br /><br />
+
+        A formula geral para a carga hidraulica volumétrica é: $\mathrm{ CHV= \dfrac{Q}{V} }$, e para o UASB é usada como: $\mathrm{ COV= \dfrac{ Q_{Méd} }{ V_{TotCorr}} }$
+        <br /><br />
+
+
+        <center>
+            $
+                \mathrm
+                {
+                    CHV= \dfrac{ Q_{Méd} }{ V_{TotCorr}}
+                } 
+                \implies
+                \mathrm
+                {
+                    CHV= \dfrac{ {{Qméd}} m^{3}/dia }{ {{VTotCorr}} m^{3}}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        CHV = {{CHV}} \ \dfrac{m^{3}}{m^{3} dia}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        O valor da CHV é menor do que o $\mathrm{ CHV_{Máx} }$ que é {{CHVMáx}} $\mathrm{ \frac{m^{3}}{m^{3}dia} }$.
+        <br /><br />
+
+10) Verificação velocidades ascensionais (ou superficiais):
+
+        <center>
+            $
+                \mathrm
+                {
+                    V_{AscMéd} = \dfrac{ Q_{Méd} }{ A_{TotCorr} }
+                } 
+                \implies
+                \mathrm
+                {
+                    V_{AscMéd} = \dfrac{ {{Qméd}} \, \frac{m^{3}}{dia} \frac{1dia}{24h}  }{ {{ATotCorr}} \, m^{2}}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V_{AscMéd} = {{VAscMéd}} \ m/h
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    V_{AscMáx} = \dfrac{ Q_{Máx} }{ A_{TotCorr} }
+                } 
+                \implies
+                \mathrm
+                {
+                    V_{AscMáx} = \dfrac{ {{Qmáx}}  \, \frac{m^{3}}{dia} \frac{1dia}{24h} }{ {{ATotCorr}} \, m^{2}}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V_{AscMáx} = {{VAscMáx}} \ m/h
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        11) Sistema de distribuição do esgoto:
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    N_{Tub}=\dfrac{A_{MódCorr}}{A_{InfTub}}
+                } 
+                \implies
+                \mathrm
+                {
+                    N_{Tub}=\dfrac{ {{AMódCorr}} \, m^{2} }{ {{AInfTub}} \, m^{2} }
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        N_{Tub} = {{NTub}} 
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        Serão adotados {{NTubAdot}} tubos.
+        <br /><br />
+
+        12) Estimativa da eficiência de remoção de DQO:
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    E_{DQO}=100 \left( 1 - 0.68 TDH_{Corr}^{-0.35} \right)
+                } 
+                \implies
+                \mathrm
+                {
+                    E_{DQO}=100 \left( 1 - 0.68 \cdot {{TDH}}^{-0.35} \right)
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm    
+                    {
+                        E_{DQO} = {{EDQO}} \ \%
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        13) Estimativa da eficiência de remoção de DBO:
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    E_{DBO}=100 \left( 1 - 0.70 TDH_{Corr}^{-0.50} \right)
+                } 
+                \implies
+                \mathrm
+                {
+                    E_{DBO}=100 \left( 1 - 0.70 \cdot {{TDHCorr}}^{-0.50} \right)
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        E_{DBO} = {{EDBO}} \ \%
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        14) DQO e DBO no efluente:
+        <br /><br />
+
+        $ \mathrm{ E = \dfrac{ \left( S_{0} - S \right) }{ S_{0}} 100 \implies S = S_{0} \left( 1 - \dfrac{E}{100} \right) \implies DQO_{ef} = DQO_{af}\left( 1 - \dfrac{ E_{DQO} }{100} \right) \ e \implies DBO_{ef} = DBO_{af}\left( 1 - \dfrac{ E_{DBO} }{100} \right)}$
+        <br /><br />
+
+
+        <center>
+            $
+                \mathrm
+                {
+                    DQO_{ef} = DQO_{af}\left( 1 - \dfrac{E_{DQO}}{100} \right)   
+                } 
+                \implies
+                \mathrm
+                {
+                    DQO_{ef} = {{DQOaf}}\dfrac{Kg}{m^{3}}\left( 1 - \dfrac{ {{EDQO}} \, \%}{100} \right)
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        DQO_{ef}  = {{SDQO}} \ g/L
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        <center>
+            $
+                \mathrm
+                {
+                    DBO_{ef} = DBO_{af}\left( 1 - \dfrac{E_{DBO}}{100} \right)   
+                } 
+                \implies
+                \mathrm
+                {
+                    DBO_{ef} = {{DBOaf}} \dfrac{Kg}{m^{3}}\left( 1 - \dfrac{ {{EDBO}} \, \%}{100} \right)
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        DBO_{ef}  = {{SDBO}} \ g/L
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        15) Produção de metano:
+        <br /><br />
+
+        $\mathrm{ DQO_{ CH{4} }=Q_{Méd}\left( S_{0} - S + Y_{Obs}S_{0} \right)  \implies DQO_{CH{4}}=Q_{Méd}\left( DQO_{af} - DQO_{ef} + Y_{Obs}DQO_{af} \right) }$
+        <br /><br />
+        
+        <center>
+            $
+                \mathrm
+                {
+                    DQO_{CH{4}}=Q_{Méd}\left( DQO_{af} - DQO_{ef} + Y_{Obs}DQO_{af} \right)                 
+                } \\
+                \implies
+                \mathrm
+                {
+                    DQO_{CH{4}} ={{Qméd}} \dfrac{m^{3} }{dia} \left( {{DQOaf}} \dfrac{Kg}{m^{3}} - {{SDQO}} \dfrac{Kg}{m^{3}}  + {{YObs}} \dfrac{Kg}{Kg} \cdot {{DQOaf}} \dfrac{ Kg }{m^{3}} \right) 
+                } \\ 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        DQO_{CH_{4}}= {{DQOCH4}} \ Kg/dia
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        <center>
+            $
+                \mathrm
+                {
+                    K = \dfrac{ M_{CH_{4}} P }{ R \left( 273 +  T \right)}
+                } 
+                \implies
+                \mathrm
+                {
+                    K = \dfrac{ 64 \frac{g}{mol} \, {{P}}  atm}{ {{R}} \frac{atm \, L }{mol \, K} \left( 273 +  {{T}}  \right) K}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        K= {{K}} \ Kg/m^{3}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    Q_{CH_{4}}=\dfrac{DQO_{CH_{4}}}{K}
+                } 
+                \implies
+                \mathrm
+                {
+                    Q_{CH_{4}}=\dfrac{ {{DQOCH4}} \, Kg/dia}{ {{K}} \, Kg/m^{3}}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        Q_{CH_{4}} = {{QCH4}} \ m^{3}/dia
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        16) Produção de biogás. Adotando-se {{PCH4}} % de metano no biogás:
+        <br /><br />        
+
+        <center>
+            $
+                \mathrm
+                {
+                    Q_{BioGás}=\dfrac{ Q_{CH_{4}} }{ P_{CH{4}} }
+                } 
+                \implies
+                \mathrm
+                {
+                    Q_{BioGás}=\dfrac{ {{QCH4}} \, m^{3}/dia}{ {{PCH4}} }
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        Q_{BioGás} = {{QBio}} \ m^{3}/dia
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        17) Coletores de gases.
+        <br /><br />
+
+        Número de coletores: $\mathrm{ N_{Col}={{NCol}} }$
+        <br /><br />        
+
+        Número total de coletores: $\mathrm{ N_{TotCol}=N_{Col}N_{Mód} }$
+        <br /><br />        
+
+        <center>
+            $
+                \mathrm
+                {
+                    N_{TotCol}=N_{Col}N_{Mód}
+                } 
+                \implies
+                \mathrm
+                {
+                    N_{TotCol} = {{NCol}} \cdot {{NMód}}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        N_{TotCol} = {{NTotCol}} 
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        Comprimento de cada coletor: $\mathrm{ B={{B}} \ m}$
+        <br /><br />                
+
+
+        Largura de cada coletor: $\mathrm{ L_{Col}={{LCol}} \ m}$
+        <br /><br />                
+
+        Comprimento total de coletores: $\mathrm{ C_{TotCol}=N_{TotCol}B }$
+        <br /><br />                
+
+        <center>
+            $
+                \mathrm
+                {
+                    C_{TotCol} = N_{TotCol}B
+                } 
+                \implies
+                \mathrm
+                {
+                    C_{TotCol} = {{NTotCol}} \cdot {{B}} \, m
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        C_{TotCol} = {{CTotCol}} \ m
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+        
+        Taxa de liberação do biogás no coletor:
+        <br /><br />             
+        $\mathrm{ V_{g} = \dfrac{Q_{BioGás}}{A_{Col}} \implies         
+        A_{Col} = \dfrac{Q_{BioGás}}{V_{g}} }$. Usando que $\mathrm{  A_{Col}=C_{TotCol} L_{Col} }$, tem-se:
+        $\mathrm{          
+        L_{Col} = \dfrac{Q_{BioGás}}{V_{g} C_{TotCol}}
+        }$
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    L_{Col} = \dfrac{Q_{BioGás}}{V_{g} C_{TotCol}}
+                } 
+                \implies
+                \mathrm
+                {
+                    L_{Col} = \dfrac{ {{QBio}} \, \frac{m^{3}}{dia} \, \frac{1 \, dia}{24 \,h}}{ {{Vg}}\, \frac{m}{h} \ {{CTotCol}} \, m }
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        L_{Col} = {{LCol}} \ m
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        Área coletores: $\mathrm{ A_{Col}=C_{TotCol} L_{Col} }$
+        <br /><br />    
+
+        <center>
+            $
+                \mathrm
+                {
+                    A_{Col}=C_{TotCol} L_{Col}
+                } 
+                \implies
+                \mathrm
+                {
+                    A_{Col}={{CTotCol}} \, m \ {{LCol}} \, m
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        A_{Col} = {{ACol}} \ m^{2}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />                    
+
+
+        18) Aberturas (passagens) para zona de decantação.
+        <br /><br />        
+        
+        Numero de coletores por reator:
+        $
+            \fbox
+            {
+                $\mathrm
+                {
+                    N_{Col}={{NCol}}
+                }$
+            }
+        $
+        <br /><br />        
+
+        Numero de aberturas simples:   $ \mathrm{ N_{AS} = 2 N_{Mód} }$     
+
+        <center>
+            $
+                \mathrm
+                {
+                    N_{AS} = 2 N_{Mód}
+                } 
+                \implies
+                \mathrm
+                {
+                    N_{AS} = 2 \cdot{{NMód}}
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        N_{AS}  = {{NAS}} 
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        Numero de aberturas duplas:     
+        $ \mathrm{ N_{AD} = \left( N_{Col} - 1 \right)N_{Mód} }$
+        <br /><br />        
+
+        <center>
+            $
+                \mathrm
+                {
+                    N_{AD} = \left( N_{Col} - 1 \right)N_{Mód}
+                } 
+                \implies
+                \mathrm
+                {
+                    N_{AD} = \left( {{NCol}} - 1 \right) {{NMód}}
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        N_{AD}  = {{NAD}} 
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        Numero equivalente de aberturas simples:        
+        $ \mathrm{ N_{EqAS} = N_{AS} + 2N_{AD} }$
+        <br /><br />   
+
+        <center>
+            $
+                \mathrm
+                {
+                    N_{EqAS} = N_{AS} + 2N_{AD}
+                } 
+                \implies
+                \mathrm
+                {
+                    N_{EqAS} = {{NAS}} + 2 \cdot {{NAD}}
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        N_{EqAS} = {{NEqAS}} 
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        Comprimento de cada abertura: $ \mathrm{ B= {{B}} \ m }$
+        <br /><br />          
+
+        Comprimento equivalente de aberturas simples:
+        $ \mathrm{ C_{EqAS} = N_{EqAS} B }$
+        <br /><br /> 
+
+        <center>
+            $
+                \mathrm
+                {
+                    C_{EqAS} = N_{EqAS} B
+                } 
+                \implies
+                \mathrm
+                {
+                    C_{EqAS} = {{NEqAS}} \cdot {{B}} \, m
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        C_{EqAS} = {{CEqAS}} \ m
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        Largura de cada abertura simples: $\mathrm{ L_{AS} = {{LAS}} \ m} $
+        <br /><br />        
+
+        Área total aberturas: $\mathrm{ A_{TotAb} = C_{EqAS} L_{AS} }$
+        <br /><br />        
+
+        <center>
+            $
+                \mathrm
+                {
+                    A_{TotAb} = C_{EqAS} L_{AS}
+                } 
+                \implies
+                \mathrm
+                {
+                    A_{TotAb} = {{CEqAS}}\, m \ {{LAS}} \, m
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        A_{TotAb} = {{ATotAb}} \ m^{2}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        Verificação das velocidades nas aberturas: 
+        <br /><br />
+
+        Para a vazão média:
+        <br /><br />       
+
+        <center>
+            $
+                \mathrm
+                {
+                    V_{AscMédAbert}=\dfrac{Q_{Méd}}{ A_{TotAb} }
+                } 
+                \implies
+                \mathrm
+                {
+                    V_{AscMédAbert}=\dfrac{ {{Qméd}} \, \frac{m^{3}}{dia} \frac{1dia}{24h} }{ {{ATotAb}} \, m^{2} }
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V_{AscMédAbert} = {{VAscMédAbert}} \ m/h
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        Para a vazão máxima:
+        <br /><br />  
+
+        <center>
+            $
+                \mathrm
+                {
+                    V_{AscMáxAbert}=\dfrac{Q_{Máx}}{A_{TotAb}}
+                } 
+                \implies
+                \mathrm
+                {
+                    V_{AscMáxAbert}=\dfrac{ {{Qmáx}} \, \frac{m^{3}}{dia} \frac{1dia}{24h} }{ {{ATotAb}} \, m^{2}}
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V_{AscMáxAbert} = {{VAscMáxAbert}} \ m/h
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        19) Compartimento de decantação.
+        <br /><br />
+        
+        No de compartimentos de decantação: $\mathrm{ N_{CD} = N_{Col}N_{Mód} }$
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    N_{CD} = N_{Col}N_{Mód}
+                } 
+                \implies
+                \mathrm
+                {
+                    N_{CD} = {{NCol}} \cdot {{NMód}}
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        N_{CD} = {{NCD}}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        Comprimento de cada compartimento de decantação: $\mathrm{ B = {{B}} \ m }$
+        <br /><br />
+
+        Comprimento total dos decantadores: $\mathrm{ C_{TD} = N_{CD}B }$
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    C_{TD} = N_{CD}B
+                } 
+                \implies
+                \mathrm
+                {
+                    C_{TD} = {{NCD}} \cdot {{B}} \, m
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        C_{TD} = {{CTD}} \ m
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        Largura de cada coletor de gás (supor paredes do coletor com {{e}}m): $\mathrm{ L_{g} = L_{Col} + 2e}$
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    L_{g} = L_{Col} + 2e
+                } 
+                \implies
+                \mathrm
+                {
+                    L_{g} = {{LCol}} \ m + 2 \cdot {{e}} \ m
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        L_{g} = {{Lg}} \ m
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />  
+
+        Largura de cada compartimento de decantação: $\mathrm{ L_{CompDec} = \dfrac{L}{N_{Mód}} }$
+        <br /><br />      
+
+        <center>
+            $
+                \mathrm
+                {
+                    L_{CompDec} = \dfrac{L}{N_{Mód} }
+                } 
+                \implies
+                \mathrm
+                {
+                    L_{CompDec} = \dfrac{ {{L}} \, m}{ {{NMód}} }
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        L_{CompDec} = {{LCompDec}} \ m
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />  
+
+        Largura útil de cada decantador: $\mathrm{ L_{Ú} = L_{CompDec} - L_{g} }$
+        <br /><br /> 
+
+        <center>
+            $
+                \mathrm
+                {
+                    L_{Ú} = L_{CompDec} - L_{g}
+                } 
+                \implies
+                \mathrm
+                {
+                    L_{Ú} = {{LCompDec}} \, m \ - {{Lg}} \, m
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        L_{Ú} = {{LÚ}} \ m
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />  
+
+        Área total de decantadores: $\mathrm{ A_{TotDec} = C_{TD} L_{Ú} }$
+        <br /><br /> 
+
+        <center>
+            $
+                \mathrm
+                {
+                    A_{TotDec} = C_{TD} L_{Ú}
+                } 
+                \implies
+                \mathrm
+                {
+                    A_{TotDec} = {{CTD}} \, m \ {{LÚ}} \,  m
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        A_{TotDec} = {{ATotDec}} \ m^{2}
+                    }$
+                }
+            $  
+        </center>
+        <br /><br /> 
+
+        Verificação das TAS nos decantadores:
+        <br /><br /> 
+
+        <center>
+            $
+                \mathrm
+                {
+                    V_{DMéd} = \dfrac{Q_{Méd}}{A_{TotDec}}
+                } 
+                \implies
+                \mathrm
+                {
+                    V_{DMéd} = \dfrac{ {{Qméd}} \, \frac{m^{3}}{dia} \frac{1dia}{24h} }{ {{ATotDec}} m^{2}}
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V_{DMéd} = {{VDMéd}} \ m/h
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        <center>
+            $
+                \mathrm
+                {
+                    V_{DMáx} = \dfrac{Q_{Máx}}{A_{TotDec}}
+                } 
+                \implies
+                \mathrm
+                {
+                    V_{DMáx} = \dfrac{ {{Qmáx}} \, \frac{m^{3}}{dia} \frac{1dia}{24h} }{ {{ATotDec}} \, m^{2} }
+                }  
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V_{DMáx} = {{VDMáx}} \ m/h
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+
+        20) Avaliação da produção de lodo:
+        <br /><br />
+        
+        <center>
+            $
+                \mathrm
+                {
+                    P_{Lodo} = YL_{0}
+                } 
+                \implies
+                \mathrm
+                {
+                    P_{Lodo} = {{Y}} \, \dfrac{KgSST}{KgDQO_{Apl}} {{L0}} \, \dfrac{Kg}{dia}
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        P_{Lodo} = {{PLodo}} \ KgSST/dia
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+        <center>
+            $
+                \mathrm
+                {
+                    V_{Lodo}=\dfrac{P_{Lodo}}{\gamma c}
+                } 
+                \implies
+                \mathrm
+                {
+                    V_{Lodo}=\dfrac{ {{PLodo}} \frac{kgSST}{dia} }{ {{gamma}} \frac{Kg}{m^{3}} \cdot {{c}} }
+                } 
+                \implies 
+                \fbox
+                {
+                    $\mathrm
+                    {
+                        V_{Lodo} = {{VLodo}} \ m^{3}/dia
+                    }$
+                }
+            $  
+        </center>
+        <br /><br />
+
+-->
+        
+
+{% endblock %}

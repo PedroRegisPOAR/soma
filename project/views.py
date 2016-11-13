@@ -4,8 +4,9 @@ from django.shortcuts import render
 from project.bhaskara.bhaskara import Bhaskara
 from project.calha_parshall.calha_parshall import CalhaParshall
 from project.decantador_laminar.decantador_laminar import DecantadorLaminar
-
 from project.fator_de_atrito.fator_atrito_colebrock import solução_Colebrook_White
+
+from project.uasb.uasb import factory_UASB
 
 # Create your views here.
 
@@ -165,5 +166,54 @@ def results_fator_de_atrito(request):
     else:
         inputs_fator_de_atrito(request)
     return render(request,'project/fator_de_atrito/results_fator_de_atrito.html', d)    
+
+
+def inputs_uasb(request):     
+    return render(request,'project/uasb/inputs_uasb.html')
+
+def results_uasb(request):
+    if request.method == "POST":
+        args_uasb={
+            "B":float(request.POST["B"]),
+            "L":float(request.POST["L"]),
+            "T":float(request.POST["T"]),
+            "TDH":float(request.POST["TDH"]),
+            "Qméd":float(request.POST["Qméd"]),
+            "Qmáx":float(request.POST["Qmáx"]),
+            "DQOaf":float(request.POST["DQOaf"]),
+            "DBOaf":float(request.POST["DBOaf"]),
+            "NMód":float(request.POST["NMód"]),
+            "H":float(request.POST["H"]),
+            "COVMáx":float(request.POST["COVMáx"]),
+            "CHVMáx":float(request.POST["CHVMáx"]),
+            "AInfTub":float(request.POST["AInfTub"]),
+            "NTubAdot":float(request.POST["NTubAdot"]),
+            "YObs":float(request.POST["YObs"]),
+            "Y":float(request.POST["Y"]),
+            "P":float(request.POST["P"]),
+            "R":float(request.POST["R"]),
+            "PCH4":float(request.POST["PCH4"]),
+            "Vg":float(request.POST["Vg"]),
+            "NCol":float(request.POST["NCol"]),
+            "LAS":float(request.POST["LAS"]),
+            "e":float(request.POST["e"]),
+            "gamma":float(request.POST["gamma"]),
+            "c":float(request.POST["c"])
+            }
+
+        UASB=factory_UASB(args_uasb)
+        u=UASB()
+        u.dimensionar()      
+        d=u.out
+    else:
+        inputs_uasb(request)
+    return render(request,'project/uasb/results_uasb.html', d)    
+
+
+
+
+
+
+
 
 

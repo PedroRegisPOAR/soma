@@ -17,6 +17,22 @@ def test_bhaskara_fsqrt_delta(delta=None, sqrt_delta=None):
     return unittest.TestLoader().loadTestsFromTestCase(MyTestCase)
 
 
+def test_bhaskara_calculate_roots_1(r1):
+    class MyTestCase(unittest.TestCase):
+        def setUp(self):
+            self.b=Bhaskara(1,-2,1)
+            self.b.calculate_roots()
+
+        def tearDown(self):
+            del self.b
+
+        def test_1(self):
+            self.assertTrue(abs(self.b.r1 - r1) < 10**(-1), "O método fsqrt_delta esta errado. O valor deveria ser: {}, mas é {}".format(r1, self.b.r1)) 
+
+    return unittest.TestLoader().loadTestsFromTestCase(MyTestCase)
+
+
+
 t1_fdelta=test_bhaskara_fdelta(a=1, b=0, c=0, delta=0)
 t2_fdelta=test_bhaskara_fdelta(a=1, b=1, c=0, delta=1)
 t3_fdelta=test_bhaskara_fdelta(a=3, b=4, c=10, delta=-104)
@@ -27,7 +43,10 @@ t2_fsqrt_delta=test_bhaskara_fsqrt_delta(delta=25, sqrt_delta=5)
 suite2_fsqrt_delta=[t1_fsqrt_delta, t2_fsqrt_delta]
 
 
-alltests = unittest.TestSuite(suite1_fdelta + suite2_fsqrt_delta)
+t1=test_bhaskara_calculate_roots_1(1)
+suite3=[t1]
+
+alltests = unittest.TestSuite(suite1_fdelta + suite2_fsqrt_delta + suite3)
 
 result = unittest.TextTestRunner(verbosity=2).run(alltests)
 
