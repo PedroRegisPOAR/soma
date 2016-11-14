@@ -1,0 +1,304 @@
+{% extends "project/header.html" %}
+
+
+
+{% block content %}
+
+		<p class="serif" align="justify" >
+		<div align="left">
+		Texto ...
+		</p>
+
+
+<!--
+
+"Q"=None
+"q"=None
+"Ldec"=None
+"NDec"=None
+"Mareia"=Mareia
+"Mantracito"=Mantracito
+
+"Ga"=None
+"SV"=None
+"DeltaHL"=None
+"h0"=None
+"Remf"=None
+"NCorr"=None
+"AF"=None
+"ATF"=None
+-->
+
+    <center>
+        $
+            \mathrm
+            {
+                A_{TF} = \dfrac{Q}{q}
+            } 
+            \implies
+            \mathrm
+            {
+                A_{TF} = \dfrac{ {{Q}} \, m^{3}/dia }{ {{q}} \, m^{3}/m^{2}/dia}
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    A_{TF} = {{ATF}} \, m^{2}
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+
+    <center>
+        $
+            \mathrm
+            {
+                A_{F} = \dfrac{A_{TF}}{N}
+            } 
+            \implies
+            \mathrm
+            {
+                A_{F} = \dfrac{ {{ATF}} \, m^{2} }{ {{N}} }
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    AF= {{AF}} \, m^{2}
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+    <center>
+        $
+            \mathrm
+            {
+                N=1.2Q^{1/2}
+            } 
+            \implies
+            \mathrm
+            {
+                N=1.2 \cdot {{Q}} ^{1/2}
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    N = {{N}}
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+
+    <center>
+        $
+            \mathrm
+            {
+                d_{90} = d_{10} 10^{1.67\log(CU)}
+            } 
+            \implies
+            \mathrm
+            {
+                d_{90} = {{d10}} 10^{1.67\log( {{CU}} }
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    d_{90} = {{d90}} \ mm
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+    <center>
+        $
+            \mathrm
+            {
+                Ga = \dfrac{d_{90}^{3} \rho \left( \rho_{p} - \rho\right)g}{ \mu^{2}}
+            } 
+            \implies
+            \mathrm
+            {
+                Ga = \dfrac{ {{d90}}^{3} \cdot {{rho}} \left( {{rhop}} - {{rho}} \right) {{g}} }{ {{mu}}^{2}}
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    Ga = {{Ga}}
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+    <center>
+        $
+            \mathrm
+            {
+                R_{emf}=\sqrt{33.7^{2} + 0.0408Ga \ } - 33.7
+            } 
+            \implies
+            \mathrm
+            {
+                R_{emf}=\sqrt{33.7^{2} + 0.0408 \cdot{{Ga}} \ } - 33.7
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    R_{emf} = {{Remf}} \ m^{-1}
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+
+    <center>
+        $
+            \mathrm
+            {
+                V_{mf}=\dfrac{ R_{emf}\nu }{d_{90}}
+            } 
+            \implies
+            \mathrm
+            {
+                V_{mf}=\dfrac{ {{Remf}} \cdot {{nu}} }{ {{d90}} }
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    V_{mf} = {{Vmf}} \ m
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+
+    <center>
+        $
+            \mathrm
+            {
+                S_{V}=\dfrac{6}{\Psi d_{eq}}
+            } 
+            \implies
+            \mathrm
+            {
+                S_{V}=\dfrac{6}{\Psi d_{eq}}
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    S_{V}= {{SV}} \ m^{-1}
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+    
+    <center>
+        $
+            \mathrm
+            {
+                \dfrac{\Delta H}{L}=\dfrac{4.17\mu \left(1 - \epsilon_{0} \right)^{2} S_{V}}{\rho g \epsilon_{0}^{3}} + \dfrac{0.48\mu \left(1 - \epsilon_{0} \right) S_{V} V^{2}}{g \epsilon_{0}^{3}}
+            } 
+            \implies
+            \mathrm
+            {
+                \dfrac{\Delta H}{L}=\dfrac{4.17 \cdot {{mu}} \left(1 - {{epsilon0}} \right)}{ {{rho}} \cdot {{g}} \cdot {{epsilon0}}    ^{3}} + \dfrac{0.48 \cdot {{mu}} \left(1 - {{epsilon0}} \right) {{SV}} \cdot {{V}}^{2}}{ {{g}} \cdot {{epsilon0}}^{3}}
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    \dfrac{\Delta H}{L}  = {{DeltaHL}} \ m/m
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+
+    <center>
+        $
+            \mathrm
+            {
+                Q_{F} = \dfrac{Q}{N_{F}}
+            } 
+            \implies
+            \mathrm
+            {
+
+                Q_{F} = \dfrac{ {{Q}} }{ {{NF}} }
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    Q_{F} = {{QF}} \ m^{3}/s
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+
+
+    <center>
+        $
+            \mathrm
+            {
+                h_{0} = \left( \dfrac{ Q_{F} }{1.84B} \right)^{2/3}
+            } 
+            \implies
+            \mathrm
+            {
+                h_{0} = \left( \dfrac{ {{QF}} \, m^{3}/s }{1.84 \cdot {{B}} \, m} \right)^{2/3}
+            } 
+            \implies 
+            \fbox
+            {
+                $\mathrm
+                {
+                    h_{0}={{h0}} \ m
+                }$
+            }
+        $  
+    </center>
+    <br /><br />
+
+
+
+<!-- <p class="serif"> <center> 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59  </p> 
+
+<div style="page-break-after: always"></div>
+-->
+
+
+
+
+{% endblock %}

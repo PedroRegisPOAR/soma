@@ -248,38 +248,38 @@ class UASB_Main():
         self.arredondamento()
 
 
+uasb_dict_inputs={
+    "B":None,
+    "L":None,
+    "T":None,
+    "TDH":None,
+    "Qméd":None,
+    "Qmáx":None,
+    "DQOaf":None,
+    "DBOaf":None,
+    "NMód":None,
+    "H":None,
+    "COVMáx":None,
+    "CHVMáx":None,
+    "AInfTub":None,
+    "NTubAdot":None,
+    "YObs":None,
+    "Y":None,
+    "P":None,             
+    "R":None,
+    "PCH4":None,
+    "Vg":None,
+    "NCol":None,
+    "LAS":None,
+    "e":None,
+    "gamma":None,
+    "c":None
+} 
+
+
 # As classes não são passadas como argumentos para não dificultar 
 # para o usuario.
-def factory_UASB(e):
-
-    e_gab={
-            "B":None,
-            "L":None,
-            "T":None,
-            "TDH":None,
-            "Qméd":None,
-            "Qmáx":None,
-            "DQOaf":None,
-            "DBOaf":None,
-            "NMód":None,
-            "H":None,
-            "COVMáx":None,
-            "CHVMáx":None,
-            "AInfTub":None,
-            "NTubAdot":None,
-            "YObs":None,
-            "Y":None,
-            "P":None,             
-            "R":None,
-            "PCH4":None,
-            "Vg":None,
-            "NCol":None,
-            "LAS":None,
-            "e":None,
-            "gamma":None,
-            "c":None
-        }       
-
+def factory_UASB(inp):  
     r={
         "L0":None,
         "V":None,
@@ -327,15 +327,15 @@ def factory_UASB(e):
         
         "out":None
     }
-
-    def verifica_key(e, e_gab):
+    '''
+    def verifica_key(e, uasb_inputs):
         for key in e:
             if not key in e_gab:
                 assert False, "Chave errada no dicionario de entradas"
 
     verifica_key(e, e_gab)
-
-    d=dict(e, **r)
+    '''
+    d=dict(inp, **r)
 
     class UASB(UASB_Methods, UASB_Part1, UASB_Part2, UASB_Part3,
                 Extras, UASB_Main):

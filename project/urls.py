@@ -15,4 +15,6 @@ urlpatterns = [
 	url(r'^results_fator_de_atrito/', views.results_fator_de_atrito, name='results_fator_de_atrito'),
 	url(r'^inputs_uasb', views.inputs_uasb, name="inputs_uasb"),
 	url(r'^results_uasb', views.results_uasb, name="results_uasb"),
+	url(r'^inputs_filtro_rápido_descendente', views.inputs_filtro_rápido_descendente, name="inputs_filtro_rápido_descendente"),
+	url(r'^results_filtro_rápido_descendente', views.results_filtro_rápido_descendente, name="results_filtro_rápido_descendente"),
 ]

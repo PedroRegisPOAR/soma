@@ -6,7 +6,7 @@ from project.calha_parshall.calha_parshall import CalhaParshall
 from project.decantador_laminar.decantador_laminar import DecantadorLaminar
 from project.fator_de_atrito.fator_atrito_colebrock import solução_Colebrook_White
 
-from project.uasb.uasb import factory_UASB
+from project.uasb.uasb import factory_UASB, uasb_dict_inputs
 
 # Create your views here.
 
@@ -168,11 +168,14 @@ def results_fator_de_atrito(request):
     return render(request,'project/fator_de_atrito/results_fator_de_atrito.html', d)    
 
 
+
+
 def inputs_uasb(request):     
     return render(request,'project/uasb/inputs_uasb.html')
 
 def results_uasb(request):
     if request.method == "POST":
+        '''
         args_uasb={
             "B":float(request.POST["B"]),
             "L":float(request.POST["L"]),
@@ -200,8 +203,42 @@ def results_uasb(request):
             "gamma":float(request.POST["gamma"]),
             "c":float(request.POST["c"])
             }
+        '''
+        
+        '''
+        args_uasb={
+            "B":None,
+            "L":None,
+            "T":None,
+            "TDH":None,
+            "Qméd":None,
+            "Qmáx":None,
+            "DQOaf":None,
+            "DBOaf":None,
+            "NMód":None,
+            "H":None,
+            "COVMáx":None,
+            "CHVMáx":None,
+            "AInfTub":None,
+            "NTubAdot":None,
+            "YObs":None,
+            "Y":None,
+            "P":None,             
+            "R":None,
+            "PCH4":None,
+            "Vg":None,
+            "NCol":None,
+            "LAS":None,
+            "e":None,
+            "gamma":None,
+            "c":None
+            }
+        '''
+        for key in uasb_dict_inputs:
+            uasb_dict_inputs[key]=float(request.POST[key])
 
-        UASB=factory_UASB(args_uasb)
+
+        UASB=factory_UASB(uasb_dict_inputs)
         u=UASB()
         u.dimensionar()      
         d=u.out
@@ -211,6 +248,18 @@ def results_uasb(request):
 
 
 
+
+
+def inputs_filtro_rápido_descendente(request):     
+    return render(request,'project/filtro_rápido_descendente/inputs_filtro_rápido_descendente.html')
+
+def results_filtro_rápido_descendente(request):
+    if request.method == "POST":
+        d={}
+        pass
+    else:
+        inputs_filtro_rápido_descendente(request)
+    return render(request,'project/filtro_rápido_descendente/results_filtro_rápido_descendente.html', d)    
 
 
 
