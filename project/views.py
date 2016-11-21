@@ -2,13 +2,13 @@
 from django.shortcuts import render
 
 from project.bhaskara.bhaskara import Bhaskara
-from project.calha_parshall.calha_parshall import CalhaParshall
-from project.decantador_laminar.decantador_laminar import DecantadorLaminar
 from project.fator_de_atrito.fator_atrito_colebrock import solução_Colebrook_White
 
+from project.calha_parshall.calha_parshall import CalhaParshall
+from project.decantador_laminar.decantador_laminar import DecantadorLaminar
 from project.uasb.uasb import factory_UASB, uasb_dict_inputs
 
-# Create your views here.
+
 
 
 def index(request):
@@ -32,7 +32,54 @@ def results_bhaskara(request):
     return render(request,'project/bhaskara/results_bhaskara.html', dic)
 
 
-#   Coisas da Calha Parshall
+def inputs_fator_de_atrito(request):     
+    return render(request,'project/fator_de_atrito/inputs_fator_de_atrito.html')
+
+def results_fator_de_atrito(request):
+    if request.method == "POST":
+        epsilon=float(request.POST["epsilon"])
+        Re=float(request.POST["Re"])
+        D=float(request.POST["D"])
+
+        d=solução_Colebrook_White(epsilon, Re, D)
+    else:
+        inputs_fator_de_atrito(request)
+    return render(request,'project/fator_de_atrito/results_fator_de_atrito.html', d)    
+
+
+
+def inputs_crescimento_populacional(request):     
+    return render(request,'project/crescimento_populacional/inputs_crescimento_populacional.html')
+
+def results_crescimento_populacional(request):
+    if request.method == "POST":
+        d = {}
+    else:
+        inputs_crescimento_populacional(request)        
+    return render(request,'project/crescimento_populacional/results_crescimento_populacional.html', d)
+
+
+def inputs_vazões_água(request):     
+    return render(request,'project/vazões_água/inputs_vazões_água.html')
+
+def results_vazões_água(request):
+    if request.method == "POST":
+        d = {}
+    else:
+        inputs_vazões_água(request)        
+    return render(request,'project/vazões_água/results_vazões_água.html', d)
+
+
+def inputs_vertedor(request):       
+    return render(request,'project/vertedor/inputs_vertedor.html')
+
+def results_vertedor(request):
+    if request.method == "POST":
+        d = {}
+    else:
+        inputs_vertedor(request)        
+    return render(request,'project/vertedor/results_vertedor.html', d)
+
 def inputs_calha_parshall(request):     
     return render(request,'project/calha_parshall/inputs_calha_parshall.html')
 
@@ -40,15 +87,6 @@ def inputs_calha_parshall(request):
 def results_calha_parshall(request):
 
     if request.method == "POST":
-
-#        Q=float(request.POST.get("Q", False))
-#        g=float(request.POST.get("g", False))
-#        T=float(request.POST.get("T", False))
-#        GmMin=float(request.POST.get("GmMin", False))
-#        GmMax=float(request.POST.get("GmMax", False))
-#        FMin=float(request.POST.get("FMin", False))
-
-
         Q=float(request.POST["Q"])
         g=float(request.POST["g"])
         T=float(request.POST["T"])
@@ -56,32 +94,10 @@ def results_calha_parshall(request):
         GmMax=float(request.POST["GmMax"])
         FMin=float(request.POST["FMin"])
         
-
-        Q1=0.05
-        g1=9.8
-        T1=17.5
-        GmMin1=1050
-        GmMax1=2000
-        FMin1=4.5
-
-#        cp=CalhaParshall(Q1, g1, T1, GmMin1, GmMax1, FMin1)
-#        cp.dimensiona_inteligente()
-
         cp=CalhaParshall(Q, g, T, GmMin, GmMax, FMin)
         cp.dimensiona_inteligente()
         
-        # TO Do. A operação d=dict(cp.d) não funciona porque no dicionario não 
-        # apenas numeros, mas matrizes
-
         d=cp.d
-
-#        d={"Q":Q, "g":g, "T":T, "GmMin":GmMin, "GmMax":GmMax, "FMin":FMin}
-#        d={"Q":Q, "g":g, "T":T, "W":cp.W, "mu":cp.mu, "rho":cp.rho, "C":cp.C,
- #       "D":cp.D, "K":cp.K, "N":cp.N, "k":cp.k, "n":cp.n, 
- #       "H0":cp.H0, "D0":cp.D0, "U0":cp.U0, "q":cp.q,
- #       "E0":cp.E0, "U1":cp.U1, "h1":cp.h1, "F1":cp.F1, 
- #       "h2":cp.h2,"h3":cp.h3, "U3":cp.U3, "L":cp.L,
- #        "h":cp.h, "Tm":cp.Tm, "Gm":cp.Gm}
 
 #        if cp.dimensionado_ok:
 #            pass
@@ -91,7 +107,19 @@ def results_calha_parshall(request):
         inputs_calha_parshall(request)
     return render(request,'project/calha_parshall/results_calha_parshall.html', d)    
 
-def inputs_decantador_laminar(request):     
+
+def inputs_floculador_chicaneado(request):     
+    return render(request,'project/floculador_chicaneado/inputs_floculador_chicaneado.html')
+
+def results_floculador_chicaneado(request):
+    if request.method == "POST":
+        d = {}
+    else:
+        inputs_floculador_chicaneado(request)        
+    return render(request,'project/floculador_chicaneado/results_floculador_chicaneado.html', d)
+
+
+def inputs_decantador_alta_taxa(request):     
     return render(request,'project/decantador_laminar/inputs_decantador_laminar.html')
 
 def results_decantador_laminar(request):
@@ -151,23 +179,84 @@ def results_decantador_laminar_complete(request):
     return render(request,'project/decantador_laminar/results_decantador_laminar_complete.html', d)    
 
 
+def inputs_filtro_rápido_descendente(request):     
+    return render(request,'project/filtro_rápido_descendente/inputs_filtro_rápido_descendente.html')
 
-def inputs_fator_de_atrito(request):     
-    return render(request,'project/fator_de_atrito/inputs_fator_de_atrito.html')
-
-
-def results_fator_de_atrito(request):
+def results_filtro_rápido_descendente(request):
     if request.method == "POST":
-        epsilon=float(request.POST["epsilon"])
-        Re=float(request.POST["Re"])
-        D=float(request.POST["D"])
-
-        d=solução_Colebrook_White(epsilon, Re, D)
+        d={}
+        pass
     else:
-        inputs_fator_de_atrito(request)
-    return render(request,'project/fator_de_atrito/results_fator_de_atrito.html', d)    
+        inputs_filtro_rápido_descendente(request)
+    return render(request,'project/filtro_rápido_descendente/results_filtro_rápido_descendente.html', d)    
 
 
+
+
+def inputs_vazões_esgoto(request):     
+    return render(request,'project/vazões_esgoto/inputs_vazões_esgoto.html')
+
+def results_vazões_esgoto(request):
+    if request.method == "POST":
+        d = {}
+    else:
+        inputs_vazões_esgoto(request)        
+    return render(request,'project/vazões_esgoto/results_vazões_esgoto.html', d)
+
+
+def inputs_tratamento_preliminar(request):     
+    return render(request,'project/tratamento_preliminar/inputs_tratamento_preliminar.html')
+
+def results_tratamento_preliminar(request):
+    if request.method == "POST":
+        d = {}
+    else:
+        inputs_tratamento_preliminar(request)        
+    return render(request,'project/tratamento_preliminar/results_tratamento_preliminar.html', d)
+
+
+def inputs_decantador_dortmund(request):     
+    return render(request,'project/decantador_dortmund/inputs_decantador_dortmund.html')
+
+def results_decantador_dortmund(request):
+    if request.method == "POST":
+        d = {}
+    else:
+        inputs_decantador_dortmund(request)        
+    return render(request,'project/decantador_dortmund/results_decantador_dortmund.html', d)
+
+
+def inputs_decantador_primário(request):     
+    return render(request,'project/decantador_primário/inputs_decantador_primário.html')
+
+def results_decantador_primário(request):
+    if request.method == "POST":
+        d = {}
+    else:
+        inputs_decantador_primário(request)        
+    return render(request,'project/decantador_primário/results_decantador_primário.html', d)
+
+
+def inputs_lagoa_facultativa(request):     
+    return render(request,'project/lagoa_facultativa/inputs_lagoa_facultativa.html')
+
+def results_lagoa_facultativa(request):
+    if request.method == "POST":
+        d = {}
+    else:
+        inputs_lagoa_facultativa(request)        
+    return render(request,'project/lagoa_facultativa/results_lagoa_facultativa.html', d)
+
+
+def inputs_lagoa_de_maturação(request):     
+    return render(request,'project/lagoa_de_maturação/inputs_lagoa_de_maturação.html')
+
+def results_lagoa_de_maturação(request):
+    if request.method == "POST":
+        d = {}
+    else:
+        inputs_lagoa_de_maturação(request)        
+    return render(request,'project/lagoa_de_maturação/results_lagoa_de_maturação.html', d)
 
 
 def inputs_uasb(request):     
@@ -247,19 +336,18 @@ def results_uasb(request):
     return render(request,'project/uasb/results_uasb.html', d)    
 
 
+def inputs_lodos_ativados(request):     
+    return render(request,'project/lodos_ativados/inputs_lodos_ativados.html')
 
-
-
-def inputs_filtro_rápido_descendente(request):     
-    return render(request,'project/filtro_rápido_descendente/inputs_filtro_rápido_descendente.html')
-
-def results_filtro_rápido_descendente(request):
+def results_lodos_ativados(request):
     if request.method == "POST":
-        d={}
-        pass
+        d = {}
     else:
-        inputs_filtro_rápido_descendente(request)
-    return render(request,'project/filtro_rápido_descendente/results_filtro_rápido_descendente.html', d)    
+        inputs_lodos_ativados(request)        
+    return render(request,'project/lodos_ativados/results_lodos_ativados.html', d)
+
+
+
 
 
 

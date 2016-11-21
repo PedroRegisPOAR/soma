@@ -9,7 +9,7 @@
 
 <form action="/inputs_bhaskara/" method="post">{% csrf_token %}
     <div class="button">
-        <button type="submit">Calcular raizes equação do 2° grau</button>
+        <button type="submit"> Calcular raizes equação do 2° grau. </button>
     </div>
 </form>
 <br />
@@ -19,29 +19,59 @@
         <button type="submit"> Fator atrito de Darcy-Weisbach </button>
     </div>
 </form>
+<br /><br /> 
+<br /><br />  
+
+
+<form action="/inputs_crescimento_populacional/" method="post">{% csrf_token %}
+    <div class="button">
+        <button type="submit"> Metodos para Projeção de Crescimento Populacional </button>
+    </div>
+</form>
 <br /><br />    
-<br /><br />    
+
 
 TRATAMENTO DE ÁGUA PARA ABASTECIMENTO
 <br /><br />    
 
-<form action="/inputs_calha_parshall/" method="post">{% csrf_token %}
+<form action="/inputs_vazões_água/" method="post">{% csrf_token %}
     <div class="button">
-        <button type="submit">Calha Parshall</button>
+        <button type="submit"> Vazões Água </button>
     </div>
 </form>
 <br />
 
-<form action="/inputs_decantador_laminar/" method="post">{% csrf_token %}
+<form action="/inputs_vertedor/" method="post">{% csrf_token %}
     <div class="button">
-        <button type="submit">Decantador Laminar</button>
+        <button type="submit"> Vertedor </button>
+    </div>
+</form>
+<br />
+
+<form action="/inputs_calha_parshall/" method="post">{% csrf_token %}
+    <div class="button">
+        <button type="submit"> Calha Parshall </button>
+    </div>
+</form>
+<br />
+
+<form action="/inputs_floculador_chicaneado/" method="post">{% csrf_token %}
+    <div class="button">
+        <button type="submit"> Floculador Chicaneado </button>
+    </div>
+</form>
+<br />
+
+<form action="/inputs_decantador_alta_taxa/" method="post">{% csrf_token %}
+    <div class="button">
+        <button type="submit"> Decantador Laminar </button>
     </div>
 </form>
 <br />
 
 <form action="/inputs_filtro_rápido_descendente/" method="post">{% csrf_token %}
     <div class="button">
-        <button type="submit"> Filtro Fápido Descendente </button>
+        <button type="submit"> Filtro Rápido Descendente </button>
     </div>
 </form>
 
@@ -51,6 +81,57 @@ TRATAMENTO DE ÁGUA PARA ABASTECIMENTO
 TRATAMENTO DE ÁGUAS RESIDUÁRIAS
 <br /><br />
 
+<form action="/inputs_vazões_esgoto/" method="post">{% csrf_token %}
+    <div class="button">
+        <button type="submit"> Vazões Esgoto </button>
+    </div>
+</form>
+<br />
+
+
+<form action="/inputs_tratamento_preliminar/" method="post">{% csrf_token %}
+    <div class="button">
+        <button type="submit"> Tratamento Preliminar </button>
+    </div>
+</form>
+<br />
+
+<form action="/inputs_decantador_dortmund/" method="post">{% csrf_token %}
+    <div class="button">
+        <button type="submit"> Decantador Dortmund </button>
+    </div>
+</form>
+<br />
+
+<form action="/inputs_decantador_primário/" method="post">{% csrf_token %}
+    <div class="button">
+        <button type="submit"> Decantador Primário </button>
+    </div>
+</form>
+<br />
+
+<form action="/inputs_lagoa_facultativa/" method="post">{% csrf_token %}
+    <div class="button">
+        <button type="submit"> Lagoa Facultativa </button>
+    </div>
+</form>
+<br />
+
+<form action="/inputs_/" method="post">{% csrf_token %}
+    <div class="button">
+        <button type="submit"> Lagoa Anaeróbia Lagoa Facultativa </button>
+    </div>
+</form>
+<br />
+
+<form action="/inputs_lagoa_de_maturação/" method="post">{% csrf_token %}
+    <div class="button">
+        <button type="submit"> Lagoa de Maturação </button>
+    </div>
+</form>
+<br />
+
+
 <form action="/inputs_uasb/" method="post">{% csrf_token %}
     <div class="button">
         <button type="submit"> UASB </button>
@@ -58,5 +139,12 @@ TRATAMENTO DE ÁGUAS RESIDUÁRIAS
 </form>
 <br />
 
+
+<form action="/inputs_lodos_ativados/" method="post">{% csrf_token %}
+    <div class="button">
+        <button type="submit"> Lodos Ativados </button>
+    </div>
+</form>
+<br />
 
 {% endblock %}
