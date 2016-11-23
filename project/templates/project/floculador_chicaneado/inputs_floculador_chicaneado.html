@@ -6,14 +6,85 @@
     
 <form action="/results_floculador_chicaneado/" method="post">{%csrf_token %}     
     <div>
-        <label for=""> : </label>
-        <input type="number" step= min="" max="" id="" name="" value="" />
+        <label for="T"> T: </label>
+        <input type="number" step=0.1 min="5" max="50" id="T" name="T" value="15" />
     </div>
-     em $\mathrm{ }$.
+    Temperatura em $^{\circ}\mathrm{C}$.
     <br /><br />
 
+    <div>
+        <label for="Q"> Q: </label>
+        <input type="number" step=0.001 min="0.01" max="10" id="Q" name="Q" value="0.025" />
+    </div>
+    Vazão em $\mathrm{ m^{3}/s }$.
+    <br /><br />
+
+
+    <div>
+        <label for="G1"> $\mathrm{G_{1}}$: </label>
+        <input type="number" step=0.1 min="1" max="60" id="G1" name="G1" value="40" />
+    </div>
+    Gradiente de mistura 1, em $\mathrm{ s^{-1}}$.
+    <br /><br />
+
+    <div>
+        <label for="G2"> $\mathrm{G_{2}}$: </label>
+        <input type="number" step=0.1 min="1" max="60" id="G2" name="G2" value="30" />
+    </div>
+    Gradiente de mistura 2, em $\mathrm{ s^{-1}}$.
+    <br /><br />
+
+    <div>
+        <label for="G3"> $\mathrm{G_{3}}$: </label>
+        <input type="number" step=0.1 min="1" max="60" id="G3" name="G3" value="20" />
+    </div>
+    Gradiente de mistura 3, em $\mathrm{ s^{-1}}$.
+    <br /><br />    
+    
+    <div>
+        <label for="f"> f: </label>
+        <input type="number" step=0.00001 min="0.00001" max="1" id="f" name="f" value="0.025" />
+    </div>
+    Fator de atrito de Darcy-Weisbach, admensional.
+    <br /><br />    
+
+    <div>
+        <label for="H"> H: </label>
+        <input type="number" step=0.1 min="0.2" max="1.5" id="H" name="H" value="0.8" />
+    </div>
+    Altura do canal, em $\mathrm{m}$.
+    <br /><br />    
+
+    <div>
+        <label for="L"> L: </label>
+        <input type="number" step=0.1 min="1" max="40" id="L" name="L" value="15" />
+    </div>
+    Lagura do decantador, em $\mathrm{m}$.
+    <br /><br />    
+
+    <div>
+        <label for="N"> N: </label>
+        <input type="number" step=1 min="2" max="6" id="N" name="N" value="3" />
+    </div>
+    Numero de trechos.
+    <br /><br />    
+
+    <div>
+        <label for="Tf"> $\mathrm{ T_{f} }$: </label>
+        <input type="number" step=0.1 min="10" max="40" id="Tf" name="Tf" value="20" />
+    </div>
+    Tempo de floculação, em $\mathrm{min}$.
+    <br /><br />    
+
+    <div>
+        <label for="c"> $\mathrm{ c }$: </label>
+        <input type="number" step=1 min="1.5" max="1.5" id="c" name="c" value="1.5" />
+    </div>
+    Número MAGICO ...
+    <br /><br /> 
+
     <div class="button">
-        <button type="submit"> Nome </button>
+        <button type="submit"> Dimensionar Floculador Chicaneado </button>
     </div>
 </form>
 

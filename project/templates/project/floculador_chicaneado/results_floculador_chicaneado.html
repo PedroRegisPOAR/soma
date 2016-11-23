@@ -4,32 +4,308 @@
 
 	<p class="serif" align="justify" >
 	<div align="left">
-	1. Dados:
+	1. Dados: $\mathrm{Q = {{Q}} \ m^{3}/s }$, $\mathrm{T_{f} = {{Tf}} \ min }$, $\mathrm{L = {{L}} \ m }$, $\mathrm{T = {{T}} ^{\circ}\mathrm{C} }$, $\mathrm{\mu = {{mu}} \ N \! \cdot \! s \cdot m^{-2} }$, $\mathrm{\rho = {{rho}} \ Kg/m^{3} }$, $\mathrm{G_{1} = {{G1}} \ s^{-1} }$, $\mathrm{G_{2} = {{G2}} \ s^{-1} }$, $\mathrm{G_{3} = {{G3}} \ s^{-1} }$, $\mathrm{f = {{f}} }$ . 
 	</p>
 
+
+	Calculo do volume:
+	<br /><br />
+	
 	<center>
 		$
 			\mathrm
 			{
-
+				V = Q T_{f}
 			} 
 			\implies
 			\mathrm
 			{
-
+				V = {{Q}} m^{3}/s {{Tf}} min \cdot \frac{60s}{1min}
 			} 
 			\implies 
 			\fbox
 			{
 				$\mathrm
 				{
+					V = {{V}} \ m^{3}
+				}$
+			}
+		$  
+	</center>
+	<br /><br />
 
+
+	Calculo da área:
+	<br /><br />
+	
+	<center>
+		$
+			\mathrm
+			{
+				A = HL
+			} 
+			\implies
+			\mathrm
+			{
+				A = {{H}}m \ {{L}} \ m
+			} 
+			\implies 
+			\fbox
+			{
+				$\mathrm
+				{
+					A = {{A}} \ m^{2}
+				}$
+			}
+		$  
+	</center>
+	<br /><br />
+
+	Calculo da largura do canal:
+	<br /><br />
+	
+	<center>
+		$
+			\mathrm
+			{
+				a = \dfrac{V}{NA}
+			} 
+			\implies
+			\mathrm
+			{
+				a = \dfrac{ {{V}} \ m^{3} }{ {{N}} \cdot {{A}} m^{2} } \ m
+			} 
+			\implies 
+			\fbox
+			{
+				$\mathrm
+				{
+					a = {{a}} \ m
+				}$
+			}
+		$  
+	</center>
+	<br /><br />
+
+	Canais entre chicanas:
+	<br /><br />	
+
+	Canal 1: $\mathrm{ G_{1} = {{G1}} \ s^{-1}}$
+	<br /><br />	
+	<center>
+		$
+			\mathrm
+			{
+				m_{1} = \sqrt[3]{\dfrac{18\mu T }{\rho \left ( 13 + 9f \right )} \left ( \dfrac{AG_{1}}{Q} \right )^{2}\ }
+			} 
+			\implies
+			\mathrm
+			{
+				m_{1} = \sqrt[3]{\dfrac{18 \cdot {{mu}} \cdot {{T}} }{ {{rho}} \left ( 13 + 9\cdot {{f}} \right )} \left ( \dfrac{ {{A}} \cdot {{G1}} }{ {{Q}} } \right )^{2}\ }
+			} 
+			\implies 
+			\fbox
+			{
+				$\mathrm
+				{
+					m_{1} = {{m1}} \ m 
+				}$
+			}
+		$  
+	</center>
+	<br /><br />
+
+	Canal 2: $\mathrm{ G_{2} = {{G2}} \ s^{-1}}$
+	<br /><br />	
+	<center>
+		$
+			\mathrm
+			{
+				m_{2} = \sqrt[3]{\dfrac{18\mu T }{\rho \left ( 13 + 9f \right )} \left ( \dfrac{AG_{2}}{Q} \right )^{2}\ }
+			} 
+			\implies
+			\mathrm
+			{
+				m_{2} = \sqrt[3]{\dfrac{18 \cdot {{mu}} \cdot {{T}} }{ {{rho}} \left ( 13 + 9\cdot {{f}} \right )} \left ( \dfrac{ {{A}} \cdot {{G2}} }{ {{Q}} } \right )^{2}\ }
+			} 
+			\implies 
+			\fbox
+			{
+				$\mathrm
+				{
+					m_{2} = {{m2}} \ m 
 				}$
 			}
 		$  
 	</center>
 	<br /><br />
 		
+	Canal 3: $\mathrm{ G_{3} = {{3}} \ s^{-1}}$
+	<br /><br />	
+	<center>
+		$
+			\mathrm
+			{
+				m_{3} = \sqrt[3]{\dfrac{18\mu T }{\rho \left ( 13 + 9f \right )} \left ( \dfrac{AG_{3}}{Q} \right )^{2}\ }
+			} 
+			\implies
+			\mathrm
+			{
+				m_{3} = \sqrt[3]{\dfrac{18 \cdot {{mu}} \cdot {{T}} }{ {{rho}} \left ( 13 + 9\cdot {{f}} \right )} \left ( \dfrac{ {{A}} \cdot {{G3}} }{ {{Q}} } \right )^{2}\ }
+			} 
+			\implies 
+			\fbox
+			{
+				$\mathrm
+				{
+					m_{3} = {{m3}} \ m 
+				}$
+			}
+		$  
+	</center>
+	<br /><br />		
+
+
+	<center>
+		$
+			\mathrm
+			{
+				e_{1} = \dfrac{L}{m_{1a}}
+			} 
+			\implies
+			\mathrm
+			{
+				e_{1} = \dfrac{ {{L}} \ m }{ {{m1a}} }
+			} 
+			\implies 
+			\fbox
+			{
+				$\mathrm
+				{
+					e_{1} = {{e1}} \ m
+				}$
+			}
+		$  
+	</center>
+	<br /><br />
+
+	<center>
+		$
+			\mathrm
+			{
+				e_{2} = \dfrac{L}{m_{2a}}
+			} 
+			\implies
+			\mathrm
+			{
+				e_{2} = \dfrac{ {{L}} \ m }{ {{m2a}} }
+			} 
+			\implies 
+			\fbox
+			{
+				$\mathrm
+				{
+					e_{2} = {{e2}} \ m  
+				}$
+			}
+		$  
+	</center>
+	<br /><br />
+
+	<center>
+		$
+			\mathrm
+			{
+				e_{3} = \dfrac{L}{m_{3a}}
+			} 
+			\implies
+			\mathrm
+			{
+				e_{3} = \dfrac{ {{L}} \ m }{ {{m3a}} }
+			} 
+			\implies 
+			\fbox
+			{
+				$\mathrm
+				{
+					e_{3} = {{e3}} \ m
+				}$
+			}
+		$  
+	</center>
+	<br /><br />
+
+
+	<center>
+		$
+			\mathrm
+			{
+				E_{1} = ce_{1}
+			} 
+			\implies
+			\mathrm
+			{
+				E_{1} = {{c}} \cdot {{e1}}
+			} 
+			\implies 
+			\fbox
+			{
+				$\mathrm
+				{
+					E_{1} = {{E1}} \ m
+				}$
+			}
+		$  
+	</center>
+	<br /><br />
+
+
+	<center>
+		$
+			\mathrm
+			{
+				E_{2} = ce_{2}
+			} 
+			\implies
+			\mathrm
+			{
+				E_{2} = {{c}} \cdot {{e2}}
+			} 
+			\implies 
+			\fbox
+			{
+				$\mathrm
+				{
+					E_{2} = {{E2}} \ m
+				}$
+			}
+		$  
+	</center>
+	<br /><br />
+
+	<center>
+		$
+			\mathrm
+			{
+				E_{3} = ce_{3}
+			} 
+			\implies
+			\mathrm
+			{
+				E_{3} = {{c}} \cdot {{e3}}
+			} 
+			\implies 
+			\fbox
+			{
+				$\mathrm
+				{
+					E_{3} = {{E3}} \ m
+				}$
+			}
+		$  
+	</center>
+	<br /><br />
+
 
 <!-- <p class="serif"> <center> 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59  </p> 
 

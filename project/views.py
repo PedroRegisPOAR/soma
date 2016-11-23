@@ -8,6 +8,8 @@ from project.calha_parshall.calha_parshall import CalhaParshall
 from project.decantador_laminar.decantador_laminar import DecantadorLaminar
 from project.uasb.uasb import factory_UASB, uasb_dict_inputs
 
+from project.floculador_chicaneado.floculador_chicaneado import factory_FloculadorChicaneado, dict_inputs_FloculadorChicaneado
+
 
 
 
@@ -113,7 +115,13 @@ def inputs_floculador_chicaneado(request):
 
 def results_floculador_chicaneado(request):
     if request.method == "POST":
-        d = {}
+        for key in dict_inputs_FloculadorChicaneado:
+            dict_inputs_FloculadorChicaneado[key]=float(request.POST[key])
+
+        FloculadorChicaneado = factory_FloculadorChicaneado(dict_inputs_FloculadorChicaneado)
+        fc = FloculadorChicaneado()
+        fc.dimensionar()      
+        d = fc.out
     else:
         inputs_floculador_chicaneado(request)        
     return render(request,'project/floculador_chicaneado/results_floculador_chicaneado.html', d)
