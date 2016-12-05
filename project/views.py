@@ -60,7 +60,7 @@ def results_triângulo(request):
 def pdf_view(request):
     with open('project/triângulo/triangulo.pdf', 'rb') as pdf:
         response = HttpResponse(pdf.read(),content_type='application/pdf')
-        response['Content-Disposition'] = 'filename=some_file.pdf'
+        response['Content-Disposition'] = 'inline; filename=some_file.pdf'
         return response
 
 def inputs_fator_de_atrito(request):     
