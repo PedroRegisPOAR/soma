@@ -166,7 +166,8 @@ class CalhaParshall():
         d=dict((name, getattr(self, name)) for name in dir(self) 
             if not name.startswith('__') and 
             not callable(getattr(self,name)) and 
-            type(getattr(self,name))==float ) 
+            type(getattr(self,name))==float or
+            type(getattr(self,name))==bool) 
         self.d=d
 
     def arredondamento(self):
@@ -249,6 +250,7 @@ class CalhaParshall():
                 self.make_dict()
                 self.arredondamento()
                 self.dimensionado_ok=True
+#                print("passou no if")
 #                print("i= ",i)
 #                print(self.Gm)
                 
@@ -258,21 +260,57 @@ class CalhaParshall():
 
 
 
-"""
-W=2440/1000
-Q=1200/1000
-g=9.807
-rho=998.68
-mu=0.001071
-"""                  
+
+            
+Q = 0.12
+g = 9.81
+T = 17.5
+GmMin = 1050
+GmMax = 2000
+FMin = 4.5               
 #######
 
                   
-#cp=CalhaParshall(W,Q,g,rho,mu)
+cp=CalhaParshall(Q, g, T, GmMin, GmMax, FMin)
 #cp.dimensiona()
-#cp.inteligente()
+cp.dimensiona_inteligente()
 
-"""
+print("dimensionado_ok = ", cp.dimensionado_ok)
+
+'''
+print("W = ", cp.d['W'])
+print("C = ", cp.d['C'])
+print("D = ", cp.d['D'])
+print("K = ", cp.d['K'])
+print("N = ", cp.d['N'])
+
+print("k = ", cp.d['k'])
+print("n = ", cp.d['n'])
+
+print("H0= ", cp.d['H0'])
+print("D0= ", cp.d['D0'])
+print("U0= ", cp.d['U0'])
+
+print("q= ", cp.d['q'])
+print("E0= ", cp.d['E0'])
+print("U1= ", cp.d['U1'])
+print("h1= ", cp.d['h1'])
+
+print("F1= ", cp.d['F1'])
+
+print("h2= ", cp.d['h2'])
+print("h3= ", cp.d['h3'])
+print("U3= ", cp.d['U3'])
+
+print("L= ", cp.d['L'])
+print("h= ", cp.d['h'])
+
+print("T= ", cp.d['Tm'])
+print("G= ", cp.d['Gm'])
+'''
+
+
+'''
 print("W = ", cp.W)
 print("C = ", cp.C)
 print("D = ", cp.D)
@@ -302,5 +340,5 @@ print("h= ", cp.h)
 
 print("T= ", cp.Tm)
 print("G= ", cp.Gm)
-"""
+'''
 

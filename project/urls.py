@@ -8,9 +8,21 @@ urlpatterns = [
     url(r'^inputs_bhaskara', views.inputs_bhaskara, name="inputs_bhaskara"),
     url(r'^results_bhaskara/', views.results_bhaskara, name='results_bhaskara'),    
 	
+    url(r'^inputs_triângulo', views.inputs_triângulo, name="inputs_triângulo"),
+    url(r'^results_triângulo/', views.results_triângulo, name='results_triângulo'),    
+    url(r'^pdf_view/', views.pdf_view, name='pdf_view'),    
+
 	url(r'^inputs_fator_de_atrito/', views.inputs_fator_de_atrito, name="inputs_fator_de_atrito"),
 	url(r'^results_fator_de_atrito/', views.results_fator_de_atrito, name='results_fator_de_atrito'),	
         
+
+#	url(r'^inputs_viscosidade_absoluta/', views.inputs_viscosidade_absoluta, name="inputs_viscosidade_absoluta"),
+#	url(r'^results_viscosidade_absoluta/', views.results_viscosidade_absoluta, name='results_viscosidade_absoluta'),	
+
+#	url(r'^inputs_densidade_água/', views.inputs_densidade_água, name="inputs_densidade_água"),
+#	url(r'^results_densidade_água/', views.results_densidade_água, name='results_densidade_água'),	
+
+
     url(r'^inputs_crescimento_populacional', views.inputs_crescimento_populacional, name='inputs_crescimento_populacional'),
     url(r'^results_crescimento_populacional/', views.results_crescimento_populacional, name='results_crescimento_populacional'),
 

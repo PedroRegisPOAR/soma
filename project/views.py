@@ -1,15 +1,20 @@
 # -*- coding: utf-8 -*-
+
+from django.http import HttpResponse
+
 from django.shortcuts import render
 
 from project.bhaskara.bhaskara import Bhaskara
 from project.fator_de_atrito.fator_atrito_colebrock import solução_Colebrook_White
+
+from project.triângulo.triângulo import generate_pdf
+
 
 from project.calha_parshall.calha_parshall import CalhaParshall
 from project.decantador_laminar.decantador_laminar import DecantadorLaminar
 from project.uasb.uasb import factory_UASB, uasb_dict_inputs
 
 from project.floculador_chicaneado.floculador_chicaneado import factory_FloculadorChicaneado, dict_inputs_FloculadorChicaneado
-
 
 
 
@@ -33,6 +38,30 @@ def results_bhaskara(request):
         inputs_bhaskara(request)        
     return render(request,'project/bhaskara/results_bhaskara.html', dic)
 
+
+def inputs_triângulo(request):     
+    return render(request,'project/triângulo/inputs_triângulo.html')
+
+def results_triângulo(request):
+    if request.method == "POST":
+        a=str(request.POST["a"])
+        b=str(request.POST["b"])
+        c=str(request.POST["c"])
+
+#        d = {'a':a,'b':b, 'c':c}
+
+#        generate_pdf('ex03', d)
+#        dic=eq_bhaskara.out
+    else:
+        inputs_triângulo(request)        
+    return render(request,'project/triângulo/results_triângulo.html')
+
+#   http://stackoverflow.com/questions/11779246/how-to-show-a-pdf-file-in-a-django-view/29718326#29718326
+def pdf_view(request):
+    with open('project\\triângulo\\triangulo.pdf', 'rb') as pdf:
+        response = HttpResponse(pdf.read(),content_type='application/pdf')
+        response['Content-Disposition'] = 'filename=some_file.pdf'
+        return response
 
 def inputs_fator_de_atrito(request):     
     return render(request,'project/fator_de_atrito/inputs_fator_de_atrito.html')
@@ -59,6 +88,11 @@ def results_crescimento_populacional(request):
     else:
         inputs_crescimento_populacional(request)        
     return render(request,'project/crescimento_populacional/results_crescimento_populacional.html', d)
+
+#
+def inputs_fator_de_atrito(request):     
+    return render(request,'project/viscosidade_absoluta/inputs_fator_de_atrito.html')
+    
 
 
 def inputs_vazões_água(request):     

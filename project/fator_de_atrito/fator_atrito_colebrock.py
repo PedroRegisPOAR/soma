@@ -32,6 +32,10 @@ def result_colebrook_white(epsilon, Re, D):
 	return None #{'epsilon': epsilon, 'Re':Re, 'D':D, 'f':res.x[0]}
 '''
 
+
+def ftest(x):
+	return x**2
+
 def métodoDaBisseção(a, b, Precisão, MáximoIterações, função, *args):
     Erro=1.0
     x=a

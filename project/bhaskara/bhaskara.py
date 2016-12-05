@@ -1,4 +1,5 @@
 
+
 class Bhaskara():
     __slots__ = ("a", "b", "c",
         "out", "delta", "sqrt_delta", "r1", "r2")
@@ -67,3 +68,6 @@ class Bhaskara():
         self.roots()
         self.make_out()
         self.formatar()
+
+
+

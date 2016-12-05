@@ -4,7 +4,43 @@
 
 
     
-<form action="/results_vertedor/" method="post">{%csrf_token %}     
+<form action="/results_vertedor/" method="post">{%csrf_token %}  
+
+    <div>
+        <label for="Q"> $\mathrm{Q}$: </label>
+        <input type="number" step= min="0.001" max="2" id="Q" name="Q" value="0.08 " />
+    </div>
+     Vazão em $\mathrm{m^{3}/s}$.
+    <br /><br />
+
+    <div>
+        <label for="T"> $\mathrm{T}$: </label>
+        <input type="number" step= min="0.0000001" max="0.1" id="T" name="T" value="0.001" />
+    </div>
+     em $\mathrm{}$.
+    <br /><br />
+
+    <div>
+        <label for=""> : </label>
+        <input type="number" step= min="" max="" id="" name="" value="" />
+    </div>
+     em $\mathrm{ }$.
+    <br /><br />
+
+    <div>
+        <label for=""> : </label>
+        <input type="number" step= min="" max="" id="" name="" value="" />
+    </div>
+     em $\mathrm{ }$.
+    <br /><br />
+
+    <div>
+        <label for=""> : </label>
+        <input type="number" step= min="" max="" id="" name="" value="" />
+    </div>
+     em $\mathrm{ }$.
+    <br /><br />
+
     <div>
         <label for=""> : </label>
         <input type="number" step= min="" max="" id="" name="" value="" />
