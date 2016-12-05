@@ -58,7 +58,7 @@ def results_triângulo(request):
 
 #   http://stackoverflow.com/questions/11779246/how-to-show-a-pdf-file-in-a-django-view/29718326#29718326
 def pdf_view(request):
-    with open('triângulo/triangulo.pdf', 'rb') as pdf:
+    with open('soma/project/templates/project/triângulo/triangulo.pdf', 'rb') as pdf:
         response = HttpResponse(pdf.read(),content_type='application/pdf')
         response['Content-Disposition'] = 'inline; filename=some_file.pdf'
         return response
