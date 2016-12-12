@@ -7,7 +7,7 @@ from django.conf import settings
 
 
 def write_variables(path, fname, d):
-    s = 'project/templates/project/triangulo/'    
+    s = 'soma/project/templates/project/triangulo/'    
     f = open(s + fname + '.tex', 'w')
 #    f = open(os.path.join(os.path.dirname(__file__), fname + '.tex'), 'w')
     

@@ -78,8 +78,8 @@ def pdf_view(request):
     path = 'project/templates/project/triangulo/'
     gerar_pdf(path, pdf_name, d)
     
-#    s = 'soma/project/templates/project/triangulo/triangulo.pdf'
-    s = 'project/templates/project/triangulo/gerar_pdf_triangulo.pdf'
+    s = 'soma/project/templates/project/triangulo/triangulo.pdf'
+#    s = 'project/templates/project/triangulo/gerar_pdf_triangulo.pdf'
     with open(s, 'rb') as pdf:
         response = HttpResponse(pdf.read(),content_type='application/pdf')
         response['Content-Disposition'] = 'inline; filename=some_file.pdf'
