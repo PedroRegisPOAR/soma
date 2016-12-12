@@ -31,7 +31,8 @@ def gerar_pdf(path, pdf_name, d):
 #    print("$$$$", os.getcwd())
 
 #    os.chdir(os.path.join(os.path.dirname(__file__)))
-    subprocess.call('pdflatex ' + pdf_name + '.tex')
+#    subprocess.call('pdflatex ' + pdf_name + '.tex')
+    subprocess.call(['pdflatex', pdf_name])    
 #    subprocess.check_call('pdflatex ' + pdf_name + '.tex')
     
     os.chdir(initial_path)
