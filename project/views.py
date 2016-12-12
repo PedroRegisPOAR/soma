@@ -7,7 +7,9 @@ from django.shortcuts import render
 from project.bhaskara.bhaskara import Bhaskara
 from project.fator_de_atrito.fator_atrito_colebrock import solução_Colebrook_White
 
-from project.triângulo.triângulo import generate_pdf
+#from project.triangulo.triangulo import generate_pdf
+
+from project.gerar_pdf.gerar_pdf import gerar_pdf
 
 
 from project.calha_parshall.calha_parshall import CalhaParshall
@@ -39,29 +41,50 @@ def results_bhaskara(request):
     return render(request,'project/bhaskara/results_bhaskara.html', dic)
 
 
-def inputs_triângulo(request):     
-    return render(request,'project/triângulo/inputs_triângulo.html')
+def inputs_triangulo(request):     
+    return render(request,'project/triangulo/inputs_triangulo.html')
 
-def results_triângulo(request):
+def results_triangulo(request):
     if request.method == "POST":
         a=str(request.POST["a"])
         b=str(request.POST["b"])
         c=str(request.POST["c"])
 
-#        d = {'a':a,'b':b, 'c':c}
+        d = {'a':a,'b':b, 'c':c}
+#        d = { 'a':'12'}
 
 #        generate_pdf('ex03', d)
+        path = 'project\\templates\\project\\triangulo\\'
+        pdf_name = 'gerar_pdf_triangulo'
+        d = { 'a':'12'}
+        gerar_pdf(path, pdf_name, d)
+
+
+#        gerar_pdf(path, pdf_name, None)
 #        dic=eq_bhaskara.out
     else:
-        inputs_triângulo(request)        
-    return render(request,'project/triângulo/results_triângulo.html')
+        inputs_triangulo(request)        
+    return render(request,'project/triangulo/results_triangulo.html')
 
 #   http://stackoverflow.com/questions/11779246/how-to-show-a-pdf-file-in-a-django-view/29718326#29718326
 def pdf_view(request):
-    with open('soma/project/templates/project/triângulo/triangulo.pdf', 'rb') as pdf:
+    a=str(request.POST["a"])
+    b=str(request.POST["b"])
+    c=str(request.POST["c"])
+
+    d = {'a':a,'b':b, 'c':c}
+
+    pdf_name = 'gerar_pdf_triangulo'
+    path = 'project/templates/project/triangulo/'
+    gerar_pdf(path, pdf_name, d)
+    
+    s = 'soma/project/templates/project/triangulo/triangulo.pdf'
+#    s = 'project/templates/project/triangulo/gerar_pdf_triangulo.pdf'
+    with open(s, 'rb') as pdf:
         response = HttpResponse(pdf.read(),content_type='application/pdf')
         response['Content-Disposition'] = 'inline; filename=some_file.pdf'
         return response
+
 
 def inputs_fator_de_atrito(request):     
     return render(request,'project/fator_de_atrito/inputs_fator_de_atrito.html')

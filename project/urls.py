@@ -8,8 +8,8 @@ urlpatterns = [
     url(r'^inputs_bhaskara', views.inputs_bhaskara, name="inputs_bhaskara"),
     url(r'^results_bhaskara/', views.results_bhaskara, name='results_bhaskara'),    
 	
-    url(r'^inputs_triângulo', views.inputs_triângulo, name="inputs_triângulo"),
-    url(r'^results_triângulo/', views.results_triângulo, name='results_triângulo'),    
+    url(r'^inputs_triangulo', views.inputs_triangulo, name="inputs_triangulo"),
+    url(r'^results_triangulo/', views.results_triangulo, name='results_triangulo'),    
     url(r'^pdf_view/', views.pdf_view, name='pdf_view'),    
 
 	url(r'^inputs_fator_de_atrito/', views.inputs_fator_de_atrito, name="inputs_fator_de_atrito"),
