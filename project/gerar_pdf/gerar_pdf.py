@@ -27,7 +27,7 @@ def gerar_pdf(path, pdf_name, d):
     fname = 'constantes'
     write_variables(path, fname, d)
 #    os.chdir(path)
-    os.chdir('project/templates/project/triangulo')
+#    os.chdir('project/templates/project/triangulo')
 
 #    os.chdir(os.path.join(os.path.dirname(__file__)))
 #    subprocess.call('pdflatex ' + pdf_name + '.tex')
