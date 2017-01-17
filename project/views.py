@@ -18,6 +18,7 @@ from project.uasb.uasb import factory_UASB, uasb_dict_inputs
 
 from project.floculador_chicaneado.floculador_chicaneado import factory_FloculadorChicaneado, dict_inputs_FloculadorChicaneado
 
+from project.crescimento_populacional.crescimento_populacional import fexemplo
 
 
 def index(request):
@@ -107,6 +108,11 @@ def inputs_crescimento_populacional(request):
 
 def results_crescimento_populacional(request):
     if request.method == "POST":
+        # Chamada ao códogo que cria a imagem.
+        x = float(request.POST["t0"])
+        y = float(request.POST["t1"])
+        fexemplo(x, y)
+
         d = {}
     else:
         inputs_crescimento_populacional(request)        

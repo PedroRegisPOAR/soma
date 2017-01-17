@@ -5,16 +5,88 @@
 
     
 <form action="/results_crescimento_populacional/" method="post">{%csrf_token %}     
-    <div>
-        <label for=""> : </label>
-        <input type="number" step= min="" max="" id="" name="" value="" />
-    </div>
-     em $\mathrm{ }$.
-    <br /><br />
 
+<table style="width:50%">
+  	<tr>
+        <td>
+			<div>
+			    <label for=""> $t_{0}$: </label>
+			     <input type="number" step= min="0" max="" id="" name="t0" value="1" />
+			</div> 
+    	</td>
+    	<td>
+			<div>
+			    <label for=""> $p_{0}$: </label>
+			    <input type="number" step= min="1000" max="1000000" id="" name="p0" value="" />
+			</div>     	
+    	</td>
+  	</tr>
+  	<tr>
+        <td>
+			<div>
+			    <label for=""> $t_{1}$: </label>
+			     <input type="number" step= min="" max="" id="" name="t1" value="2" />
+			</div> 
+    	</td>
+    	<td>
+			<div>
+			    <label for=""> $p_{1}$: </label>
+			    <input type="number" step= min="1000" max="1000000" id="" name="p1" value="" />
+			</div>     	
+    	</td>
+  	</tr>
+  	<tr>
+        <td>
+			<div>
+			    <label for=""> $t_{2}$: </label>
+			     <input type="number" step= min="" max="" id="" name="t2" value="2010" />
+			</div> 
+    	</td>
+    	<td>
+			<div>
+			    <label for=""> $p_{2}$: </label>
+			    <input type="number" step= min="1000" max="1000000" id="" name="p2" value="" />
+			</div>     	
+    	</td>
+  	</tr>  	
+</table>
+
+
+<br /><br />
+
+
+<table style="width:50%">
+  	<tr>
+        <td>
+			<div>
+			    <label for=""> $t_{3}$: </label>
+			     <input type="number" step= min="" max="" id="" name="t3" value="2017" />
+			</div> 
+    	</td>
+  	</tr>  	
+  	<tr>
+        <td>
+			<div>
+			    <label for=""> $t_{4}$: </label>
+			     <input type="number" step= min="" max="" id="" name="t4" value="2027" />
+			</div> 
+    	</td>
+  	</tr>  	
+  	<tr>
+        <td>
+			<div>
+			    <label for=""> $t_{5}$: </label>
+			     <input type="number" step= min="" max="" id="" name="t5" value="2037" />
+			</div> 
+    	</td>
+  	</tr>  	
+</table>
+
+	<br /><br />
+	<br /><br />
 
     <div class="button">
-        <button type="submit"> Nome </button>
+        <button type="submit"> Projetar População </button>
     </div>
 </form>
 
