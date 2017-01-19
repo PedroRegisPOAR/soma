@@ -106,17 +106,63 @@ def results_fator_de_atrito(request):
 def inputs_crescimento_populacional(request):     
     return render(request,'project/crescimento_populacional/inputs_crescimento_populacional.html')
 
+"""
 def results_crescimento_populacional(request):
+    import random
+    import django
+    import datetime
+
+    from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+    from matplotlib.figure import Figure
+    from matplotlib.dates import DateFormatter
+
+    fig=Figure()
+    ax=fig.add_subplot(111)
+    x=[]
+    y=[]
+    now=datetime.datetime.now()
+    delta=datetime.timedelta(days=1)
+    for i in range(10):
+        x.append(now)
+        now+=delta
+        y.append(random.randint(0, 1000))
+    ax.plot_date(x, y, '-')
+    ax.xaxis.set_major_formatter(DateFormatter('%Y-%m-%d'))
+    fig.autofmt_xdate()
+    canvas=FigureCanvas(fig)
+    response=django.http.HttpResponse(content_type='image/png')
+    
+    canvas.print_png('project/crescimento_populacional/results_crescimento_populacional.html')
+    canvas.print_png(response)
+    return response
+"""
+    
+def results_crescimento_populacional(request):
+    path_imagem = 'static/crescimento_populacional/nome_figura.png'
+    #image_data = open(path, "rb").read()
+    #return HttpResponse(image_data, content_type="image/png")
+    #d = {"imagem":image_data}
+    path_page = 'project/crescimento_populacional/results_crescimento_populacional.html'
+    return render(request, path_page, {"imagem":path_imagem})
+
+"""
     if request.method == "POST":
-        # Chamada ao códogo que cria a imagem.
         x = float(request.POST["t0"])
         y = float(request.POST["t1"])
-        fexemplo(x, y)
+        #Cria a imagem         
 
-        d = {}
+        imagem = fexemplo(x, y)
+        response = HttpResponse(content_type="imagem/png")
+        imagem.savefig(response, format='png')        
     else:
-        inputs_crescimento_populacional(request)        
-    return render(request,'project/crescimento_populacional/results_crescimento_populacional.html', d)
+        inputs_crescimento_populacional(request)    
+    #return response
+    return render(response,'project/crescimento_populacional/results_crescimento_populacional.html',{})
+"""
+
+#    path = 'project/templates/project/crescimento_populacional/nome_figura.png'
+#    imagem = open(path)    
+#    return HttpResponse(render(request,'project/crescimento_populacional/results_crescimento_populacional.html',{}))
 
 #
 def inputs_fator_de_atrito(request):     
