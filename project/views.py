@@ -20,6 +20,7 @@ from project.floculador_chicaneado.floculador_chicaneado import factory_Floculad
 
 from project.crescimento_populacional.crescimento_populacional import fexemplo
 
+from project.crescimento_populacional.crescimento_populacional import factory_PP, ppinit
 
 def index(request):
     return render(request, "project/home.html")
@@ -136,7 +137,8 @@ def results_crescimento_populacional(request):
     canvas.print_png(response)
     return response
 """
-    
+   
+"""    
 def results_crescimento_populacional(request):
     path_imagem = 'static/crescimento_populacional/nome_figura.png'
     #image_data = open(path, "rb").read()
@@ -144,6 +146,40 @@ def results_crescimento_populacional(request):
     #d = {"imagem":image_data}
     path_page = 'project/crescimento_populacional/results_crescimento_populacional.html'
     return render(request, path_page, {"imagem":path_imagem})
+"""
+
+
+def results_crescimento_populacional(request):
+    path_imagem = 'static/crescimento_populacional/nome_figura.png'
+    #image_data = open(path, "rb").read()
+    #return HttpResponse(image_data, content_type="image/png")
+    #d = {"imagem":image_data}
+    path_page = 'project/crescimento_populacional/results_crescimento_populacional.html'
+    x = float(request.POST["t0"])
+    y = float(request.POST["t1"])
+#    print("x ", x)
+#    print("y ", y)
+#    fexemplo(x, y)
+    '''
+    if request.method == "POST":
+
+        for key in ppinit:
+            ppinit[key]=float(request.POST[key])
+
+        PP=factory_PP(pp_dict_inputs)
+#        pp=PP()
+#        pp.dimensionar()      
+#        d=pp.out
+
+    else:
+        inputs_vertedor(request)        
+    return render(request,'project/vertedor/results_vertedor.html', d)
+    '''
+
+
+    return render(request, path_page, {"imagem":path_imagem})
+
+
 
 """
     if request.method == "POST":
@@ -462,6 +498,7 @@ def results_lodos_ativados(request):
     else:
         inputs_lodos_ativados(request)        
     return render(request,'project/lodos_ativados/results_lodos_ativados.html', d)
+
 
 
 
