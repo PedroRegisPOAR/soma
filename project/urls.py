@@ -23,8 +23,8 @@ urlpatterns = [
 #	url(r'^results_densidade_água/', views.results_densidade_água, name='results_densidade_água'),	
 
 
-    url(r'^inputs_crescimento_populacional', views.inputs_crescimento_populacional, name='inputs_crescimento_populacional'),
-    url(r'^results_crescimento_populacional/', views.results_crescimento_populacional, name='results_crescimento_populacional'),
+    url(r'^inputs_projeção_populacional', views.inputs_projeção_populacional, name='inputs_projeção_populacional'),
+    url(r'^results_projeção_populacional/', views.results_projeção_populacional, name='results_projeção_populacional'),
 
 
 	url(r'^inputs_vazões_água/', views.inputs_vazões_água, name='inputs_vazões_água'),

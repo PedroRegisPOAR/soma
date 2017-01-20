@@ -32,6 +32,11 @@
 	<br /><br />
 -->
 
+<p class="serif" align="justify" >
+<div align="left">
+1. Teste
+</p>
+
 <h1> Meu template </h1>
 
 <!--
@@ -40,15 +45,29 @@
 <img src="{% static "crescimento_populacional/nome_figura.png" %}" alt="My image"/>
 <img src={{imagem}}>		
 {% load static %}
+
+
 -->
 
+<center>
 {% load static %}
-<img src="{% static "crescimento_populacional/nome_figura.png" %}" alt="My image"/>
+<img src="{% static "projeção_populacional/projeção_aritmética.png" %}" alt="My image"/>
+</center>
 
+<center>
+{% load static %}
+<img src="{% static "projeção_populacional/projeção_geométrica.png" %}" alt="My image"/>
+</center>
 
+<center>
+{% load static %}
+<img src="{% static "projeção_populacional/taxa_decrescente.png" %}" alt="My image"/>
+</center>
 
-
-
+<center>
+{% load static %}
+<img src="{% static "projeção_populacional/crescimento_logístico.png" %}" alt="My image"/>
+</center>
 
 
 {% endblock %}

@@ -1,9 +1,15 @@
+import math
 import os
-import matplotlib
+import matplotlib 
+import numpy as np
+
+# http://stackoverflow.com/questions/27147300/how-to-clean-images-in-python-django
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-import numpy as np
+from matplotlib.legend_handler import HandlerLine2D
+
+
 
 
 
@@ -187,7 +193,7 @@ class CrescimentoPopulacional():
         self.criaGráfico(self.x_ajuste, self.y_CL_ajuste, '-', self.x_censo, self.y_censo, 'o')                        
 '''
 
-'''
+
 ppinit = {	
 		't0':None,
 		't1':None,
@@ -227,6 +233,7 @@ ppresults = {
 	    'y_CL': None,				
 		'x_censo': None,
 	    'y_censo': None, 		        	
+	    'x_ajuste': None,
 	    'y_PA_ajuste': None,		
 	    'y_PG_ajuste': None,		
 	    'y_TD_ajuste': None,		
@@ -322,22 +329,32 @@ class PP_Parte3():
 class PP_Parte4():
     __slots__=()	
 
-    def criaGráfico(self, x_projeção, y_projeção, ls_projeção, x_censo, y_censo, ls_censo):
-        x = x_projeção + x_censo
-        y = y_projeção + y_censo
+    def criaGráfico(self, image_name, label_image, path, x_projeção, y_projeção,
+    				ls_projeção, x_censo, y_censo, ls_censo):
+    	x = x_projeção + x_censo
+    	y = y_projeção + y_censo
+    	p = 0.005
+    	x_min = min(x) - p*( (max(x)**2 + min(x)**2)**(1/2) )
+    	y_min = min(y) - p*( (max(y)**2 + min(y)**2)**(1/2) )
+    	x_max = max(x) + p*( (max(x)**2 + min(x)**2)**(1/2) )
+    	y_max = max(y) + p*( (max(y)**2 + min(y)**2)**(1/2) )
 
-        p = 0.005
-        x_min = min(x) - p*( (max(x)**2 + min(x)**2)**(1/2) )
-        y_min = min(y) - p*( (max(y)**2 + min(y)**2)**(1/2) )
-        x_max = max(x) + p*( (max(x)**2 + min(x)**2)**(1/2) )
-        y_max = max(y) + p*( (max(y)**2 + min(y)**2)**(1/2) )
+    	plt.axis([x_min, x_max, y_min, y_max])
+    	line1, = plt.plot(x_projeção, y_projeção, ls_projeção, color='blue', label=label_image)
+    	line2, = plt.plot(x_censo, y_censo, ls_censo, color='green', label='Censo')
+    	
+    	plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
+           ncol=2, mode="expand", borderaxespad=0.)
 
-        plt.axis([x_min, x_max, y_min, y_max])
+    	# Truque para mudar o lugar onde a figura será criada.
+    	initial_path = os.getcwd()
+    	os.chdir(path)
+    	plt.savefig(image_name)
+    	plt.close()
+#    	plt.show()
+    	# Não sei se isso é realmente necessario.
+    	os.chdir(initial_path)
 
-        plt.plot(x_projeção, y_projeção, ls_projeção)
-        plt.plot(x_censo, y_censo, ls_censo)
-
-        plt.show()
 
 
 class Extras():
@@ -356,7 +373,7 @@ class Extras():
 
 class PP_Main():
 	__slots__=()
-	def projeta(self):
+	def projetar(self, path):
 		self.x_ajuste = list(np.arange(- 0.005*self.t0 + self.t0, self.t5, 0.1))
 		self.x_censo = [self.t0, self.t1, self.t2]
 		self.y_censo = [self.P0, self.P1, self.P2]
@@ -368,11 +385,23 @@ class PP_Main():
 		self.P5_PA, self.P5_PG, self.P5_TD, self.P5_CL = self.projeções(self.t5)
 		
 		self.preenche_y_ajuste()
+		
+		self.criaGráfico('projeção_aritmética.png', 'Projeção Aritmética', path,
+							self.x_ajuste, self.y_PA_ajuste, '-', self.x_censo, 
+							self.y_censo, 'o')
+		
+		self.criaGráfico('projeção_geométrica.png', 'Projeção Geométrica', path,
+							self.x_ajuste, self.y_PG_ajuste, '-', self.x_censo,
+							self.y_censo, 'o')
+		
+		self.criaGráfico('taxa_decrescente.png', 'Taxa Decrescente', path,
+                            self.x_ajuste, self.y_TD_ajuste, '-', self.x_censo,
+                            self.y_censo, 'o')
         
-		self.criaGráfico(self.x_ajuste, self.y_PA_ajuste, '-', self.x_censo, self.y_censo, 'o')
-		self.criaGráfico(self.x_ajuste, self.y_PG_ajuste, '-', self.x_censo, self.y_censo, 'o')
-		self.criaGráfico(self.x_ajuste, self.y_TD_ajuste, '-', self.x_censo, self.y_censo, 'o')
-		self.criaGráfico(self.x_ajuste, self.y_CL_ajuste, '-', self.x_censo, self.y_censo, 'o')                        
+		self.criaGráfico('crescimento_logístico.png', 'Crescimento Logístico', path,
+                            self.x_ajuste, self.y_CL_ajuste, '-', self.x_censo,
+                            self.y_censo, 'o')   
+		                     
 
 
 def factory_PP(ppinit):
@@ -380,11 +409,10 @@ def factory_PP(ppinit):
 
 	d=dict(ppinit, **ppresults)
 
-	class PP(PP_Methods, PP_Part1, PP_Part2, PP_Part3,
-	            PP_Part3, Extras, PP_Main):
+	class PP(PP_Methods, PP_Parte1, PP_Parte2, PP_Parte3,
+	            PP_Parte4, Extras, PP_Main):
 	    __slots__ = [key for key in d]
 	    def __init__(self):
 	        for key in d:
 	            setattr(self, key, d[key])
 	return PP
-'''
