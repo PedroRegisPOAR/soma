@@ -20,7 +20,7 @@ from project.floculador_chicaneado.floculador_chicaneado import factory_Floculad
 
 from project.crescimento_populacional.crescimento_populacional import fexemplo
 
-from project.crescimento_populacional.crescimento_populacional import factory_PP, ppinit
+#from project.crescimento_populacional.crescimento_populacional import factory_PP, ppinit
 
 def index(request):
     return render(request, "project/home.html")
