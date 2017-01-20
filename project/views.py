@@ -159,7 +159,7 @@ def results_projeção_populacional(request):
             ppinit[key]=float(request.POST[key])
         PP=factory_PP(ppinit)
         pp=PP()
-#        pp.projetar(path_imagem)      
+        pp.projetar(path_imagem)      
 #        d=pp.out
 
     else:
