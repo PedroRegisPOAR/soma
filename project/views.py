@@ -150,7 +150,8 @@ def results_crescimento_populacional(request):
 
 
 def results_projeção_populacional(request):
-    path_imagem = 'project/static/projeção_populacional/'
+    #path_imagem = 'project/static/projeção_populacional/'
+    path_imagem = '/static/'
     path_page = 'project/projeção_populacional/results_projeção_populacional.html'
     
     if request.method == "POST":
