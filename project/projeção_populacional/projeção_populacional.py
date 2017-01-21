@@ -352,7 +352,7 @@ class PP_Parte4():
     	plt.savefig(image_name)
     	plt.close()
 #    	plt.show()
-    	# Não sei se isso é realmente necessario.
+    	# Não sei se é realmente necessario voltar ao diretório atual.
     	os.chdir(initial_path)
 
 

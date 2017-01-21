@@ -107,51 +107,9 @@ def results_fator_de_atrito(request):
 def inputs_projeção_populacional(request):     
     return render(request,'project/projeção_populacional/inputs_projeção_populacional.html')
 
-"""
-def results_crescimento_populacional(request):
-    import random
-    import django
-    import datetime
-
-    from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-    from matplotlib.figure import Figure
-    from matplotlib.dates import DateFormatter
-
-    fig=Figure()
-    ax=fig.add_subplot(111)
-    x=[]
-    y=[]
-    now=datetime.datetime.now()
-    delta=datetime.timedelta(days=1)
-    for i in range(10):
-        x.append(now)
-        now+=delta
-        y.append(random.randint(0, 1000))
-    ax.plot_date(x, y, '-')
-    ax.xaxis.set_major_formatter(DateFormatter('%Y-%m-%d'))
-    fig.autofmt_xdate()
-    canvas=FigureCanvas(fig)
-    response=django.http.HttpResponse(content_type='image/png')
-    
-    canvas.print_png('project/crescimento_populacional/results_crescimento_populacional.html')
-    canvas.print_png(response)
-    return response
-"""
-   
-"""    
-def results_crescimento_populacional(request):
-    path_imagem = 'static/crescimento_populacional/nome_figura.png'
-    #image_data = open(path, "rb").read()
-    #return HttpResponse(image_data, content_type="image/png")
-    #d = {"imagem":image_data}
-    path_page = 'project/crescimento_populacional/results_crescimento_populacional.html'
-    return render(request, path_page, {"imagem":path_imagem})
-"""
-
 
 def results_projeção_populacional(request):
-    #path_imagem = 'project/static/projeção_populacional/'
-    path_imagem = '/static/'
+    path_imagem = 'project/static/projeção_populacional/'
     path_page = 'project/projeção_populacional/results_projeção_populacional.html'
     
     if request.method == "POST":
@@ -160,39 +118,27 @@ def results_projeção_populacional(request):
         PP=factory_PP(ppinit)
         pp=PP()
         pp.projetar(path_imagem)      
-#        d=pp.out
 
     else:
         inputs_projeção_populacional(request)
 
-    return render(request, path_page, {})
+    return render(request, path_page)
 
 
-
-"""
-    if request.method == "POST":
-        x = float(request.POST["t0"])
-        y = float(request.POST["t1"])
-        #Cria a imagem         
-
-        imagem = fexemplo(x, y)
-        response = HttpResponse(content_type="imagem/png")
-        imagem.savefig(response, format='png')        
-    else:
-        inputs_crescimento_populacional(request)    
-    #return response
-    return render(response,'project/crescimento_populacional/results_crescimento_populacional.html',{})
+"""    
+def results_projeção_populacional(request):
+    path_imagem = 'static/projeção_populacional/nome_figura.png'
+    #image_data = open(path, "rb").read()
+    #return HttpResponse(image_data, content_type="image/png")
+    #d = {"imagem":image_data}
+    path_page = 'project/projeção_populacional/results_projeção_populacional.html'
+    return render(request, path_page, {"imagem":path_imagem})
 """
 
-#    path = 'project/templates/project/crescimento_populacional/nome_figura.png'
-#    imagem = open(path)    
-#    return HttpResponse(render(request,'project/crescimento_populacional/results_crescimento_populacional.html',{}))
 
-#
 def inputs_fator_de_atrito(request):     
     return render(request,'project/viscosidade_absoluta/inputs_fator_de_atrito.html')
     
-
 
 def inputs_vazões_água(request):     
     return render(request,'project/vazões_água/inputs_vazões_água.html')
