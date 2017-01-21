@@ -118,7 +118,7 @@ def results_projeção_populacional(request):
         PP=factory_PP(ppinit)
         pp=PP()
         #Se eu comentar essa linha funciona no pythonanywhere
-        pp.projetar(path_imagem)      
+        #pp.projetar(path_imagem)      
 
     else:
         inputs_projeção_populacional(request)
