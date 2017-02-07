@@ -18,9 +18,14 @@ from project.uasb.uasb import factory_UASB, uasb_dict_inputs
 
 from project.floculador_chicaneado.floculador_chicaneado import factory_FloculadorChicaneado, dict_inputs_FloculadorChicaneado
 
-from project.projeção_populacional.projeção_populacional import fexemplo
+#from project.projeção_populacional.projeção_populacional import fexemplo
 
 from project.projeção_populacional.projeção_populacional import factory_PP, ppinit
+
+from project.projeção_populacional.tests_projeção_populacional import salva_projeções
+
+from . models import ProjeçãoPopulacional
+
 
 def index(request):
     return render(request, "project/home.html")
@@ -109,6 +114,46 @@ def inputs_projeção_populacional(request):
 
 
 def results_projeção_populacional(request):
+#    salva_projeções()
+    path_page = 'project/projeção_populacional/results_projeção_populacional.html'
+    d = None
+    if request.method == "POST":
+        for key in ppinit:
+            ppinit[key]=float(request.POST[key])
+        PP=factory_PP(ppinit)
+        pp=PP()
+        pp.projetar()      
+        d = pp.out
+    else:
+        inputs_projeção_populacional(request)
+
+    return render(request, path_page, d)
+
+
+"""
+def results_projeção_populacional(request):
+    #path_imagem = 'project/static/projeção_populacional/'
+
+    path_imagem = 'project/templates/project/projeção_populacional/'
+    
+    path_page = 'project/projeção_populacional/results_projeção_populacional.html'
+
+    if request.method == "POST":
+        for key in ppinit:
+            ppinit[key]=float(request.POST[key])
+        PP=factory_PP(ppinit)
+        pp=PP()
+        #Se eu comentar essa linha funciona no pythonanywhere
+        pp.projetar(path_imagem)      
+
+    else:
+        inputs_projeção_populacional(request)
+
+    return render(request, path_page)
+"""
+
+'''
+def results_projeção_populacional(request):
     path_imagem = 'project/static/projeção_populacional/'
     path_page = 'project/projeção_populacional/results_projeção_populacional.html'
     
@@ -124,7 +169,7 @@ def results_projeção_populacional(request):
         inputs_projeção_populacional(request)
 
     return render(request, path_page)
-
+'''
 
 """    
 def results_projeção_populacional(request):
