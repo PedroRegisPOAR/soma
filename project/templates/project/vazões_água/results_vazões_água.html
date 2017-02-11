@@ -2,36 +2,147 @@
 
 {% block content %}
 
-	<p class="serif" align="justify" >
-	<div align="left">
-	1. Dados:
-	</p>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: center;    
+}
+</style>
 
-	<center>
-		$
-			\mathrm
+
+<p class="serif" align="justify" >
+<div align="left">
+1. Dados: $\mathrm{
+QPC = {{QPC}} \; \frac{L}{s \cdot hab}, \
+K_{1} = {{K1}},\ 
+K_{2} = {{K2}}, \ 
+t_{3} = {{t3}} \; ano, \ 
+t_{4} = {{t4}} \; ano, \ 
+t_{5} = {{t5}} \; ano, \
+P_{3} = {{P3}} \; hab, \ 
+P_{4} = {{P4}} \; hab, \ 
+P_{5} = {{P5}}\; hab,.
+}$
+</p>
+
+
+<p>
+	Calculo das vazões $\mathrm{ Q = \dfrac{K_{1}K_{2}QPC\cdot Pop}{86400} } $: 
+</p>
+
+
+<center>
+	$
+		\mathrm
+		{		
+			Q_{Mín} = \dfrac{K_{1}K_{2}QPC\cdot P_{3}}{86400}
+		}
+		\implies
+		\mathrm
+		{
+			Q_{Mín} = \dfrac{ {{K1}} \cdot {{K2}} \cdot {{QPC}} \cdot {{P3}} }{86400}
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
 			{
+				Q_{Mín} = {{QMín}} \; L/s
+			}$
+		}
+	$  
+</center>
+<br>
 
-			} 
-			\implies
-			\mathrm
+<center>
+	$
+		\mathrm
+		{		
+			Q_{Méd} = \dfrac{K_{1}K_{2}QPC\cdot P_{4}}{86400}
+		}
+		\implies
+		\mathrm
+		{
+			Q_{Méd} = \dfrac{ {{K1}} \cdot {{K2}} \cdot {{QPC}} \cdot {{P4}} }{86400}
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
 			{
+				Q_{Méd} = {{QMéd}} \; L/s
+			}$
+		}
+	$  
+</center>
+<br>
 
-			} 
-			\implies 
-			\fbox
+<center>
+	$
+		\mathrm
+		{		
+			Q_{Máx} = \dfrac{K_{1}K_{2}QPC\cdot P_{5}}{86400}
+		}
+		\implies
+		\mathrm
+		{
+			Q_{Máx} = \dfrac{ {{K1}} \cdot {{K2}} \cdot {{QPC}} \cdot {{P5}} }{86400}
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
 			{
-				$\mathrm
-				{
+				Q_{Máx} = {{QMáx}} \; L/s
+			}$
+		}
+	$  
+</center>
+<br>
 
-				}$
-			}
-		$  
-	</center>
-	<br /><br />
-		
 
-<!-- <p class="serif"> <center> 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59  </p> 
+Organizando os valores em uma tabela, tem-se: <br><br><br>
+
+<center>
+	<table style="width:50%">
+	  <tr>
+	    <th>Ano</th>
+	    <th> População </th>
+	    <td> $ \mathrm{ Q \ (L/s) }$</td>
+	  </tr>
+	  <tr>
+	    <td> {{t3}}</td>
+	    <td> {{P3}}</td>
+	    <td> {{QMín}} </td>
+	  </tr>
+	  <tr>
+	    <td> {{t4}} </td>
+	    <td> {{P4}} </td>
+	    <td> {{QMéd}} </td>
+	  </tr>
+	  <tr>
+	    <td> {{t5}}</td>
+	    <td> {{P5}} </td>
+	    <td> {{QMáx}}  </td>
+	  </tr>  
+	</table>
+</center>
+
+<!--
+Q_{Mín} = \dfrac{CR \cdot K_{3} QPC \cdot P}{86400} + Q_{Inf}\\
+
+
+ \\
+
+
+
+H_{Máx} = \sqrt[n]{\dfrac{Q_{Máx}}{\lambda}}
+
+ <p class="serif"> <center> 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59  </p> 
 
 <div style="page-break-after: always"></div>
 -->

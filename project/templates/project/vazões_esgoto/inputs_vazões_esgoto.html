@@ -3,15 +3,99 @@
 {% block content %}
 
 
-    
 <form action="/results_vazões_esgoto/" method="post">{%csrf_token %}     
-    <div>
-        <label for=""> : </label>
-        <input type="number" step= min="" max="" id="" name="" value="" />
+   
+    <br /><br />
+        <div>
+        <label for=""> $\mathrm{ t_{3} }$: </label>
+        <input type="number" step=1 min="2010" max="2020" id="t3" name="t3" value="2017" />
     </div>
-     em $\mathrm{ }$.
+    Ano corrente, em $\mathrm{ anos }$.
     <br /><br />
 
+    <div>
+        <label for=""> $\mathrm{ t_{4} }$: </label>
+        <input type="number" step=1 min="2020" max="2030" id="t4" name="t4" value="2027" />
+    </div>
+    Ano corrente somado mais 10 anos, em $\mathrm{ anos }$.
+    <br /><br />
+    
+    <div>
+        <label for=""> $\mathrm{ t_{5} }$: </label>
+        <input type="number" step=1 min="2030" max="2050" id="t5" name="t5" value="2037" />
+    </div>
+    Ano corrente somado mais 20 anos, em $\mathrm{ anos }$.
+    <br /><br />
+
+    <div>
+        <label for=""> CR: </label>
+        <input type="number" step=0.01 min="0.01" max="1" id="CR" name="CR" value="0.8" />
+    </div>
+    Coeficiente de Retorno, adimensional.
+	<br /><br />
+
+    <div>
+        <label for=""> r: </label>
+        <input type="number" step=0.1 min="1" max="5" id="r" name="r" value="2.5" />
+    </div>
+    Coeficiente de comprimento da rede, em $\mathrm{\frac{m}{hab} }$.
+    <br /><br />
+
+    <div>
+        <label for=""> $\mathrm{T_{Inf}}$ : </label>
+        <input type="number" step=0.01 min="0.01" max="3" id="TInf" name="TInf" value="0.5" />
+    </div>
+    Taxa de infiltração na tubulação, em $\mathrm{\frac{L}{sKm} }$.
+    <br /><br />
+
+    <div>
+        <label for=""> QPC: </label>
+        <input type="number" step=0.1 min="10" max="400" id="QPC" name="QPC" value="150" />
+    </div>
+    Vazão percapta, em $\mathrm{\frac{L}{s\cdot hab} }$.
+    <br /><br />
+
+    <div>
+        <label for=""> $\mathrm{K_{1}}$ : </label>
+        <input type="number" step=0.1 min="0.1" max="5" id="K1" name="K1" value="1.2" />
+    </div>
+    Coeficiente do dia de maior consumo, adimensional.
+    <br /><br />
+
+    <div>
+        <label for=""> $\mathrm{K_{2}}$ : </label>
+        <input type="number" step=0.1 min="0.1" max="5" id="K2" name="K2" value="1.5" />
+    </div>
+    Coeficiente da hora de maior consumo, adimensional.
+    <br /><br />
+
+    <div>
+        <label for=""> $\mathrm{K_{3}}$ : </label>
+        <input type="number" step=0.1 min="0.1" max="5" id="K3" name="K3" value="0.5" />
+    </div>
+    Coeficiente da hora de menor consumo, adimensional.
+    <br /><br />
+
+    <div>
+        <label for=""> $\mathrm{P_{3}}$ : </label>
+        <input type="number" step=1 min="100" max="1000000" id="P3" name="P3" value="13000" />
+    </div>
+    População do ano corrente, em $\mathrm{hab}$.
+    <br /><br />
+
+    <div>
+        <label for=""> $\mathrm{P_{4}}$ : </label>
+        <input type="number" step=1 min="100" max="1000000" id="P4" name="P4" value="28000" />
+    </div>
+    População projetada para 10 anos a frente do ano corrente, em $\mathrm{hab}$.
+    <br /><br />
+
+    <div>
+        <label for=""> $\mathrm{P_{5}}$ : </label>
+        <input type="number" step=1 min="100" max="1000000" id="P5" name="P5" value="35000" />
+    </div>
+    População projetada para 20 anos a frente do corrente ano, em $\mathrm{hab}$.
+    <br /><br />
 
     <div class="button">
         <button type="submit"> Nome </button>

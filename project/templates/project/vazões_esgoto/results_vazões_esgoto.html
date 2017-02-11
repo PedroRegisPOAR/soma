@@ -2,36 +2,513 @@
 
 {% block content %}
 
-	<p class="serif" align="justify" >
-	<div align="left">
-	1. Dados:
-	</p>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: center;    
+}
+</style>
 
-	<center>
-		$
-			\mathrm
+
+<p class="serif" align="justify" >
+<div align="left">
+1. Dados: $\mathrm{
+CR = {{CR}}, \ 
+r = {{r}} \; \frac{m}{hab}, \ 
+K_{1} = {{K1}},\ 
+K_{2} = {{K2}}, \ 
+K_{3} = {{K3}}, \ 
+T_{Inf} = {{TInf}}\; \frac{L}{s \cdot Km}, \ 
+QPC = {{QPC}} \; \frac{L}{s \cdot hab}, \\ 
+t_{3} = {{t3}} \; ano, \ 
+t_{4} = {{t4}} \; ano, \ 
+t_{5} = {{t5}} \; ano, \
+P_{3} = {{P3}} \; hab, \ 
+P_{4} = {{P4}} \; hab, \\ 
+P_{5} = {{P5}}\; hab,.
+}$
+</p>
+
+
+<p>
+	Calculo do $\mathrm{ K_{m} } $: 
+</p>
+
+
+<center>
+	$
+		\mathrm
+		{		
+			K_{m} = \dfrac{K_{2} + K_{3}}{2}
+		}
+		\implies
+		\mathrm
+		{
+			K_{m} = \dfrac{ {{K2}} + {{K3}} }{2}
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
 			{
+				K_{m} = {{Km}}
+			}$
+		}
+	$  
+</center>
+<br>
 
-			} 
-			\implies
-			\mathrm
+
+<p> 
+	O calculos dos comprimentos é feito utulizando a formula $\mathrm{ L = r \cdot P } $: 
+</p>
+
+
+<center>
+	$
+		\mathrm
+		{		
+			L_{t3} = r \cdot P_{3}
+		}
+		\implies
+		\mathrm
+		{
+			L_{ {{t3}} } = {{r}} \frac{m}{hab} {{P3}} \; hab
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
 			{
+				L_{ {{t3}} } = {{Lt3}} \ m
+			}$
+		}
+	$  
+</center>
+<br>
 
-			} 
-			\implies 
-			\fbox
+
+<center>
+	$
+		\mathrm
+		{		
+			L_{t4} = r \cdot P_{4}			
+		}
+		\implies
+		\mathrm
+		{
+			L_{ {{t4}} } = {{r}} \frac{m}{hab} {{P4}} \; hab
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
 			{
-				$\mathrm
-				{
+				L_{ {{t4}} } = {{Lt4}} \ m
+			}$
+		}
+	$  
+</center>
+<br>
 
-				}$
-			}
-		$  
-	</center>
-	<br /><br />
-		
+<center>
+	$
+		\mathrm
+		{		
+			L_{t5} = r \cdot P_{5}			
+		}
+		\implies
+		\mathrm
+		{
+			L_{ {{t5}} } = {{r}} \frac{m}{hab} {{P5}} \; hab
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				L_{ {{t5}} } = {{Lt5}} \ m
+			}$
+		}
+	$  
+</center>
+<br>
 
-<!-- <p class="serif"> <center> 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59  </p> 
+O calculos das de infiltração é feito utilizando a formula:
+$
+	\mathrm
+	{		
+		Q_{Inf} = T_{Inf}L
+	}
+$
+<br /><br />
+
+<center>
+	$
+		\mathrm
+		{		
+			Q_{Inft3} = T_{Inf}L_{t3}
+		}
+		\implies
+		\mathrm
+		{
+			Q_{Inf{{t3}}} = {{TInf}}\frac{L}{s \cdot Km} {{Lt3}} \; m
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				Q_{Inf{{t3}}} = {{QInft3}} \; L/s
+			}$
+		}
+	$  
+</center>
+<br>
+
+<center>
+	$
+		\mathrm
+		{		
+			Q_{Inft4} = T_{Inf}L_{t4}
+		}
+		\implies
+		\mathrm
+		{
+			Q_{Inf{{t4}}} = {{TInf}}\frac{L}{s \cdot Km} {{Lt4}} \; m
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				Q_{Inf{{t4}}} = {{QInft4}}  \; L/s
+			}$
+		}
+	$  
+</center>
+<br>
+
+<center>
+	$
+		\mathrm
+		{		
+			Q_{Inft5} = T_{Inf}L_{t5}
+		}
+		\implies
+		\mathrm
+		{
+			Q_{Inf{{t5}}} = {{TInf}}\frac{L}{s \cdot Km} {{Lt5}} \; m
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				Q_{Inf{{t5}}} = {{QInft5}} \; L/s
+			}$
+		}
+	$  
+</center>
+<br>
+
+O calculos das vazões médias é feito utilizando a formula:
+$
+	\mathrm
+	{		
+		Q_{Mín} = \dfrac{CR \cdot K_{3} QPC \cdot P}{86400} + Q_{Inf}
+	}
+$
+<br /><br />
+
+
+<center>
+	$
+		\mathrm
+		{		
+			Q_{Mínt3}  \! = \! \dfrac{ CR \! \cdot \! K_{3} \! \cdot \! QPC \! \cdot \! P_{3} }{86400} + Q_{Inft3}
+		}
+		\! \implies \!
+		\mathrm
+		{
+			Q_{Mín {{t3}} }  \! = \! \dfrac{ {{CR}} \! \cdot \! {{K3}} \! \cdot \! {{QPC}} \! \cdot \! {{P3}} }{86400} + {{QInft3}}
+		} 
+		\\
+		\! \implies \! 
+		\fbox
+		{
+			$\mathrm
+			{
+				Q_{Mín {{t3}} }  \! = \! {{QMínt3}} \; L/s
+			}$
+		}
+	$  
+</center>
+<br>
+
+<center>
+	$
+		\mathrm
+		{		
+			Q_{Mínt4}  \! = \! \dfrac{ CR \! \cdot \! K_{3} \! \cdot \! QPC \! \cdot \! P_{4} }{86400} + Q_{Inft4}
+		}
+		\! \implies \!
+		\mathrm
+		{
+			Q_{Mín {{t4}} }  \! = \! \dfrac{ {{CR}} \! \cdot \! {{K3}} \! \cdot \! {{QPC}} \! \cdot \! {{P4}} }{86400} + {{QInft3}}
+		} 
+		\\
+		\! \implies \! 
+		\fbox
+		{
+			$\mathrm
+			{
+				Q_{Mín {{t4}} }  \! = \! {{QMínt4}} \; L/s
+			}$
+		}
+	$  
+</center>
+<br>
+
+<center>
+	$
+		\mathrm
+		{		
+			Q_{Mínt5}  \! = \! \dfrac{ CR \! \cdot \! K_{3} \! \cdot \! QPC \! \cdot \! P_{5} }{86400} + Q_{Inft5}
+		}
+		\! \implies \!
+		\mathrm
+		{
+			Q_{Mín {{t5}} }  \! = \! \dfrac{ {{CR}} \! \cdot \! {{K3}} \! \cdot \! {{QPC}} \! \cdot \! {{P5}} }{86400} + {{QInft5}}
+		}
+		\\ 
+		\! \implies \! 
+		\fbox
+		{
+			$\mathrm
+			{
+				Q_{Mín {{t5}} }  \! = \! {{QMínt5}} \; L/s
+			}$
+		}
+	$  
+</center>
+<br>
+
+<div style="page-break-after: always"></div>
+<br>
+<br>
+<br>
+
+O calculos das vazões médias é feito utilizando a formula:
+$
+	\mathrm
+	{		
+		Q_{Méd} = \dfrac{CR \cdot K_{m} QPC \cdot P}{86400} + Q_{Inf}
+	}
+$
+<br /><br />
+
+<center>
+	$
+		\mathrm
+		{		
+			Q_{Médt3} \! = \! \dfrac{CR \! \cdot \! K_{m} \! \cdot \! QPC \! \cdot \! P_{3}}{86400} + Q_{Inft3}
+		}
+		\! \implies \!
+		\mathrm
+		{
+			Q_{Méd {{t3}} } \! = \! \dfrac{ {{CR}} \! \cdot \! {{Km}} \! \cdot \! {{QPC}} \! \cdot \! {{P3}} }{86400} + {{QInft3}}
+		} 
+		\\
+		\! \implies \! 
+		\fbox
+		{
+			$\mathrm
+			{
+				Q_{Méd {{t3}} }  \! = \! {{QMédt3}} \; L/s
+			}$
+		}
+	$  
+</center>
+<br>
+
+<center>
+	$
+		\mathrm
+		{		
+			Q_{Médt4} \! = \! \dfrac{ CR \! \cdot \! K_{m} \! \cdot \! QPC \! \cdot \! P_{4}}{86400} + Q_{Inft4}
+		}
+		\! \implies \!
+		\mathrm
+		{
+			Q_{Méd {{t4}} } \! = \! \dfrac{ {{CR}} \! \cdot \! {{Km}} \! \cdot \! {{QPC}} \! \cdot \! {{P4}} }{86400} + {{QInft4}}
+		} 
+		\\
+		\! \implies \! 
+		\fbox
+		{
+			$\mathrm
+			{
+				Q_{Méd {{t4}} }  \! = \! {{QMédt4}} \; L/s
+			}$
+		}
+	$  
+</center>
+<br>
+
+<center>
+	$
+		\mathrm
+		{		
+			Q_{Médt5} \! = \! \dfrac{CR \! \cdot \! K_{m} \! \cdot \! QPC \! \cdot \! P_{5}}{86400} + Q_{Inft5}
+		}
+		\! \implies \!
+		\mathrm
+		{
+			Q_{Méd {{t5}} } \! = \! \dfrac{ {{CR}} \! \cdot \! {{Km}} \! \cdot \! {{QPC}} \! \cdot \! {{P5}} }{86400} + {{QInft5}}
+		}
+		\\ 
+		\! \implies \! 
+		\fbox
+		{
+			$\mathrm
+			{
+				Q_{Méd {{t5}} }  \! = \! {{QMédt5}}  \; L/s
+			}$
+		}
+	$  
+</center>
+<br>
+
+O calculos das vazões máximas é feito utilizando a formula:
+$
+	\mathrm
+	{		
+		Q_{Máx} = K_{1}K_{2}Q_{Méd}
+	}
+$<br/><br/>
+
+<center>
+	$
+		\mathrm
+		{		
+			Q_{Máxt3} = K_{1}K_{2}Q_{Médt3}
+		}
+		\implies
+		\mathrm
+		{
+			Q_{Máx{{t3}} } = {{K1}} \cdot {{K2}} \cdot {{QMédt3}}
+		}
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				Q_{Máx{{t3}} } = {{QMáxt3}} \; L/s
+			}$
+		}
+	$  
+</center>
+<br>
+
+<center>
+	$
+		\mathrm
+		{		
+			Q_{Máxt4} = K_{1}K_{2}Q_{Médt4}
+		}
+		\implies
+		\mathrm
+		{
+			Q_{Máx{{t4}} } = {{K1}} \cdot {{K2}} \cdot {{QMédt4}}
+		}
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				Q_{Máx{{t4}} } = {{QMáxt4}} \; L/s
+			}$
+		}
+	$  
+</center>
+<br>
+
+<center>
+	$
+		\mathrm
+		{		
+			Q_{Máxt5} = K_{1}K_{2}Q_{Médt5}
+		}
+		\implies
+		\mathrm
+		{
+			Q_{Máx{{t5}} } = {{K1}} \cdot {{K2}} \cdot {{QMédt5}}
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				Q_{Máx{{t5}} } = {{QMáxt5}} \; L/s
+			}$
+		}
+	$  
+</center>
+<br>
+
+
+
+Organizando os valores em uma tabela, tem-se: <br><br><br>
+
+<center>
+	<table style="width:50%">
+	  <tr>
+	    <th>Ano</th>
+	    <th> População </th>
+	    <td> $ \mathrm{ Q_{Mín} \ (L/s) }$</td>
+	    <td> $ \mathrm{ Q_{Méd} \ (L/s) }$</td>
+	    <td> $ \mathrm{ Q_{Máx} \ (L/s) }$</td>
+	  </tr>
+	  <tr>
+	    <td> {{t3}}</td>
+	    <td> {{P3}}</td>
+	    <td> <strong> {{QMínt3}} </strong></td>
+	    <td> {{QMédt3}} </td>
+	    <td> {{QMáxt3}} </td>
+	  </tr>
+	  <tr>
+	    <td> {{t4}} </td>
+	    <td> {{P4}} </td>
+	    <td> {{QMínt4}} </td>
+	    <td> {{QMédt4}} </td>
+	    <td> {{QMáxt4}} </td>
+	  </tr>
+	  <tr>
+	    <td> {{t5}}</td>
+	    <td> {{P5}} </td>
+	    <td> {{QMínt5}}  </td>
+	    <td> {{QMédt5}} </td>
+	    <td> <strong> {{QMáxt5}} </strong> </td>
+	  </tr>  
+	</table>
+</center>
+
+<!--
+Q_{Mín} = \dfrac{CR \cdot K_{3} QPC \cdot P}{86400} + Q_{Inf}\\
+
+
+ \\
+
+
+
+H_{Máx} = \sqrt[n]{\dfrac{Q_{Máx}}{\lambda}}
+
+ <p class="serif"> <center> 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59  </p> 
 
 <div style="page-break-after: always"></div>
 -->

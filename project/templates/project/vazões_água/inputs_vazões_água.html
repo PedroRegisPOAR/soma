@@ -4,17 +4,83 @@
 
 
     
-<form action="/results_crescimento_populacional/" method="post">{%csrf_token %}     
-    <div>
-        <label for=""> : </label>
-        <input type="number" step= min="" max="" id="" name="" value="" />
+<form action="/results_vazões_água/" method="post">{%csrf_token %}     
+
+    <br /><br />
+        <div>
+        <label for=""> $\mathrm{ QPC }$: </label>
+        <input type="number" step=1 min="20" max="500" id="QPC" name="QPC" value="250" />
     </div>
-     em $\mathrm{ }$.
+    Consumo percapito, em $\mathrm{ \frac{L}{s\cdot hab} }$.
+    <br /><br />
+
+  
+    <div>
+        <label for=""> $\mathrm{ t_{3} }$: </label>
+        <input type="number" step=1 min="2010" max="2020" id="t3" name="t3" value="2017" />
+    </div>
+    Ano corrente, em $\mathrm{ anos }$.
+    <br /><br />
+
+    <div>
+        <label for=""> $\mathrm{ t_{4} }$: </label>
+        <input type="number" step=1 min="2020" max="2030" id="t4" name="t4" value="2027" />
+    </div>
+    Ano corrente somado mais 10 anos, em $\mathrm{ anos }$.
+    <br /><br />
+    
+    <div>
+        <label for=""> $\mathrm{ t_{5} }$: </label>
+        <input type="number" step=1 min="2030" max="2050" id="t5" name="t5" value="2037" />
+    </div>
+    Ano corrente somado mais 20 anos, em $\mathrm{ anos }$.
+    <br /><br />
+
+    <div>
+        <label for=""> QPC: </label>
+        <input type="number" step=0.1 min="10" max="400" id="QPC" name="QPC" value="150" />
+    </div>
+    Vazão percapta, em $\mathrm{\frac{L}{s\cdot hab} }$.
+    <br /><br />
+
+    <div>
+        <label for=""> $\mathrm{K_{1}}$ : </label>
+        <input type="number" step=0.1 min="0.1" max="5" id="K1" name="K1" value="1.2" />
+    </div>
+    Coeficiente do dia de maior consumo, adimensional.
+    <br /><br />
+
+    <div>
+        <label for=""> $\mathrm{K_{2}}$ : </label>
+        <input type="number" step=0.1 min="0.1" max="5" id="K2" name="K2" value="1.5" />
+    </div>
+    Coeficiente da hora de maior consumo, adimensional.
+    <br /><br />
+
+    <div>
+        <label for=""> $\mathrm{P_{3}}$ : </label>
+        <input type="number" step=1 min="100" max="1000000" id="P3" name="P3" value="13000" />
+    </div>
+    População do ano corrente, em $\mathrm{hab}$.
+    <br /><br />
+
+    <div>
+        <label for=""> $\mathrm{P_{4}}$ : </label>
+        <input type="number" step=1 min="100" max="1000000" id="P4" name="P4" value="28000" />
+    </div>
+    População projetada para 10 anos a frente do ano corrente, em $\mathrm{hab}$.
+    <br /><br />
+
+    <div>
+        <label for=""> $\mathrm{P_{5}}$ : </label>
+        <input type="number" step=1 min="100" max="1000000" id="P5" name="P5" value="35000" />
+    </div>
+    População projetada para 20 anos a frente do corrente ano, em $\mathrm{hab}$.
     <br /><br />
 
 
     <div class="button">
-        <button type="submit"> Nome </button>
+        <button type="submit"> Calcular vazões </button>
     </div>
 </form>
 

@@ -1,0 +1,170 @@
+
+Calculos do modelo de projeção com taxa decrescente de crescimento:<br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			P_{s} = \dfrac{ 2P_{0}P_{1}P_{2} - P_{1}^{2}\left ( P_{0} + P_{2} \right ) }{ P_{0}P_{2} - P_{1}^{2} }
+		}
+		\\
+		\implies
+		\mathrm
+		{
+			P_{s} = \dfrac{ 2\cdot {{P0}}\cdot {{P1}}\cdot {{P2}} - {{P1}}^{2}\left ( {{P0}} + {{P2}} \right ) }{ {{P0}}\cdot {{P2}} - {{P1}}^{2} }
+		}
+		\\ 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				P_{s} = {{Ps}}
+			}$
+		}
+	$  
+</center>
+<br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			K_{1} = \dfrac{1}{t_{2} - t_{1} } \ln \!\!\left [ \dfrac{ P_{0}\left (P_{s} - P_{1} \right ) }{P_{1}\left (P_{s} - P_{0} \right )} \right ]
+		}
+		\\
+		\implies
+		\mathrm
+		{
+			K_{1} = \dfrac{1}{ {{t2}} - {{t1}} } \ln \!\!\left [ \dfrac{ {{P0}}\left ( {{Ps}} - {{P1}} \right ) }{ {{P1}} \left ( {{Ps}} - {{P0}} \right )} \right ]
+		}
+		\\
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				K_{1} = {{K1}}
+			}$
+		}
+	$  
+</center>
+<br /><br />
+
+
+<center>
+	$
+		\mathrm
+		{
+			c = \dfrac{ P_{s} - P_{0} }{ P_{0} }
+		}
+		\implies
+		\mathrm
+		{
+			c = \dfrac{ {{Ps}} - {{P0}} }{ {{P0}} }
+		}
+		\implies 
+		\fbox
+		{
+		$\mathrm
+			{
+				c = {{c}}
+			}$
+		}
+	$  
+</center>
+<br /><br />
+
+Substituindo-se os valores formula tem-se:<br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			P\left ( t \right ) = \dfrac{ P_{s} }{ 1 + c\cdot e^{ K_{1}\left ( t - t_{0} \right )} }
+		} 
+		\implies
+		
+		\fbox
+		{
+			$\mathrm
+			{
+				P\left ( t \right ) = \dfrac{ {{Ps}} }{ 1 + {{c}}\cdot e^{ {{K1}}\left ( t - {{t0}} \right )} }
+			}$
+		}
+	$  
+</center>
+<br /><br />
+
+Calculando as populações para os anos {{t3}}, {{t4}}, {{t5}}, tem-se: <br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			P\left ( {{t3}} \right ) = \dfrac{ {{Ps}} }{ 1 + {{c}}\cdot e^{ {{K1}}\left ( {{t3}} - {{t0}} \right )} }
+		} 
+		\implies
+		
+		\fbox
+		{
+			$\mathrm
+			{
+				P\left ( {{t3}} \right ) = {{P3_CL}}
+			}$
+		}
+	$  
+</center>
+<br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			P\left ( {{t4}} \right ) = \dfrac{ {{Ps}} }{ 1 + {{c}}\cdot e^{ {{K1}}\left ( {{t4}} - {{t0}} \right )} }
+		} 
+		\implies
+		
+		\fbox
+		{
+			$\mathrm
+			{
+				P\left ( {{t4}} \right ) = {{P4_CL}}
+			}$
+		}
+	$  
+</center>
+<br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			P\left ( {{t5}} \right ) = \dfrac{ {{Ps}} }{ 1 + {{c}}\cdot e^{ {{K1}}\left ( {{t5}} - {{t0}} \right )} }
+		} 
+		\implies
+		
+		\fbox
+		{
+			$\mathrm
+			{
+				P\left ( {{t5}} \right ) = {{P5_CL}}
+			}$
+		}
+	$  
+</center>
+<br /><br />
+
+Plotando os valores de 	
+	$ \mathrm
+		{
+			 P_{0} = {{P0}}, P_{1} = {{P1}}, P_{2} = {{P2}}
+		}
+	$ 
+e fazendo um grafico da função, tem-se:<br /><br />
+
+
+<center>
+	<img src="{{ crescimento_logístico.url }}"\>
+</center>
+

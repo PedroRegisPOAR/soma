@@ -2,92 +2,35 @@
 
 {% block content %}
 
-<!--
-	<p class="serif" align="justify" >
-	<div align="left">
-	1. Dados:
-	</p>
 
-	<center>
-		$
-			\mathrm
-			{
+{% if is_projetavél %}
 
-			} 
-			\implies
-			\mathrm
-			{
+	{% if foi_dimensionado == 'TUDO' %}
+		{% include "project/projeção_populacional/results_projeção_populacionalPAPG.html" %}	
+		{% include "project/projeção_populacional/results_projeção_populacionalTD.html" %}	
+		{% include "project/projeção_populacional/results_projeção_populacionalCL.html" %}		
+	{% elif foi_dimensionado == 'PAPGTD' %}
+		{% include "project/projeção_populacional/results_projeção_populacionalPAPG.html" %}	
+		{% include "project/projeção_populacional/results_projeção_populacionalTD.html" %}	
+	{% elif foi_dimensionado == 'PAPGCL' %}		
+		{% include "project/projeção_populacional/results_projeção_populacionalPAPG.html" %}
+		{% include "project/projeção_populacional/results_projeção_populacionalCL.html" %}		
+	{% elif foi_dimensionado == 'PAPG' %}
+		{% include "project/projeção_populacional/results_projeção_populacionalPAPG.html" %}
+	{% else %}
+		<center> 
+			<h2> 
+				Erro no carregamento dos templates, a variavél foi_dimensionado esta errada: {{foi_dimensionado}} 
+			</h2>
+		</center>
+	{% endif %}
 
-			} 
-			\implies 
-			\fbox
-			{
-				$\mathrm
-				{
+{% else %}
 
-				}$
-			}
-		$  
-	</center>
-	<br /><br />
--->
-
-<p class="serif" align="justify" >
-<div align="left">
-1. Teste
-</p>
-
-<h1> Meu template </h1>
-
-	<center>
-		$
-			\mathrm
-			{
-				K_{a} = \dfrac{ P_{2} - P_{1} }{ t_{2} - t_{1} }
-			} 
-			\implies
-			\mathrm
-			{
-				K_{a} = \dfrac{ {{P2}} - {{P1}} }{ {{t2}} - {{t1}} }
-			} 
-			\implies 
-			\fbox
-			{
-				$\mathrm
-				{
-					K_{a} = {{Ka}}
-				}$
-			}
-		$  
-	</center>
-	<br /><br />
-
-<center>
-	<img src="{{ projeção_aritmética.url }}"\>
-</center>
-
-
-<center>
-	<img src="{{ projeção_geométrica.url }}"\>
-</center>
-
-
-<center>
-	<img src="{{ taxa_decrescente.url }}"\>
-</center>
-
-
-<center>
-	<img src="{{ crescimento_logístico.url }}"\>
-</center>
-
+	<center>	
+		<h1> Muito provavelmente existem valores de tempo iguais! </h1> <br>
+		Por favor, verifique os valores fornecidos.
+	</center>	
+{% endif %}
 
 {% endblock %}
-
-
-<!-- 
-<p class="serif"> <center> 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59  </p> 
-
-<div style="page-break-after: always"></div>
--->
-

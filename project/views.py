@@ -1,31 +1,23 @@
 # -*- coding: utf-8 -*-
 
 from django.http import HttpResponse
-
 from django.shortcuts import render
 
-from project.bhaskara.bhaskara import Bhaskara
-from project.fator_de_atrito.fator_atrito_colebrock import solução_Colebrook_White
-
-#from project.triangulo.triangulo import generate_pdf
-
-from project.gerar_pdf.gerar_pdf import gerar_pdf
+from project.calculos.bhaskara.bhaskara import Bhaskara
+from project.calculos.fator_de_atrito.fator_atrito_colebrock import solução_Colebrook_White
 
 
-from project.calha_parshall.calha_parshall import CalhaParshall
-from project.decantador_laminar.decantador_laminar import DecantadorLaminar
-from project.uasb.uasb import factory_UASB, uasb_dict_inputs
+from project.calculos.gerar_pdf.gerar_pdf import gerar_pdf
+from project.calculos.calha_parshall.calha_parshall import CalhaParshall
+from project.calculos.decantador_laminar.decantador_laminar import DecantadorLaminar
+from project.calculos.uasb.uasb import factory_UASB, uasb_dict_inputs
+from project.calculos.floculador_chicaneado.floculador_chicaneado import factory_FloculadorChicaneado, dict_inputs_FloculadorChicaneado
 
-from project.floculador_chicaneado.floculador_chicaneado import factory_FloculadorChicaneado, dict_inputs_FloculadorChicaneado
+from project.calculos.projeção_populacional.projeção_populacional import (
+    factory_PP, ppinit)
 
-#from project.projeção_populacional.projeção_populacional import fexemplo
-
-from project.projeção_populacional.projeção_populacional import factory_PP, ppinit
-
-from project.projeção_populacional.tests_projeção_populacional import salva_projeções
-
-from . models import ProjeçãoPopulacional
-
+from project.calculos.vazões_esgoto.vazões_esgoto import factory_VE, veinit
+from project.calculos.vazões_água.vazões_água import factory_VA, vainit
 
 def index(request):
     return render(request, "project/home.html")
@@ -122,7 +114,8 @@ def results_projeção_populacional(request):
             ppinit[key]=float(request.POST[key])
         PP=factory_PP(ppinit)
         pp=PP()
-        pp.projetar()      
+        #pp.projetar()      
+        pp.verificação()
         d = pp.out
     else:
         inputs_projeção_populacional(request)
@@ -191,7 +184,12 @@ def inputs_vazões_água(request):
 
 def results_vazões_água(request):
     if request.method == "POST":
-        d = {}
+        for key in vainit:
+            vainit[key] = float(request.POST[key])
+        VA = factory_VA(vainit)
+        va = VA()
+        va.calcular()
+        d = va.out        
     else:
         inputs_vazões_água(request)        
     return render(request,'project/vazões_água/results_vazões_água.html', d)
@@ -331,7 +329,12 @@ def inputs_vazões_esgoto(request):
 
 def results_vazões_esgoto(request):
     if request.method == "POST":
-        d = {}
+        for key in veinit:
+            veinit[key] = float(request.POST[key])
+        VE = factory_VE(veinit)
+        ve = VE()
+        ve.calcular()
+        d = ve.out
     else:
         inputs_vazões_esgoto(request)        
     return render(request,'project/vazões_esgoto/results_vazões_esgoto.html', d)

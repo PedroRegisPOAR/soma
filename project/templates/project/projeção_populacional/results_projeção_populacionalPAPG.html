@@ -1,0 +1,241 @@
+
+
+<p class="serif" align="justify" >
+<div align="left">
+Dado para os modelos: 
+	$ \mathrm
+		{
+			P_{0} = {{P0}}, P_{1} = {{P1}}, P_{2} = {{P2}}, t_{0} = {{t0}}, \\ t_{1} = {{t1}}, t_{2} = {{t2}}, t_{3} = {{t3}}, t_{4} = {{t4}}, t_{5} = {{t5}}.
+		}
+	$ 
+</p>
+
+
+Calculos do modelo de projeção aritimética:<br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			K_{a} = \dfrac{ P_{2} - P_{1} }{ t_{2} - t_{1} }
+		} 
+		\implies
+		\mathrm
+		{
+			K_{a} = \dfrac{ {{P2}} - {{P1}} }{ {{t2}} - {{t1}} }
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				K_{a} = {{Ka}}
+			}$
+		}
+	$  
+</center>
+<br /><br />
+
+Substituindo-se os valores formula tem-se:<br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			P\!\left ( t \right ) = P_{0} + K_{a}\left ( t - t_{0} \right )
+		} 
+		\implies
+		
+		\fbox
+		{
+			$\mathrm
+			{
+				P\!\left ( t \right ) = {{P0}} + {{Ka}}\left ( t - {{t0}} \right )
+			}$
+		}
+	$  
+</center>
+<br /><br />
+
+Calculando as populações para os anos {{t3}}, {{t4}}, {{t5}}, tem-se: <br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			P\!\left ( {{t3}} \right ) = {{P0}} + {{Ka}}\left ( {{t3}} - {{t0}} \right )
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				P\!\left ( {{t3}} \right ) = {{P3_PA}}
+			}$
+		}
+	$  
+</center>
+<br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			P\!\left ( {{t4}} \right ) = {{P0}} + {{Ka}}\left ( {{t4}} - {{t0}} \right )
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				P\!\left ( {{t4}} \right ) = {{P4_PA}}
+			}$
+		}
+	$  
+</center>
+<br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			P\!\left ( {{t5}} \right ) = {{P0}} + {{Ka}}\left ( {{t5}} - {{t0}} \right )
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				P\!\left ( {{t5}} \right ) = {{P5_PA}}
+			}$
+		}
+	$  
+</center>
+<br /><br />
+
+
+Plotando os valores de 	
+	$ \mathrm
+		{
+			 P_{0} = {{P0}}, P_{1} = {{P1}}, P_{2} = {{P2}}
+		}
+	$ 
+e fazendo um grafico da função, tem-se:<br /><br />
+
+
+<center>
+	<img src="{{ projeção_aritmética.url }}"\>
+</center>
+
+Calculos do modelo de projeção Geométrica:<br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			K_{g} = \dfrac{ \ln\!\left ( P_{2} \right ) - \ln\!\left ( P_{1} \right ) }{ t_{2} - t_{1} }
+		} 
+		\implies
+		\mathrm
+		{
+			K_{g} = \dfrac{ \ln\!\left ( {{P2}} \right ) - \ln\!\left ( {{P1}} \right ) }{ {{t2}} - {{t1}} }
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				K_{g} = {{Kg}}
+			}$
+		}
+	$  
+</center>
+<br /><br />
+
+Substituindo-se os valores formula tem-se:<br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			P\!\left ( t \right ) = P_{0} e^{ K_{g}\left ( t - t_{0} \right )}
+		} 
+		\implies			
+		\fbox
+		{
+			$\mathrm
+			{
+				P\!\left ( t \right ) = {{P0}} e^{ {{Kg}}\left ( t - {{t0}} \right )}
+			}$
+		}
+	$  
+</center>
+<br /><br />
+
+Calculando as populações para os anos {{t3}}, {{t4}}, {{t5}}, tem-se: <br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			P\!\left ( {{t3}} \right ) = {{P0}} e^{ {{Kg}}\left ( {{t3}} - {{t0}} \right )}
+		} 
+		\implies			
+		\fbox
+		{
+			$\mathrm
+			{
+				P\!\left ( {{t3}} \right ) = {{P3_PG}}
+			}$
+		}
+	$  
+</center>
+<br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			P\!\left ( {{t4}} \right ) = {{P0}} e^{ {{Kg}}\left ( {{t4}} - {{t0}} \right )}
+		} 
+		\implies			
+		\fbox
+		{
+			$\mathrm
+			{
+				P\!\left ( {{t4}} \right ) = {{P4_PG}}
+			}$
+		}
+	$  
+</center>
+<br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			P\!\left ( {{t5}} \right ) = {{P0}} e^{ {{Kg}}\left ( {{t5}} - {{t0}} \right )}
+		} 
+		\implies			
+		\fbox
+		{
+			$\mathrm
+			{
+				P\!\left ( {{t5}} \right ) = {{P5_PG}} 
+			}$
+		}
+	$  
+</center>
+<br /><br />
+
+Plotando os valores de 	
+	$ \mathrm
+		{
+			 P_{0} = {{P0}}, P_{1} = {{P1}}, P_{2} = {{P2}}
+		}
+	$ 
+e fazendo um grafico da função, tem-se:<br /><br />
+
+<center>
+	<img src="{{ projeção_geométrica.url }}"\>
+</center>
