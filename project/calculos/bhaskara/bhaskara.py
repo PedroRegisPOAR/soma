@@ -69,5 +69,5 @@ class Bhaskara():
         self.make_out()
         self.formatar()
 
-
+# Teste de commit mexendo em dois arquivos
 
