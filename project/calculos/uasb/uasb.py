@@ -247,7 +247,8 @@ class UASB_Main():
         self.make_out()
         self.arredondamento()
 
-
+# Teste de comit mexendo em dois arquivos ao mesmo tempo. 
+# Esss dicionarios deveriam esta em outra parte.
 uasb_dict_inputs={
     "B":None,
     "L":None,
