@@ -270,6 +270,7 @@ GmMax = 2000
 FMin = 4.5               
 #######
 
+# teste de comitar um só arquivo
                   
 cp=CalhaParshall(Q, g, T, GmMin, GmMax, FMin)
 #cp.dimensiona()
