@@ -11,49 +11,56 @@
         <td>
 			<div>
 			    <label for=""> $t_{0}$: </label>
-			     <input type="number" step= min="0" max="" id="" name="t0" value="1991" />
+			     <input type="number" step= min="1900" max="100000" id="" name="t0" value="1991" />
 			</div> 
     	</td>
-    	<td>
-			<div>
-			    <label for=""> $p_{0}$: </label>
-			    <input type="number" step= min="1000" max="1000000" id="" name="P0" value="10000" />
-			</div>     	
-    	</td>
-  	</tr>
+  	</tr>  	
   	<tr>
         <td>
 			<div>
 			    <label for=""> $t_{1}$: </label>
-			     <input type="number" step= min="" max="" id="" name="t1" value="2000" />
+			     <input type="number" step= min="1900" max="100000" id="" name="t1" value="2000" />
 			</div> 
     	</td>
-    	<td>
-			<div>
-			    <label for=""> $p_{1}$: </label>
-			    <input type="number" step= min="1000" max="1000000" id="" name="P1" value="23000" />
-			</div>     	
-    	</td>
-  	</tr>
+  	</tr>  	
   	<tr>
         <td>
 			<div>
 			    <label for=""> $t_{2}$: </label>
-			     <input type="number" step= min="" max="" id="" name="t2" value="2010" />
+			     <input type="number" step=1 min="1900" max="" id="" name="t2" value="2010" />
 			</div> 
     	</td>
-    	<td>
+  	</tr>  	
+</table>
+<br /><br />
+
+<table style="width:50%">
+  	<tr>
+        <td>
+			<div>
+			    <label for=""> $p_{0}$: </label>
+			    <input type="number" step=1 min="1" max="100000000" id="" name="P0" value="10000" />
+			</div>     	
+    	</td>
+  	</tr>  	
+  	<tr>
+        <td>
+			<div>
+			    <label for=""> $p_{1}$: </label>
+			    <input type="number" step=1 min="1" max="100000000" id="" name="P1" value="23000" />
+			</div>     	
+    	</td>
+  	</tr>  	
+  	<tr>
+        <td>
 			<div>
 			    <label for=""> $p_{2}$: </label>
-			    <input type="number" step= min="1000" max="1000000" id="" name="P2" value="30000" />
+			    <input type="number" step=1 min="1" max="100000000" id="" name="P2" value="30000" />
 			</div>     	
     	</td>
   	</tr>  	
 </table>
-
-
 <br /><br />
-
 
 <table style="width:50%">
   	<tr>
@@ -83,13 +90,17 @@
 </table>
 
 	<br /><br />
-	<br /><br />
 
     <div class="button">
         <button type="submit"> Projetar População </button>
     </div>
 </form>
 
+<br /><br />
+<br /><br />
+
+
+{% include "project/projeção_populacional/explicações_projeção_populacional.html" %}	
 
 
 {% endblock %}
