@@ -1,0 +1,91 @@
+
+
+<p class="serif" align="justify" >
+<div align="left">
+Algumas explicações sobre o funcionamento do sistema da calculo.
+</p>
+
+Formatos dos gráficos
+Graficos não presentes
+Erros
+
+
+Vocês, usuario pode cometer alguns erros bem estranhos, então aqui eu tentei documentar alguns erros que o sistema tenta prevenir.<br /><br />
+
+
+Caso sejam colocados tempo iguais o sistema não aceitará. <br /><br />
+
+O calculo das projeções esta feito para que sejam apenas exibidas as projeções que o sistema conseguiu realizar os calculos.<br /><br />
+
+
+Acredito, pois é o que todos os testes que eu fiz mostram, que as projeções aritimética (PA) e geométrica (PG) possam ser calculadas para "quais quer dados de entrada". Então a menos as projeções de PA e PG devem ser possiveis de ser feitas.<br /><br />
+
+Para a Taxa Decrescente (TD):<br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			P_{s} = \dfrac{ 2P_{0}P_{1}P_{2} - P_{1}^{2}\left ( P_{0} + P_{2} \right ) }{ P_{0}P_{2} - P_{1}^{2} }
+		}
+	$
+</center>	
+<br /><br />
+
+Observem que a condição de existência da expressão para o $\mathrm{P_{s}}$ é que  o denominador seja diferente de zero, ou seja, $\mathrm{P_{0}P_{2} - P_{1}^{2}\neq 0}$.
+<br /><br />
+
+Ainda tem-se a condição de existenicia da expressão do $\mathrm{K_{1}}$: 
+<center>
+	$
+		\mathrm
+		{
+			K_{1} = \dfrac{1}{t_{2} - t_{1} } \ln \!\!\left [ \dfrac{ P_{0}\left (P_{s} - P_{1} \right ) }{P_{1}\left (P_{s} - P_{0} \right )} \right ]
+		}
+	$
+</center>	
+<br /><br />
+
+Lembre-se de que o dominio da função logaritmica é o conjunto dos numeros rais positivos. Então para alguns valores de $\mathrm{P_{0}, P_{1}, P_{2} }$, é possivel que o argumento do logaritmo assuma voleres negativos, valores estes que não fazem parte do dominio da função logaritmica.
+<br /><br />
+
+
+Para a o Crescimento Logistico (CL):<br /><br />
+
+Semelhante ao que foi discutido no TD o $\mathrm{P_{s}}$ não pode ser calculado para qualquer valor de $\mathrm{P_{0}, P_{1}, P_{2} }$.
+<br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			P_{s} = \dfrac{ 2P_{0}P_{1}P_{2} - P_{1}^{2}\left ( P_{0} + P_{2} \right ) }{ P_{0}P_{2} - P_{1}^{2} }
+		}
+	$
+</center>	
+<br /><br />
+
+Para a condição de existência passada na imagem pelo professor Hélio é utilizada  a condição  $\mathrm{P_{0}P_{2} < P_{1}^{2}}$, que atende que o denominador seja diferente de zero, pois 
+$\mathrm{P_{0}P_{2} < P_{1}^{2} \implies P_{0}P_{2} - P_{1}^{2} < 0}$.
+<br /><br />
+
+Para o CL é utilizada tambem a condição de que $\mathrm{P_{0} < P_{1} < P_{2} }$.
+<br /><br />
+
+Caso mesmo com essas condições ocorra algum problema não será exibido essa projeção.
+<br /><br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
