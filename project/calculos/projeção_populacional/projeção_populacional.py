@@ -80,17 +80,21 @@ class PP_Methods():
     def projeçãoGeométrica(self, t, P0, Kg, t0):
         return P0*math.e**(Kg*(t - t0))        
     
+    @classmethod
     def fPsNum(self, P0, P1, P2):
         return 2*P0*P1*P2 - (P1**2)*(P0 + P2)
 
+    @classmethod
     def fPsDen(self, P0, P1, P2):
         return P0*P2 - P1**2
 
+    @classmethod
     def fPs(self, P0, P1, P2):
         num = self.fPsNum(P0, P1, P2)
         den = self.fPsDen(P0, P1, P2)
         return num/den
-
+    
+    @classmethod
     def fKdArgLog(self, Ps, P0, P2):
         return (Ps - P2)/(Ps + P0)
 
@@ -106,6 +110,7 @@ class PP_Methods():
     def fc(self, Ps, P0):
         return (Ps - P0)/P0
 
+    @classmethod
     def fK1ArgLog(self, P0, P1, Ps):
         num = P0*(Ps - P1)
         den = P1*(Ps - P0)
@@ -323,24 +328,16 @@ class Verificações():
             self.is_projetavél = False
             self.make_out()
         else:
-            if self.checaTD() and self.checaCL():
-                # Dimensiona tudo.
-                self.foi_dimensionado = 'TUDO'
+            if self.checaTD(self.P0, self.P1, self.P2) and self.checaCL(self.P0, self.P1, self.P2):            
                 self.projetar()
                 print('$$$$ self.projetar()')
-            elif self.checaTD() == True:
-                # Dimensiona tudo - CL
-                self.foi_dimensionado = 'PAPGTD'
+            elif self.checaTD(self.P0, self.P1, self.P2) == True:        
                 self.projetar_PAPGTD()
                 print('$$$$ self.projetar_PAPGTD()')
-            elif self.checaCL() == True:
-                # Dimensiona tudo - TD
-                self.foi_dimensionado = 'PAPGCL'
+            elif self.checaCL(self.P0, self.P1, self.P2) == True:                
                 self.projetar_PAPGCL()
                 print('$$$$ self.projetar_PAPGCL()')
-            else:
-                # Dimensiona PA e PG
-                self.foi_dimensionado = 'PAPG'
+            else:                
                 self.projetar_PAPG()
                 print('$$$$ self.projetar_PAPG()')
     
@@ -348,31 +345,33 @@ class Verificações():
         lista_tempos = [self.t0, self.t1, self.t2, self.t3, self.t4, self.t5]
         return any(i for i in lista_tempos if lista_tempos.count(i) > 1)
 
-    def checaCL(self):
+    @classmethod
+    def checaCL(self, P0, P1, P2):
         try:
-            Ps = self.fPs(self.P0, self.P1, self.P2)
-            if self.P0 > self.P1 > self.P2:        
+            Ps = self.fPs(P0, P1, P2)
+            if P0 > P1 > P2:        
                 return False
-            elif self.fPsDen(self.P0, self.P1, self.P2) > 0:
+            elif not P0*P2 < P1**2:
                 return False
-            elif self.fK1ArgLog(self.P0, self.P1, Ps) < 0:
+            elif self.fK1ArgLog(P0, P1, Ps) < 0:
                 return False
             else:
                 return True
         except:
             return False
 
-    def checaTD(self):
+    @classmethod
+    def checaTD(self, P0, P1, P2):
         try:            
-            auxPs = self.fPs(self.P0, self.P1, self.P2)
-            if self.fKdArgLog(auxPs, self.P0, self.P2) < 0:
+            Ps = self.fPs(P0, P1, P2)
+            if P0*P2==P1**2:
+                return False
+            elif self.fKdArgLog(Ps, P0, P2) < 0:
                 return False
             else:
                 return True
         except:
             return False
-
-
 
 
 class Extras():
@@ -393,6 +392,7 @@ class PP_Main():
     __slots__=()
 
     def projetar(self):        
+        self.foi_dimensionado = 'TUDO'
         self.inicializaConstantesDasCurvas()  
         self.incializaCensoProjeção()
         self.calculaPopulações()
@@ -402,8 +402,9 @@ class PP_Main():
         self.make_out()
         self.arredondamento()
         self.carrega_projeções()
-
-    def projetar_PAPG(self):        
+        
+    def projetar_PAPG(self):    
+        self.foi_dimensionado = 'PAPG'    
         self.inicializaConstantesDasCurvasPAPG()
         self.incializaCensoProjeção()
         self.calculaPopulaçõesPAPG()
@@ -412,9 +413,10 @@ class PP_Main():
         self.cria_e_salva_graficos_PAPG()
         self.make_out()
         self.arredondamento()
-        self.carrega_projeções()
+        self.carrega_projeções()        
 
     def projetar_PAPGTD(self):        
+        self.foi_dimensionado = 'PAPGTD'
         self.inicializaConstantesDasCurvasPAPGTD()
         self.incializaCensoProjeção()
         self.calculaPopulaçõesPAPGTD()
@@ -424,8 +426,9 @@ class PP_Main():
         self.make_out()
         self.arredondamento()
         self.carrega_projeções()
-
+        
     def projetar_PAPGCL(self):        
+        self.foi_dimensionado = 'PAPGCL'
         self.inicializaConstantesDasCurvasPAPGCL()
         self.incializaCensoProjeção()
         self.calculaPopulaçõesPAPGCL()
@@ -434,8 +437,9 @@ class PP_Main():
         self.cria_e_salva_graficos_PAPGCL()
         self.make_out()
         self.arredondamento()
-        self.carrega_projeções()
-        
+        self.carrega_projeções()        
+
+
 def factory_PP(ppinit):
 	global ppresults
 
