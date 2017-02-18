@@ -75,17 +75,237 @@ Para o CL é utilizada tambem a condição de que $\mathrm{P_{0} < P_{1} < P_{2}
 Caso mesmo com essas condições ocorra algum problema não será exibido essa projeção.
 <br /><br />
 
+<br /><br />
+<br /><br />
+
+
+Uma pergunta que me ocorreu foi. Existem $\mathrm{P_{0}, P_{1}, P_{2} }$ tais que que não seja possivel calcular fazer a projação que usa o modelo com taxa decrescente, mas é possivel fazer a projeção do modelo logistico?
+<br /><br />
+
+A conclusão que cheguei é que não
+<br /><br />
+
+Essa impossibilidade advem da condição de existencia dos logaritmos presentes para o calculo das constantes  $\mathrm{K_{1} }$ e  $\mathrm{K_{d} }$.
+
+<center>
+	$
+		\mathrm
+		{
+			P_{s} = \dfrac{ 2P_{0}P_{1}P_{2} - P_{1}^{2}\left ( P_{0} + P_{2} \right ) }{ P_{0}P_{2} - P_{1}^{2} }
+		}
+	$
+</center>	
+<br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			K_{1} = \dfrac{1}{t_{2} - t_{1} } \ln \!\!\left [ \dfrac{ P_{0}\left (P_{s} - P_{1} \right ) }{P_{1}\left (P_{s} - P_{0} \right )} \right ]
+		}
+	$
+</center>	
+<br /><br />
+
+
+<center>
+	$
+		\mathrm
+		{
+			K_{d} = \dfrac{ \ln \!\!\left ( \dfrac{P_{s} - P_{2}}{P_{s} - P_{0}} \right )}{t_{2} - t_{1} }
+		}
+	$
+</center>	
+<br /><br />
+
+Pala condição de existência dos logaritmos tem-se qu se ter: <br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			\dfrac{ P_{0}\left (P_{s} - P_{1} \right ) }{P_{1}\left (P_{s} - P_{0} \right )} > 0 
+		}
+	$  
+	 e
+
+	$
+		\mathrm
+		{
+			\dfrac{P_{s} - P_{2} }{P_{s} - P_{0} } > 0 
+		}
+	$
+</center>	
+<br /><br />
 
 
 
+Prova.
+<br /><br />
 
 
+Fazendo:
+	$
+		\mathrm
+		{
+			M = 2P_{0}P_{1}P_{2} - P_{1}^{2}\left ( P_{0} + P_{2} \right ) 
+		}
+	$
+	e
+	$	  
+		\mathrm
+		{
+			N = P_{0}P_{2} - P_{1}^{2}
+		}
+		\implies
+		\mathrm
+		{
+			P_{s} = \dfrac{M}{N}
+		}				
+	$
+<br /><br />
+
+Substituindo nas expressões, e simplificando:
+<br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			\dfrac{P_{s} - P_{2} }{P_{s} - P_{0} } 
+		}
+		\implies
+		\mathrm
+		{
+			\dfrac{\dfrac{M}{N}  - P_{2} }{\dfrac{M}{N} - P_{0} } 
+		}		
+		\implies
+		\mathrm
+		{
+			\dfrac{ \left (\dfrac{M - NP_{2}}{N}  \right ) }{ \left ( \dfrac{M - NP_{0}}{N}  \right )}
+		}				
+		\implies
+		\mathrm
+		{
+			\dfrac{ \dfrac{\left (M - NP_{2} \right )}{N} }{\dfrac{ \left (M - NP_{0}\right )}{N}  }	
+		}
+		\implies
+		\mathrm
+		{
+			\dfrac{ M - NP_{2} }{ M - NP_{0} }			
+		}		
+	$
+</center>	
+<br /><br />
 
 
+<center>
+	$
+		\mathrm
+		{
+			\dfrac{ P_{0}\left (\dfrac{M}{N} - P_{1} \right ) }{P_{1}\left ( \dfrac{M}{N} - P_{0} \right )} 
+		}
+		\implies
+		\mathrm
+		{
+			\dfrac{ P_{0}\left (\dfrac{M - NP_{1}}{N}  \right ) }{P_{1}\left ( \dfrac{M - NP_{0}}{N}  \right )}
+		}		
+		\implies
+		\mathrm
+		{
+			\dfrac{ \dfrac{P_{0}\left (M - NP_{1} \right )}{N} }{\dfrac{P_{1} \left (M - NP_{0}\right )}{N}  }
+		}
+		\implies
+		\mathrm
+		{
+			\dfrac{ P_{0}\left (M - NP_{1} \right ) }{ P_{1} \left (M - NP_{0}\right ) }
+		}		
+	$
+</center>	
+<br /><br />
 
 
+<!--
+<center>
+	$
+		\mathrm
+		{
+			\dfrac{ M - NP_{2} }{ M - NP_{0} }				
+		}		
+		\implies		
+		\mathrm
+		{
+			\dfrac{ 2P_{0}P_{1}P_{2} - P_{1}^{2}\left ( P_{0} + P_{2} \right )  - P_{2}\left ( P_{0}P_{2} - P_{1}^{2} \right ) }{ 2P_{0}P_{1}P_{2} - P_{1}^{2}\left ( P_{0} + P_{2} \right )  - P_{0}\left ( P_{0}P_{2} - P_{1}^{2} \right ) }		
+		}
+	$
+</center>	
+<br /><br />
 
 
+<center>
+	$
+		\mathrm
+		{
+			\dfrac{ P_{0}\left (M - NP_{1} \right ) }{ P_{1} \left (M - NP_{0}\right ) }
+		}		
+		\implies		
+		\mathrm
+		{
+			\dfrac{ P_{0}\left (2P_{0}P_{1}P_{2} - P_{1}^{2}\left ( P_{0} + P_{2} \right )  - P_{1}\left ( P_{0}P_{2} - P_{1}^{2}\right ) \right ) }{ P_{1} \left (2P_{0}P_{1}P_{2} - P_{1}^{2}\left ( P_{0} + P_{2} \right )  - P_{0}\left ( P_{0}P_{2} - P_{1}^{2}\right ) \right ) }
+		}
+	$
+</center>	
+<br /><br />
+-->
+
+O problema agora consiste em mostrar que se (IV) é positiva, (III) tambem é.
+Para isso basta lembrar que oara realizar a projeção populacional que utiliza o método do crecimento logistico é necessario que $\mathrm{ P_{0}P_{2} < P_{1}^{2} }$, ou seja, que $\mathrm{ P_{0}P_{2} - P_{1}^{2} < 0 }$. 
+<br /><br />
+
+Se $\mathrm{ P_{0}P_{2} - P_{1}^{2} < 0  \implies N < 0 }$. Logo:
+<br /><br />
+
+<center>
+	$
+		\mathrm
+		{
+			\dfrac{ P_{0}\left (M -  NP_{1} \right ) }{ P_{1} \left (M - NP_{0}\right ) }
+		}		
+		\implies
+		\mathrm
+		{
+			\dfrac{ P_{0}\left (M - \left ( - N\right )P_{1} \right ) }{ P_{1} \left (M - \left ( - N\right )P_{0}\right ) }
+		}				
+		\implies
+		\mathrm
+		{
+			\dfrac{ P_{0}\left (M + NP_{1} \right ) }{ P_{1} \left (M + NP_{0}\right ) }
+		}
+	$
+</center>	
+<br /><br />
 
 
+<center>
+	$
+		\mathrm
+		{
+			\dfrac{ P_{0}\left (M - NP_{1} \right ) }{ P_{1} \left (M - NP_{0}\right ) }
+		}		
+		\implies
+		\mathrm
+		{
+			\dfrac{ P_{0}\left (M - \left ( - N\right )P_{1} \right ) }{ P_{1} \left (M - \left ( - N\right )P_{0}\right ) }
+		}		
+		\implies		
+		\mathrm
+		{
+			\dfrac{ P_{0}\left (M + NP_{1} \right ) }{ P_{1} \left (M + NP_{0}\right ) }
+		}				
+	$
+</center>	
+<br /><br />
 
+Ou seja, se a condição para o argumento do logaritmo da concstante do crecimento logistico é satisfeita
+
+Isso conclui a demonstração.
