@@ -27,11 +27,22 @@ class Level_1(unittest.TestCase):
 
 
 	def test_fKdArgLog(self):
-		self.assertTrue(PP.fKdArgLog(4, 10, 42)<0)
-		self.assertTrue(PP.fKdArgLog(21, 99, 76)<0)	
+		# É possivel que mesmo que com a condição de existencia da expressão
+		# para o Ps argumento do logaritmo seja negativo. Exemplo:		
+		P0 = 29 
+		P1 = 34
+		P2 = 96
+		# Para esses valores é possivel calcular o Ps, pois atendem a condição
+		# P0*P2 != P1**2
+		Ps = PP.fPs(P0, P1, P2)
+		self.assertTrue(PP.fKdArgLog(Ps, P0, P2) < 0)						
+
 	
-	def test_fK1ArgLog(P0, P1, Ps):
+	def test_fK1ArgLog(self):
+		#fK1ArgLog(P0, P1, Ps)
 		self.assertTrue(PP.fK1ArgLog(4, 10, 42)<0)				
+
+
 
 	def test_fPs(self):
 		# Mesmo com P0<P1<P2, o fPs pode ser negativo como neste teste
@@ -41,20 +52,23 @@ class Level_1(unittest.TestCase):
 n1 = unittest.TestLoader().loadTestsFromTestCase(Level_1)
 suite1=[n1]
 alltests = unittest.TestSuite(suite1)
-#result = unittest.TextTestRunner(verbosity=2).run(alltests)
+result = unittest.TextTestRunner(verbosity=2).run(alltests)
 
 
-for i in range(10**1):
-	n=2
+for i in range(10**3):
+	n=8
 	P0 = random.randint(1, 10**n)
 	P1 = random.randint(1, 10**n)
 	P2 = random.randint(1, 10**n)
 	try:
 		
-		if P0*P2<P1**2 :
+		if P0*P2 < P1**2 and P0>P1>P2:
 			Ps = PP.fPs(P0, P1, P2)
-			if PP.fKdArgLog(P0, P1, Ps) < 0:
-				print(P0, P1, P2)
+			if PP.fK1ArgLog(P0, P1, Ps) < 0:
+				print("K1 ", P0, P1, P2, Ps)
+				
+			if PP.fKdArgLog(Ps, P0, P2)< 0:
+				print("Kd ", P0, P1, P2, Ps)
 	except:
 		print("Algo errado", P0, P1, P2)
 		Ps = PP.fPs(P0, P1, P2)
