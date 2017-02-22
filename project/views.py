@@ -8,7 +8,7 @@ from project.calculos.fator_de_atrito.fator_atrito_colebrock import solução_Co
 
 
 from project.calculos.gerar_pdf.gerar_pdf import gerar_pdf
-from project.calculos.calha_parshall.calha_parshall import CalhaParshall
+from project.calculos.calha_parshall.calha_parshall import factory_CP, cpinit
 from project.calculos.decantador_laminar.decantador_laminar import DecantadorLaminar
 from project.calculos.uasb.uasb import factory_UASB, uasb_dict_inputs
 from project.calculos.floculador_chicaneado.floculador_chicaneado import factory_FloculadorChicaneado, dict_inputs_FloculadorChicaneado
@@ -212,22 +212,16 @@ def inputs_calha_parshall(request):
 def results_calha_parshall(request):
 
     if request.method == "POST":
-        Q=float(request.POST["Q"])
-        g=float(request.POST["g"])
-        T=float(request.POST["T"])
-        GmMin=float(request.POST["GmMin"])
-        GmMax=float(request.POST["GmMax"])
-        FMin=float(request.POST["FMin"])
-        
-        cp=CalhaParshall(Q, g, T, GmMin, GmMax, FMin)
-        cp.dimensiona_inteligente()
-        
-        d=cp.d
+        for key in cpinit:
+            if key == 'iW':
+                cpinit[key] = int(request.POST[key])
+            else:
+                cpinit[key] = float(request.POST[key])
 
-#        if cp.dimensionado_ok:
-#            pass
-#        for key in d:
-#            d[key]=round(d[key],4)
+        CP = factory_CP(cpinit)
+        cp = CP()
+        cp.dimensionar()
+        d = cp.out
     else:
         inputs_calha_parshall(request)
     return render(request,'project/calha_parshall/results_calha_parshall.html', d)    
