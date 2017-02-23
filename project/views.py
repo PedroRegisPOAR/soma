@@ -15,8 +15,10 @@ from project.calculos.decantador_laminar.decantador_laminar import DecantadorLam
 from project.calculos.uasb.uasb import factory_UASB, uasb_dict_inputs
 from project.calculos.floculador_chicaneado.floculador_chicaneado import factory_FloculadorChicaneado, dict_inputs_FloculadorChicaneado
 
+from . models import ProjeçãoPopulacional
+
 from project.calculos.projeção_populacional.projeção_populacional import (
-    factory_PP, ppinit)
+    factory_PP, ppinit, create_image)
 
 from project.calculos.vazões_esgoto.vazões_esgoto import factory_VE, veinit
 from project.calculos.vazões_água.vazões_água import factory_VA, vainit
@@ -136,7 +138,20 @@ def results_viscosidade_absoluta(request):
 def inputs_projeção_populacional(request):     
     return render(request,'project/projeção_populacional/inputs_projeção_populacional.html')
 
+def results_projeção_populacional(request):
+    
+    for plt in ProjeçãoPopulacional.objects.all():
+        plt.delete()
 
+    create_image()
+
+    last_plot = ProjeçãoPopulacional.objects.latest('id')
+    context = {'last_plot':last_plot}
+
+    return render(request,'project/projeção_populacional/results_projeção_populacional.html', context)
+
+
+"""
 def results_projeção_populacional(request):
 #    salva_projeções()
     path_page = 'project/projeção_populacional/results_projeção_populacional.html'
@@ -153,7 +168,7 @@ def results_projeção_populacional(request):
         inputs_projeção_populacional(request)
 
     return render(request, path_page, d)
-
+"""
 
 """
 def results_projeção_populacional(request):

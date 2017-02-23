@@ -35,6 +35,12 @@
 		<form action="/inputs_projeção_populacional/" method="post">{%csrf_token %}   
 		    <div class="button">
         <button type="submit"> Voltar </button>
+		<br>
+		<br>
+
+		<center>
+			<img src="{{ last_plot.imagem.url }}"\>
+		</center>
     </div>
 </form>
 	</center>	

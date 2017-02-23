@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from matplotlib.legend_handler import HandlerLine2D
 
 # Eu não entendo como e porque esse import funciona.
-# from project.models import ProjeçãoPopulacional
+from project.models import ProjeçãoPopulacional
 from io import StringIO, BytesIO
 from django.core.files import File
 
@@ -454,6 +454,28 @@ def factory_PP(ppinit):
 	        for key in d:
 	            setattr(self, key, d[key])
 	return PP
+
+
+import random
+import time
+
+def dynamic_name_image():
+    return 'name_of_image' + str(time.time()).replace('.','_') + '.png'
+
+def create_image():
+    x = random.sample(range(1,9), 3)
+    y = random.sample(range(1,9), 3)
+    plt.axis([0, 10, 0, 10])
+    plt.plot(x, y, 'o')
+
+    f = BytesIO()
+    plt.savefig(f, format="png")
+
+    content_file = File(f)
+    model_object = ProjeçãoPopulacional()
+    model_object.imagem.save(dynamic_name_image(), content_file)
+    model_object.save()
+    plt.close()
 
 
 
