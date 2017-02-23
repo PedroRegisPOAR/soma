@@ -1,0 +1,60 @@
+{% extends "project/header.html" %}
+
+{% block content %}
+
+Conforme o capitulo 2, página 43 de (CENGEL; CIMBALA, 2012), a expressão para a viscosidade cinemática em função da temperatura é expressa por:<br /><br />
+
+<center>
+	$
+		\mathrm
+		{	
+			\mu\!\left ( T \right )=a10^{\dfrac{b}{T-c}}
+		}
+	$
+</center>
+<br /><br />
+
+Onde: 	$\mathrm{a=2.414 \!\cdot\!10^{-5} \ Ns/m^{2}, \ b=247.8 \ K, \ c=140 \ K}$.<br /><br />
+
+Essa expressão conforme (CENGEL; CIMBALA, 2012) resulta em um erro menor do que 2.5% nos valores da viscosidade na faixa de temperatura de $0^{\circ}\mathrm{C}$ a $370^{\circ}\mathrm{C}$. Notar que a unidade de tempera das constantes é K (Kelvin). Convertendo para graus Celsius e substituindo as contantes:<br /><br />
+
+<center>
+	$
+		\mathrm
+		{	
+			\mu\!\left ( T \right )=2.414 \!\cdot\!10^{-5} \!\cdot\! 10^{\dfrac{247.8 }{T + 273.15 - 140}} 
+			\implies 
+			\mu\!\left ( T \right )=2.414 \!\cdot\!10^{-5} \!\cdot\! 10^{\dfrac{247.8 }{T + 133.15}}
+		}
+	$
+</center>
+<br /><br />
+
+Portanto essa formula acima é a formula para a viscosidade cinemática em função da temperatura. <br /><br />
+<br /><br />
+
+Substitundo-se o valor de T={{T}} $^{\circ}\mathrm{C}$, tem-se:
+
+<center>
+	$
+		\mathrm
+		{
+			\mu\!\left ( T \right )=2.414 \!\cdot\!10^{-5} \!\cdot\! 10^{\dfrac{247.8 }{T + 133.15}}
+		}
+		\implies
+		\mathrm
+		{
+			\mu\!\left ( {{T}} \right )=2.414 \!\cdot\!10^{-5} \!\cdot\! 10^{\dfrac{247.8 }{ {{T}} + 133.15}}
+		}
+		\implies 
+		\fbox
+		{ 
+			$\mathrm
+			{
+				\mu= {{mu}} \ N \! \cdot \! s \cdot m^{-2}
+			}$
+		} 
+	$ 
+</center>
+
+{% endblock %}
