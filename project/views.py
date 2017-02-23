@@ -138,6 +138,7 @@ def results_viscosidade_absoluta(request):
 def inputs_projeção_populacional(request):     
     return render(request,'project/projeção_populacional/inputs_projeção_populacional.html')
 
+"""
 def results_projeção_populacional(request):
     
     for plt in ProjeçãoPopulacional.objects.all():
@@ -149,11 +150,10 @@ def results_projeção_populacional(request):
     context = {'last_plot':last_plot}
 
     return render(request,'project/projeção_populacional/results_projeção_populacional.html', context)
-
-
 """
+
 def results_projeção_populacional(request):
-#    salva_projeções()
+
     path_page = 'project/projeção_populacional/results_projeção_populacional.html'
     d = None
     if request.method == "POST":
@@ -168,7 +168,7 @@ def results_projeção_populacional(request):
         inputs_projeção_populacional(request)
 
     return render(request, path_page, d)
-"""
+
 
 """
 def results_projeção_populacional(request):
