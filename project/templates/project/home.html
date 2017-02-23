@@ -26,9 +26,21 @@
         <button type="submit"> Fator atrito de Darcy-Weisbach </button>
     </div>
 </form>
-<br /><br /> 
-<br /><br />  
+<br />
 
+<form action="/inputs_densidade_água/" method="post">{% csrf_token %}
+    <div class="button">
+        <button type="submit"> Densidade da água </button>
+    </div>
+</form>
+<br />
+
+<form action="/inputs_viscosidade_absoluta/" method="post">{% csrf_token %}
+    <div class="button">
+        <button type="submit"> Viscosidade absoluta </button>
+    </div>
+</form>
+<br />
 
 <form action="/inputs_projeção_populacional/" method="post">{% csrf_token %}
     <div class="button">
