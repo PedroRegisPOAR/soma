@@ -1,0 +1,22 @@
+{% extends "project/header.html" %}
+
+{% block content %}
+
+
+<center>
+	<form action="/results_densidade_água/" method="post">{%csrf_token %}     
+	    <div>
+	        <label for=""> T: </label>
+	        <input type="number" step=0.01 min="0" max="50" id="T" name="T" value="25" required />
+	    </div>
+	     Temperatura, em $\mathrm{^{\circ}C}$.
+	    <br /><br />
+
+
+	    <div class="button">
+	        <button type="submit"> Calcular </button>
+	    </div>
+	</form>
+</center>
+
+{% endblock %}

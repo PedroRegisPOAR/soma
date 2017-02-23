@@ -1,0 +1,57 @@
+{% extends "project/header.html" %}
+
+
+
+{% block content %}
+
+
+De acordo com o  trabalho de (PATTERSON; MORRIS, 1994) a desidade da água como uma função da temperatura é dada por:
+<br /><br />
+
+<center>
+	$\mathrm
+	{
+		\rho \!\left ( T \right )= \rho_{0} \! \Big\{1- \Big[ A\!\left (t - t_{0}  \right ) + B\!\left (t - 			t_{0}  \right )^{2} + C\!\left (t - t_{0}  \right )^{3} + D\!\left (t - t_{0}  \right )^{4} + E\!				\left (t - t_{0}  \right ) ^{5} \Big] \Big\}
+	}$
+</center>
+<br /><br />
+
+Onde:
+
+$\mathrm
+{
+	A = 7.0134    \times 10^{-8 \ \circ}C^{-1},
+	B = 7.926504  \times 10^{-6 \ \circ}C^{-2},
+	C = -7.575677 \times 10^{-8 \ \circ}C^{-3}, \\
+	D = 7.314894  \times 10^{-10 \ \circ}C^{-4},
+	E = -3.596458 \times 10^{-12 \ \circ}C^{-5},
+	t_{0}=3.9818^{\circ}C, 
+	\rho= 999.974950 Kg/m^{3}
+}$
+<br /><br />
+
+
+
+Esta formula, segundo os seus autores, tem um erro de 0.64 partes em $10^{6}$ para $15^{\circ}\mathrm{C}$, 1.4 partes em $10^{6}$ para $1^{\circ}\mathrm{C}$, e para $40^{\circ}\mathrm{C}$
+<br /><br />
+
+Substituindo-se os valores das constantes de o valor de T = {{T}}$^{\circ}\mathrm{C}$, obtem-se: 
+<br /><br />
+
+<center>
+	$\mathrm
+	{
+			\fbox
+			{ 
+				$\mathrm
+				{
+					\rho= {{rho}} \ Kg/m^{3}
+				}$
+			} 
+	}
+	$
+</center>
+<br /><br />
+
+
+{% endblock %}
