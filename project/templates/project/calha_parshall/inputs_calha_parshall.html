@@ -4,225 +4,222 @@
 
 
 
-<table style="width:100%">
-    <tr>
-        <td> 
-            <form action="/results_calha_parshall/" method="post">{%csrf_token %}     
-                <div>
-                    <label for="Q">Q:</label>
-                    <input type="number" step=0.001 min="0" max="5" id="Q" name="Q" value="1.2" />
-                </div>
-                Vazão que passsará pela Calha Parshall em $\mathrm{m^{3}/s}$.
-                <br /><br />
+<center>
+    <style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 5px;
+        text-align: center;    
+    }
+    </style>
 
-                <div>
-                    <label for="g"> g:</label>
-                    <input type="number" step=0.01 min="1" max="11" id="g" name="g" value="9.81" />
-                </div>
-                Aceleração da gravidade em $\mathrm{m/s}^{2}$.
-                <br /><br />
+    <table style="width:50%">
+      <tr>
+        <td> iW </td>
+        <td> W </td>
+        <td> A </td>
+        <td> B </td>
+        <td> C </td>
+        <td> D </td>
+        <td> E </td>
+        <td> F </td>
+        <td> L </td>
+        <td> K </td>
+        <td> N </td>
+        <td> k </td>
+        <td> n </td>
+      </tr>
+      <tr>
+        <td>  1  </td>
+        <td>  229  </td>
+        <td>  880  </td>
+        <td>  864  </td>
+        <td>  380  </td>
+        <td>  575  </td>
+        <td>  763  </td>
+        <td>  305  </td>
+        <td>  457  </td>
+        <td>  76  </td>
+        <td>  114  </td>
+        <td>  1.486  </td>
+        <td>  0.633  </td>        
+      </tr>
+      <tr>
+        <td>  2  </td>
+        <td>  305  </td>
+        <td>  1372  </td>
+        <td>  1344  </td>
+        <td>  610  </td>
+        <td>  845  </td>
+        <td>  915  </td>
+        <td>  610  </td>
+        <td>  915  </td>
+        <td>  76  </td>
+        <td>  229  </td>
+        <td>  1.276  </td>
+        <td>  0.657  </td>
+      </tr>
+      <tr>
+        <td>  3  </td>
+        <td>  457  </td>
+        <td>  1449  </td>
+        <td>  1420  </td>
+        <td>  762  </td>
+        <td>  1026  </td>
+        <td>  915  </td>
+        <td>  610  </td>
+        <td>  915  </td>
+        <td>  76  </td>
+        <td>  229  </td>
+        <td>  0.966  </td>
+        <td>  0.65  </td>        
+      </tr>
+      <tr>
+        <td>  4  </td>
+        <td>  610  </td>
+        <td>  1525  </td>
+        <td>  1496  </td>
+        <td>  915  </td>
+        <td>  1207  </td>
+        <td>  915  </td>
+        <td>  610  </td>
+        <td>  915  </td>
+        <td>  76  </td>
+        <td>  229  </td>
+        <td>  0.795  </td>
+        <td>  0.64  </td>        
+      </tr>
+      <tr>
+        <td>  5  </td>
+        <td>  915  </td>
+        <td>  1677  </td>
+        <td>  1645  </td>
+        <td>  1220  </td>
+        <td>  1572  </td>
+        <td>  915  </td>
+        <td>  610  </td>
+        <td>  915  </td>
+        <td>  76  </td>
+        <td>  229  </td>
+        <td>  0.608  </td>
+        <td>  0.639  </td>        
+      </tr>
+      <tr>
+        <td>  6  </td>
+        <td>  1220  </td>
+        <td>  1830  </td>
+        <td>  1795  </td>
+        <td>  1525  </td>
+        <td>  1938  </td>
+        <td>  915  </td>
+        <td>  610  </td>
+        <td>  915  </td>
+        <td>  76  </td>
+        <td>  229  </td>
+        <td>  0.505  </td>
+        <td>  0.634  </td>        
+      </tr>
+      <tr>
+        <td>  7  </td>
+        <td>  1525  </td>
+        <td>  1983  </td>
+        <td>  1941  </td>
+        <td>  1830  </td>
+        <td>  2303  </td>
+        <td>  915  </td>
+        <td>  610  </td>
+        <td>  915  </td>
+        <td>  76  </td>
+        <td>  229  </td>
+        <td>  0.436  </td>
+        <td>  0.63  </td>        
+      </tr>
+      <tr>
+        <td>  8  </td>
+        <td>  1830  </td>
+        <td>  2135  </td>
+        <td>  2090  </td>
+        <td>  2135  </td>
+        <td>  2667  </td>
+        <td>  915  </td>
+        <td>  610  </td>
+        <td>  915  </td>
+        <td>  76  </td>
+        <td>  229  </td>
+        <td>  0.389  </td>
+        <td>  0.627  </td>        
+      </tr>
+      <tr>
+        <td>  9  </td>
+        <td>  2135  </td>
+        <td>  2288  </td>
+        <td>  2240  </td>
+        <td>  2440  </td>
+        <td>  3030  </td>
+        <td>  915  </td>
+        <td>  610  </td>
+        <td>  915  </td>
+        <td>  76  </td>
+        <td>  229  </td>
+        <td>  0.355  </td>
+        <td>  0.625  </td>        
+      </tr>
+      <tr>
+        <td>  10  </td>
+        <td>  2440  </td>
+        <td>  2440  </td>
+        <td>  2392  </td>
+        <td>  2745  </td>
+        <td>  3400  </td>
+        <td>  915  </td>
+        <td>  610  </td>
+        <td>  915  </td>
+        <td>  76  </td>
+        <td>  229  </td> 
+        <td>  0.324  </td> 
+        <td>  0.623  </td>                      
+      </tr>      
+    </table>            
+    <br /><br />
 
-                <div>
-                    <label for="T"> T:</label>
-                    <input type="number" step=0.1 min="0" max="1000" id="T" name="T" value="17.5" />
-                </div>
-                Temperatura em $^{\circ}\mathrm{C}$.
-                <br /><br />
+    <form action="/results_calha_parshall/" method="post">{%csrf_token %}     
+        <div>
+            <label for="Q">Q:</label>
+            <input type="number" step=0.001 min="0" max="5" id="Q" name="Q" value="1.2" />
+        </div>
+        Vazão que passsará pela Calha Parshall em $\mathrm{m^{3}/s}$.
+        <br /><br />
 
-                <div>
-                    <label for="iW"> $\mathrm{iW}$:</label>
-                    <input type="number" step=1 min="1" max="10" id="iW" name="iW" value="10" />
-                </div>
-                Índice referente ao valor da garganta (W) da calha parshall.
-                <br /><br />
+        <div>
+            <label for="g"> g:</label>
+            <input type="number" step=0.01 min="1" max="11" id="g" name="g" value="9.81" />
+        </div>
+        Aceleração da gravidade em $\mathrm{m/s}^{2}$.
+        <br /><br />
 
-                <div class="button">
-                    <button type="submit">Dimensionar Calha Parshall</button>
-                </div>
-            </form>
-        </td>
+        <div>
+            <label for="T"> T:</label>
+            <input type="number" step=0.1 min="0" max="1000" id="T" name="T" value="17.5" />
+        </div>
+        Temperatura em $^{\circ}\mathrm{C}$.
+        <br /><br />
 
-        <td>
-            <style>
-            table, th, td {
-                border: 1px solid black;
-                border-collapse: collapse;
-            }
-            th, td {
-                padding: 5px;
-                text-align: center;    
-            }
-            </style>
-            <table style="width:50%">
-              <tr>
-                <td> iW </td>
-                <td> W </td>
-                <td> A </td>
-                <td> B </td>
-                <td> C </td>
-                <td> D </td>
-                <td> E </td>
-                <td> F </td>
-                <td> L </td>
-                <td> K </td>
-                <td> N </td>
-                <td> k </td>
-                <td> n </td>
-              </tr>
-              <tr>
-                <td>  1  </td>
-                <td>  229  </td>
-                <td>  880  </td>
-                <td>  864  </td>
-                <td>  380  </td>
-                <td>  575  </td>
-                <td>  763  </td>
-                <td>  305  </td>
-                <td>  457  </td>
-                <td>  76  </td>
-                <td>  114  </td>
-                <td>  1.486  </td>
-                <td>  0.633  </td>        
-              </tr>
-              <tr>
-                <td>  2  </td>
-                <td>  305  </td>
-                <td>  1372  </td>
-                <td>  1344  </td>
-                <td>  610  </td>
-                <td>  845  </td>
-                <td>  915  </td>
-                <td>  610  </td>
-                <td>  915  </td>
-                <td>  76  </td>
-                <td>  229  </td>
-                <td>  1.276  </td>
-                <td>  0.657  </td>
-              </tr>
-              <tr>
-                <td>  3  </td>
-                <td>  457  </td>
-                <td>  1449  </td>
-                <td>  1420  </td>
-                <td>  762  </td>
-                <td>  1026  </td>
-                <td>  915  </td>
-                <td>  610  </td>
-                <td>  915  </td>
-                <td>  76  </td>
-                <td>  229  </td>
-                <td>  0.966  </td>
-                <td>  0.65  </td>        
-              </tr>
-              <tr>
-                <td>  4  </td>
-                <td>  610  </td>
-                <td>  1525  </td>
-                <td>  1496  </td>
-                <td>  915  </td>
-                <td>  1207  </td>
-                <td>  915  </td>
-                <td>  610  </td>
-                <td>  915  </td>
-                <td>  76  </td>
-                <td>  229  </td>
-                <td>  0.795  </td>
-                <td>  0.64  </td>        
-              </tr>
-              <tr>
-                <td>  5  </td>
-                <td>  915  </td>
-                <td>  1677  </td>
-                <td>  1645  </td>
-                <td>  1220  </td>
-                <td>  1572  </td>
-                <td>  915  </td>
-                <td>  610  </td>
-                <td>  915  </td>
-                <td>  76  </td>
-                <td>  229  </td>
-                <td>  0.608  </td>
-                <td>  0.639  </td>        
-              </tr>
-              <tr>
-                <td>  6  </td>
-                <td>  1220  </td>
-                <td>  1830  </td>
-                <td>  1795  </td>
-                <td>  1525  </td>
-                <td>  1938  </td>
-                <td>  915  </td>
-                <td>  610  </td>
-                <td>  915  </td>
-                <td>  76  </td>
-                <td>  229  </td>
-                <td>  0.505  </td>
-                <td>  0.634  </td>        
-              </tr>
-              <tr>
-                <td>  7  </td>
-                <td>  1525  </td>
-                <td>  1983  </td>
-                <td>  1941  </td>
-                <td>  1830  </td>
-                <td>  2303  </td>
-                <td>  915  </td>
-                <td>  610  </td>
-                <td>  915  </td>
-                <td>  76  </td>
-                <td>  229  </td>
-                <td>  0.436  </td>
-                <td>  0.63  </td>        
-              </tr>
-              <tr>
-                <td>  8  </td>
-                <td>  1830  </td>
-                <td>  2135  </td>
-                <td>  2090  </td>
-                <td>  2135  </td>
-                <td>  2667  </td>
-                <td>  915  </td>
-                <td>  610  </td>
-                <td>  915  </td>
-                <td>  76  </td>
-                <td>  229  </td>
-                <td>  0.389  </td>
-                <td>  0.627  </td>        
-              </tr>
-              <tr>
-                <td>  9  </td>
-                <td>  2135  </td>
-                <td>  2288  </td>
-                <td>  2240  </td>
-                <td>  2440  </td>
-                <td>  3030  </td>
-                <td>  915  </td>
-                <td>  610  </td>
-                <td>  915  </td>
-                <td>  76  </td>
-                <td>  229  </td>
-                <td>  0.355  </td>
-                <td>  0.625  </td>        
-              </tr>
-              <tr>
-                <td>  10  </td>
-                <td>  2440  </td>
-                <td>  2440  </td>
-                <td>  2392  </td>
-                <td>  2745  </td>
-                <td>  3400  </td>
-                <td>  915  </td>
-                <td>  610  </td>
-                <td>  915  </td>
-                <td>  76  </td>
-                <td>  229  </td> 
-                <td>  0.324  </td> 
-                <td>  0.623  </td>                      
-              </tr>      
-            </table>            
-        </td>
-    </tr>
-</table>
+        <div>
+            <label for="iW"> $\mathrm{iW}$:</label>
+            <input type="number" step=1 min="1" max="10" id="iW" name="iW" value="10" />
+        </div>
+        Índice referente ao valor da garganta (W) da calha parshall.
+        <br /><br />
+
+        <div class="button">
+            <button type="submit">Dimensionar Calha Parshall</button>
+        </div>
+    </form>
+</center>
+
 
 
 
