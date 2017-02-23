@@ -5,6 +5,44 @@
 
 
 <center>
+
+    <form action="/results_calha_parshall/" method="post">{%csrf_token %}     
+        <div>
+            <label for="Q">Q:</label>
+            <input type="number" step=0.001 min="0" max="5" id="Q" name="Q" value="1.2" />
+        </div>
+        Vazão que passsará pela Calha Parshall em $\mathrm{m^{3}/s}$.
+        <br /><br />
+
+        <div>
+            <label for="g"> g:</label>
+            <input type="number" step=0.01 min="1" max="11" id="g" name="g" value="9.81" />
+        </div>
+        Aceleração da gravidade em $\mathrm{m/s}^{2}$.
+        <br /><br />
+
+        <div>
+            <label for="T"> T:</label>
+            <input type="number" step=0.1 min="0" max="1000" id="T" name="T" value="17.5" />
+        </div>
+        Temperatura em $^{\circ}\mathrm{C}$.
+        <br /><br />
+
+        <div>
+            <label for="iW"> $\mathrm{iW}$:</label>
+            <input type="number" step=1 min="1" max="10" id="iW" name="iW" value="10" />
+        </div>
+        Índice referente ao valor da garganta (W) da calha parshall (veja tabela abaixo).
+        <br /><br />
+
+        <div class="button">
+            <button type="submit">Dimensionar Calha Parshall</button>
+        </div>
+    </form>
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    
     <style>
     table, th, td {
         border: 1px solid black;
@@ -184,43 +222,9 @@
       </tr>      
     </table>            
     <br /><br />
-
-    <form action="/results_calha_parshall/" method="post">{%csrf_token %}     
-        <div>
-            <label for="Q">Q:</label>
-            <input type="number" step=0.001 min="0" max="5" id="Q" name="Q" value="1.2" />
-        </div>
-        Vazão que passsará pela Calha Parshall em $\mathrm{m^{3}/s}$.
-        <br /><br />
-
-        <div>
-            <label for="g"> g:</label>
-            <input type="number" step=0.01 min="1" max="11" id="g" name="g" value="9.81" />
-        </div>
-        Aceleração da gravidade em $\mathrm{m/s}^{2}$.
-        <br /><br />
-
-        <div>
-            <label for="T"> T:</label>
-            <input type="number" step=0.1 min="0" max="1000" id="T" name="T" value="17.5" />
-        </div>
-        Temperatura em $^{\circ}\mathrm{C}$.
-        <br /><br />
-
-        <div>
-            <label for="iW"> $\mathrm{iW}$:</label>
-            <input type="number" step=1 min="1" max="10" id="iW" name="iW" value="10" />
-        </div>
-        Índice referente ao valor da garganta (W) da calha parshall.
-        <br /><br />
-
-        <div class="button">
-            <button type="submit">Dimensionar Calha Parshall</button>
-        </div>
-    </form>
 </center>
 
-
+{% include "project/calha_parshall/explicações_calha_parshall.html" %}    
 
 
 {% endblock %}
