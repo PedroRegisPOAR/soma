@@ -313,7 +313,7 @@ class PP_Parte4():
 
     def carrega_projeções(self):
         from project.models import ProjeçãoPopulacional
-        d = dict( (img.imagem.name.replace('.png', ''), img.imagem) 
+        d = dict( (img.imagem.name.replace('.png', ''), img) 
             for img in ProjeçãoPopulacional.objects.all())
         self.out = dict(self.out, **d)
 
