@@ -3,6 +3,9 @@ import os
 import matplotlib 
 import numpy as np
 
+import random
+import time
+
 # http://stackoverflow.com/questions/27147300/how-to-clean-images-in-python-django
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -455,9 +458,6 @@ def factory_PP(ppinit):
 	            setattr(self, key, d[key])
 	return PP
 
-
-import random
-import time
 
 def dynamic_name_image():
     return 'name_of_image' + str(time.time()).replace('.','_') + '.png'
