@@ -386,7 +386,9 @@ class Extras():
     def arredondamento(self):
         for key in self.out:
             if type(self.out[key]) == float:
-                self.out[key] = round(self.out[key], 4)
+                self.out[key] = round(self.out[key], 4)    
+            if key not in ['Ka', 'Kb', 'Kd', 'K1', 'Kg', 'c'] and type(self.out[key]) == float:
+                self.out[key] = int(self.out[key]) 
 
 class PP_Main():
     __slots__=()
