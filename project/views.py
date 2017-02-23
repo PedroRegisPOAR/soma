@@ -6,6 +6,8 @@ from django.shortcuts import render
 from project.calculos.bhaskara.bhaskara import Bhaskara
 from project.calculos.fator_de_atrito.fator_atrito_colebrock import solução_Colebrook_White
 
+from project.calculos.densidade_água.densidade_água import densidade_água
+from project.calculos.viscosidade_absoluta.viscosidade_absoluta import viscosidade_absoluta
 
 from project.calculos.gerar_pdf.gerar_pdf import gerar_pdf
 from project.calculos.calha_parshall.calha_parshall import factory_CP, cpinit
@@ -98,6 +100,36 @@ def results_fator_de_atrito(request):
     else:
         inputs_fator_de_atrito(request)
     return render(request,'project/fator_de_atrito/results_fator_de_atrito.html', d)    
+
+
+
+def inputs_densidade_água(request):     
+    return render(request,'project/densidade_água/inputs_densidade_água.html')
+
+
+def results_densidade_água(request):
+    if request.method == "POST":
+        T = float(request.POST['T'])
+        rho = round(densidade_água(T), 3)
+        d = {'rho':rho, 'T':T}
+    else:
+        inputs_projeção_populacional(request)
+    return render(request, 'project/densidade_água/results_densidade_água.html', d)
+
+
+def inputs_viscosidade_absoluta(request):     
+    return render(request,'project/viscosidade_absoluta/inputs_viscosidade_absoluta.html')
+
+
+def results_viscosidade_absoluta(request):
+    if request.method == "POST":
+        T = float(request.POST['T'])
+        mu = round(viscosidade_absoluta(T), 7)
+        d = {'mu':mu, 'T':T}
+    else:
+        inputs_viscosidade_absoluta(request)
+    return render(request, 'project/viscosidade_absoluta/results_viscosidade_absoluta.html', d)
+
 
 
 
