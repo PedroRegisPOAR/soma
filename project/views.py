@@ -78,7 +78,7 @@ def pdf_view(request):
     d = {'a':a,'b':b, 'c':c}
 
     pdf_name = 'gerar_pdf_triangulo'
-    path = 'project/templates/project/triangulo/'
+    path = 'soma/project/templates/project/triangulo/'
     gerar_pdf(path, pdf_name, d)
     
     s = 'soma/project/templates/project/triangulo/gerar_pdf_triangulo.pdf'
