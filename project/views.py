@@ -168,7 +168,7 @@ def results_projeção_populacional(request):
         projeções =  ProjeçãoPopulacional.objects.all()
         for p in projeções:
             if p.imagem.name == 'projeção_aritmética.png':
-                c.update({'projeção_aritmética':p.imagem})
+                c.update({'projeção_aritmética':p})
             elif p.imagem.name == 'projeção_geométrica.png':
                 c.update({'projeção_geométrica':p.imagem})
             elif p.imagem.name == 'taxa_decrescente.png':
