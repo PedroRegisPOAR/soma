@@ -180,8 +180,10 @@ def results_projeção_populacional(request):
         c.update({'foi_dimensionado':'TUDO'})
 
         ultima =  ProjeçãoPopulacional.objects.latest('id')
-        c.update({'ultima':ultima})
-        
+        last_id = ultima.id
+
+        c.update({'ultima':ProjeçãoPopulacional.objects.filter(id=last_id-1)})
+        print(ultima.id)
 
         d = dict(pp.out, **c)
     else:
