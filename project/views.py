@@ -179,7 +179,9 @@ def results_projeção_populacional(request):
         c.update({'is_projetavél':True})
         c.update({'foi_dimensionado':'TUDO'})
 
-        ultima =  ProjeçãoPopulacional.objects.latest('id')
+        #ultima =  ProjeçãoPopulacional.objects.latest('id')
+        
+        ultima =  ProjeçãoPopulacional.objects.order_by('-id')[0]
 
         c.update({'ultima':ultima})
        
