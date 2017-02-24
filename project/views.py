@@ -175,12 +175,15 @@ def results_projeção_populacional(request):
                 c.update({'taxa_decrescente':p.imagem})
             elif p.imagem.name == 'crescimento_logístico.png':
                 c.update({'crescimento_logístico':p.imagem})
+        
+        c.update({'is_projetavél':True})
+        c.update({'foi_dimensionado':'TUDO'})
 
         d = dict(pp.out, **c)
     else:
         inputs_projeção_populacional(request)
 
-    return render(request, path_page, d)
+    return render(request, path_page, c)
 
 
 """
