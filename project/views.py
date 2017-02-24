@@ -166,7 +166,7 @@ def results_projeção_populacional(request):
         
         c = {}
         projeções =  ProjeçãoPopulacional.objects.all()
-        for p in projeções:
+        for p in []:
             if p.imagem.name == 'projeção_aritmética.png':
                 c.update({'projeção_aritmética2':p})
             elif p.imagem.name == 'projeção_geométrica.png':
@@ -178,22 +178,19 @@ def results_projeção_populacional(request):
         
         c.update({'is_projetavél':True})
         c.update({'foi_dimensionado':'TUDO'})
-
-        #ultima =  ProjeçãoPopulacional.objects.latest('id')
         
         ultimos =  ProjeçãoPopulacional.objects.order_by('-id')[:4]
         
-        c.update({'ultima':ultimos[0].imagem})
-        #print(ultimos[0].imagem.name)
-
-        #c.update({'ultima':ultima})
-       
-
+        c.update({'crescimento_logístico':ultimos[0].imagem})
+        c.update({'taxa_decrescente':ultimos[1].imagem})
+        c.update({'projeção_geométrica':ultimos[2].imagem})
+        c.update({'projeção_aritmética':ultimos[3].imagem})
+    
         d = dict(pp.out, **c)
     else:
         inputs_projeção_populacional(request)
 
-    return render(request, path_page, c)
+    return render(request, path_page, d)
 
 
 """
