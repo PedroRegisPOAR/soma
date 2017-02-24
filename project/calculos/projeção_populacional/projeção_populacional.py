@@ -292,7 +292,7 @@ class PP_Parte4():
 
     def cria_e_salva_CL(self):
         plt = self.criaGráfico('Crescimento Logístico', self.y_CL_projeção)
-        self.salva_imagem(plt, 'crescimento_logistico')        
+        self.salva_imagem(plt, 'crescimento_logístico')        
     
     def cria_e_salva_graficos(self):
         self.cria_e_salva_PAPG()

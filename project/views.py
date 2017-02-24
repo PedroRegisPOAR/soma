@@ -155,7 +155,7 @@ def results_projeção_populacional(request):
 def results_projeção_populacional(request):
 
     path_page = 'project/projeção_populacional/results_projeção_populacional.html'
-    d = None
+
     if request.method == "POST":
         for key in ppinit:
             ppinit[key]=float(request.POST[key])
@@ -164,15 +164,19 @@ def results_projeção_populacional(request):
         #pp.projetar()      
         pp.verificação()
         
-        cl =  ProjeçãoPopulacional.objects.all()
-        print('@@@@@@@@@@', cl[0].imagem.name)
-        di = {'crescimento_logistico':cl[0]}
+        c = {}
+        projeções =  ProjeçãoPopulacional.objects.all()
+        for p in projeções:
+            if p.imagem.name == 'projeção_aritmética.png':
+                c.update({'projeção_aritmética':p.imagem})
+            elif p.imagem.name == 'projeção_geométrica.png':
+                c.update({'projeção_geométrica':p.imagem})
+            elif p.imagem.name == 'taxa_decrescente.png':
+                c.update({'taxa_decrescente':p.imagem})
+            elif p.imagem.name == 'crescimento_logístico.png':
+                c.update({'crescimento_logístico':p.imagem})
 
-        last_plot = ProjeçãoPopulacional.objects.latest('id')
-        context = {'last_plot':last_plot}        
-
-        d1 = dict(pp.out, **context)
-        d = dict(d1, **di)
+        d = dict(pp.out, **c)
     else:
         inputs_projeção_populacional(request)
 
