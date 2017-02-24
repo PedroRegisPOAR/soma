@@ -19,8 +19,10 @@ def gerar_pdf(path, pdf_name, d):
     subprocess.call('pdflatex ' + pdf_name + '.tex')
 
 
+"""
 path = 'templates\\project\\triângulo\\'
 pdf_name = 'gerar_pdf_triangulo'
 d = { 'a':'12'}
 
 gerar_pdf(path, pdf_name, d)
+"""

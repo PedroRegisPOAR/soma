@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.12.1)  12 DEC 2016 11:16
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.12.1)  24 FEB 2017 11:18
 entering extended mode
-**gerar_pdf_triangulo.tex
+**gerar_pdf_triangulo
 
 ("C:\Users\PEDRO REGIS\Documents\GitHub\soma\project\templates\project\triangul
 o\gerar_pdf_triangulo.tex"
@@ -442,14 +442,14 @@ o\gerar_pdf_triangulo.aux") )
 Here is how much of TeX's memory you used:
  10239 strings out of 495324
  195188 string characters out of 3182141
- 228773 words of memory out of 3000000
+ 228764 words of memory out of 3000000
  13242 multiletter control sequences out of 15000+200000
  3938 words of font info for 15 fonts, out of 3000000 for 9000
  16 hyphenation exceptions out of 8191
- 56i,19n,55p,410b,598s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,19n,55p,406b,598s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
 sfonts/cm/cmr12.pfb>
-Output written on gerar_pdf_triangulo.pdf (1 page, 19902 bytes).
+Output written on gerar_pdf_triangulo.pdf (1 page, 19898 bytes).
 PDF statistics:
  18 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

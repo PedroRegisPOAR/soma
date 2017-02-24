@@ -7,9 +7,7 @@ from django.conf import settings
 
 
 def write_variables(path, fname, d):
-    s = 'soma/project/templates/project/triangulo/'    
-    f = open(s + fname + '.tex', 'w')
-#    f = open(os.path.join(os.path.dirname(__file__), fname + '.tex'), 'w')
+    f = open(path + fname + '.tex', 'w')
     
     for key in d:
         line = newcommand(key, d[key])
@@ -28,8 +26,7 @@ def gerar_pdf(path, pdf_name, d):
     write_variables(path, fname, d)
 #    os.chdir(path)
 #    os.chdir('project/templates/project/triangulo')
-    s = 'soma/project/templates/project/triangulo/' 
-    os.chdir(s)
+    os.chdir(path)
 
 #    os.chdir(os.path.join(os.path.dirname(__file__)))
 #    subprocess.call('pdflatex ' + pdf_name + '.tex')

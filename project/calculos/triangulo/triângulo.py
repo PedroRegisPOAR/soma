@@ -9,7 +9,7 @@ http://stackoverflow.com/questions/4519736/how-to-run-a-standalone-application-f
 def generate_pdf(pdfname, d):
     import subprocess
     
-    write_variables('contantes', d)
+    write_variables('constantes', d)
     
     subprocess.call('pdflatex ' + pdfname + '.tex')
 
