@@ -163,13 +163,16 @@ def results_projeção_populacional(request):
         pp=PP()
         #pp.projetar()      
         pp.verificação()
-        dd = dict( (img.imagem.name.replace('.png', ''), img) 
-            for img in ProjeçãoPopulacional.objects.all())
+        
+        cl =  ProjeçãoPopulacional.objects.all()
+        print('@@@@@@@@@@', cl[0].imagem.name)
+        di = {'crescimento_logistico':cl[0]}
 
         last_plot = ProjeçãoPopulacional.objects.latest('id')
         context = {'last_plot':last_plot}        
-        d = dict(pp.out, **context)
-        d = dict(pp.out, **dd)
+
+        d1 = dict(pp.out, **context)
+        d = dict(d1, **di)
     else:
         inputs_projeção_populacional(request)
 
