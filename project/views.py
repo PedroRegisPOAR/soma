@@ -169,6 +169,7 @@ def results_projeção_populacional(request):
         last_plot = ProjeçãoPopulacional.objects.latest('id')
         context = {'last_plot':last_plot}        
         d = dict(pp.out, **context)
+        d = dict(pp.out, **dd)
     else:
         inputs_projeção_populacional(request)
 
