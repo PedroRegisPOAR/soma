@@ -178,6 +178,11 @@ def results_projeção_populacional(request):
         
         c.update({'is_projetavél':True})
         c.update({'foi_dimensionado':'TUDO'})
+        print(c['projeção_geométrica'])
+
+        ultima =  ProjeçãoPopulacional.objects.latest('id')
+        c.update({'ultima':ultima})
+        print(ultima)
 
         d = dict(pp.out, **c)
     else:
