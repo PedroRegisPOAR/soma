@@ -352,7 +352,7 @@ class Verificações():
         else:
             if self.checaTD(self.P0, self.P1, self.P2) and self.checaCL(self.P0, self.P1, self.P2):                
                 self.projetar()
-                self.create_image()
+                #self.create_image()
                 print('$$$$ self.projetar()')
             elif self.checaTD(self.P0, self.P1, self.P2) == True:        
                 self.projetar_PAPGTD()
