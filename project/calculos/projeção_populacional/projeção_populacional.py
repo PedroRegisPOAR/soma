@@ -64,6 +64,7 @@ ppresults = {
 	    'y_CL_projeção': None,
         'is_projetavél': None,
         'foi_dimensionado': None,
+        'imagem_teste':None,
         'out':None,
 	}
 
@@ -320,6 +321,24 @@ class PP_Parte4():
             for img in ProjeçãoPopulacional.objects.all())
         self.out = dict(self.out, **d)
 
+    def dynamic_name_image(self):
+        return 'name_of_image' + str(time.time()).replace('.','_') + '.png'
+
+    def create_image(self):
+        x = random.sample(range(1,9), 3)
+        y = random.sample(range(1,9), 3)
+        plt.axis([0, 10, 0, 10])
+        plt.plot(x, y, 'o')
+
+        f = BytesIO()
+        plt.savefig(f, format="png")
+
+        content_file = File(f)
+        model_object = ProjeçãoPopulacional()
+        model_object.imagem.save('nome_imagem.png', content_file)
+        model_object.save()
+        plt.close()
+
 
 class Verificações():
     __slots__=()
@@ -331,8 +350,9 @@ class Verificações():
             self.is_projetavél = False
             self.make_out()
         else:
-            if self.checaTD(self.P0, self.P1, self.P2) and self.checaCL(self.P0, self.P1, self.P2):            
+            if self.checaTD(self.P0, self.P1, self.P2) and self.checaCL(self.P0, self.P1, self.P2):                
                 self.projetar()
+                self.create_image()
                 print('$$$$ self.projetar()')
             elif self.checaTD(self.P0, self.P1, self.P2) == True:        
                 self.projetar_PAPGTD()
@@ -459,23 +479,7 @@ def factory_PP(ppinit):
 	return PP
 
 
-def dynamic_name_image():
-    return 'name_of_image' + str(time.time()).replace('.','_') + '.png'
 
-def create_image():
-    x = random.sample(range(1,9), 3)
-    y = random.sample(range(1,9), 3)
-    plt.axis([0, 10, 0, 10])
-    plt.plot(x, y, 'o')
-
-    f = BytesIO()
-    plt.savefig(f, format="png")
-
-    content_file = File(f)
-    model_object = ProjeçãoPopulacional()
-    model_object.imagem.save(dynamic_name_image(), content_file)
-    model_object.save()
-    plt.close()
 
 
 

@@ -18,7 +18,7 @@ from project.calculos.floculador_chicaneado.floculador_chicaneado import factory
 from . models import ProjeçãoPopulacional
 
 from project.calculos.projeção_populacional.projeção_populacional import (
-    factory_PP, ppinit, create_image)
+    factory_PP, ppinit)
 
 from project.calculos.vazões_esgoto.vazões_esgoto import factory_VE, veinit
 from project.calculos.vazões_água.vazões_água import factory_VA, vainit
@@ -163,7 +163,9 @@ def results_projeção_populacional(request):
         pp=PP()
         #pp.projetar()      
         pp.verificação()
-        d = pp.out
+        last_plot = ProjeçãoPopulacional.objects.latest('id')
+        context = {'last_plot':last_plot}        
+        d = dict(pp.out, **context)
     else:
         inputs_projeção_populacional(request)
 
