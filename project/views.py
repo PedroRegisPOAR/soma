@@ -181,9 +181,12 @@ def results_projeção_populacional(request):
 
         #ultima =  ProjeçãoPopulacional.objects.latest('id')
         
-        ultima =  ProjeçãoPopulacional.objects.order_by('-id')[0]
+        ultimos =  ProjeçãoPopulacional.objects.order_by('-id')[:4]
+        
+        c.update({'ultima':ultimos[0].imagem})
+        #print(ultimos[0].imagem.name)
 
-        c.update({'ultima':ultima})
+        #c.update({'ultima':ultima})
        
 
         d = dict(pp.out, **c)
