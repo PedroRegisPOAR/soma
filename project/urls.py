@@ -11,7 +11,10 @@ url(r'^$', views.index, name="index"),
 	url(r'^inputs_triangulo', views.inputs_triangulo, name="inputs_triangulo"),
 	url(r'^results_triangulo/', views.results_triangulo, name='results_triangulo'),    
 	url(r'^pdf_view/', views.pdf_view, name='pdf_view'),    
-
+	
+	url(r'^inputs_gerar_pdf', views.inputs_gerar_pdf, name="inputs_gerar_pdf"),
+	url(r'^results_gerar_pdf/', views.results_gerar_pdf, name='results_gerar_pdf'),
+	
 	url(r'^inputs_fator_de_atrito/', views.inputs_fator_de_atrito, name="inputs_fator_de_atrito"),
 	url(r'^results_fator_de_atrito/', views.results_fator_de_atrito, name='results_fator_de_atrito'),	
 

@@ -10,6 +10,24 @@ from project.calculos.densidade_água.densidade_água import densidade_água
 from project.calculos.viscosidade_absoluta.viscosidade_absoluta import viscosidade_absoluta
 
 from project.calculos.gerar_pdf.gerar_pdf import gerar_pdf
+
+#
+import os
+import random
+import matplotlib 
+
+# http://stackoverflow.com/questions/27147300/how-to-clean-images-in-python-django
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+
+
+from django.template import Context
+from django.template.loader import get_template
+from subprocess import Popen, PIPE
+import tempfile
+#
+
+
 from project.calculos.calha_parshall.calha_parshall import factory_CP, cpinit
 from project.calculos.decantador_laminar.decantador_laminar import DecantadorLaminar
 from project.calculos.uasb.uasb import factory_UASB, uasb_dict_inputs
@@ -88,6 +106,43 @@ def pdf_view(request):
         response['Content-Disposition'] = 'inline; filename=some_file.pdf'
         return response
 
+
+
+
+def inputs_gerar_pdf(request):     
+    return render(request,'project/gerar_pdf/inputs_gerar_pdf.html')
+
+
+def create_image():
+    x = random.sample(range(1,9), 3)
+    y = random.sample(range(1,9), 3)
+    plt.axis([0, 10, 0, 10])
+    plt.plot(x, y, 'o')
+    plt.savefig('myfig')
+    plt.close()
+
+def results_gerar_pdf(request):
+    context = {'A':1, 'B':2}
+    template = get_template('project/gerar_pdf/my_latex_template.tex')
+    rendered_tpl = template.render(context).encode('utf-8')
+    with tempfile.TemporaryDirectory() as tempdir:
+        # Create subprocess, supress output with PIPE and
+        # run latex twice to generate the TOC properly.
+        # Finally read the generated pdf.
+        for i in range(2):
+            create_image()
+            process = Popen(
+                ['pdflatex', '-output-directory', tempdir],
+                stdin=PIPE,
+                stdout=PIPE,
+            )
+            process.communicate(rendered_tpl)
+        with open(os.path.join(tempdir, 'texput.pdf'), 'rb') as f:
+            pdf = f.read()
+        r = HttpResponse(content_type='application/pdf')  
+        # r['Content-Disposition'] = 'attachment; filename=texput.pdf'
+        r.write(pdf)
+    return r    
 
 def inputs_fator_de_atrito(request):     
     return render(request,'project/fator_de_atrito/inputs_fator_de_atrito.html')

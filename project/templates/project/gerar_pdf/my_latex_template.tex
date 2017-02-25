@@ -1,0 +1,11 @@
+{% autoescape on %}
+\documentclass{article}
+\usepackage{graphicx}
+\begin{document}
+  {{ A }}
+	\begin{figure}
+		\includegraphics[scale=0.5]{myfig.png}\\
+	\end{figure}  
+%	\includegraphics[width=0.5 \textwidth]{myfig.png}
+\end{document}
+{% endautoescape %}
