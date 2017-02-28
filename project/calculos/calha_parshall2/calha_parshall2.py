@@ -294,10 +294,7 @@ class GerarPDF():
         rendered_tpl = template.render(context).encode('utf-8')
         
         with tempfile.TemporaryDirectory() as tempdir:
-            import shutil
-
             for i in range(2):
-                shutil.copy('project/templates/project/calha_parshall2/calha_parshall.pdf', tempdir)
                 process = Popen(
                     ['pdflatex', '-output-directory', tempdir],
                     stdin=PIPE,
