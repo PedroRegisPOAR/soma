@@ -11,6 +11,7 @@ from django.template import Context
 from django.template.loader import get_template
 from django.http import HttpResponse
 
+from django.template.loader import render_to_string
 
 global cpinit
 
@@ -245,6 +246,7 @@ class Níveis():
 class GerarPDF():
     __slots__=()
 
+    
     def gerar_resultado(self, path_template, name_template, name_compiled_pdf,
                             context):
         with open(path_template + name_template + '.tex', 'r') as myfile:
@@ -255,32 +257,71 @@ class GerarPDF():
             with open(name_compiled_pdf + '.tex', 'w') as rendered_file:
                 rendered_file.write(rendered_templete)
                 subprocess.Popen('pdflatex ' + name_compiled_pdf + '.tex')
-            
+    
+
+    def mypdf(self, path_template, name_template, name_compiled_pdf, context):
+        #template = get_template(path_template + name_template + '.tex')
+
+        #my_template = Template("My name is {{ my_name }}.")
+        #print(my_template)
+        #context = Context({"my_name": "Adrian"})
+        #re = template.render(context)
+        #print(str(re))
+
+        open('grande_teste.tex', "w+b").write(render_to_string(path_template + name_template + '.tex', context))
+
+#        rendered_tpl = template.render(context).encode('utf-8')
+#        print(rendered_tpl)
+        #rendered_templete = render_to_string(path_template + name_template + '.tex', context)
+        
+#        with open('grande_testes' + '.tex', 'w') as aux:
+#            aux.write(rendered_tpl)
+
+#        with open(name_compiled_pdf + '.tex', 'w') as rendered_file:
+#            rendered_file.write(rendered_templete)
+#            subprocess.Popen('pdflatex ' + name_compiled_pdf + '.tex')
+#        path_template = 'project/calha_parshall2/'
+#        name_template = 'teste'
+#        name_compiled_pdf = 'rendered_file'
+#        context = {'A':'123'}
+
 
     def gerar_pdf(self):
-        #context = {'A':1, 'B':2}
-        #print(self.out)
-        #self.dimensionar()
-        #print(self.out)
-        #context = self.out #{'a':123, 'Q':self.Q}
-        context = {}
+        self.dimensionar()
+        context = self.out
 
-
-        template = get_template('project/calha_parshall2/mestre.tex')
+        template = get_template('project/calha_parshall2/calha_parshall_latex/mestre.tex')
         rendered_tpl = template.render(context).encode('utf-8')
+
+        path = 'project/templates/project/calha_parshall2/calha_parshall_latex/teste_escrever'
+
+        rendered_templete = render_to_string('project/calha_parshall2/calha_parshall_latex/mestre.tex', context)
+
+        with open(path + '.tex', 'w') as te:
+            rendered_templete.encode('utf-8')
+            te.write(rendered_templete)
+
+        
+        initial_path = os.getcwd()
+        os.chdir('project/templates/project/calha_parshall2/calha_parshall_latex')
+        subprocess.call(['pdflatex', 'teste_escrever.tex'])
+
+        """
+        for i in range(2):
+            process = Popen(
+                ['pdflatex', '-output-directory'],
+                stdin=PIPE,
+                stdout=PIPE,
+            )
+            process.communicate(rendered_tpl)
+        """
+        os.chdir(initial_path)
+        
         with tempfile.TemporaryDirectory() as tempdir:
             import shutil
-            shutil.copy('project/templates/project/calha_parshall2/calha_parshall.pdf', tempdir)
 
-            path_template = 'project/templates/project/calha_parshall2/'
-            name_template = 'teste'
-            name_compiled_pdf = 'rendered_file'
-            context = {'A':'123'}
-            self.gerar_resultado(path_template, name_template, 
-                                    name_compiled_pdf, context)
-            
             for i in range(2):
-                #create_image()
+                shutil.copy('project/templates/project/calha_parshall2/calha_parshall.pdf', tempdir)
                 process = Popen(
                     ['pdflatex', '-output-directory', tempdir],
                     stdin=PIPE,
@@ -289,9 +330,11 @@ class GerarPDF():
                 process.communicate(rendered_tpl)
             with open(os.path.join(tempdir, 'texput.pdf'), 'rb') as f:
                 pdf = f.read()
+
             r = HttpResponse(content_type='application/pdf')  
             # r['Content-Disposition'] = 'attachment; filename=texput.pdf'
             r.write(pdf)
+
         return r     
 
 
