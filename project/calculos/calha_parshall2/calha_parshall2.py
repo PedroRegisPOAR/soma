@@ -292,30 +292,6 @@ class GerarPDF():
 
         template = get_template('project/calha_parshall2/calha_parshall_latex/mestre.tex')
         rendered_tpl = template.render(context).encode('utf-8')
-
-        path = 'project/templates/project/calha_parshall2/calha_parshall_latex/teste_escrever'
-
-        rendered_templete = render_to_string('soma/project/calha_parshall2/calha_parshall_latex/mestre.tex', context)
-
-        with open(path + '.tex', 'w') as te:
-            rendered_templete.encode('utf-8')
-            te.write(rendered_templete)
-
-        
-        initial_path = os.getcwd()
-        os.chdir('project/templates/project/calha_parshall2/calha_parshall_latex')
-        subprocess.call(['pdflatex', 'teste_escrever.tex'])
-
-        """
-        for i in range(2):
-            process = Popen(
-                ['pdflatex', '-output-directory'],
-                stdin=PIPE,
-                stdout=PIPE,
-            )
-            process.communicate(rendered_tpl)
-        """
-        os.chdir(initial_path)
         
         with tempfile.TemporaryDirectory() as tempdir:
             import shutil
@@ -355,5 +331,16 @@ def factory_CP2(cpinit):
 
 
 
-
+"""
+        path = 'project/templates/project/calha_parshall2/calha_parshall_latex/teste_escrever'
+        rendered_templete = render_to_string('soma/project/calha_parshall2/calha_parshall_latex/mestre.tex', context)
+        with open(path + '.tex', 'w') as te:
+            # Isso salva corretamente o arquivo.
+            rendered_templete.encode('utf-8')
+            te.write(rendered_templete)        
+        initial_path = os.getcwd()
+        os.chdir('project/templates/project/calha_parshall2/calha_parshall_latex')
+        subprocess.call(['pdflatex', 'teste_escrever.tex'])
+        os.chdir(initial_path)
+"""
 
