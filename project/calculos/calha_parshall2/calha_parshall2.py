@@ -293,7 +293,7 @@ class GerarPDF():
         template = get_template('project/calha_parshall2/calha_parshall_latex/mestre.tex')
         rendered_tpl = template.render(context).encode('utf-8')
 
-        path = 'soma/project/templates/project/calha_parshall2/calha_parshall_latex/teste_escrever'
+        path = 'project/templates/project/calha_parshall2/calha_parshall_latex/teste_escrever'
 
         rendered_templete = render_to_string('soma/project/calha_parshall2/calha_parshall_latex/mestre.tex', context)
 
