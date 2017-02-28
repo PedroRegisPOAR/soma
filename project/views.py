@@ -12,7 +12,7 @@ from project.calculos.viscosidade_absoluta.viscosidade_absoluta import viscosida
 from project.calculos.gerar_pdf.gerar_pdf import gerar_pdf
 
 #
-import os
+
 import random
 import matplotlib 
 
@@ -20,7 +20,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-
+import os
 from django.template import Context
 from django.template.loader import get_template
 from subprocess import Popen, PIPE
@@ -29,6 +29,8 @@ import tempfile
 
 
 from project.calculos.calha_parshall.calha_parshall import factory_CP, cpinit
+from project.calculos.calha_parshall2.calha_parshall2 import factory_CP2, cpinit2
+
 from project.calculos.decantador_laminar.decantador_laminar import DecantadorLaminar
 from project.calculos.uasb.uasb import factory_UASB, uasb_dict_inputs
 from project.calculos.floculador_chicaneado.floculador_chicaneado import factory_FloculadorChicaneado, dict_inputs_FloculadorChicaneado
@@ -350,6 +352,23 @@ def results_calha_parshall(request):
     else:
         inputs_calha_parshall(request)
     return render(request,'project/calha_parshall/results_calha_parshall.html', d)    
+
+def results_calha_parshall2(request):
+
+    if request.method == "POST":
+        for key in cpinit2:
+            if key == 'iW':
+                cpinit2[key] = int(request.POST[key])
+            else:
+                cpinit2[key] = float(request.POST[key])
+    else:
+        inputs_calha_parshall(request)
+    CP = factory_CP2(cpinit2)
+    cp = CP()
+    #cp.dimensionar()
+    #d = cp.out
+
+    return cp.gerar_pdf() #render(request,'project/calha_parshall/results_calha_parshall.html', d) 
 
 
 def inputs_floculador_chicaneado(request):     
