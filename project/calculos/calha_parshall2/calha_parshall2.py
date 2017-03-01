@@ -241,51 +241,12 @@ class Níveis():
             self.arredondamento()
 
 
-            
+# https://books.google.com.br/books?id=uPSoCwAAQBAJ&pg=PA274&lpg=PA274&dq=save+render_to_string+file+django&source=bl&ots=igy7pOfeOy&sig=ZFgxmOitm8LHSICjQfWy5ZvdtTI&hl=pt-BR&sa=X&ved=0ahUKEwjfoO2FmLPSAhVDG5AKHXwjBrUQ6AEITDAG#v=onepage&q=save%20render_to_string%20file%20django&f=false            
 
 class GerarPDF():
     __slots__=()
 
-    
-    def gerar_resultado(self, path_template, name_template, name_compiled_pdf,
-                            context):
-        with open(path_template + name_template + '.tex', 'r') as myfile:
-            str_file = myfile.read()
-            template = Template(str_file)
-            rendered_templete = template.render(context)
-
-            with open(name_compiled_pdf + '.tex', 'w') as rendered_file:
-                rendered_file.write(rendered_templete)
-                subprocess.Popen('pdflatex ' + name_compiled_pdf + '.tex')
-    
-
-    def mypdf(self, path_template, name_template, name_compiled_pdf, context):
-        #template = get_template(path_template + name_template + '.tex')
-
-        #my_template = Template("My name is {{ my_name }}.")
-        #print(my_template)
-        #context = Context({"my_name": "Adrian"})
-        #re = template.render(context)
-        #print(str(re))
-
-        open('grande_teste.tex', "w+b").write(render_to_string(path_template + name_template + '.tex', context))
-
-#        rendered_tpl = template.render(context).encode('utf-8')
-#        print(rendered_tpl)
-        #rendered_templete = render_to_string(path_template + name_template + '.tex', context)
-        
-#        with open('grande_testes' + '.tex', 'w') as aux:
-#            aux.write(rendered_tpl)
-
-#        with open(name_compiled_pdf + '.tex', 'w') as rendered_file:
-#            rendered_file.write(rendered_templete)
-#            subprocess.Popen('pdflatex ' + name_compiled_pdf + '.tex')
-#        path_template = 'project/calha_parshall2/'
-#        name_template = 'teste'
-#        name_compiled_pdf = 'rendered_file'
-#        context = {'A':'123'}
-
-
+    # https://blog.sevenbyte.org/2014/09/23/generating-pdfs-with-django-and-latex.html
     def gerar_pdf(self):
         self.dimensionar()
         context = self.out
@@ -294,6 +255,9 @@ class GerarPDF():
         rendered_tpl = template.render(context).encode('utf-8')
         
         with tempfile.TemporaryDirectory() as tempdir:
+            import shutil
+            path = 'soma/project/templates/project/calha_parshall2/mestre.pdf'
+            shutil.copy(path, tempdir)
             for i in range(2):
                 process = Popen(
                     ['pdflatex', '-output-directory', tempdir],
