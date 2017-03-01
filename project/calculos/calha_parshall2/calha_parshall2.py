@@ -277,7 +277,7 @@ class GerarPDF():
 
     def renderizar_salvar(self, path, template_name, context):    
         rendered_templete = render_to_string(path + template_name + '.tex', context)        
-        with open('project/templates/' + path + template_name +'_rendered'+ '.tex', 'w') as rt:
+        with open(path + template_name +'_rendered'+ '.tex', 'w') as rt:
             rendered_templete.encode('utf-8')
             rt.write(rendered_templete)        
 
@@ -326,8 +326,8 @@ class GerarPDF():
         context = self.context_figura()
         self.renderizar_salvar(path1, template_name, context)
 
-        path2 = 'soma/project/templates/project/calha_parshall2/calha_parshall_latex/'
-        #path2 = 'project/templates/project/calha_parshall2/calha_parshall_latex/'
+        #path2 = 'soma/project/templates/project/calha_parshall2/calha_parshall_latex/'
+        path2 = 'project/templates/project/calha_parshall2/calha_parshall_latex/'
         template_name = 'calha_parshall_builded_rendered.tex'
         #self.criar_pdf(path2, template_name)
 
