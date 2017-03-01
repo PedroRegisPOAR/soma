@@ -277,7 +277,7 @@ class GerarPDF():
 
     def renderizar_salvar(self, path, template_name, context):    
         rendered_templete = render_to_string(path + template_name + '.tex', context)        
-        with open(path + template_name +'_rendered'+ '.tex', 'w') as rt:
+        with open('soma/project/templates/' + path + template_name +'_rendered'+ '.tex', 'w') as rt:
             rendered_templete.encode('utf-8')
             rt.write(rendered_templete)        
 
