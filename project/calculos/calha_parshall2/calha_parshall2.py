@@ -320,16 +320,16 @@ class GerarPDF():
     def gerar_pdf2(self):
         self.dimensionar()
         
-        #path1 = 'soma/project/calha_parshall2/calha_parshall_latex/'
-        path1 = 'project/calha_parshall2/calha_parshall_latex/'
+        path1 = 'soma/project/calha_parshall2/calha_parshall_latex/'
+        #path1 = 'project/calha_parshall2/calha_parshall_latex/'
         template_name = 'calha_parshall_builded'
         context = self.context_figura()
-        self.renderizar_salvar(path1, template_name, context)
+        #self.renderizar_salvar(path1, template_name, context)
 
-        #path2 = 'soma/project/templates/project/calha_parshall2/calha_parshall_latex/'
-        path2 = 'project/templates/project/calha_parshall2/calha_parshall_latex/'
+        path2 = 'soma/project/templates/project/calha_parshall2/calha_parshall_latex/'
+        #path2 = 'project/templates/project/calha_parshall2/calha_parshall_latex/'
         template_name = 'calha_parshall_builded_rendered.tex'
-        self.criar_pdf(path2, template_name)
+        #self.criar_pdf(path2, template_name)
 
         path2 = path2 + 'calha_parshall_builded_rendered.pdf'
         return self.render_pdf(path2)
