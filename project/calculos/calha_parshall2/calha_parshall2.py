@@ -327,17 +327,22 @@ class GerarPDF():
         try:
             pathSTR = 'soma/project/templates/' + path1
             self.salvar_template_rederizado(rendered_templete, pathSTR, template_name)
+            path2 = 'soma/project/templates/project/calha_parshall2/calha_parshall_latex/'
+            template_name = 'calha_parshall_builded_rendered.tex'
+            self.criar_pdf(path2, template_name)
+            
+            path2 = path2 + 'calha_parshall_builded_rendered.pdf'
+            return self.render_pdf(path2)
         except:
             pathSTR = 'project/templates/' + path1
             self.salvar_template_rederizado(rendered_templete, pathSTR, template_name)            
 
-        path2 = 'soma/project/templates/project/calha_parshall2/calha_parshall_latex/'
-        #path2 = 'project/templates/project/calha_parshall2/calha_parshall_latex/'
-        template_name = 'calha_parshall_builded_rendered.tex'
-        self.criar_pdf(path2, template_name)
+            path2 = 'project/templates/project/calha_parshall2/calha_parshall_latex/'
+            template_name = 'calha_parshall_builded_rendered.tex'
+            self.criar_pdf(path2, template_name)
 
-        path2 = path2 + 'calha_parshall_builded_rendered.pdf'
-        return self.render_pdf(path2)
+            path2 = path2 + 'calha_parshall_builded_rendered.pdf'
+            return self.render_pdf(path2)
         
 
 
