@@ -324,8 +324,8 @@ class GerarPDF():
         template_name = 'calha_parshall_builded'
         context = self.context_figura()
 
-        rendered_templete = self.renderizar_template(path, template_name, context)
-        self.salvar_template_rederizado(rendered_templete, path, template_name)
+        rendered_templete = self.renderizar_template(path1, template_name, context)
+        self.salvar_template_rederizado(rendered_templete, path1, template_name)
 
 
         path2 = 'soma/project/templates/project/calha_parshall2/calha_parshall_latex/'
