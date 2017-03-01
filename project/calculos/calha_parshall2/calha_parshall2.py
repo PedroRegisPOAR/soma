@@ -256,7 +256,7 @@ class GerarPDF():
         
         with tempfile.TemporaryDirectory() as tempdir:
             import shutil
-            path = 'soma/project/templates/project/calha_parshall2/calha_parshall_latexmestre.pdf'
+            path = 'soma/project/templates/project/calha_parshall2/calha_parshall_latex/mestre.pdf'
             shutil.copy(path, tempdir)
             for i in range(2):
                 process = Popen(
