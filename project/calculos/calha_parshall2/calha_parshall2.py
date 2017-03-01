@@ -320,8 +320,8 @@ class GerarPDF():
     def gerar_pdf2(self):
         self.dimensionar()
         
-        #path1 = 'soma/project/calha_parshall2/calha_parshall_latex/'
-        path1 = 'project/calha_parshall2/calha_parshall_latex/'
+        path1 = 'soma/project/calha_parshall2/calha_parshall_latex/'
+        #path1 = 'project/calha_parshall2/calha_parshall_latex/'
         template_name = 'calha_parshall_builded'
         context = self.context_figura()
         self.renderizar_salvar(path1, template_name, context)
