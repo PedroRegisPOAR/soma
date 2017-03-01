@@ -329,7 +329,7 @@ class GerarPDF():
         path2 = 'soma/project/templates/project/calha_parshall2/calha_parshall_latex/'
         #path2 = 'project/templates/project/calha_parshall2/calha_parshall_latex/'
         template_name = 'calha_parshall_builded_rendered.tex'
-        #self.criar_pdf(path2, template_name)
+        self.criar_pdf(path2, template_name)
 
         path2 = path2 + 'calha_parshall_builded_rendered.pdf'
         return self.render_pdf(path2)
