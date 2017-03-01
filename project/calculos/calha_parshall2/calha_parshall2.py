@@ -324,10 +324,12 @@ class GerarPDF():
         context = self.context_figura()
         rendered_templete = self.renderizar_template(path1, template_name, context)
 
-
-        pathSTR = 'soma/project/templates/' + path1
-        self.salvar_template_rederizado(rendered_templete, pathSTR, template_name)
-
+        try:
+            pathSTR = 'soma/project/templates/' + path1
+            self.salvar_template_rederizado(rendered_templete, pathSTR, template_name)
+        except:
+            pathSTR = 'project/templates/' + path1
+            self.salvar_template_rederizado(rendered_templete, pathSTR, template_name)            
 
         path2 = 'soma/project/templates/project/calha_parshall2/calha_parshall_latex/'
         #path2 = 'project/templates/project/calha_parshall2/calha_parshall_latex/'
