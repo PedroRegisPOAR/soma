@@ -275,19 +275,18 @@ class GerarPDF():
 
         return r     
 
-    def renderizar_salvar(self, path, template_name, context):    
-        rendered_templete = render_to_string(path + template_name + '.tex', context)        
+    def renderizar_template(self, path, template_name, context):    
+        return render_to_string(path + template_name + '.tex', context) 
+
+    def salvar_template_rederizado(self, rendered_templete, path, template_name):
         with open('soma/project/templates/' + path + template_name +'_rendered'+ '.tex', 'w') as rt:
             rendered_templete.encode('utf-8')
             rt.write(rendered_templete)        
 
     def criar_pdf(self, path, template_name):
-
         initial_path = os.getcwd()
         os.chdir(path)
-
         subprocess.call(['pdflatex', template_name])    
-        
         os.chdir(initial_path)
 
     def context_figura(self):
@@ -317,14 +316,17 @@ class GerarPDF():
             response['Content-Disposition'] = 'inline; filename=some_file.pdf'
         return response
 
-    def gerar_pdf2(self):
+    def gerar_figura_calha_parshal(self):
         self.dimensionar()
         
         path1 = 'project/calha_parshall2/calha_parshall_latex/'
         #path1 = 'project/calha_parshall2/calha_parshall_latex/'
         template_name = 'calha_parshall_builded'
         context = self.context_figura()
-        self.renderizar_salvar(path1, template_name, context)
+
+        rendered_templete = self.renderizar_template(path, template_name, context)
+        self.salvar_template_rederizado(rendered_templete, path, template_name)
+
 
         path2 = 'soma/project/templates/project/calha_parshall2/calha_parshall_latex/'
         #path2 = 'project/templates/project/calha_parshall2/calha_parshall_latex/'
@@ -334,34 +336,6 @@ class GerarPDF():
         path2 = path2 + 'calha_parshall_builded_rendered.pdf'
         return self.render_pdf(path2)
         
-
-        """
-        context = self.out
-
-        template = get_template('project/calha_parshall2/calha_parshall_latex/mestre.tex')
-        rendered_tpl = template.render(context).encode('utf-8')
-        
-        with tempfile.TemporaryDirectory() as tempdir:
-            #import shutil
-            #path = 'soma/project/templates/project/calha_parshall2/calha_parshall_latex/mestre.pdf'
-            #path = 'project/templates/project/calha_parshall2/calha_parshall.pdf'
-            #shutil.copy(path, tempdir)
-            for i in range(2):
-                process = Popen(
-                    ['pdflatex', '-output-directory', tempdir],
-                    stdin=PIPE,
-                    stdout=PIPE,
-                )
-                process.communicate(rendered_tpl)
-            with open(os.path.join(tempdir, 'texput.pdf'), 'rb') as f:
-                pdf = f.read()
-
-            r = HttpResponse(content_type='application/pdf')  
-            # r['Content-Disposition'] = 'attachment; filename=texput.pdf'
-            r.write(pdf)
-
-        return r 
-        """
 
 
 

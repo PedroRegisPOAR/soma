@@ -368,7 +368,7 @@ def results_calha_parshall2(request):
     #cp.dimensionar()
     #d = cp.out
     if 'criaFigura' in request.POST:
-        return cp.gerar_pdf2()
+        return cp.gerar_figura_calha_parshal()
     else:
         return cp.gerar_pdf() #render(request,'project/calha_parshall/results_calha_parshall.html', d) 
 
