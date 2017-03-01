@@ -279,7 +279,7 @@ class GerarPDF():
         return render_to_string(path + template_name + '.tex', context) 
 
     def salvar_template_rederizado(self, rendered_templete, path, template_name):
-        with open('soma/project/templates/' + path + template_name +'_rendered'+ '.tex', 'w') as rt:
+        with open(path + template_name + '_rendered' + '.tex', 'w') as rt:
             rendered_templete.encode('utf-8')
             rt.write(rendered_templete)        
 
@@ -320,11 +320,12 @@ class GerarPDF():
         self.dimensionar()
         
         path1 = 'project/calha_parshall2/calha_parshall_latex/'
-        #path1 = 'project/calha_parshall2/calha_parshall_latex/'
         template_name = 'calha_parshall_builded'
         context = self.context_figura()
-
         rendered_templete = self.renderizar_template(path1, template_name, context)
+
+        
+        pathSTR = 'soma/project/templates/' + path1
         self.salvar_template_rederizado(rendered_templete, path1, template_name)
 
 
