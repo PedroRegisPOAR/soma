@@ -367,8 +367,10 @@ def results_calha_parshall2(request):
     cp = CP()
     #cp.dimensionar()
     #d = cp.out
-
-    return cp.gerar_pdf() #render(request,'project/calha_parshall/results_calha_parshall.html', d) 
+    if 'criaFigura' in request.POST:
+        return cp.gerar_pdf2()
+    else:
+        return cp.gerar_pdf() #render(request,'project/calha_parshall/results_calha_parshall.html', d) 
 
 
 def inputs_floculador_chicaneado(request):     

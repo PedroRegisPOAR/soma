@@ -1,12 +1,14 @@
 \documentclass{article}
 \usepackage[a4paper, left=3cm, right=2cm, top=2cm, bottom=2cm]{geometry}
 \usepackage[brazil]{babel}
-%\usepackage[utf8]{inputenc}
+%\usepackage[utf8]{inputenc} % Por alguma razão diabólica estava dando problema com os encodes
 \usepackage[T1]{fontenc}
 
 \usepackage{parskip} % Para remover identação desnecessaria.
 
 \usepackage{amsmath} % Para poder usar \implies
+
+\usepackage{pdfpages}
 
 \usepackage{lipsum}
 
@@ -15,7 +17,7 @@
 \begin{document}
 \pagenumbering{gobble}
 
-1. Dados: $\mathrm{Q = 1.2 \ m^{3}/s}$, $\mathrm{T = 17.5 ^{\circ}C}$, $\mathrm{g = 9.81 \ m/s^{2}}$. Escolhendo a calha parshal com as seguintes dimensões: $\mathrm{W = 2.44 \ m}$, $\mathrm{C = 2.745 \ m}$,  $\mathrm{D = 3.4 \ m}$, $\mathrm{N = 0.229 \ m}$, $\mathrm{k = 0.324 }$, $\mathrm{n = 0.623 \ m}$ \\
+1. Dados: $\mathrm{Q =  \ m^{3}/s}$, $\mathrm{T =  ^{\circ}C}$, $\mathrm{g =  \ m/s^{2}}$. Escolhendo a calha parshal com as seguintes dimensões: $\mathrm{W =  \ m}$, $\mathrm{C =  \ m}$,  $\mathrm{D =  \ m}$, $\mathrm{N =  \ m}$, $\mathrm{k =  }$, $\mathrm{n =  \ m}$ \\
 
 2. Calculo da velocidade e da profundidade da água na seção de medição (seção 0):
 
@@ -30,14 +32,14 @@
 		\implies
 		\mathrm
 		{
-			H_{0} = 0.324 \cdot 1.2^{ 0.229 }
+			H_{0} =  \cdot ^{  }
 		} 
 		\implies 
 		\fbox
 		{ 
 			$\mathrm
 			{
-				H_{0} = 0.363 \ m
+				H_{0} =  \ m
 			}$
 		} 
 	$
@@ -54,14 +56,14 @@
 		\implies
 		\mathrm
 		{
-			D_{0} = \dfrac{2}{3} \left ( 3.4 - 2.44 \right ) + 2.44
+			D_{0} = \dfrac{2}{3} \left (  -  \right ) + 
 		}
 		\implies 
 		\fbox
 		{ 
 			$\mathrm
 			{	
-				D_{0} = 3.08 \ m
+				D_{0} =  \ m
 			}$
 		} 
 	$	
@@ -78,14 +80,14 @@
 		\implies 
 		\mathrm
 		{
-			U_{0} = \dfrac{ 1.2 }{ 3.08 \cdot 0.363 }
+			U_{0} = \dfrac{  }{  \cdot  }
 		}
 		\implies 
 		\fbox
 		{ 
 			$\mathrm
 			{
-				U_{0} = 1.0734 \ m/s
+				U_{0} =  \ m/s
 			}$
 		}
 	$  	
@@ -106,14 +108,14 @@
 		\implies 
 		\mathrm
 		{
-			q = \dfrac{ 1.2 }{ 2.44 }			
+			q = \dfrac{  }{  }			
 		}
 		\implies 
 		\fbox
 		{
 		 	$\mathrm
 		 	{	
-		 		q = 0.4918 \ m^{3}\cdot s^{-1}/m
+		 		q =  \ m^{3}\cdot s^{-1}/m
 		 	}$
 		 }
 	$
@@ -134,14 +136,14 @@
 		\implies 
 		\mathrm
 		{
-			E_{0} = \dfrac{ 1.0734^{2}}{2\cdot 9.81 } + 0.363 + 0.229 
+			E_{0} = \dfrac{ ^{2}}{2\cdot  } +  +  
 		}
 		\implies
 		\fbox
 		{ 
 			$\mathrm
 			{
-				E_{0} = 0.6507 \ m
+				E_{0} =  \ m
 			}
 			$
 		} 
@@ -198,7 +200,7 @@ Substituindo-se os valores:
 	$
 		\mathrm
 		{
-			U_{1}=2\sqrt{\dfrac{2 \cdot 9.81 \cdot 0.6507 }{3}}\cos \! \left (\dfrac{1}{3}\arccos \! \left( - 9.81 \cdot 0.4918 \left [\left ( \dfrac{2}{3}\cdot 9.81 \cdot 0.6507 \right )^{-1.5}  \right] \right ) \right)
+			U_{1}=2\sqrt{\dfrac{2 \cdot  \cdot  }{3}}\cos \! \left (\dfrac{1}{3}\arccos \! \left( -  \cdot  \left [\left ( \dfrac{2}{3}\cdot  \cdot  \right )^{-1.5}  \right] \right ) \right)
 		}
 	$
 \end{center}
@@ -210,7 +212,7 @@ Substituindo-se os valores:
 		\fbox
 		{
 			$
-				\mathrm{U_{1}}= 3.1085 \mathrm{\ m/s}
+				\mathrm{U_{1}}=  \mathrm{\ m/s}
 			$
 		}
 	$
@@ -231,14 +233,14 @@ Calculando $ \mathrm{h_{1}}$:
 		\implies
 		\mathrm
 		{
-			h_{1}= \dfrac{ 0.4918 }{ 3.1085 }
+			h_{1}= \dfrac{  }{  }
 		}
 		\implies
 		\fbox{ 
 			$
 				\mathrm
 				{
-					h_{1}= 0.1582 \ m
+					h_{1}=  \ m
 				}
 			$  
 		}
@@ -260,14 +262,14 @@ Calculando $ \mathrm{h_{1}}$:
 		\implies
 		\mathrm
 		{
-			F_{1} = \dfrac{ 3.1085 }{\sqrt{ 9.81 \cdot 0.1135 }}
+			F_{1} = \dfrac{  }{\sqrt{  \cdot  }}
 		}
 		\implies 
 		\fbox
 		{
 			$\mathrm
 			{
-				F_{1} = 2.4951 
+				F_{1} =  
 			}$
 		}
 	$  
@@ -288,14 +290,14 @@ Calculando $ \mathrm{h_{1}}$:
 		\implies 
 		\mathrm
 		{
-			h_{2} = \dfrac{ 0.1582 }{2}\left ( \sqrt{1+ 8\cdot 2.4951 ^{2}} - 1\right )
+			h_{2} = \dfrac{  }{2}\left ( \sqrt{1+ 8\cdot  ^{2}} - 1\right )
 		}
 		\implies 
 		\fbox
 		{
 			$\mathrm
 			{
-				h_{2} = 0.4847 \ m
+				h_{2} =  \ m
 			}$
 		}
 	$
@@ -316,14 +318,14 @@ Calculando $ \mathrm{h_{1}}$:
 		\implies
 		\mathrm
 		{
-			h_{3} = 0.4847 - \left ( 0.229 - 0.076 \right )
+			h_{3} =  - \left (  -  \right )
 		}
 		\implies 
 		\fbox
 		{
 			$\mathrm
 			{	
-				h_{3} = 0.3317 \ m
+				h_{3} =  \ m
 			}$
 		}
 	$  
@@ -340,14 +342,14 @@ Calculando $ \mathrm{h_{1}}$:
 		\implies
 		\mathrm
 		{
-			U_{3} = \dfrac{ 1.2 }{ 2.745 \cdot 0.3317 }
+			U_{3} = \dfrac{  }{  \cdot  }
 		}
 		\implies 
 		\fbox
 		{	
 			$\mathrm
 			{
-				U_{3} = 1.3178 \ m
+				U_{3} =  \ m
 			}$
 		}
 	$ 
@@ -370,14 +372,14 @@ Calculando $ \mathrm{h_{1}}$:
 		\implies
 		\mathrm
 		{
-			L = 6\left ( 0.4847 - 0.1582 \right)
+			L = 6\left (  -  \right)
 		}
 		\implies 
 		\fbox
 		{ 
 			$\mathrm
 			{
-				L = 1.9592 \ m
+				L =  \ m
 			}$
 		}
 	$
@@ -394,14 +396,14 @@ Calculando $ \mathrm{h_{1}}$:
 		\implies
 		\mathrm
 		{
-			h = \dfrac{\left ( 0.4847 - 0.1582 \right)^{3} }{4\cdot 0.1582 \cdot 0.4847 } 
+			h = \dfrac{\left (  -  \right)^{3} }{4\cdot  \cdot  } 
 		}
 		\implies 
 		\fbox
 		{
 			$\mathrm
 			{
-				h = 0.1135 \ m
+				h =  \ m
 			}$
 		}
 	$
@@ -422,14 +424,14 @@ Calculando $ \mathrm{h_{1}}$:
 		\implies
 		\mathrm
 		{
-			T_{m} = \dfrac{2\cdot 1.9592 }{\left ( 3.1085 + 1.3178 \right)}
+			T_{m} = \dfrac{2\cdot  }{\left (  +  \right)}
 		}
 		\implies 
 		\fbox
 		{ 
 			$\mathrm
 			{
-				T_{m}= 0.8853 \ s
+				T_{m}=  \ s
 			}$
 		}
 	$
@@ -446,13 +448,13 @@ Calculando $ \mathrm{h_{1}}$:
 		\implies
 		\mathrm
 		{
-			G_{m} = \sqrt{\dfrac{ 998.6885 \cdot 9.81 \cdot  0.1135 }{ 0.0011 \cdot 0.8853 }} } 
+			G_{m} = \sqrt{\dfrac{  \cdot  \cdot   }{  \cdot  }} } 
 		\implies 
 		\fbox
 		{
 			$\mathrm
 			{
-				G_{m} = 1085.6356 \ s^{-1}
+				G_{m} =  \ s^{-1}
 			}$
 		}
 	$
@@ -460,7 +462,7 @@ Calculando $ \mathrm{h_{1}}$:
 
 \newpage
 
-%\includepdf[scale=1.8, angle=90, offset=-5mm 20mm}{calha_parshall.pdf}	
+\includepdf[scale=1.8, angle=90, offset=-5mm 20mm]{calha_parshall.pdf}	
 
 
 \end{document} 

@@ -255,9 +255,10 @@ class GerarPDF():
         rendered_tpl = template.render(context).encode('utf-8')
         
         with tempfile.TemporaryDirectory() as tempdir:
-            import shutil
-            path = 'soma/project/templates/project/calha_parshall2/calha_parshall_latex/mestre.pdf'
-            shutil.copy(path, tempdir)
+            #import shutil
+            #path = 'soma/project/templates/project/calha_parshall2/calha_parshall_latex/mestre.pdf'
+            #path = 'project/templates/project/calha_parshall2/calha_parshall.pdf'
+            #shutil.copy(path, tempdir)
             for i in range(2):
                 process = Popen(
                     ['pdflatex', '-output-directory', tempdir],
@@ -274,6 +275,92 @@ class GerarPDF():
 
         return r     
 
+    def renderizar_salvar(self, path, template_name, context):    
+        rendered_templete = render_to_string(path + template_name + '.tex', context)        
+        with open('project/templates/' + path + template_name +'_rendered'+ '.tex', 'w') as rt:
+            rendered_templete.encode('utf-8')
+            rt.write(rendered_templete)        
+
+    def criar_pdf(self, path, template_name):
+
+        initial_path = os.getcwd()
+        os.chdir(path)
+
+        subprocess.call(['pdflatex', template_name])    
+        
+        os.chdir(initial_path)
+
+    def context_figura(self):
+        d = {
+            'H0':self.H0,
+            'V0':self.U0,
+            'N':self.N,
+            'D':self.D,
+            'D0':self.D0,
+            #'B':self.B,
+            #'B23':self.B, # TODO: Criar uma função que calcula (2/3)*B
+            'W':self.W,
+            'L':self.L,
+            #'F':self.F,
+            'C':self.C,
+            'k':self.k,
+            'h1':self.h1,
+            'h2':self.h2,
+        }
+        for key in d:
+            d[key] = round(d[key], 3)
+        return d
+
+    def render_pdf(self, path):
+        with open(path, 'rb') as pdf:
+            response = HttpResponse(pdf.read(),content_type='application/pdf')
+            response['Content-Disposition'] = 'inline; filename=some_file.pdf'
+        return response
+
+    def gerar_pdf2(self):
+        self.dimensionar()
+
+        path = 'project/calha_parshall2/calha_parshall_latex/'
+        template_name = 'calha_parshall_builded'
+        context = self.context_figura()
+        self.renderizar_salvar(path, template_name, context)
+
+        path = 'soma/project/templates/' + path
+        #path = 'project/templates/' + path
+        template_name = 'calha_parshall_builded_rendered.tex'
+        self.criar_pdf(path, template_name)
+
+        path = path + 'calha_parshall_builded_rendered.pdf'
+        return self.render_pdf(path)
+        
+
+        """
+        context = self.out
+
+        template = get_template('project/calha_parshall2/calha_parshall_latex/mestre.tex')
+        rendered_tpl = template.render(context).encode('utf-8')
+        
+        with tempfile.TemporaryDirectory() as tempdir:
+            #import shutil
+            #path = 'soma/project/templates/project/calha_parshall2/calha_parshall_latex/mestre.pdf'
+            #path = 'project/templates/project/calha_parshall2/calha_parshall.pdf'
+            #shutil.copy(path, tempdir)
+            for i in range(2):
+                process = Popen(
+                    ['pdflatex', '-output-directory', tempdir],
+                    stdin=PIPE,
+                    stdout=PIPE,
+                )
+                process.communicate(rendered_tpl)
+            with open(os.path.join(tempdir, 'texput.pdf'), 'rb') as f:
+                pdf = f.read()
+
+            r = HttpResponse(content_type='application/pdf')  
+            # r['Content-Disposition'] = 'attachment; filename=texput.pdf'
+            r.write(pdf)
+
+        return r 
+        """
 
 
 
