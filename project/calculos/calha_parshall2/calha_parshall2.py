@@ -24,11 +24,17 @@ cpinit2 = {
 
 global cpresults2
 cpresults = {
-    'W':None,
     'mu':None,
     'rho':None,
+    'W':None,
+    'A':None,
+    'B':None,
+    'B23':None,
     'C':None,
     'D':None,
+    'E':None,
+    'F':None,
+    'L':None,
     'K':None,
     'N':None,
     'k':None,
@@ -44,7 +50,7 @@ cpresults = {
     'h2':None,
     'h3':None,
     'U3':None,
-    'L':None,
+    'Lr':None,
     'h':None,
     'Tm':None,
     'Gm':None,
@@ -163,7 +169,7 @@ class CP_Methods():
     def fU3(self, Q, C, h3):
         return Q/(C*h3)
         
-    def fL(self, h1, h2):
+    def fLr(self, h1, h2):
         return 6*(h2 - h1)
 
     def fh(self, h1, h2):
@@ -196,8 +202,13 @@ class Níveis():
 
     def setCDKN_kn(self, i):
         self.W = self.dimençõesPadronizadas[i][0]/1000
+        self.A = self.dimençõesPadronizadas[i][1]/1000
+        self.B = self.dimençõesPadronizadas[i][2]/1000
         self.C = self.dimençõesPadronizadas[i][3]/1000
         self.D = self.dimençõesPadronizadas[i][4]/1000
+        self.E = self.dimençõesPadronizadas[i][5]/1000
+        self.F = self.dimençõesPadronizadas[i][6]/1000
+        self.L = self.dimençõesPadronizadas[i][7]/1000
         self.K = self.dimençõesPadronizadas[i][8]/1000
         self.N = self.dimençõesPadronizadas[i][9]/1000
         self.k = self.valoreskn[i][1]
@@ -218,7 +229,7 @@ class Níveis():
         self.h2 = self.fh2(self.h1, self.F1)
         self.h3 = self.fh3(self.h2, self.N, self.K)
         self.U3 = self.fU3(self.Q, self.C, self.h3)
-        self.L = self.fL(self.h1, self.h2)
+        self.Lr = self.fLr(self.h1, self.h2)
         self.h = self.fh(self.h1, self.h2)
         self.Tm = self.fTm(self.L, self.U1, self.U3)
         self.Gm = self.fGm(self.h, self.g, self.rho, self.mu, self.Tm)
@@ -296,15 +307,20 @@ class GerarPDF():
             'N':self.N,
             'D':self.D,
             'D0':self.D0,
-            #'B':self.B,
-            #'B23':self.B, # TODO: Criar uma função que calcula (2/3)*B
             'W':self.W,
-            'L':self.L,
-            #'F':self.F,
+            'B':self.B,
+            'B23':(2*self.B)/3, # TODO: Criar uma função que calcula (2/3)*B
             'C':self.C,
+            'F':self.F,
+            'L':self.L,
+            'N':self.N, 
             'k':self.k,
             'h1':self.h1,
             'h2':self.h2,
+            'h3':self.h3,
+            'k':self.k,
+            'L':self.L,
+            'D':self.D,
         }
         for key in d:
             d[key] = round(d[key], 3)
@@ -330,7 +346,7 @@ class GerarPDF():
             path2 = 'soma/project/templates/project/calha_parshall2/calha_parshall_latex/'
             template_name = 'calha_parshall_builded_rendered.tex'
             self.criar_pdf(path2, template_name)
-            
+
             path2 = path2 + 'calha_parshall_builded_rendered.pdf'
             return self.render_pdf(path2)
         except:
