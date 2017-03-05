@@ -308,7 +308,7 @@ class GerarPDF():
         path = 'project/templates/' + path
         template_name += '_rendered' 
         try:
-            return self.gerarPDF(rendered_templete, path, template_name, root='soma')
+            return self.gerarPDF(rendered_templete, path, template_name, root='soma/')
         except:        
             return self.gerarPDF(rendered_templete, path, template_name)
 
