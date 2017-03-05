@@ -1,7 +1,9 @@
 import os
 import subprocess 
-import scipy
-from scipy.optimize import minimize
+# Por ter atingido o meu limite de memória no servidor, tive que resolver a equação
+# usando o método da bisseção.
+#import scipy
+#from scipy.optimize import minimize
 # https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize_scalar.html
 # from scipy.optimize import minimize_scalar
 
@@ -108,7 +110,7 @@ class VertedorMethods():
     def fGm(self, gamma, En, Tm, mu ):
         return ((gamma*En)/(mu*Tm))**(0.5)
 
-
+"""
 class VertedorOtimização():
     __slots__ = ()        
 
@@ -127,7 +129,46 @@ class VertedorOtimização():
         resposta = minimize(self.f, x0, args=t, method='nelder-mead',
                     options={'xtol': 10**-5, 'disp': False})
         return float(resposta.x)
+"""
+class SoluçãoDoPvrMétodoDaBisseção():
+    __slots__ = ()
 
+    @classmethod
+    def f(self, Pvr, Q, F1, g, b):
+        yc = self.fyc(Q, g, b)
+        y1 = self.fy1(yc, Pvr)
+        v1 = self.fV(Q, y1, b)
+        
+        return F1 - v1/(g*y1)**(1/2)
+
+    @classmethod
+    def MétodoDaBisseção(self, a, b, Precisão, MáximoIterações, função, *args):
+        Erro = 1.0
+        x = a
+        Iterações = 0
+        if função(a, *args)*função(b, *args) < 0:
+            while Erro > 10**(-Precisão) or Iterações <= MáximoIterações:
+                xanterior = x            
+                x = (a + b)/2
+                if função(x, *args)*função(b, *args) < 0:
+                    a = x
+                else:
+                    b = x            
+                Erro = abs((x - xanterior) / x)
+                Iterações = Iterações + 1        
+            return x
+        else:
+            return  "Erro"
+            exit
+
+    @classmethod
+    def fPvr(self, Q, F1, g, b):
+        xa = 10**(-3)
+        xb = 99
+        Precisão = 4
+        MáximoIterações = 100
+        return self.MétodoDaBisseção(xa, xb, Precisão, MáximoIterações,
+                                        self.f, Q, F1, g, b)
 
 class DensidadeViscosidade():
     __slots__ = ()
@@ -301,7 +342,8 @@ def factoryVertedor(vertedorinit):
     d = dict(vertedorinit, **vertedorresults)
 
     class V(VertedorMethods, DensidadeViscosidade, Extras,
-            VertedorOtimização, VertedorNíveis, VertedorMain, GerarPDF):
+                SoluçãoDoPvrMétodoDaBisseção, VertedorNíveis,
+                VertedorMain, GerarPDF):
         __slots__ = [key for key in d]
         def __init__(self):
             for key in d:
