@@ -2,7 +2,6 @@
 db.sqlite3
 *.aux
 *.log
-
 /project/templates/project/vertedor/vertedor_figura/vertedor_overlay_base_rendered.tex
 project/templates/project/vertedor/vertedor_figura/vertedor_overlay_base_rendered.pdf
 
