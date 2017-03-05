@@ -31,6 +31,10 @@ import tempfile
 from project.calculos.calha_parshall.calha_parshall import factory_CP, cpinit
 from project.calculos.calha_parshall2.calha_parshall2 import factory_CP2, cpinit2
 
+from project.calculos.vertedor.vertedor import factoryVertedor, vertedorinit
+
+
+
 from project.calculos.decantador_laminar.decantador_laminar import DecantadorLaminar
 from project.calculos.uasb.uasb import factory_UASB, uasb_dict_inputs
 from project.calculos.floculador_chicaneado.floculador_chicaneado import factory_FloculadorChicaneado, dict_inputs_FloculadorChicaneado
@@ -327,10 +331,19 @@ def inputs_vertedor(request):
 
 def results_vertedor(request):
     if request.method == "POST":
-        d = {}
+        for key in vertedorinit:
+            vertedorinit[key] = float(request.POST[key])
     else:
-        inputs_vertedor(request)        
-    return render(request,'project/vertedor/results_vertedor.html', d)
+        inputs_vertedor(request) 
+
+    V = factoryVertedor(vertedorinit)
+    v = V()
+
+    if 'figura_vertedor' in request.POST:
+        return v.figura_vertedor()
+    else:
+        return v.calculos_vertedor()    
+
 
 def inputs_calha_parshall(request):     
     return render(request,'project/calha_parshall/inputs_calha_parshall.html')

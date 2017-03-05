@@ -1,0 +1,336 @@
+\documentclass{article}
+\usepackage[a4paper, left=3cm, right=3cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[brazil]{babel}
+%\usepackage[utf8]{inputenc} % Por alguma razão diabólica estava dando problema com os encodes
+\usepackage[T1]{fontenc}
+
+\usepackage{parskip} % Para remover identação desnecessaria.
+
+\usepackage{amsmath} % Para poder usar \implies
+
+\usepackage{lipsum}
+
+\newcommand{\myspace}{0.2cm}
+
+\begin{document}
+\pagenumbering{gobble}
+
+Dados: $\mathrm{Q = {{Q}} \ m^{3}/s}$, $\mathrm{T = {{T}} ^{\circ}C}$, $\mathrm{g = {{g}} \ m/s^{2}}$, $\mathrm{ \gamma = {{gamma}} \ N/m^{3}}$, $\mathrm{ \mu = {{mu}} \ N \! \cdot \! s \cdot m^{-2}}$, $\mathrm{P_{vr} = {{Pvr}} \ m }$, $\mathrm{ b = {{b}} \ m }$.  \\
+
+1. Altura, $\mathrm{ H_{vr} }$.
+\vspace{\myspace}
+
+\begin{center}
+	$ 
+		\mathrm
+		{ 
+			H_{vr} = \left ( \dfrac{ Q }{ 1.848b } \right )^{ \frac{3}{2} }
+		} 
+		\implies
+		\mathrm
+		{
+			H_{vr} = \left ( \dfrac{ {{Q}} m^{3}/s}{ 1.848 \cdot {{b}} \ m } \right )^{ \frac{3}{2} }
+		} 
+		\implies
+		\fbox
+		{ 
+			$\mathrm
+			{ 
+				H_{vr} = {{Hvr}} \ m
+			}$
+		} 
+	$ 
+\end{center}
+\vspace{\myspace}
+
+2. Distância entre vertedor e seção inicial do ressalto $\mathrm{ L_{m} }$, profundidade crítica $\mathrm{ y_{c} }$, e altura da lâmina d'água no início do ressalto $\mathrm{ y_{1} }$.
+\vspace{\myspace}
+\begin{center}
+	$ 
+		\mathrm
+		{ 
+			y_{c}=\sqrt[3]{ \dfrac{ \mathrm{Q}^{2} }{ \mathrm{g}\mathrm{b}^2} \ }
+		} 
+		\implies
+		\mathrm
+		{
+			y_{c} = \sqrt[3]{ \dfrac{ {{Q}}^{2} \left( \mathrm{m^{3}/s} \right )^{2} }{ {{g}} \mathrm{m/s^{2}} \ {{b}}^{2} \mathrm{m^{2}} } }
+		} 
+		\implies
+		\fbox
+		{ 
+			$\mathrm
+			{ 
+				y_{c} = {{yc}} \ m
+			}$
+		} 
+	$ 
+\end{center}
+\vspace{\myspace}
+
+\begin{center}
+	$ 
+		\mathrm
+		{ 
+			L_{m} = H_{vr}\left ( \dfrac{P_{vr}}{H_{vr}} \right )^{0.54}
+		} 
+		\implies
+		\mathrm
+		{
+			L_{m} = {{Hvr}}m\left ( \dfrac{ {{Pvr}}m }{ {{Hvr}}m } \right )^{0.54}
+		} 
+		\implies
+		\fbox
+		{ 
+			$\mathrm
+			{ 
+				L_{m} = {{Lm}} \ m
+			}$
+		} 
+	$ 
+\end{center}
+\vspace{\myspace}
+
+\begin{center}
+	$ 
+		\mathrm
+		{ 
+			y_{1} = \dfrac{ 1.414y_{c} }{ \sqrt{ 2.56 + \dfrac{ P_{vr} }{ y_{c} } } }
+		} 
+		\implies
+		\mathrm
+		{
+			y_{1} = \dfrac{1.414 \cdot {{yc}}m}{ \sqrt{ 2.56 + \dfrac{ {{Pvr}}m }{ {{yc}}m } } }
+		} 
+		\implies
+		\fbox
+		{ 
+			$\mathrm
+			{
+				y_{1}= {{y1}} \ m
+			}$
+		} 
+	$ 
+\end{center}
+\vspace{\myspace}
+
+3. Velocidade do escoamento no inicio do ressalto, $\mathrm{ v_{1} }$.
+\vspace{\myspace}
+\begin{center}
+	$ 
+		\mathrm
+		{ 
+			v_{1} = \dfrac{ Q }{ y_{1}b }
+		} 
+		\implies
+		\mathrm
+		{
+			v_{1} = \dfrac{ {{Q}} m^{3}/s}{ {{y1}}m \  {{b}}m }
+		} 
+		\implies
+		\fbox
+		{ 
+			$\mathrm{
+				v_{1} = {{v1}} \ m/s
+			}$
+		} 
+	$ 
+\end{center}
+\vspace{\myspace}
+
+4. Número de Froude na seção 1, $\mathrm{ F_{1} }$.
+\vspace{\myspace}
+\begin{center}
+	$ 
+		\mathrm
+		{ 
+			F_{1} = \dfrac{ v_{1} }{ \sqrt{ gy_{1} } }
+		} 
+		\implies
+		\mathrm
+		{
+			F_{1} = \dfrac{ {{v1}} m/s }{ \sqrt{ {{g}} m/s^{2} \ {{y1}}m } }
+		} 
+		\implies
+		\fbox
+		{ 
+			$\mathrm
+			{ 
+				F_{1} = {{F1c}}
+			}$
+		} 
+	$ 
+\end{center}
+\vspace{\myspace}
+
+5. Altura da lâmina d'água no final do ressalto $\mathrm{ y_{2} }$.
+\vspace{\myspace}
+\begin{center}
+	$
+		\mathrm
+		{
+			y_{2} = \dfrac{ y_{1} }{2}\left ( \sqrt{ 1+ 8F_{1}^{2} } - 1\right )
+		}
+		\implies 
+		\mathrm
+		{
+			y_{2} = \dfrac{ {{y1}}m }{2} \left ( \sqrt{ 1+ 8 \cdot {{F1}} ^{2} } - 1 \right )
+		}
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				y_{2} = {{y2}} \ m
+			}$
+		}
+	$  
+\end{center}
+\vspace{\myspace}
+
+6. Perda de energia $\mathrm{ E_{n} }$, comprimento do ressalto $\mathrm{ L_{r} }$, e velocidade no final do ressalto $\mathrm{ v_{2} }$.
+
+\vspace{\myspace}
+\begin{center}
+	$
+		\mathrm
+		{
+			E_{n} = \dfrac{ \left ( y_{2} - y_{1} \right)^{3} }{ 4y_{1}y_{2} } 
+		} 
+		\implies
+		\mathrm
+		{
+			E_{n} = \dfrac{ \left ( {{y2}}m - {{y1}}m \right)^{3} }{ 4\cdot {{y1}}m \ {{y2}}m }
+		}
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				E_{n} = {{En}} \ m
+			}$
+		}
+	$  
+\end{center}
+\vspace{\myspace}
+
+
+\begin{center}
+	$ 
+		\mathrm
+		{ 
+			v_{2} = \dfrac{ Q }{ y_{2}b }
+		} 
+		\implies
+		\mathrm
+		{
+			v_{2} = \dfrac{ {{Q}} m^{3}/s}{ {{y2}}m \ {{b}}m }
+		} 
+		\implies
+		\fbox
+		{ 
+			$\mathrm
+			{
+				v_{2} = {{v2}} \ m/s
+			}$
+		} 
+	$ 
+\end{center}
+\vspace{\myspace}
+
+
+\begin{center}
+	$
+		\mathrm
+		{
+			L_{r} = c\left ( y_{2} - y_{1} \right)
+		} 
+		\implies
+		\mathrm
+		{
+			L_{r} = {{c}}\left ( {{y2}}m - {{y1}}m \right)
+		}
+		\implies 
+		\fbox
+		{ 
+			$\mathrm
+			{
+				L_{r}= {{Lr}} \ m
+			}$
+		}
+	$  
+\end{center}
+\vspace{\myspace}
+
+
+7. Velocidade média, $\mathrm{ U_{m} }$.
+\begin{center}
+	$ 
+		\mathrm
+		{ 
+			U_{m} = \dfrac{ v_{1} + v_{2} }{2}
+		} 
+		\implies
+		\mathrm
+		{
+			U_{m} = \dfrac{ {{v1}}m/s + {{v2}}m/s }{2}
+		} 
+		\implies
+		\fbox
+		{ 
+			$\mathrm{ U_{m} = {{Um}} \ m/s}$
+		} 
+	$ 
+\end{center}
+\vspace{\myspace}
+
+8. Tempo médio de mistura, $\mathrm{ T_{m} }$.
+\vspace{\myspace}
+\begin{center}
+	$
+		\mathrm
+		{
+			T_{m} = \dfrac{ L_{r} }{ U_{m} } 
+		} 
+		\implies
+		\mathrm
+		{
+			T_{m} = \dfrac{ {{Lr}}m }{ {{Um}}m/s } 
+		}
+		\implies 
+		\fbox
+		{ 
+			$\mathrm
+			{
+				T_{m}= {{Tm}} \ s
+			}$
+		}
+	$  
+\end{center}
+\vspace{\myspace}
+
+9. Gradiente de velocidade médio, $\mathrm{ G_{m} }$.
+\vspace{\myspace}
+\begin{center}
+	$
+		\mathrm
+		{
+			Gm = \sqrt{ \dfrac{ \gamma E_{n} }{ \mu T_{m} } }
+		} 
+		\implies
+		\mathrm
+		{
+			Gm = \sqrt{\dfrac{ {{gamma}} N/m^{3} \cdot {{En}}m }{ {{mu}}N \! \cdot \! s \cdot m^{-2} \ {{Tm}}s } }
+		}
+		\implies 
+		\fbox
+		{ 
+			$\mathrm
+			{
+				G_{m} = {{Gm}} \ s^{-1}
+			}$
+		}
+	$  
+\end{center}
+
+\end{document} 
