@@ -2,8 +2,10 @@
 db.sqlite3
 *.aux
 *vertedor_overlay_base_rendered.log
-/project/templates/project/vertedor/vertedor_figura/vertedor_overlay_base_rendered.tex
-project/templates/project/vertedor/vertedor_figura/vertedor_overlay_base_rendered.pdf
-
-project\templates\project\vertedor\vertedor_calculos\vertedor_calculos_rendered.tex
-project\templates\project\vertedor\vertedor_calculos\vertedor_calculos_rendered.pdf
+*vertedor_overlay_base_rendered.aux
+*vertedor_overlay_base_rendered.tex
+*vertedor_overlay_base_rendered.pdf
+*vertedor_calculos_rendered.log
+*vertedor_calculos_rendered.aux
+*vertedor_calculos_rendered.tex
+*vertedor_calculos_rendered.pdf
