@@ -1,5 +1,6 @@
 import os
 import subprocess 
+import scipy
 from scipy.optimize import minimize
 # https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize_scalar.html
 # from scipy.optimize import minimize_scalar
