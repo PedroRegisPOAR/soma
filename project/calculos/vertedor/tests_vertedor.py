@@ -30,6 +30,7 @@ vertedorinit_test_níveis['g'] = 9.81
 vertedorinit_test_níveis['T'] = 17.5
 vertedorinit_test_níveis['b'] = 0.5
 vertedorinit_test_níveis['F1'] = 2.734
+vertedorinit_test_níveis['c'] = 5
 
 vertedorresults_test_níveis['Pvr'] = 0.70
 vertedorresults_test_níveis['yc'] = 0.138
