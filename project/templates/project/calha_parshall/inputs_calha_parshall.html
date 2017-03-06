@@ -6,7 +6,7 @@
 
 <center>
 
-    <form action="/results_calha_parshall2/" method="post">{%csrf_token %}     
+    <form action="/results_calha_parshall/" method="post">{%csrf_token %}     
         <div>
             <label for="Q">Q:</label>
             <input type="number" step=0.001 min="0" max="5" id="Q" name="Q" value="1.2" />
@@ -27,6 +27,13 @@
         </div>
         Temperatura em $^{\circ}\mathrm{C}$.
         <br /><br />
+
+        <div>
+            <label for="c"> c: </label>
+            <input type="number" step=0.01 min="4" max="6" id="c" name="c" value="6" />
+        </div>
+        Constante do calculo do comprimento do ressalto, admensional.
+        <br /><br />         
 
         <div>
             <label for="iW"> $\mathrm{iW}$:</label>
