@@ -27,9 +27,7 @@ from subprocess import Popen, PIPE
 import tempfile
 #
 
-
 from project.calculos.calha_parshall.calha_parshall import factory_CP, cpinit
-from project.calculos.calha_parshall2.calha_parshall2 import factory_CP2, cpinit2
 
 from project.calculos.vertedor.vertedor import factoryVertedor, vertedorinit
 
@@ -348,7 +346,7 @@ def results_vertedor(request):
 def inputs_calha_parshall(request):     
     return render(request,'project/calha_parshall/inputs_calha_parshall.html')
 
-
+"""
 def results_calha_parshall(request):
 
     if request.method == "POST":
@@ -365,18 +363,19 @@ def results_calha_parshall(request):
     else:
         inputs_calha_parshall(request)
     return render(request,'project/calha_parshall/results_calha_parshall.html', d)    
+"""
 
-def results_calha_parshall2(request):
+def results_calha_parshall(request):
 
     if request.method == "POST":
-        for key in cpinit2:
+        for key in cpinit:
             if key == 'iW':
-                cpinit2[key] = int(request.POST[key])
+                cpinit[key] = int(request.POST[key])
             else:
-                cpinit2[key] = float(request.POST[key])
+                cpinit[key] = float(request.POST[key])
     else:
         inputs_calha_parshall(request)
-    CP = factory_CP2(cpinit2)
+    CP = factory_CP(cpinit)
     cp = CP()
     #cp.dimensionar()
     #d = cp.out
