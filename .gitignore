@@ -1,12 +1,10 @@
 *.pyc
 db.sqlite3
+# git rm -r --cached
 *.aux
-*vertedor_overlay_base_rendered.log
-*vertedor_overlay_base_rendered.aux
+*.log
 *vertedor_overlay_base_rendered.tex
 *vertedor_overlay_base_rendered.pdf
-*vertedor_calculos_rendered.log
-*vertedor_calculos_rendered.aux
 *vertedor_calculos_rendered.tex
 *vertedor_calculos_rendered.pdf
 *.png
