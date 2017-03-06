@@ -34,9 +34,7 @@ url(r'^$', views.index, name="index"),
 	url(r'^results_vertedor/', views.results_vertedor, name='results_vertedor'),
 
 	url(r'^inputs_calha_parshall', views.inputs_calha_parshall, name="inputs_calha_parshall"),
-	url(r'^results_calha_parshall/', views.results_calha_parshall, name='results_calha_parshall'),
-	
-	url(r'^results_calha_parshall2/', views.results_calha_parshall2, name='results_calha_parshall2'),
+	url(r'^results_calha_parshall/', views.results_calha_parshall, name='results_calha_parshall'),	
 	
 	url(r'^inputs_floculador_chicaneado', views.inputs_floculador_chicaneado, name="inputs_floculador_chicaneado"),
 	url(r'^results_floculador_chicaneado/', views.results_floculador_chicaneado, name='results_floculador_chicaneado'),
