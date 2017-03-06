@@ -30,7 +30,7 @@ cpresults_test1['F1'] = 2.5
 cpresults_test1['h2'] = 0.485
 cpresults_test1['h3'] = 0.331
 cpresults_test1['U3'] = 1.318
-cpresults_test1['L'] = 1.962
+cpresults_test1['Lr'] = 1.962
 cpresults_test1['h'] = 0.113
 cpresults_test1['Tm'] = 0.89
 cpresults_test1['Gm'] = 1078
@@ -39,6 +39,7 @@ cpresults_test1['Gm'] = 1078
 cpinit_test1['Q'] = 1.2
 cpinit_test1['g'] = 9.807
 cpinit_test1['T'] = 17.5
+cpinit_test1['c'] = 6
 cpinit_test1['iW'] = 10
 
 
@@ -157,9 +158,9 @@ def test_CP(args_cp, args_tests):
             .format(self.U3, self.cp.U3)) 
 
         def test_L(self):
-            self.assertTrue( abs(self.cp.L - self.L) < 10**(-2), 
-            'A variavel L esta errada. O valor deveria ser L={}, mas é {}'
-            .format(self.L, self.cp.L)) 
+            self.assertTrue( abs(self.cp.Lr - self.Lr) < 10**(-2), 
+            'A variavel Lr esta errada. O valor deveria ser Lr={}, mas é {}'
+            .format(self.Lr, self.cp.Lr)) 
 
         def test_h(self):
             self.assertTrue( abs(self.cp.h - self.h) < 10**(-1), 
