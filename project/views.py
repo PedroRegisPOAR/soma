@@ -27,8 +27,7 @@ from subprocess import Popen, PIPE
 import tempfile
 #
 
-from project.calculos.calha_parshall.calha_parshall import factory_CP, cpinit
-
+from project.calculos.calha_parshall.calha_parshall import factoryCalhaParshall, cpinit
 from project.calculos.vertedor.vertedor import factoryVertedor, vertedorinit
 
 
@@ -346,25 +345,6 @@ def results_vertedor(request):
 def inputs_calha_parshall(request):     
     return render(request,'project/calha_parshall/inputs_calha_parshall.html')
 
-"""
-def results_calha_parshall(request):
-
-    if request.method == "POST":
-        for key in cpinit:
-            if key == 'iW':
-                cpinit[key] = int(request.POST[key])
-            else:
-                cpinit[key] = float(request.POST[key])
-
-        CP = factory_CP(cpinit)
-        cp = CP()
-        cp.dimensionar()
-        d = cp.out
-    else:
-        inputs_calha_parshall(request)
-    return render(request,'project/calha_parshall/results_calha_parshall.html', d)    
-"""
-
 def results_calha_parshall(request):
 
     if request.method == "POST":
@@ -375,14 +355,13 @@ def results_calha_parshall(request):
                 cpinit[key] = float(request.POST[key])
     else:
         inputs_calha_parshall(request)
-    CP = factory_CP(cpinit)
+    CP = factoryCalhaParshall(cpinit)
     cp = CP()
-    #cp.dimensionar()
-    #d = cp.out
-    if 'criaFigura' in request.POST:
-        return cp.gerar_figura_calha_parshal()
+
+    if 'figura_calha_parshall' in request.POST:
+        return cp.figura_calha_parshall()
     else:
-        return cp.gerar_pdf() #render(request,'project/calha_parshall/results_calha_parshall.html', d) 
+        return cp.calculos_calha_parshall()
 
 
 def inputs_floculador_chicaneado(request):     
