@@ -1,20 +1,12 @@
 ﻿import math
-
-#import jinja2
-#from jinja2 import Template
-
 import os
 import tempfile
 import subprocess
-from subprocess import Popen, PIPE
-from django.template import Context
-from django.template.loader import get_template
 from django.http import HttpResponse
-
 from django.template.loader import render_to_string
 
-global cpinit
 
+global cpinit
 cpinit = {
     'Q':None,
     'g':None,
@@ -90,6 +82,20 @@ class TabelasCalhaParshall():
                     [2135, 0.355, 0.625],
                     [2440, 0.324, 0.623]]
 
+    def setCDKN_kn(self, i):
+        self.W = self.dimençõesPadronizadas[i][0]/1000
+        self.A = self.dimençõesPadronizadas[i][1]/1000
+        self.B = self.dimençõesPadronizadas[i][2]/1000
+        self.C = self.dimençõesPadronizadas[i][3]/1000
+        self.D = self.dimençõesPadronizadas[i][4]/1000
+        self.E = self.dimençõesPadronizadas[i][5]/1000
+        self.F = self.dimençõesPadronizadas[i][6]/1000
+        self.L = self.dimençõesPadronizadas[i][7]/1000
+        self.K = self.dimençõesPadronizadas[i][8]/1000
+        self.N = self.dimençõesPadronizadas[i][9]/1000
+        self.k = self.valoreskn[i][1]
+        self.n = self.valoreskn[i][2]
+
 """
 for linha in t:
     for e in linha:
@@ -134,6 +140,9 @@ class DensidadeViscosidade():
 
 class CP_Methods():
     __slots__=()
+
+    def fB23(self, B):
+        return (2/3)*B
 
     def fH0(self, k, Q, n):
         return k*Q**(n)
@@ -195,45 +204,64 @@ class Extras():
     def arredondamento(self):
         for key in self.out:
             if type(self.out[key]) == float:
-                self.out[key] = round(self.out[key], 4)
+                if key == 'mu':
+                    self.out[key] = round(self.out[key], 5)
+                else:
+                    self.out[key] = round(self.out[key], 2)
 
 
 class Níveis():
     __slots__=()
 
-    def setCDKN_kn(self, i):
-        self.W = self.dimençõesPadronizadas[i][0]/1000
-        self.A = self.dimençõesPadronizadas[i][1]/1000
-        self.B = self.dimençõesPadronizadas[i][2]/1000
-        self.C = self.dimençõesPadronizadas[i][3]/1000
-        self.D = self.dimençõesPadronizadas[i][4]/1000
-        self.E = self.dimençõesPadronizadas[i][5]/1000
-        self.F = self.dimençõesPadronizadas[i][6]/1000
-        self.L = self.dimençõesPadronizadas[i][7]/1000
-        self.K = self.dimençõesPadronizadas[i][8]/1000
-        self.N = self.dimençõesPadronizadas[i][9]/1000
-        self.k = self.valoreskn[i][1]
-        self.n = self.valoreskn[i][2]
-
-    def pré_dimensionar(self):
-        
+    def nível1(self):
         self.rho = self.frho(self.T)
         self.mu = self.fmu(self.T)
         self.H0 = self.fH0(self.k, self.Q, self.n)
         self.D0 = self.fD0(self.D, self.W)
-        self.U0 = self.fU0(self.Q, self.D0, self.H0)
         self.q = self.fq(self.Q, self.W)
+    
+    def nível2(self):
+        self.U0 = self.fU0(self.Q, self.D0, self.H0)
+        self.B23 = self.fB23(self.B)
+
+    def nível3(self):
         self.E0 = self.fE0(self.U0, self.g, self.H0, self.N)
+
+    def nível4(self):
         self.U1 = self.fU1(self.g, self.q, self.E0)
+
+    def nível5(self):        
         self.h1 = self.fh1(self.q, self.U1)
+
+    def nível6(self):
         self.F1 = self.froud(self.g, self.h1, self.U1)
         self.h2 = self.fh2(self.h1, self.F1)
+    
+    def nível7(self):
         self.h3 = self.fh3(self.h2, self.N, self.K)
-        self.U3 = self.fU3(self.Q, self.C, self.h3)
         self.Lr = self.fLr(self.c, self.h1, self.h2)
         self.h = self.fh(self.h1, self.h2)
+
+    def nível8(self):
+        self.U3 = self.fU3(self.Q, self.C, self.h3)
+
+    def nível9(self):
         self.Tm = self.fTm(self.Lr, self.U1, self.U3)
+
+    def nível10(self):
         self.Gm = self.fGm(self.h, self.g, self.rho, self.mu, self.Tm)
+    
+    def calcularNíveis(self):
+        self.nível1()
+        self.nível2()
+        self.nível3()
+        self.nível4()
+        self.nível5()
+        self.nível6()
+        self.nível7()
+        self.nível8()
+        self.nível9()
+        self.nível10()
 
     def checagem(self):
         assert self.T > 0 
@@ -248,123 +276,77 @@ class Níveis():
             #self.checagem()
             self.setTabelas()
             self.setCDKN_kn(self.iW)
-            self.pré_dimensionar()
+            self.calcularNíveis()
             self.make_out()
             self.arredondamento()
 
 
-# https://books.google.com.br/books?id=uPSoCwAAQBAJ&pg=PA274&lpg=PA274&dq=save+render_to_string+file+django&source=bl&ots=igy7pOfeOy&sig=ZFgxmOitm8LHSICjQfWy5ZvdtTI&hl=pt-BR&sa=X&ved=0ahUKEwjfoO2FmLPSAhVDG5AKHXwjBrUQ6AEITDAG#v=onepage&q=save%20render_to_string%20file%20django&f=false            
-
 class GerarPDF():
-    __slots__=()
-
-    # https://blog.sevenbyte.org/2014/09/23/generating-pdfs-with-django-and-latex.html
-    def gerar_pdf(self):
-        self.dimensionar()
-        context = self.out
-
-        template = get_template('project/calha_parshall2/calha_parshall_latex/mestre.tex')
-        rendered_tpl = template.render(context).encode('utf-8')
-        
-        with tempfile.TemporaryDirectory() as tempdir:
-            #import shutil
-            #path = 'soma/project/templates/project/calha_parshall2/calha_parshall_latex/mestre.pdf'
-            #path = 'project/templates/project/calha_parshall2/calha_parshall.pdf'
-            #shutil.copy(path, tempdir)
-            for i in range(2):
-                process = Popen(
-                    ['pdflatex', '-output-directory', tempdir],
-                    stdin=PIPE,
-                    stdout=PIPE,
-                )
-                process.communicate(rendered_tpl)
-            with open(os.path.join(tempdir, 'texput.pdf'), 'rb') as f:
-                pdf = f.read()
-
-            r = HttpResponse(content_type='application/pdf')  
-            # r['Content-Disposition'] = 'attachment; filename=texput.pdf'
-            r.write(pdf)
-
-        return r     
+    __slots__=()   
 
     def renderizar_template(self, path, template_name, context):    
         return render_to_string(path + template_name + '.tex', context) 
 
     def salvar_template_rederizado(self, rendered_templete, path, template_name):
-        with open(path + template_name + '_rendered' + '.tex', 'w') as rt:
+        with open(path + template_name + '.tex', 'w') as rt:
             rendered_templete.encode('utf-8')
             rt.write(rendered_templete)        
 
     def criar_pdf(self, path, template_name):
+    
         initial_path = os.getcwd()
         os.chdir(path)
         subprocess.call(['pdflatex', template_name])    
         os.chdir(initial_path)
 
-    def context_figura(self):
-        d = {
-            'H0':self.H0,
-            'V0':self.U0,
-            'N':self.N,
-            'D':self.D,
-            'D0':self.D0,
-            'W':self.W,
-            'B':self.B,
-            'B23':(2*self.B)/3, # TODO: Criar uma função que calcula (2/3)*B
-            'C':self.C,
-            'F':self.F,
-            'L':self.L,
-            'N':self.N, 
-            'k':self.k,
-            'h1':self.h1,
-            'h2':self.h2,
-            'h3':self.h3,
-            'k':self.k,
-            'L':self.L,
-            'D':self.D,
-        }
-        for key in d:
-            d[key] = round(d[key], 3)
-        return d
-
-    def render_pdf(self, path):
-        with open(path, 'rb') as pdf:
-            response = HttpResponse(pdf.read(),content_type='application/pdf')
+    def render_pdf(self, complete_path):
+        with open(complete_path, 'rb') as pdf:
+            response = HttpResponse(pdf.read(), content_type='application/pdf')
             response['Content-Disposition'] = 'inline; filename=some_file.pdf'
         return response
 
-    def gerar_figura_calha_parshal(self):
+
+    def gerarPDF(self, rendered_templete, path, template_name, root=''):
+        complete_path = root + path
+        self.salvar_template_rederizado(rendered_templete,
+                                        complete_path, template_name)
+        self.criar_pdf(complete_path, template_name)
+
+        path_pdf = complete_path + template_name + '.pdf'
+        return self.render_pdf(path_pdf)        
+
+    def figura_calha_parshall(self):
         self.dimensionar()
-        
-        path1 = 'project/calha_parshall2/calha_parshall_latex/'
-        template_name = 'calha_parshall_builded'
-        context = self.context_figura()
-        rendered_templete = self.renderizar_template(path1, template_name, context)
 
+        path = 'project/calha_parshall/calha_parshall_figura/'
+        template_name = 'calha_parshall_overlay_base'
+        context = self.out
+        rendered_templete = self.renderizar_template(path, template_name, context)
+
+        path = 'project/templates/' + path
+        template_name += '_rendered' 
         try:
-            pathSTR = 'soma/project/templates/' + path1
-            self.salvar_template_rederizado(rendered_templete, pathSTR, template_name)
-            path2 = 'soma/project/templates/project/calha_parshall2/calha_parshall_latex/'
-            template_name = 'calha_parshall_builded_rendered.tex'
-            self.criar_pdf(path2, template_name)
+            return self.gerarPDF(rendered_templete, path, template_name, root='soma/')
+        except:        
+            return self.gerarPDF(rendered_templete, path, template_name)
 
-            path2 = path2 + 'calha_parshall_builded_rendered.pdf'
-            return self.render_pdf(path2)
-        except:
-            pathSTR = 'project/templates/' + path1
-            self.salvar_template_rederizado(rendered_templete, pathSTR, template_name)            
+    def calculos_calha_parshall(self):
+        self.dimensionar()
 
-            path2 = 'project/templates/project/calha_parshall2/calha_parshall_latex/'
-            template_name = 'calha_parshall_builded_rendered.tex'
-            self.criar_pdf(path2, template_name)
+        path = 'project/calha_parshall/calha_parshall_calculos/'
+        template_name = 'calha_parshall_calculos'
+        context = self.out
+        rendered_templete = self.renderizar_template(path, template_name, context)
 
-            path2 = path2 + 'calha_parshall_builded_rendered.pdf'
-            return self.render_pdf(path2)
-        
-
+        path = 'project/templates/' + path
+        template_name += '_rendered' 
+        try:
+            return self.gerarPDF(rendered_templete, path, template_name, root='soma/')
+        except:        
+            return self.gerarPDF(rendered_templete, path, template_name) 
 
 
-def factory_CP(cpinit):
+def factoryCalhaParshall(cpinit):
     global cpresults
 
     d = dict(cpinit, **cpresults)
