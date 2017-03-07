@@ -1,0 +1,28 @@
+\documentclass[12pt]{article}
+
+\usepackage{pdfpages}
+\usepackage{tikz}
+
+\begin{document}
+\thispagestyle{empty}
+\includepdf[scale=1.8, angle=90, offset=-5mm 20mm, pagecommand={
+\begin{tikzpicture}[remember picture, overlay]
+\node [rotate=90] (H0) at (-0.9, -13.5) 	{ \Large{ {{H0}} } };
+\node [rotate=90] (U01) at (-0.1, -12.2) 	{ \Large{ {{U0}} } };
+\node [rotate=90] (U02) at (7.95, -11.8) 	{ \Large{ {{U0}} } };
+\node [rotate=90] (N) at (1.7, -9.8) 		{ \Large{ {{N}} } };
+\node [rotate=90] (D) at (8, -17.4) 		{ \Large{ {{D}} } };
+\node [rotate=90] (D0) at (8.98, -13.68) 	{ \Large{ {{D0}} } };
+\node [rotate=90] (B) at (13.25, -13.4) 	{ \Large{ {{B}} } };
+\node [rotate=90] (B23) at (11.45, -11.2) 	{ \Large{ {{B23}} } };
+\node [rotate=90] (W) at (8.45, -4.3) 		{ \Large{ {{W}} } };
+\node [rotate=90] (L) at (12.3, -3.7) 		{ \Large{ {{L}} } };
+\node [rotate=90] (F) at (13.5, -6.5) 		{ \Large{ {{F}} } };
+\node [rotate=90] (C) at (8.5, 0.35) 		{ \Large{ {{C}} } };
+\node [rotate=90] (h1) at (1.9, -5.2) 		{ \normalsize{ {{h1}} } };
+\node [rotate=90] (h2) at (1.4, -2.5) 		{ \small{ {{h2}} } };
+\node [rotate=90] (h3) at (0.25, 0.15) 		{ \large{ {{h3}} } };
+\node [rotate=90] (k) at (1.1, 0.9) 		{ \large{ {{k}} } };
+\end{tikzpicture}
+}]{calha_parshall_figura_base}%{Doc1}
+\end{document}
