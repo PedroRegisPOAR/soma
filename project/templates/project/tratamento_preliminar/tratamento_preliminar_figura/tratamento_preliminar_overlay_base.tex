@@ -1,0 +1,24 @@
+\documentclass[12pt]{article}
+
+%\usepackage[brazil]{babel}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+
+\usepackage{pdfpages}
+\usepackage{tikz}
+
+\begin{document}
+\thispagestyle{empty}
+\includepdf[scale=1.415, angle=90, offset=0mm 2mm 0mm 0mm, pagecommand={
+\begin{tikzpicture}[remember picture, overlay]
+\node [rotate=90] (ymín) at (5.9, -3) { \large{ $\mathrm{y_{m\acute{i}n}}$ = {{ymín}}m } };
+\node [rotate=90] (ymáx) at (4.6, -4) { \large{ $\mathrm{y_{m\acute{a}x}}$ = {{ymáx}}m } };
+\node [rotate=90] (Hmín) at (7, 1.8) 	{ \large{ $\mathrm{H_{mín}}$ = {{Hmín}}m } };
+\node [rotate=90] (Hmáx) at (5.3, 1.8) 	{ \large{ $\mathrm{H_{máx}}$ = {{Hmáx}}m } };
+\node [rotate=90] (Z) at (7.2, -4.7) 	{ \large{ $\mathrm{Z      }$ = {{Z}}m } };
+\node [rotate=90] (HAreiaAc) at (8, -18.5){ \large{ $\mathrm{H_{AreiaAc}}$ = {{H_AreiaAc}}m } };
+\node [rotate=90] (Qmáx) at (4.5, -19.5) { \large{ $\mathrm{Q_{máx} = {{Qmáx}} m^{3}/s }$ } };
+\node [rotate=90] (Qmín) at (5.8, -19.5) { \large{ $\mathrm{Q_{mín} = {{Qmín}}m^{3}/s }$ } };
+\end{tikzpicture}
+}]{tratamento_preliminar_figura_base}%{Doc1}
+\end{document}

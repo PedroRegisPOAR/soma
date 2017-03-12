@@ -1,0 +1,554 @@
+\documentclass{article}
+\usepackage[a4paper, left=3cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[brazil]{babel}
+%\usepackage[utf8]{inputenc} % Por alguma razão diabólica estava dando problema com os encodes
+\usepackage[T1]{fontenc}
+
+\usepackage{parskip} % Para remover identação desnecessaria.
+
+\usepackage{amsmath} % Para poder usar \implies
+
+\usepackage{lipsum}
+
+\newcommand{\myspace}{0.35cm}
+
+\begin{document}
+\pagenumbering{gobble}
+
+Dados: $\mathrm{Q_{máx} = {{Qmáx}} \ m^{3}/s}$, $\mathrm{Q_{méd} = {{Qméd}} \ m^{3}/s}$, $\mathrm{Q_{mín} = {{Qmín}} \ m^{3}/s}$, espessura da grade $\mathrm{t = {{t}} \ mm}$,
+espaçamento da grade $\mathrm{a = {{a}} \ mm}$, templo de limpeza $\mathrm{tl = {{tl}} \ dia}$, aceleração da gravidade, $\mathrm{g = {{g}} \ m/s^{2}}$, areia acumulada $\mathrm{Areia_{Acu} = {{AreiaAcu}} \ \frac{L}{1000m^{3}}}$, velocidade horizontal do fluxo na caixa de areia $\mathrm{V = {{V}} \ m/s}$, velocidade nas passagens da grade $\mathrm{V_{g} = {{Vg}} \ m/s}$.
+
+
+Dimensionamento calha parshall:
+
+\vspace{\myspace}
+
+Altura máxima:
+
+\vspace{\myspace}
+
+\begin{center}
+	$
+		\mathrm
+		{
+			H_{máx} = \sqrt[n]{\dfrac{Q_{máx}}{\lambda}}
+		} 
+		\implies
+		\mathrm
+		{
+			H_{máx} = \sqrt[ {{n}} ]{ \dfrac{ {{Qmáx}} \mathrm{m^{3}/s} }{ {{lamb}} } }
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				H_{máx} = {{Hmáx}} \ m
+			}$
+		}
+	$
+\end{center}
+
+\vspace{\myspace}
+
+Altura mínima:
+
+\vspace{\myspace}
+
+\begin{center}
+	$
+		\mathrm
+		{
+			H_{mín} = \sqrt[n]{\dfrac{Q_{mín}}{\lambda}}
+		} 
+		\implies
+		\mathrm
+		{
+			H_{mín} = \sqrt[ {{n}} ]{ \dfrac{ {{Qmín}} \mathrm{m^{3}/s} }{ {{lamb}} } }
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				H_{mín} = {{Hmín}} \ m
+			}$
+		}
+	$
+\end{center}
+
+
+Cálculo do ressalto:
+
+\vspace{\myspace}
+
+
+\begin{center}
+	$
+		\mathrm
+		{
+			Z  = \dfrac{H_{mín}Q_{máx} - Q_{mín}H_{mín}}{Q_{máx} - Q_{mín}}
+		} 
+		\implies
+		\mathrm
+		{
+			Z  = \dfrac{ {{Hmín}}m \ {{Qmáx}}m^{3}/s - {{Qmín}}m^{3}/s \ {{Hmín}} }{ {{Qmáx}} m^{3}/s - {{Qmín}}m^{3}/s }
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				Z = {{Z}} \ m
+			}$
+		}
+	$
+\end{center}
+
+
+\vspace{\myspace}
+
+Altura mínima ... :
+
+\begin{center}
+	$
+		\mathrm
+		{
+			y_{mín} = H_{mín} - Z
+		} 
+		\implies
+		\mathrm
+		{
+			y_{mín} = {{Hmín}}m - {{Z}}m
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				y_{mín} = {{ymín}} \ m
+			}$
+		}
+	$
+\end{center}
+
+\vspace{\myspace}
+
+
+Altura máxima ... :
+
+\vspace{\myspace}
+
+\begin{center}
+	$
+		\mathrm
+		{
+			y_{máx} = H_{máx} - Z
+		} 
+		\implies
+		\mathrm
+		{
+			y_{máx} = {{Hmáx}}m - {{Z}}m
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				y_{máx} = {{ymáx}} \ m
+			}$
+		}
+	$
+\end{center}
+\vspace{\myspace}
+
+
+
+
+Cálculo da grade:
+
+\vspace{\myspace}
+
+Eficiência:
+
+\vspace{\myspace}
+
+\begin{center}
+	$
+		\mathrm
+		{
+			E = \dfrac{a}{a + t}
+		} 
+		\implies
+		\mathrm
+		{
+			E = \dfrac{ {{a}} mm }{ {{a}} mm + {{t}} mm }
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				E = {{E}}
+			}$
+		}
+	$
+\end{center}
+
+\vspace{\myspace}
+
+Área útil:
+
+\begin{center}
+	$
+		\mathrm
+		{
+			A_{u} = \dfrac{Q_{máx}}{V_{g}}
+		} 
+		\implies
+		\mathrm
+		{
+			A_{u} = \dfrac{ {{Qmáx}}m^{3}/s }{ {{Vg}} m/s}
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				A_{u} = {{Au}} \ m^{2}
+			}$
+		}
+	$
+\end{center}
+
+\vspace{\myspace}
+
+Área da seção do canal:
+
+\vspace{\myspace}
+
+\begin{center}
+	$
+		\mathrm
+		{
+			S = \dfrac{A_{u}}{E}
+		} 
+		\implies
+		\mathrm
+		{
+			S = \dfrac{ {{Au}} m^{2}}{ {{E}} }
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				S = {{S}} \ m^{2}
+			}$
+		}
+	$
+\end{center}
+
+\vspace{\myspace}
+
+Largura do canal da grade:
+
+\vspace{\myspace}
+
+\begin{center}
+	$
+		\mathrm
+		{
+			b = \dfrac{S}{H_{máx} - Z}
+		} 
+		\implies
+		\mathrm
+		{
+			b = \dfrac{ {{S}}m^{2} }{ {{Hmáx}}m - {{Z}}m }
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				b = {{b}} \ m
+			}$
+		}
+	$
+\end{center}
+\vspace{\myspace}
+
+Perda de carga na grade:
+\vspace{\myspace}
+
+Limpa:
+\vspace{\myspace}
+
+\begin{center}
+	$
+		\mathrm
+		{
+			\Delta h = 1.43 \dfrac{  V_{g}^{2} - V_{0}^{2} }{2g}
+		} 
+		\implies
+		\mathrm
+		{
+			\Delta h = 1.43 \dfrac{ \left ( {{Vg}} m/s \right )^{2} - \left ( {{V0}} m/s\right )^{2} }{ 2\cdot {{g}} m/s^{2} }
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				\Delta h = {{Deltah_limpa}} \ m
+			}$
+		}
+	$
+\end{center}
+
+\newpage
+
+Com 50\% obstruida:
+\vspace{\myspace}
+
+\begin{center}
+	$
+		\mathrm
+		{
+			\Delta h = 1.43 \dfrac{ \left ( 2 V_{g} \right )^{2} - V_{0}^{2} }{2g}
+		} 
+		\implies
+		\mathrm
+		{
+			\Delta h = 1.43 \dfrac{ \left ( 2 \cdot  {{Vg}} m/s \right )^{2} - \left ( 2 \cdot {{V0}} m/s \right )^{2} }{ 2\cdot {{g}} m/s^{2} }
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				\Delta h = {{Deltah_50}} \ m
+			}$
+		}
+	$
+\end{center}
+\vspace{\myspace}
+
+
+Caixa de areia (desarenador):
+\vspace{\myspace}
+
+Área da seção transversal:
+\vspace{\myspace}
+
+\begin{center}
+	$
+		\mathrm
+		{
+			A = \dfrac{Q_{máx}}{V}
+		} 
+		\implies
+		\mathrm
+		{
+			A = \dfrac{ {{Qmáx}} m^{3}/s}{ {{V}} m/s}
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				A = {{A}} \ m^{2}
+			}$
+		}
+	$
+\end{center}
+\vspace{\myspace}
+
+Largura da caixa de areia:
+\vspace{\myspace}
+
+\begin{center}
+	$
+		\mathrm
+		{
+			B = \dfrac{A}{H_{máx} - Z}
+		} 
+		\implies
+		\mathrm
+		{
+			B = \dfrac{ {{A}}m^{2} }{ {{Hmáx}}m - {{Z}}m }
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				B = {{B}} \ m
+			}$
+		}
+	$
+\end{center}
+\vspace{\myspace}
+
+Cálculo do comprimento: Usando que $ \mathrm{ H = H_{máx} - Z}$:
+\vspace{\myspace}
+
+\begin{center}
+	$
+		\mathrm
+		{
+			L = 22.5\left ( H_{máx} - Z \right )
+		} 
+		\implies
+		\mathrm
+		{
+			L = 22.5\left ( {{Hmáx}}m - {{Z}}m \right )
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				L = {{L}} \ m
+			}$
+		}
+	$
+\end{center}
+\vspace{\myspace}
+
+Taxa de escoamento superficial(TES):
+\vspace{\myspace}
+
+\begin{center}
+	$
+		\mathrm
+		{
+			TES_{máx} = \dfrac{Q_{máx}}{LB}
+		} 
+		\implies
+		\mathrm
+		{
+			TES_{máx} = \dfrac{ {{Qmáx}} m^{3}/s }{ {{L}}m \  {{B}}m } \dfrac{60\cdot 60 \cdot 24 \ s }{1dia}
+		} 
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				TES_{máx} =  {{TESmáx}} \ \dfrac{m^{3}}{m^{2}dia}
+			}$
+		}
+	$
+\end{center}
+\vspace{\myspace}
+
+Cálculo do rebaixo:
+\vspace{\myspace}
+
+Volume médio de areia:
+\vspace{\myspace}
+\begin{center}
+	$
+		\mathrm
+		{
+			Q_{médAreia} = Areia_{Acu}Q_{méd}
+		} 
+		\implies
+		\mathrm
+		{
+			Q_{médAreia} = {{AreiaAcu}} \dfrac{L}{m^{3}}\cdot \dfrac{m^{3}}{10^{3}L} \ {{Qméd}} \dfrac{m^{3}}{s} \cdot \dfrac{60\cdot 60 \cdot 24 \ s }{1dia} 
+		}
+		\newline 
+		\newline
+		\newline
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				Q_{médAreia} = {{QmédAreia}} m^{3}/dia
+			}$
+		}
+	$
+\end{center}
+\vspace{\myspace}
+
+O volume para limpeza a cada {{tl}} dias, é:
+\vspace{\myspace}
+
+\begin{center}
+	$
+		\mathrm
+		{
+			Vol_{médAreia} = tlQ_{médAreia}
+		} 
+		\implies
+		\mathrm
+		{
+			Vol_{médAreia} = {{tl}}dia \ {{QmédAreia}} m^{3}/dia
+		}
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				Vol_{médAreia} = {{VmédAreia}} m^{3}
+			}$
+		}
+	$
+\end{center}
+\vspace{\myspace}
+
+Área em planta:
+\vspace{\myspace}
+
+\begin{center}
+	$
+		\mathrm
+		{
+			A_{p} = LB
+		} 
+		\implies
+		\mathrm
+		{
+			A_{p} = {{L}}m \ {{B}}m
+		}
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				A_{p} = {{A_P}} m^{2}
+			}$
+		}
+	$
+\end{center}
+\vspace{\myspace}
+
+Altura da areia acumulada:
+\vspace{\myspace}
+
+\begin{center}
+	$
+		\mathrm
+		{
+			H_{AreiaAc} = \dfrac{Vol_{médAreia}}{A_{p}}
+		} 
+		\implies
+		\mathrm
+		{
+			H_{AreiaAc} = \dfrac{ {{VmédAreia}} m^{3} }{ {{A_P}} m^2 }
+		}
+		\implies 
+		\fbox
+		{
+			$\mathrm
+			{
+				H_{AreiaAc} = {{H_AreiaAc}} m
+			}$
+		}
+	$
+\end{center}
+
+
+\end{document} 
