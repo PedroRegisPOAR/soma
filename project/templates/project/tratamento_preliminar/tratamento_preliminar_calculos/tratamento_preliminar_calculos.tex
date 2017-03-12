@@ -6,12 +6,12 @@
 \usepackage{parskip} % Para remover identação desnecessaria.
 \usepackage{amsmath} % Para poder usar \implies
 
-\newcommand{\myspace}{0.35cm}
+\newcommand{\myspace}{0.3cm}
 
 \begin{document}
 \pagenumbering{gobble}
 
-Dados: $\mathrm{Q_{máx} = {{Qmáx}} \ m^{3}/s}$, $\mathrm{Q_{méd} = {{Qméd}} \ m^{3}/s}$, $\mathrm{Q_{mín} = {{Qmín}} \ m^{3}/s}$, espessura da grade $\mathrm{t = {{t}} \ mm}$,
+Dados: $\mathrm{Q_{max} = {{Qmax}} \ m^{3}/s}$, $\mathrm{Q_{med} = {{Qmed}} \ m^{3}/s}$, $\mathrm{Q_{min} = {{Qmin}} \ m^{3}/s}$, espessura da grade $\mathrm{t = {{t}} \ mm}$,
 espaçamento da grade $\mathrm{a = {{a}} \ mm}$, templo de limpeza $\mathrm{tl = {{tl}} \ dia}$, aceleração da gravidade, $\mathrm{g = {{g}} \ m/s^{2}}$, areia acumulada $\mathrm{Areia_{Acu} = {{AreiaAcu}} \ \frac{L}{1000m^{3}}}$, velocidade horizontal do fluxo na caixa de areia $\mathrm{V = {{V}} \ m/s}$, velocidade nas passagens da grade $\mathrm{V_{g} = {{Vg}} \ m/s}$.
 
 
@@ -27,19 +27,19 @@ Altura máxima:
 	$
 		\mathrm
 		{
-			H_{máx} = \sqrt[n]{\dfrac{Q_{máx}}{\lambda}}
+			H_{max} = \sqrt[n]{\dfrac{Q_{max}}{\lambda}}
 		} 
 		\implies
 		\mathrm
 		{
-			H_{máx} = \sqrt[ {{n}} ]{ \dfrac{ {{Qmáx}} \mathrm{m^{3}/s} }{ {{lamb}} } }
+			H_{max} = \sqrt[ {{n}} ]{ \dfrac{ {{Qmáx}} \mathrm{m^{3}/s} }{ {{lamb}} } }
 		} 
 		\implies 
 		\fbox
 		{
 			$\mathrm
 			{
-				H_{máx} = {{Hmáx}} \ m
+				H_{max} = {{Hmáx}} \ m
 			}$
 		}
 	$
@@ -55,19 +55,19 @@ Altura mínima:
 	$
 		\mathrm
 		{
-			H_{mín} = \sqrt[n]{\dfrac{Q_{mín}}{\lambda}}
+			H_{min} = \sqrt[n]{\dfrac{Q_{min}}{\lambda}}
 		} 
 		\implies
 		\mathrm
 		{
-			H_{mín} = \sqrt[ {{n}} ]{ \dfrac{ {{Qmín}} \mathrm{m^{3}/s} }{ {{lamb}} } }
+			H_{min} = \sqrt[ {{n}} ]{ \dfrac{ {{Qmín}} \mathrm{m^{3}/s} }{ {{lamb}} } }
 		} 
 		\implies 
 		\fbox
 		{
 			$\mathrm
 			{
-				H_{mín} = {{Hmín}} \ m
+				H_{min} = {{Hmín}} \ m
 			}$
 		}
 	$
@@ -83,7 +83,7 @@ Cálculo do ressalto:
 	$
 		\mathrm
 		{
-			Z  = \dfrac{H_{mín}Q_{máx} - Q_{mín}H_{mín}}{Q_{máx} - Q_{mín}}
+			Z  = \dfrac{H_{min}Q_{max} - Q_{min}H_{min}}{Q_{máx} - Q_{min}}
 		} 
 		\implies
 		\mathrm
@@ -110,19 +110,19 @@ Altura mínima ... :
 	$
 		\mathrm
 		{
-			y_{mín} = H_{mín} - Z
+			y_{min} = H_{min} - Z
 		} 
 		\implies
 		\mathrm
 		{
-			y_{mín} = {{Hmín}}m - {{Z}}m
+			y_{min} = {{Hmín}}m - {{Z}}m
 		} 
 		\implies 
 		\fbox
 		{
 			$\mathrm
 			{
-				y_{mín} = {{ymín}} \ m
+				y_{min} = {{ymín}} \ m
 			}$
 		}
 	$
@@ -139,19 +139,19 @@ Altura máxima ... :
 	$
 		\mathrm
 		{
-			y_{máx} = H_{máx} - Z
+			y_{max} = H_{max} - Z
 		} 
 		\implies
 		\mathrm
 		{
-			y_{máx} = {{Hmáx}}m - {{Z}}m
+			y_{max} = {{Hmáx}}m - {{Z}}m
 		} 
 		\implies 
 		\fbox
 		{
 			$\mathrm
 			{
-				y_{máx} = {{ymáx}} \ m
+				y_{max} = {{ymáx}} \ m
 			}$
 		}
 	$
@@ -199,7 +199,7 @@ Eficiência:
 	$
 		\mathrm
 		{
-			A_{u} = \dfrac{Q_{máx}}{V_{g}}
+			A_{u} = \dfrac{Q_{max}}{V_{g}}
 		} 
 		\implies
 		\mathrm
@@ -255,7 +255,7 @@ Largura do canal da grade:
 	$
 		\mathrm
 		{
-			b = \dfrac{S}{H_{máx} - Z}
+			b = \dfrac{S}{H_{max} - Z}
 		} 
 		\implies
 		\mathrm
@@ -343,7 +343,7 @@ Caixa de areia (desarenador):
 	$
 		\mathrm
 		{
-			A = \dfrac{Q_{máx}}{V}
+			A = \dfrac{Q_{max}}{V}
 		} 
 		\implies
 		\mathrm
@@ -369,7 +369,7 @@ Largura da caixa de areia:
 	$
 		\mathrm
 		{
-			B = \dfrac{A}{H_{máx} - Z}
+			B = \dfrac{A}{H_{max} - Z}
 		} 
 		\implies
 		\mathrm
@@ -388,14 +388,14 @@ Largura da caixa de areia:
 \end{center}
 \vspace{\myspace}
 
-Cálculo do comprimento: Usando que $ \mathrm{ H = H_{máx} - Z}$:
+Cálculo do comprimento: Usando que $ \mathrm{ H = H_{max} - Z}$:
 \vspace{\myspace}
 
 \begin{center}
 	$
 		\mathrm
 		{
-			L = 22.5\left ( H_{máx} - Z \right )
+			L = 22.5\left ( H_{max} - Z \right )
 		} 
 		\implies
 		\mathrm
@@ -421,19 +421,19 @@ Taxa de escoamento superficial(TES):
 	$
 		\mathrm
 		{
-			TES_{máx} = \dfrac{Q_{máx}}{LB}
+			TES_{max} = \dfrac{Q_{max}}{LB}
 		} 
 		\implies
 		\mathrm
 		{
-			TES_{máx} = \dfrac{ {{Qmáx}} m^{3}/s }{ {{L}}m \  {{B}}m } \dfrac{60\cdot 60 \cdot 24 \ s }{1dia}
+			TES_{max} = \dfrac{ {{Qmáx}} m^{3}/s }{ {{L}}m \  {{B}}m } \dfrac{60\cdot 60 \cdot 24 \ s }{1dia}
 		} 
 		\implies 
 		\fbox
 		{
 			$\mathrm
 			{
-				TES_{máx} =  {{TESmáx}} \ \dfrac{m^{3}}{m^{2}dia}
+				TES_{max} =  {{TESmáx}} \ \dfrac{m^{3}}{m^{2}dia}
 			}$
 		}
 	$
@@ -449,12 +449,12 @@ Volume médio de areia:
 	$
 		\mathrm
 		{
-			Q_{médAreia} = Areia_{Acu}Q_{méd}
+			Q_{medAreia} = Areia_{Acu}Q_{med}
 		} 
 		\implies
 		\mathrm
 		{
-			Q_{médAreia} = {{AreiaAcu}} \dfrac{L}{m^{3}}\cdot \dfrac{m^{3}}{10^{3}L} \ {{Qméd}} \dfrac{m^{3}}{s} \cdot \dfrac{60\cdot 60 \cdot 24 \ s }{1dia} 
+			Q_{medAreia} = {{AreiaAcu}} \dfrac{L}{m^{3}}\cdot \dfrac{m^{3}}{10^{3}L} \ {{Qméd}} \dfrac{m^{3}}{s} \cdot \dfrac{60\cdot 60 \cdot 24 \ s }{1dia} 
 		}
 		\newline 
 		\newline
@@ -464,7 +464,7 @@ Volume médio de areia:
 		{
 			$\mathrm
 			{
-				Q_{médAreia} = {{QmédAreia}} m^{3}/dia
+				Q_{medAreia} = {{QmédAreia}} m^{3}/dia
 			}$
 		}
 	$
@@ -478,19 +478,19 @@ O volume para limpeza a cada {{tl}} dias, é:
 	$
 		\mathrm
 		{
-			Vol_{médAreia} = tlQ_{médAreia}
+			Vol_{medAreia} = tlQ_{medAreia}
 		} 
 		\implies
 		\mathrm
 		{
-			Vol_{médAreia} = {{tl}}dia \ {{QmédAreia}} m^{3}/dia
+			Vol_{medAreia} = {{tl}}dia \ {{QmédAreia}} m^{3}/dia
 		}
 		\implies 
 		\fbox
 		{
 			$\mathrm
 			{
-				Vol_{médAreia} = {{VmédAreia}} m^{3}
+				Vol_{medAreia} = {{VmedAreia}} m^{3}
 			}$
 		}
 	$
@@ -530,7 +530,7 @@ Altura da areia acumulada:
 	$
 		\mathrm
 		{
-			H_{AreiaAc} = \dfrac{Vol_{médAreia}}{A_{p}}
+			H_{AreiaAc} = \dfrac{Vol_{medAreia}}{A_{p}}
 		} 
 		\implies
 		\mathrm
