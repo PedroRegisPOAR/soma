@@ -6,15 +6,78 @@
     
 <form action="/results_tratamento_preliminar/" method="post">{%csrf_token %}     
     <div>
-        <label for=""> : </label>
-        <input type="number" step= min="" max="" id="" name="" value="" />
+        <label for="Qmáx"> $\mathrm{ Q_{máx} }$: </label>
+        <input type="number" step=0.01 min="0.01" max="3.95" id="Qmáx" name="Qmáx" value="1.73" />
     </div>
-     em $\mathrm{ }$.
+    Vazão máxima, em $\mathrm{ m^{3}/s}$.
     <br /><br />
 
+    <div>
+        <label for="Qméd"> $\mathrm{ Q_{méd} }$: </label>
+        <input type="number" step=0.01 min="0.01" max="3.95" id="Qméd" name="Qméd" value="0.96" />
+    </div>
+    Vazão média, em $\mathrm{ m^{3}/s}$.
+    <br /><br />
+
+    <div>
+        <label for="Qmín"> $\mathrm{ Q_{mín} }$: </label>
+        <input type="number" step=0.01 min="0.01" max="3.95" id="Qmín" name="Qmín" value="0.23" />
+    </div>
+    Vazão mínimo, em $\mathrm{ m^{3}/s}$.
+    <br /><br />
+
+    <div>
+        <label for="t"> $\mathrm{ t }$: </label>
+        <input type="number" step=0.01 min="0.01" max="50" id="t" name="t" value="5" />
+    </div>
+    Espessura da grade, em $\mathrm{ mm }$.
+    <br /><br />
+
+    <div>
+        <label for="a"> $\mathrm{ a }$: </label>
+        <input type="number" step=1 min="5" max="100" id="a" name="a" value="20" />
+    </div>
+    Espaçamento da grade, em $\mathrm{ mm }$.
+    <br /><br />
+
+    <div>
+        <label for="Vg"> $\mathrm{ Vg }$: </label>
+        <input type="number" step=0.01 min="0.01" max="5" id="Vg" name="Vg" value="1" />
+    </div>
+    Velocidade na passagem adotada, em $\mathrm{ m/s }$.
+    <br /><br />
+
+    <div>
+        <label for="g"> $\mathrm{ g }$: </label>
+        <input type="number" step=0.01 min="0.01" max="15" id="g" name="g" value="9.81" />
+    </div>
+    Aceleração da gravidade, em $\mathrm{ m/s^{2} }$.
+    <br /><br />
+
+    <div>
+        <label for="V"> $\mathrm{ V }$: </label>
+        <input type="number" step=0.01 min="0.1" max="0.5" id="V" name="V" value="0.3" />
+    </div>
+    Velocidade horizontal do fluxo na caixa de areia, em $\mathrm{ m/s }$.
+    <br /><br />
+
+    <div>
+        <label for="AreiaAcu"> $\mathrm{ Areia_{Acu} }$: </label>
+        <input type="number" step=0.1 min="1" max="100" id="AreiaAcu" name="AreiaAcu" value="35" />
+    </div>
+    Razão entre o numero de litros retirados em média de areia a cada 1000m$^{3}$ de esgoto, em $\mathrm{ L/1000m^{3} }$.
+    <br /><br />
+
+    <div>
+        <label for="tl"> $\mathrm{ tl }$: </label>
+        <input type="number" step=1 min="1" max="100" id="tl" name="tl" value="15" />
+    </div>
+    Numero de dias para que ocorra limpeza, em $\mathrm{ dia }$.
+    <br /><br />
 
     <div class="button">
-        <button type="submit"> Nome </button>
+        <button type="submit"> Calculos Tratamento Preliminar </button>
+        <input type="submit" name="figura_tratamento_preliminar" value="Figura Tratamento Preliminar">
     </div>
 </form>
 
