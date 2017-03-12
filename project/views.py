@@ -30,6 +30,8 @@ import tempfile
 from project.calculos.calha_parshall.calha_parshall import factoryCalhaParshall, cpinit
 from project.calculos.vertedor.vertedor import factoryVertedor, vertedorinit
 
+from project.calculos.tratamento_preliminar.tratamento_preliminar import (
+    factoryTratamentoPreliminar, initTratamentoPreliminar)
 
 
 from project.calculos.decantador_laminar.decantador_laminar import DecantadorLaminar
@@ -475,11 +477,22 @@ def inputs_tratamento_preliminar(request):
     return render(request,'project/tratamento_preliminar/inputs_tratamento_preliminar.html')
 
 def results_tratamento_preliminar(request):
+
     if request.method == "POST":
-        d = {}
+        for key in initTratamentoPreliminar:
+            if key == 'iW':
+                initTratamentoPreliminar[key] = int(request.POST[key])
+            else:
+                initTratamentoPreliminar[key] = float(request.POST[key])
     else:
-        inputs_tratamento_preliminar(request)        
-    return render(request,'project/tratamento_preliminar/results_tratamento_preliminar.html', d)
+        inputs_tratamento_preliminar(request)
+    TP = factoryTratamentoPreliminar(initTratamentoPreliminar)
+    tp = TP()
+
+    if 'figura_tratamento_preliminar' in request.POST:
+        return tp.figura_tratamento_preliminar()
+    else:
+        return tp.calculos_tratamento_preliminar()
 
 
 def inputs_decantador_dortmund(request):     
