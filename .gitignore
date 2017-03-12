@@ -7,8 +7,14 @@ db.sqlite3
 *vertedor_overlay_base_rendered.pdf
 *vertedor_calculos_rendered.tex
 *vertedor_calculos_rendered.pdf
+#
 *calha_parshall_overlay_base_rendered.tex
 *calha_parshall_overlay_base_rendered.pdf
 *calha_parshall_calculos_rendered.tex
 *calha_parshall_calculos_rendered.pdf
+#
+*tratamento_preliminar_overlay_base_rendered.tex
+*tratamento_preliminar_overlay_base_rendered.pdf
+*tratamento_preliminar_calculos_rendered.tex
+*tratamento_preliminar_calculos_rendered.pdf
 *.png
