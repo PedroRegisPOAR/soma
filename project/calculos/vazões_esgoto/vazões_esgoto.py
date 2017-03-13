@@ -47,7 +47,7 @@ class VE_Methods():
 
 	@classmethod
 	def fQInf(self, TInf, L):
-		return TInf*L
+		return TInf*L/1000
 	
 	@classmethod
 	def fKm(self, K2, K3):
@@ -148,18 +148,22 @@ class VE_Main():
 		self.arredondamento()
 
 class Extras():
-    __slots__=()
+	__slots__=()
 
-    def make_out(self):
-        d = dict((name, getattr(self, name)) for name in dir(self) 
-        if not name.startswith('__') and 
-        not callable(getattr(self, name))) 
-        self.out = d
+	def make_out(self):
+		d = dict((name, getattr(self, name)) for name in dir(self) 
+		if not name.startswith('__') and 
+		not callable(getattr(self, name))) 
+		self.out = d
 
-    def arredondamento(self):
-        for key in self.out:
-            if type(self.out[key]) == float:
-                self.out[key] = round(self.out[key], 4)
+	def arredondamento(self):
+		key_integers = ['P3', 'P4', 'P5', 't3', 't4', 't5']
+		for key in self.out:
+			if type(self.out[key]) == float:
+				if key in key_integers:
+					self.out[key] = int(self.out[key])
+				else: 
+					self.out[key] = round(self.out[key], 2)
 
 
 def factory_VE(veinit):

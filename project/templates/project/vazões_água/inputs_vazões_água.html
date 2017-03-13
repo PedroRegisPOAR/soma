@@ -4,17 +4,7 @@
 
 
     
-<form action="/results_vazões_água/" method="post">{%csrf_token %}     
-
-    <br /><br />
-        <div>
-        <label for=""> $\mathrm{ QPC }$: </label>
-        <input type="number" step=1 min="20" max="500" id="QPC" name="QPC" value="250" />
-    </div>
-    Consumo percapito, em $\mathrm{ \frac{L}{s\cdot hab} }$.
-    <br /><br />
-
-  
+<form action="/results_vazões_água/" method="post">{%csrf_token %}       
     <div>
         <label for=""> $\mathrm{ t_{3} }$: </label>
         <input type="number" step=1 min="2010" max="2020" id="t3" name="t3" value="2017" />
@@ -38,9 +28,9 @@
 
     <div>
         <label for=""> QPC: </label>
-        <input type="number" step=0.1 min="10" max="400" id="QPC" name="QPC" value="150" />
+        <input type="number" step=0.1 min="10" max="500" id="QPC" name="QPC" value="150" />
     </div>
-    Vazão percapta, em $\mathrm{\frac{L}{s\cdot hab} }$.
+    Vazão per capita, em $\mathrm{\frac{L}{s\cdot hab} }$.
     <br /><br />
 
     <div>
