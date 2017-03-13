@@ -101,9 +101,9 @@ class VE_Parte1():
 	def vazõesMédias(self, CR, Km, QPC, P3, P4, P5, QInft3,
 						QInft4, QInft5):
 
-		self.QMédt3	= self.fQMín(CR, Km, QPC, P3, QInft3)
-		self.QMédt4	= self.fQMín(CR, Km, QPC, P4, QInft4)
-		self.QMédt5	= self.fQMín(CR, Km, QPC, P5, QInft5)		
+		self.QMédt3	= self.fQMéd(CR, Km, QPC, P3, QInft3)
+		self.QMédt4	= self.fQMéd(CR, Km, QPC, P4, QInft4)
+		self.QMédt5	= self.fQMéd(CR, Km, QPC, P5, QInft5)		
 
 		return self.QMédt3, self.QMédt4, self.QMédt5
 
@@ -128,7 +128,7 @@ class VE_Parte2():
 		self.vazõesMínimas(self.CR, self.K3, self.QPC, self.P3, self.P4, self.P5,
 								self.QInft3, self.QInft4, self.QInft5)
 
-		self.vazõesMédias(self.CR, self.K3, self.QPC, self.P3, self.P4, self.P5,
+		self.vazõesMédias(self.CR, self.Km, self.QPC, self.P3, self.P4, self.P5,
 							self.QInft3, self.QInft4, self.QInft5)
 
 	def n4(self):
