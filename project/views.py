@@ -303,10 +303,6 @@ def results_projeção_populacional(request):
     path_page = 'project/projeção_populacional/results_projeção_populacional.html'
     return render(request, path_page, {"imagem":path_imagem})
 """
-
-
-def inputs_fator_de_atrito(request):     
-    return render(request,'project/viscosidade_absoluta/inputs_fator_de_atrito.html')
     
 
 def inputs_vazões_água(request):     
