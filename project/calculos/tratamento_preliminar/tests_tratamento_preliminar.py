@@ -11,6 +11,7 @@ results_test1 = dict(resultsTratamentoPreliminar)
 init_test1['Qmáx'] = 1.73
 init_test1['Qméd'] = 0.96
 init_test1['Qmín'] = 0.23
+init_test1['c'] = 22.5
 init_test1['t'] = 5
 init_test1['a'] = 20
 init_test1['Vg'] = 1
