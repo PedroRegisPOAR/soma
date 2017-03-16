@@ -11,6 +11,7 @@ initTratamentoPreliminar = {
     'Qmáx':None,
     'Qméd':None,
     'Qmín':None,
+    'c':None,
     't':None, # Espessura da grade
     'a':None, # Espaçamento da grade
     'Vg':None,
@@ -128,8 +129,8 @@ class TratamentoPreliminarMethods():
     def fVv(self, Qmín, Hmín, Z, B):
         return Qmín/((Hmín - Z)*B)
 
-    def fL(self, Hmáx, Z):
-        return 22.5*(Hmáx - Z)
+    def fL(self, c, Hmáx, Z):
+        return c*(Hmáx - Z)
 
     def fTESmáx(self, Qmáx, B, L):
         return (60*60*24*Qmáx)/(B*L)
@@ -197,7 +198,7 @@ class Níveis():
     def nível5(self):
         self.b = self.fb(self.S, self.Hmáx, self.Z)
         self.V0 = self.fV0(self.Qmáx, self.S)    
-        self.L = self.fL(self.Hmáx, self.Z)  
+        self.L = self.fL(self.c, self.Hmáx, self.Z)  
         self.Vv = self.fVv(self.Qmín, self.Hmín, self.Z, self.B)  
         self.ymín = self.fy(self.Hmín, self.Z) 
         self.ymáx = self.fy(self.Hmáx, self.Z)   
