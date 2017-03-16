@@ -11,8 +11,8 @@
 \begin{document}
 \pagenumbering{gobble}
 
-Dados: $\mathrm{Q_{max} = {{Qmax}} \ m^{3}/s}$, $\mathrm{Q_{med} = {{Qmed}} \ m^{3}/s}$, $\mathrm{Q_{min} = {{Qmin}} \ m^{3}/s}$, espessura da grade $\mathrm{t = {{t}} \ mm}$,
-espaçamento da grade $\mathrm{a = {{a}} \ mm}$, templo de limpeza $\mathrm{tl = {{tl}} \ dia}$, aceleração da gravidade, $\mathrm{g = {{g}} \ m/s^{2}}$, areia acumulada $\mathrm{Areia_{Acu} = {{AreiaAcu}} \ \frac{L}{1000m^{3}}}$, velocidade horizontal do fluxo na caixa de areia $\mathrm{V = {{V}} \ m/s}$, velocidade nas passagens da grade $\mathrm{V_{g} = {{Vg}} \ m/s}$.
+Dados: $\mathrm{Q_{max} = {{Qmáx}} \ m^{3}/s}$, $\mathrm{Q_{med} = {{Qméd}} \ m^{3}/s}$, $\mathrm{Q_{min} = {{Qmín}} \ m^{3}/s}$, espessura da grade $\mathrm{t = {{t}} \ mm}$,
+espaçamento da grade $\mathrm{a = {{a}} \ mm}$, templo de limpeza $\mathrm{tl = {{tl}} \ dia}$, aceleração da gravidade, $\mathrm{g = {{g}} \ m/s^{2}}$, areia acumulada $\mathrm{Areia_{Acu} = {{AreiaAcu}} \ \frac{L}{1000m^{3}}}$, velocidade horizontal do fluxo na caixa de areia $\mathrm{V = {{V}} \ m/s}$, velocidade nas passagens da grade $\mathrm{V_{g} = {{Vg}} \ m/s}$, relação entre o comprimento L e a altura H da caixa de areia $\mathrm{c = {{c}}}$.
 
 
 Dimensionamento calha parshall:
@@ -27,7 +27,7 @@ Altura máxima:
 	$
 		\mathrm
 		{
-			H_{max} = \sqrt[n]{\dfrac{Q_{max}}{\lambda}}
+			H_{max} = \sqrt[n]{\dfrac{ \mathrm{ Q_{max}} }{\lambda}}
 		} 
 		\implies
 		\mathrm
@@ -55,7 +55,7 @@ Altura mínima:
 	$
 		\mathrm
 		{
-			H_{min} = \sqrt[n]{\dfrac{Q_{min}}{\lambda}}
+			H_{min} = \sqrt[n]{\dfrac{ \mathrm{ Q_{min} } }{\lambda}}
 		} 
 		\implies
 		\mathrm
@@ -83,7 +83,7 @@ Cálculo do ressalto:
 	$
 		\mathrm
 		{
-			Z  = \dfrac{H_{min}Q_{max} - Q_{min}H_{min}}{Q_{máx} - Q_{min}}
+			Z  = \dfrac{H_{min}Q_{max} - Q_{min}H_{min}}{Q_{max} - Q_{min}}
 		} 
 		\implies
 		\mathrm
@@ -395,12 +395,12 @@ Cálculo do comprimento: Usando que $ \mathrm{ H = H_{max} - Z}$:
 	$
 		\mathrm
 		{
-			L = 22.5\left ( H_{max} - Z \right )
+			L = c\left ( H_{max} - Z \right )
 		} 
 		\implies
 		\mathrm
 		{
-			L = 22.5\left ( {{Hmáx}}m - {{Z}}m \right )
+			L = {{c}}\left ( {{Hmáx}}m - {{Z}}m \right )
 		} 
 		\implies 
 		\fbox
