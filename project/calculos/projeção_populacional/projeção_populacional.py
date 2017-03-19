@@ -72,8 +72,8 @@ ppresults = {
 class PP_Methods():
     __slots__=()
 
-    def fKa(self, P1, P2, t1 ,t2):
-        return (P2 - P1)/(t2 - t1)
+    def fKa(self, P0, P2, t0 ,t2):
+        return (P2 - P0)/(t2 - t0)
 
     def projeçãoAritimética(self, t, P0, Ka, t0):
         return P0 + Ka*(t - t0)
@@ -149,7 +149,7 @@ class PP_Parte1():
         self.inicializaConstantesDasCurvasK1c()
     
     def inicializaConstantesDasCurvasPAPG(self):
-        self.Ka = self.fKa(self.P1, self.P2, self.t1 ,self.t2)
+        self.Ka = self.fKa(self.P0, self.P2, self.t0 ,self.t2)
         self.Kg = self.fKg(self.P0, self.P2, self.t0, self.t2)
 
     def inicializaConstantesDasCurvasPAPGTD(self):
