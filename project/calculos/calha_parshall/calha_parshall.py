@@ -205,7 +205,7 @@ class Extras():
         for key in self.out:
             if type(self.out[key]) == float:
                 if key == 'mu':
-                    self.out[key] = round(self.out[key], 5)
+                    self.out[key] = round(self.out[key], 7)
                 else:
                     self.out[key] = round(self.out[key], 2)
 

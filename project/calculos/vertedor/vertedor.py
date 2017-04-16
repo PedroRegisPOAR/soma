@@ -199,19 +199,20 @@ class DensidadeViscosidade():
 
 
 class Extras():
-    __slots__=()
+	__slots__=()
 
-    def make_out(self):
-        d = dict((name, getattr(self, name)) for name in dir(self) 
-        if not name.startswith('__') and 
-        not callable(getattr(self, name))) 
-        self.out = d
+	def make_out(self):
+		d = dict((name, getattr(self, name)) for name in dir(self) 
+		if not name.startswith('__') and 
+		not callable(getattr(self, name))) 
+		self.out = d
 
-    def arredondamento(self):
-        for key in self.out:
-            if type(self.out[key]) == float:
-                self.out[key] = round(self.out[key], 4)
-
+	def arredondamento(self):
+		for key in self.out:
+			if key == 'mu':
+				self.out[key] = round(self.out[key], 7)
+			elif type(self.out[key]) == float:
+				self.out[key] = round(self.out[key], 4)
 
 class VertedorNíveis():
     __slots__ = ()
